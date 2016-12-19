@@ -1,0 +1,28 @@
+.hl-aside {
+	width: 256px;
+	border: 1px solid #ddd;
+	h2 {
+		height: 44px;
+		line-height: 44px;
+		padding-left: 10px;
+	}
+}
+.hl-aside-list {
+	li {
+		padding: 10px 7px;
+		height: 390px;
+		border-top: 1px solid #ddd;
+	}
+	.hl-p-img {
+		width: 240px;
+		height: 294px;
+	}
+}
+.hl-price {
+	strong {
+		color: #ff8a00;
+	}
+}
+.hl-name {
+	line-height: 18px;
+}

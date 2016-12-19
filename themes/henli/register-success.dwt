@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>注册成功</title>
+	<link rel="stylesheet" type="text/css" href="themes/henli/inc/css/register.css"/>
+	<style type=text/css>
+		html, body {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div class="hl-header">
+	<div class="hl-center hl-nav">
+		<a class="hl-logo hl-mr10" href=""></a>
+		<a class="hl-mr20" href="" target="_blank">西门子家电</a>
+		<a class="hl-mr20" href="" target="_blank">展望未来</a>
+		<span class="hl-account hl-fr hl-f18">已有账号<a class="hl-ml20 hl-a3" href="user.php">请登录</a></span>
+	</div>
+</div>
+<div class="hl-container">
+	<div class="hl-main hl-success">
+		<div class="hl-success-info">
+			<h2 class="hl-f50 hl-fn hl-49">注册成功</h2>
+			<p class="hl-f24 hl-49">你的账号和密码，在通过后台审核后的三个工作日后，发送<br/>到你的手机或者你提交的邮箱内，请注意查收，谢谢！</p>
+		</div>
+	</div>
+</div>
+<div class="hl-footer hl-f14 hl-44 hl-tc">
+	&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苏ICP备10003401号
+</div>
+</body>
+</html>

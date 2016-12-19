@@ -1,0 +1,22 @@
+.hl-header {
+	height: 101px;
+}
+.hl-center {
+	@extend .hl-w1100;
+	@extend .hl-f0;
+}
+.hl-border-bottom {
+	border-bottom: 2px solid #00959f;
+	overflow: hidden;
+}
+.hl-nav {
+	a {
+		@extend .hl-disp-ib;
+		@extend .hl-f18;
+	}
+}
+.hl-logo {
+	width: 141px;
+	height: 101px;
+	background: url(../images/hl-logo.png) 0 0 no-repeat;
+}

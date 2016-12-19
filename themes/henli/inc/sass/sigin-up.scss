@@ -1,0 +1,71 @@
+@import 'common/base';
+@import 'core/mixin';
+
+$hl-user: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVDhPfZKxCoQwEETz/z8WEARBsBDExkKxEIJ9jheY3ESPK8Yku/OycdmQUspPLcuSp2nKfd+Xdd/3mrvvu64veJ7n3HVdASXOXCJIa4UVHMexAMMwVOn8F0YOs/dL3Me+ga/rKiZgQEkweXkbGG3b1lR1mDh59zeVz/OsVYBokl9CXlVZXw07juMnDOi+BnbxPEDp+VzpVRkxFA7zGuXkbSorwJ5BcZiJc5/WwIdKAPybN0zyGD41LqzrmmOMdSQdpKrD5PHhpw9BB59nmV3KyU8ssJFISA449FXMH8/2LuRCQjU5AAAAAElFTkSuQmCC");
+$hl-lock: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEGSURBVDhPfZPBCoQwDET7/z8mIogIgghFEA8ieBLPWV5hQnTdPQwxyUySpjad52kRx3HYMAxW17VVVVUs/r7vNx64ibdtK4K2bW1ZluKv62rjOJY435F/E9NlmqbyfV2Xx4EKxwlcPM+zNU3jiTcwAUeQ72ISOWdPqHOcgO4cSX7iHAQEKvd9/2q7rnMejRIdoxgCQCDIV47jYRMLeorowmK4NraOrwngiJ9oj6MukBDoXECLigWwRSznn1gFxPsSqzpERkZIoSgG8LGvYoCIa5Lwp1gLiAW4UzqTVwzA84Wxba1eBbBxbBVVDjFwsQKq+uwWReIn/mkehEBCyWgFODyQnLN9AGh6WNvjgAvoAAAAAElFTkSuQmCC");
+@import 'header';
+.hl-container {
+	width: 100%;
+	height: 550px;
+	background: url(../images/hl-sigin-bg.png) 0 0 no-repeat;
+}
+.hl-main {
+	@extend .hl-w1100;
+	position: relative;
+	height: 100%;
+}
+.hl-sigin-form {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 409px;
+	height: 418px;
+	background-color: #fff;
+	@include box-shadow(0 0 20px 10px rgba(0,0,0,0.3));
+	padding: 30px 36px 30px 54px;
+	h2 {
+		padding-bottom: 12px;
+		margin-bottom: 44px;
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+.hl-form-group {
+	
+}
+.hl-user, .hl-password {
+	label, input {
+		@extend .hl-disp-ib;
+		height: 40px;
+	}
+	label {
+		width: 40px;
+		border: 1px solid #ddd;
+		border-right: none;
+	}
+	input {
+		width: 265px;
+	}
+}
+.hl-user {
+	label {
+		background: #f3f3f3 $hl-user center  no-repeat;
+	}
+}
+.hl-password {
+	label {
+		background: #f3f3f3 $hl-lock center  no-repeat;
+	}
+}
+.hl-automatic {
+	label, input {
+		@extend .hl-disp-ib;
+	}
+}
+.hl-sigin-up {
+	width: 312px;
+	height: 47px;
+}
+@import 'footer';

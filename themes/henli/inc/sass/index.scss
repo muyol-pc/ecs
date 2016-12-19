@@ -1,0 +1,88 @@
+@import 'common/base';
+@import 'core/mixin';
+@import 'core/function';
+$hl-search: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAYAAADU8sWcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHwSURBVEhLvVehcsJAEMWhkHU1GEy/AFOFjcsHYFF1kXwBH1AXiUFVozAoRA0qFofgC9K+19nMhGT3sne0zcwOQ7L73ru93b1kNHJcdV2/wArYDnaAVbCT/Of9mQMmzgWgOezzy3GJmCyOQfEG0DNs7+DsuSDuA/aUJEJSfEkhbmJkW+K2AkFT2PUR4paACzPoygAcx9w3ixjP3mGvTUr5C98FfstAzMFLXmggUkjBFMpWnY34VVAAgidauqWtxh71gtHrDNxn+m0MKF52VVNMbNVyj4FzU7BycwFsDyWg8Ky46wOstYJVhsh7FR676gacHaOQVyo598rt7EyFVj8WOffp7mKhOXksTK3wJj1n6dcu+elB8kpZkF7xSn/eUsnZVlrnhAquN9k4zVIEIC5TyPch8k1UQEAVyI9RbcvxmDQaOyKAY43o6dCItc7vpSf9IF4ZC9gOxlurJyCebTk8NBDcn8F2gZNtPkhOB4C8WSAi4gifEraB8Yg1j+AGBz5n97QkcEhAyrNYAWrhpBCnZmDuSWtbENsslLmoDEgdZLLP6rsdDxE+h4hF62QzM8cFcQq6irDtxIrn5IPlJGOlWyBWz0vh2ud7tCojYECA/Xbz1wIgbP1bHEPTk3VzVzMcav9CLoXLj01OSn5O/ZyY3ztdfVP6qewBAAAAAElFTkSuQmCC");
+$hl-cart: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAOCAYAAAAi2ky3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACbSURBVDhPpZLRDYUwCEW7U6diEpZhEsZgh37zitpI0WcNfpykBj1eKKW1poxVaw0AqfSa1d/QRaIEN6KKyjcfeIRAkfdzicVTvBAJKbjkaZGl2ZIjb89p0Zjrx9ZYMcwxJ2Ls9f7O0ZbxIAIlibWdMZ/RlvEgWjH/qMwS46UoLGyZJXkmUdyNK2daPx/DiXxLf25sbPOqtXyipj+4PDnVnJG1egAAAABJRU5ErkJggg==");
+@import 'header';
+@import 'nav';
+.hl-slider-con {
+	min-height: 424px;
+	max-height: 550px;
+	position: relative;
+	overflow: hidden;
+}
+.hl-items, .hl-activity-items {
+	li {
+		@extend .hl-fl;
+	}
+}
+.hl-select, .hl-activity-select {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	padding: 0 36px;
+	li {
+		cursor: pointer;
+		@extend .hl-disp-ib;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.on {
+		background-color: #009ba5;
+	}
+}
+.hl-select {
+	bottom: 22px;
+	li {
+		width: 58px;
+		height: 11px;
+		background-color: #696868;
+		margin-right: 20px;
+	}
+}
+.hl-h2 {
+	padding: 52px 0 24px;
+}
+.hl-washer {
+	padding-bottom: 48px;
+}
+.hl-activity {
+	background-color: #eee;
+	padding-bottom: 53px;
+}
+.hl-activity-slider {
+	position: relative;
+	height: 368px;
+	overflow: hidden;
+}
+.hl-activity-select {
+	bottom: 18px;
+	li {
+		background-color: #b8b8b8;
+		width: 13px;
+		height: 13px;
+		margin-right: 10px;
+		@include border-radius(50%);
+	}
+}
+.hl-other {
+	padding-top: 35px;
+	padding-bottom: 70px;
+	ul {
+		li {
+			@extend .hl-disp-ib;
+		}
+	}
+	h2 {
+		line-height: 30px;
+	}
+}
+.hl-online-message {
+	margin: 0 7px;
+	padding: 0 7px;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+}
+@import 'service';
+@import 'footer';

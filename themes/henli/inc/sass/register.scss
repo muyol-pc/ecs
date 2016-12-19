@@ -1,0 +1,110 @@
+@import 'common/base';
+@import 'core/mixin';
+
+$hl-select: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVBhXbY1LCgQhEEPr/nsVRBA8o3/ENMkwveq3qBQhJJZSwhgDpPcuPedIiXMONudEzhmtNZlrLSnx3kuNp9aKUgr23jLvvQghvI32b+BkjFE/GxgkDKrpa4L8gsADILengxrAsOkAAAAASUVORK5CYII=");
+$hl-right: url("data:image/png;base64,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");
+@import 'header';
+.hl-header {
+	@include box-shadow(0px 10px 20px -8px rgba(0,0,0,0.1));
+}
+.hl-account {
+	margin-top: 36px;
+	a {
+		margin-top: -4px;
+		&:hover {
+			color: #00959f;
+		}
+	}
+}
+.hl-container {}
+.hl-main {
+	@extend .hl-w1100;
+	padding-top: 78px;
+	padding-bottom: 117px;
+	border-bottom: 2px solid #ddd;
+	background: url(../images/hl-register-bg.png) right 10px no-repeat;
+}
+.hl-register-form {
+	width: 510px;
+}
+.hl-form-group {
+	@extend .hl-f0;
+	label, input, select {
+		@extend .hl-disp-ib;
+		@extend .hl-f18;
+		height: 60px;
+	}
+	label {
+		width: 104px;
+		line-height: 60px;
+		@extend .hl-tc;
+		border: 1px solid #ddd;
+		border-right: none;
+	}
+	input {
+		width: 404px;
+	}
+}
+.hl-user {}
+.hl-phone {}
+.hl-company {}
+.hl-category {
+	position: relative;
+	&:before, &:after {
+		content: '';
+		display: block;		
+		position: absolute;	
+		pointer-events: none;
+	}
+	&:after {
+		width: 40px;
+		height: 58px;		
+		background-color: #fff;
+		right: 3px;
+		top: 1px;
+		z-index: 1;		
+	}
+	&:before {
+		width: 9px;
+		height: 5px;
+		background: $hl-select center no-repeat;
+		top: 0;
+		bottom: 0;
+		right: 20px;
+		margin: auto;
+		z-index: 2;
+	}
+}
+.hl-select {
+	width: 404px;
+	border: 1px solid #ddd;
+}
+.hl-verify {
+	position: relative;
+	input {
+		padding-right: 120px;
+	}
+}
+.hl-verify-code {
+	position: absolute;
+	top: 1px;
+	right: 3px;
+	width: 110px;
+	height: 58px;
+	background-color: #eee;
+	z-index: 10;
+}
+.hl-register {
+	width: 510px;
+	height: 60px;
+}
+.hl-success {
+	background: none;
+	padding-top: 220px;
+	padding-bottom: 300px;
+}
+.hl-success-info {
+	padding-left: 360px;	
+	background: $hl-right 180px center no-repeat;
+}
+@import 'footer';

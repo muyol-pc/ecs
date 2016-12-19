@@ -1,0 +1,36 @@
+@mixin font-size($target){
+    font-size: $target;
+    font-size: ($target / $browser-default-font-size) * 1rem;
+}
+@mixin box-shadow($argument...){
+	-webkit-box-shadow: $argument;
+	-moz-box-shadow: $argument;
+	-ms-box-shadow: $argument;
+	-o-box-shadow: $argument;
+	box-shadow: $argument;
+}
+@mixin border-radius($argument...){
+	-webkit-border-radius: $argument;
+	-moz-border-radius: $argument;
+	-ms-border-radius: $argument;
+	-o-border-radius: $argument;
+	border-radius: $argument;
+}
+@mixin transition($argument...){
+	-webkit-transition: $argument;
+	-moz-transition: $argument;
+	-ms-transition: $argument;
+	-o-transition: $argument;
+	transition: $argument;
+}
+@mixin opacity($argument){
+	opacity: $argument;
+	filter:alpha(opacity=$argument * 100);
+}
+@mixin rotate($angle...){	
+	-webkit-transform: rotate($angle);
+	-moz-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-o-transform: rotate($angle);
+	transform: rotate($angle);
+}
