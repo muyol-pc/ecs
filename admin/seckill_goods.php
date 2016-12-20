@@ -4,7 +4,7 @@
  * ECSHOP 管理中心拍卖活动管理
  * ============================================================================
  * * 版权所有 2005-2012 上海商派网络科技有限公司，并保留所有权利。
- * 网站地址: http://www.honrisen.com；
+ * 网站地址: http://www.ecshop.com；
  * ----------------------------------------------------------------------------
  * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
  * 使用；不允许对程序代码以任何形式任何目的的再发布。
@@ -20,7 +20,7 @@ require(ROOT_PATH . 'includes/lib_goods.php');
 $exc = new exchange($ecs->table('goods_activity'), $db, 'act_id', 'act_name');
 
 /*------------------------------------------------------ */
-//-- 活动列表页
+//-- 活动列表页  
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'list')
@@ -49,7 +49,7 @@ if ($_REQUEST['act'] == 'list')
 }
 
 /*------------------------------------------------------ */
-//-- 分页、排序、查询
+//-- 分页、排序、查询  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'query')
@@ -69,7 +69,7 @@ elseif ($_REQUEST['act'] == 'query')
 }
 
 /*------------------------------------------------------ */
-//-- 删除
+//-- 删除  
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'remove')
 {
@@ -92,7 +92,7 @@ elseif ($_REQUEST['act'] == 'remove')
 }
 
 /*------------------------------------------------------ */
-//-- 批量操作
+//-- 批量操作  
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'batch')
 {
@@ -108,27 +108,27 @@ elseif ($_REQUEST['act'] == 'batch')
 
         $ids = $_POST['checkboxes'];
 
-                /* 删除记录 */
-                $sql = "DELETE FROM " . $ecs->table('goods_activity') .
-                        " WHERE act_id " . db_create_in($ids) .
-                        " AND act_type = '" . GAT_SECKILL . "'";
-                $db->query($sql);
+        /* 删除记录 */
+        $sql = "DELETE FROM " . $ecs->table('goods_activity') .
+            " WHERE act_id " . db_create_in($ids) .
+            " AND act_type = '" . GAT_SECKILL . "'";
+        $db->query($sql);
 
-                /* 记日志 */
-                admin_log('', 'batch_remove', 'seckill');
+        /* 记日志 */
+        admin_log('', 'batch_remove', 'seckill');
 
-                /* 清除缓存 */
-                clear_cache_files();
-            $links[] = array('text' => $_LANG['back_seckill_list'], 'href' => 'seckill_goods.php?act=list&' . list_link_postfix());
-            sys_msg($_LANG['batch_drop_ok'], 0, $links);
-        }
+        /* 清除缓存 */
+        clear_cache_files();
+        $links[] = array('text' => $_LANG['back_seckill_list'], 'href' => 'seckill_goods.php?act=list&' . list_link_postfix());
+        sys_msg($_LANG['batch_drop_ok'], 0, $links);
     }
+}
 
 
 
 
 /*------------------------------------------------------ */
-//-- 添加、编辑
+//-- 添加、编辑  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
@@ -154,22 +154,22 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
             'end_time'      => date('Y-m-d', time() + 4 * 86400),
         );
     }
-    /*
-    else
-    {
-        if (empty($_GET['id']))
-        {
-            sys_msg('invalid param');
-        }
-        $id = intval($_GET['id']);
-        $auction = auction_info($id, true);
-        if (empty($auction))
-        {
-            sys_msg($_LANG['auction_not_exist']);
-        }
-        $auction['status'] = $_LANG['auction_status'][$auction['status_no']];
-        $smarty->assign('bid_user_count', sprintf($_LANG['bid_user_count'], $auction['bid_user_count']));
-    }
+    /*  
+    else  
+    {  
+        if (empty($_GET['id']))  
+        {  
+            sys_msg('invalid param');  
+        }  
+        $id = intval($_GET['id']);  
+        $auction = auction_info($id, true);  
+        if (empty($auction))  
+        {  
+            sys_msg($_LANG['auction_not_exist']);  
+        }  
+        $auction['status'] = $_LANG['auction_status'][$auction['status_no']];  
+        $smarty->assign('bid_user_count', sprintf($_LANG['bid_user_count'], $auction['bid_user_count']));  
+    }  
     */
     $smarty->assign('seckill', $seckill);
 
@@ -184,13 +184,14 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
     {
         $smarty->assign('ur_here', $_LANG['add_seckill']);
     }
+
     $smarty->assign('action_link', list_link($is_add));
     assign_query_info();
     $smarty->display('seckill_goods_info.htm');
 }
 
 /*------------------------------------------------------ */
-//-- 添加、编辑后提交
+//-- 添加、编辑后提交  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
@@ -227,9 +228,9 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         'start_time'    => local_strtotime($_POST['start_time']),
         'end_time'      => local_strtotime($_POST['end_time']),
         'ext_info'      => serialize(array(
-                    'start_price'   => round(floatval($_POST['start_price']), 2),
-                    'seckill_num'     => round(floatval($_POST['seckill_num']), 2)
-                ))
+            'start_price'   => round(floatval($_POST['start_price']), 2),
+            'seckill_num'     => round(floatval($_POST['seckill_num']), 2)
+        ))
     );
 
     /* 保存数据 */
@@ -276,7 +277,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
 }
 
 /*------------------------------------------------------ */
-//-- 处理冻结资金
+//-- 处理冻结资金  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'settle_money')
@@ -305,7 +306,7 @@ elseif ($_REQUEST['act'] == 'settle_money')
     }
 
     /* 处理保证金 */
-    $exc->edit("is_finished = 2", $id); // 修改状态
+    $exc->edit("is_finished = 2", $id); // 修改状态  
     if (isset($_POST['unfreeze']))
     {
         /* 解冻 */
@@ -330,7 +331,7 @@ elseif ($_REQUEST['act'] == 'settle_money')
 }
 
 /*------------------------------------------------------ */
-//-- 搜索商品
+//-- 搜索商品  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'search_goods')
@@ -352,7 +353,7 @@ elseif ($_REQUEST['act'] == 'search_goods')
 }
 
 /*------------------------------------------------------ */
-//-- 搜索货品
+//-- 搜索货品  
 /*------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'search_products')
@@ -370,9 +371,9 @@ elseif ($_REQUEST['act'] == 'search_products')
     make_json_result($arr);
 }
 
-/*
- * 取得秒杀活动列表
- * @return   array
+/*  
+ * 取得秒杀活动列表  
+ * @return   array  
  */
 function seckill_list()
 {
@@ -401,7 +402,7 @@ function seckill_list()
         }
 
         $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('goods_activity') .
-                " WHERE act_type = '" . GAT_SECKILL . "' $where";
+            " WHERE act_type = '" . GAT_SECKILL . "' $where";
         $filter['record_count'] = $GLOBALS['db']->getOne($sql);
 
         /* 分页大小 */
@@ -409,10 +410,10 @@ function seckill_list()
 
         /* 查询 */
         $sql = "SELECT * ".
-                "FROM " . $GLOBALS['ecs']->table('goods_activity') .
-                " WHERE act_type = '" . GAT_SECKILL . "' $where ".
-                " ORDER BY $filter[sort_by] $filter[sort_order] ".
-                " LIMIT ". $filter['start'] .", $filter[page_size]";
+            "FROM " . $GLOBALS['ecs']->table('goods_activity') .
+            " WHERE act_type = '" . GAT_SECKILL . "' $where ".
+            " ORDER BY $filter[sort_by] $filter[sort_order] ".
+            " LIMIT ". $filter['start'] .", $filter[page_size]";
 
         $filter['keyword'] = stripslashes($filter['keyword']);
         set_filter($filter, $sql);
@@ -461,4 +462,4 @@ function list_link($is_add = true, $text = '')
     return array('href' => $href, 'text' => $text);
 }
 
-?>
+?>  
