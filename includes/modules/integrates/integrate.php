@@ -4,7 +4,7 @@
  * ECSHOP 整合插件类的基类
  * ============================================================================
  * * 版权所有 2005-2012 上海商派网络科技有限公司，并保留所有权利。
- * 网站地址: http://www.honrisen.com
+ * 网站地址: http://www.ecshop.com
  * ----------------------------------------------------------------------------
  * 这是一个免费开源的软件；这意味着您可以在不用于商业目的的前提下对程序代码
  * 进行修改、使用和再发布。
@@ -181,6 +181,7 @@ public function is_membernone($username){
      */
     function login($username, $password, $remember = null)
     {
+        // var_dump('inte',$username, $password,$remember,'---------------',$this->check_user($username, $password));
         if ($this->check_user($username, $password) > 0)
         {
             if ($this->need_sync)
@@ -530,9 +531,8 @@ public function is_membernone($username){
      */
     function check_user($username, $password = null)
     {
-
         $post_username = $username;
-
+        // var_dump('check_user',$username, $password);
         /* 如果没有定义密码则只检查用户名 */
         if ($password === null)
         {
@@ -547,7 +547,7 @@ public function is_membernone($username){
             $sql = "SELECT " . $this->field_id .
                    " FROM " . $this->table($this->user_table).
                    " WHERE " . $this->field_name . "='" . $post_username . "' AND " . $this->field_pass . " ='" . $this->compile_password(array('password'=>$password)) . "'";
-
+            // var_dump($sql);
             return  $this->db->getOne($sql);
         }
     }
@@ -677,9 +677,11 @@ public function is_membernone($username){
      */
     function compile_password ($cfg)
     {
+       // var_dump($cfg);
        if (isset($cfg['password']))
        {
-            $cfg['md5password'] = md5($cfg['password']);
+            // $cfg['md5password'] = md5($cfg['password']);
+            $cfg['md5password'] = ($cfg['password']);
        }
        if (empty($cfg['type']))
        {
@@ -689,14 +691,15 @@ public function is_membernone($username){
        switch ($cfg['type'])
        {
            case PWD_MD5 :
-              	if(!empty($cfg['ec_salt']))
-		       {
-			       return md5($cfg['md5password'].$cfg['ec_salt']);
-		       }
-			   else
-		       {
-                    return $cfg['md5password'];
-			   }
+                return $cfg['md5password'];
+      //         	if(!empty($cfg['ec_salt']))
+		    //    {
+			   //     return md5($cfg['md5password'].$cfg['ec_salt']);
+		    //    }
+			   // else
+		    //    {
+      //               return $cfg['md5password'];
+			   // }
 
            case PWD_PRE_SALT :
                if (empty($cfg['salt']))

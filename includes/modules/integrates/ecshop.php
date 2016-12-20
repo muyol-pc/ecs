@@ -4,7 +4,7 @@
  * ECSHOP 会员数据处理类
  * ============================================================================
  * * 版权所有 2005-2012 上海商派网络科技有限公司，并保留所有权利。
- * 网站地址: http://www.honrisen.com
+ * 网站地址: http://www.ecshop.com
  * ----------------------------------------------------------------------------
  * 这是一个免费开源的软件；这意味着您可以在不用于商业目的的前提下对程序代码
  * 进行修改、使用和再发布。
@@ -36,7 +36,7 @@ if (isset($set_modules) && $set_modules == TRUE)
     $modules[$i]['author']  = 'ECSHOP R&D TEAM';
 
     /* 插件作者的官方网站 */
-    $modules[$i]['website'] = 'http://www.honrisen.com';
+    $modules[$i]['website'] = 'http://www.ecshop.com';
 
     return;
 }
@@ -86,6 +86,7 @@ class ecshop extends integrate
      */
     function check_user($username, $password = null)
     {
+        // var_dump('ecshop',$username, $password);
         if ($this->charset != 'UTF8')
         {
             $post_username = ecs_iconv('UTF8', $this->charset, $username);
@@ -109,14 +110,16 @@ class ecshop extends integrate
                    " FROM " . $this->table($this->user_table).
                    " WHERE user_name='$post_username' and state=1";
             $row = $this->db->getRow($sql);
+            // var_dump($sql,$row);
 			$ec_salt=$row['ec_salt'];
             if (empty($row))
             {
                 return 0;
             }
-
+            // var_dump($row);
             if (empty($row['salt']))
             {
+                // var_dump($row['password'],$this->compile_password(array('password'=>$password,'ec_salt'=>$ec_salt)));
                 if ($row['password'] != $this->compile_password(array('password'=>$password,'ec_salt'=>$ec_salt)))
                 {
                     return 0;
@@ -126,7 +129,8 @@ class ecshop extends integrate
 					if(empty($ec_salt))
 				    {
 						$ec_salt=rand(1,9999);
-						$new_password=md5(md5($password).$ec_salt);
+                        // $new_password=md5(md5($password).$ec_salt);
+						$new_password=$password;
 					    $sql = "UPDATE ".$this->table($this->user_table)."SET password= '" .$new_password."',ec_salt='".$ec_salt."'".
                    " WHERE user_name='$post_username'";
                          $this->db->query($sql);
@@ -146,7 +150,8 @@ class ecshop extends integrate
                 switch ($encrypt_type)
                 {
                     case ENCRYPT_ZC :
-                        $encrypt_password = md5($encrypt_salt.$password);
+                        // $encrypt_password = md5($encrypt_salt.$password);
+                        $encrypt_password = $password;
                         break;
                     /* 如果还有其他加密方式添加到这里  */
                     //case other :
@@ -161,16 +166,16 @@ class ecshop extends integrate
 
                 }
 
-                if ($row['password'] != $encrypt_password)
-                {
-                    return 0;
-                }
+                // if ($row['password'] != $encrypt_password)
+                // {
+                //     return 0;
+                // }
 
-                $sql = "UPDATE " . $this->table($this->user_table) .
-                       " SET password = '".  $this->compile_password(array('password'=>$password)) . "', salt=''".
-                       " WHERE user_id = '$row[user_id]'";
-                $this->db->query($sql);
-
+                // $sql = "UPDATE " . $this->table($this->user_table) .
+                //        " SET password = '".  $this->compile_password(array('password'=>$password)) . "', salt=''".
+                //        " WHERE user_id = '$row[user_id]'";
+                // $this->db->query($sql);
+                // var_dump($row['user_id']);
                 return $row['user_id'];
             }
         }
