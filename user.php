@@ -540,6 +540,7 @@ elseif ($action == 'profile')
     $smarty->assign('passwd_questions', $_LANG['passwd_questions']);
 
     $smarty->assign('profile', $user_info);
+    $smarty->assign('active', 'profile');
     $smarty->display('user_transaction.dwt');
 }
 
@@ -872,7 +873,8 @@ elseif ($action == 'order_list')
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
-    $smarty->display('user_transaction.dwt');
+    $smarty->assign('active', 'order_list');
+    $smarty->display('user_orderlist.dwt');
 }
 
 /* 查看订单详情 */
