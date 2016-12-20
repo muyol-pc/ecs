@@ -86,7 +86,7 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
             'act_id'  => 0,
             'start_time'    => date('Y-m-d', time() + 86400),
             'end_time'      => date('Y-m-d', time() + 4 * 86400),
-            'price_ladder'  => array(array('amount' => 0, 'price' => 0))
+            // 'price_ladder'  => array(array('amount' => 0, 'price' => 0))
         );
     }
     else
@@ -442,47 +442,47 @@ elseif ($_REQUEST['act'] =='insert_update')
             $restrict_amount = 0;
         }
 
-        $gift_integral = intval($_POST['gift_integral']);
-        if ($gift_integral < 0)
-        {
-            $gift_integral = 0;
-        }
+        // $gift_integral = intval($_POST['gift_integral']);
+        // if ($gift_integral < 0)
+        // {
+        //     $gift_integral = 0;
+        // }
 
-        $price_ladder = array();
-        $count = count($_POST['ladder_amount']);
-        for ($i = $count - 1; $i >= 0; $i--)
-        {
-            /* 如果数量小于等于0，不要 */
-            $amount = intval($_POST['ladder_amount'][$i]);
-            if ($amount <= 0)
-            {
-                continue;
-            }
+        // $price_ladder = array();
+        // $count = count($_POST['ladder_amount']);
+        // for ($i = $count - 1; $i >= 0; $i--)
+        // {
+        //     /* 如果数量小于等于0，不要 */
+        //     $amount = intval($_POST['ladder_amount'][$i]);
+        //     if ($amount <= 0)
+        //     {
+        //         continue;
+        //     }
 
-            /* 如果价格小于等于0，不要 */
-            $price = round(floatval($_POST['ladder_price'][$i]), 2);
-            if ($price <= 0)
-            {
-                continue;
-            }
+        //     /* 如果价格小于等于0，不要 */
+        //     $price = round(floatval($_POST['ladder_price'][$i]), 2);
+        //     if ($price <= 0)
+        //     {
+        //         continue;
+        //     }
 
-            /* 加入价格阶梯 */
-            $price_ladder[$amount] = array('amount' => $amount, 'price' => $price);
-        }
-        if (count($price_ladder) < 1)
-        {
-            sys_msg($_LANG['error_price_ladder']);
-        }
+        //     /* 加入价格阶梯 */
+        //     $price_ladder[$amount] = array('amount' => $amount, 'price' => $price);
+        // }
+        // if (count($price_ladder) < 1)
+        // {
+        //     sys_msg($_LANG['error_price_ladder']);
+        // }
 
         /* 限购数量不能小于价格阶梯中的最大数量 */
-        $amount_list = array_keys($price_ladder);
-        if ($restrict_amount > 0 && max($amount_list) > $restrict_amount)
-        {
-            sys_msg($_LANG['error_restrict_amount']);
-        }
+        // $amount_list = array_keys($price_ladder);
+        // if ($restrict_amount > 0 && max($amount_list) > $restrict_amount)
+        // {
+        //     sys_msg($_LANG['error_restrict_amount']);
+        // }
 
-        ksort($price_ladder);
-        $price_ladder = array_values($price_ladder);
+        // ksort($price_ladder);
+        // $price_ladder = array_values($price_ladder);
 
         /* 检查开始时间和结束时间是否合理 */
         $start_time = local_strtotime($_POST['start_time']);
@@ -491,7 +491,9 @@ elseif ($_REQUEST['act'] =='insert_update')
         {
             sys_msg($_LANG['invalid_time']);
         }
-
+/**
+ * 2016-12-20-自定义
+ */
         $group_buy = array(
             'act_name'   => $act_name,
             'act_desc'   => $_POST['act_desc'],
@@ -501,11 +503,13 @@ elseif ($_REQUEST['act'] =='insert_update')
             'start_time'    => $start_time,
             'end_time'      => $end_time,
             'ext_info'   => serialize(array(
-                    'price_ladder'      => $price_ladder,
+                    // 'price_ladder'      => $price_ladder,
                     'restrict_amount'   => $restrict_amount,
-                    'gift_integral'     => $gift_integral,
+                    // 'gift_integral'     => $gift_integral,
                     'deposit'           => $deposit
-                    ))
+                    )),
+            'zhekou' => $_POST['zhekou'],
+            'tuan_num' => $_POST['tuan_num'],
         );
 
         /* 清除缓存 */
@@ -742,35 +746,35 @@ function group_buy_list()
         $arr = array_merge($row, $stat, $ext_info);
 
         /* 处理价格阶梯 */
-        $price_ladder = $arr['price_ladder'];
-        if (!is_array($price_ladder) || empty($price_ladder))
-        {
-            $price_ladder = array(array('amount' => 0, 'price' => 0));
-        }
-        else
-        {
-            foreach ($price_ladder AS $key => $amount_price)
-            {
-                $price_ladder[$key]['formated_price'] = price_format($amount_price['price']);
-            }
-        }
+        // $price_ladder = $arr['price_ladder'];
+        // if (!is_array($price_ladder) || empty($price_ladder))
+        // {
+        //     $price_ladder = array(array('amount' => 0, 'price' => 0));
+        // }
+        // else
+        // {
+        //     foreach ($price_ladder AS $key => $amount_price)
+        //     {
+        //         $price_ladder[$key]['formated_price'] = price_format($amount_price['price']);
+        //     }
+        // }
 
         /* 计算当前价 */
-        $cur_price  = $price_ladder[0]['price'];    // 初始化
-        $cur_amount = $stat['valid_goods'];         // 当前数量
-        foreach ($price_ladder AS $amount_price)
-        {
-            if ($cur_amount >= $amount_price['amount'])
-            {
-                $cur_price = $amount_price['price'];
-            }
-            else
-            {
-                break;
-            }
-        }
+        // $cur_price  = $price_ladder[0]['price'];    // 初始化
+        // $cur_amount = $stat['valid_goods'];         // 当前数量
+        // foreach ($price_ladder AS $amount_price)
+        // {
+        //     if ($cur_amount >= $amount_price['amount'])
+        //     {
+        //         $cur_price = $amount_price['price'];
+        //     }
+        //     else
+        //     {
+        //         break;
+        //     }
+        // }
 
-        $arr['cur_price']   = $cur_price;
+        // $arr['cur_price']   = $cur_price;
 
         $status = group_buy_status($arr);
 
