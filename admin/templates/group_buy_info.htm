@@ -44,42 +44,36 @@
       <input name="end_time" type="text" id="end_time" size="22" value='{$group_buy.end_time}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('end_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
     </td>
   </tr>
-<!--自定义-20161220-start-->
   <tr>
-    <td class="label">{$lang.zhekou}</td>
-    <td><input name="zhekou" type="text" id="zhekou" value="{$group_buy.zhekou|default:8.5}" size="30"></td>
+    <td class="label">{$lang.label_deposit}</td>
+    <td><input name="deposit" type="text" id="deposit" value="{$group_buy.deposit|default:0}" size="30"></td>
   </tr>
-  <tr>
-    <td class="label">{$lang.tuan_number}</td>
-    <td><input name="tuan_num" type="text" id="tuan_num" value="{$group_buy.tuan_num|default:1}" size="30"></td>
-  </tr>
-<!--自定义-20161220-end-->
   <tr>
     <td class="label"><a href="javascript:showNotice('noticRestrict');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.label_restrict_amount}</td>
     <td><input type="text" name="restrict_amount" value="{$group_buy.restrict_amount|default:0}" size="30" />
       <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticRestrict">{$lang.notice_restrict_amount}</span>    </td>
   </tr>
-  <!-- <tr>
+  <tr>
     <td class="label">{$lang.label_gift_integral}</td>
     <td><input type="text" name="gift_integral" value="{$group_buy.gift_integral|default:0}" size="30" /></td>
-  </tr> -->
- <!--  {foreach from=$group_buy.price_ladder key=key item=item}
- {if $key eq 0}
- <tr>
-   <td class="label">{$lang.label_price_ladder}</td>
-   <td>{$lang.notice_ladder_amount} <input type="text" name="ladder_amount[]" value="{$item.amount}" size="8" />&nbsp;&nbsp;
-     {$lang.notice_ladder_price} <input type="text" name="ladder_price[]" value="{$item.price}" size="8" />
-     <a href="javascript:;" onclick="addLadder(this)"><strong>[+]</strong></a>    </td>
- </tr>
- {else}
- <tr>
-   <td></td>
-   <td>{$lang.notice_ladder_amount} <input type="text" name="ladder_amount[]" value="{$item.amount}" size="8" />&nbsp;&nbsp;
-     {$lang.notice_ladder_price} <input type="text" name="ladder_price[]" value="{$item.price}" size="8" />
-     <a href="javascript:;" onclick="removeLadder(this)"><strong>[-]</strong></a>    </td>
- </tr>
- {/if}
- {/foreach} -->
+  </tr>
+  {foreach from=$group_buy.price_ladder key=key item=item}
+  {if $key eq 0}
+  <tr>
+    <td class="label">{$lang.label_price_ladder}</td>
+    <td>{$lang.notice_ladder_amount} <input type="text" name="ladder_amount[]" value="{$item.amount}" size="8" />&nbsp;&nbsp;
+      {$lang.notice_ladder_price} <input type="text" name="ladder_price[]" value="{$item.price}" size="8" />
+      <a href="javascript:;" onclick="addLadder(this)"><strong>[+]</strong></a>    </td>
+  </tr>
+  {else}
+  <tr>
+    <td></td>
+    <td>{$lang.notice_ladder_amount} <input type="text" name="ladder_amount[]" value="{$item.amount}" size="8" />&nbsp;&nbsp;
+      {$lang.notice_ladder_price} <input type="text" name="ladder_price[]" value="{$item.price}" size="8" />
+      <a href="javascript:;" onclick="removeLadder(this)"><strong>[-]</strong></a>    </td>
+  </tr>
+  {/if}
+  {/foreach}
   <tr>
     <td class="label">{$lang.label_desc}</td>
     <td><textarea  name="act_desc" cols="40" rows="3"  >{$group_buy.act_desc}</textarea></td>

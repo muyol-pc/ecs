@@ -37,7 +37,6 @@ if ($_REQUEST['act'] == 'list')
 {
     /* 取得团购活动总数 */
     $count = group_buy_count();
-
     if ($count > 0)
     {
         /* 取得每页记录数 */
@@ -62,20 +61,14 @@ if ($_REQUEST['act'] == 'list')
     }
 
     /* 如果没有缓存，生成缓存 */
-    // if (!$smarty->is_cached('group_buy_list.dwt', $cache_id))
-    // {
-
+    if (!$smarty->is_cached('group_buy_list.dwt', $cache_id))
+    {
         if ($count > 0)
         {
             /* 取得当前页的团购活动 */
             $gb_list = group_buy_list($size, $page);
-            $tt = array();
-            $tt2 = array();
-            foreach ($gb_list as $k => $v) {
-                $tt['tuan_price'] = $v['shop_price']*$v['zhekou']*0.1;
-                $gb_list[$k] = array_merge($v,$tt);
-            }
             $smarty->assign('gb_list',  $gb_list);
+
             /* 设置分页链接 */
             $pager = get_pager('group_buy.php', array('act' => 'list'), $count, $page, $size);
             $smarty->assign('pager', $pager);
@@ -87,22 +80,21 @@ if ($_REQUEST['act'] == 'list')
         $position = assign_ur_here();
         $smarty->assign('page_title', $position['title']);    // 页面标题
         $smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
-        // $smarty->assign('categories', get_categories_tree()); // 分类树
-        // $smarty->assign('helps',      get_shop_help());       // 网店帮助
-        // $smarty->assign('top_goods',  get_top10());           // 销售排行
+        $smarty->assign('categories', get_categories_tree()); // 分类树
+        $smarty->assign('helps',      get_shop_help());       // 网店帮助
+        $smarty->assign('top_goods',  get_top10());           // 销售排行
         $smarty->assign('promotion_info', get_promotion_info());
         $smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-typegroup_buy.xml" : 'feed.php?type=group_buy'); // RSS URL
 
         assign_dynamic('group_buy_list');
-    // }
+    }
 
     /* 显示模板 */
-    // $smarty->display('group_buy_list.dwt', $cache_id);
-    $smarty->display('group_buy_list.dwt');
+    $smarty->display('group_buy_list.dwt', $cache_id);
 }
 
 /*------------------------------------------------------ */
-//-- 团购商品 --> 商品详情页面
+//-- 团购商品 --> 商品详情
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'view')
 {
@@ -137,8 +129,8 @@ elseif ($_REQUEST['act'] == 'view')
     $cache_id = sprintf('%X', crc32($cache_id));
 
     /* 如果没有缓存，生成缓存 */
-    // if (!$smarty->is_cached('group_buy_goods.dwt', $cache_id))
-    // {
+    if (!$smarty->is_cached('group_buy_goods.dwt', $cache_id))
+    {
         $group_buy['gmt_end_date'] = $group_buy['end_date'];
         $smarty->assign('group_buy', $group_buy);
 
@@ -165,12 +157,12 @@ elseif ($_REQUEST['act'] == 'view')
         $smarty->assign('page_title', $position['title']);    // 页面标题
         $smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
 
-        // $smarty->assign('categories', get_categories_tree()); // 分类树
-        // $smarty->assign('helps',      get_shop_help());       // 网店帮助
-        // $smarty->assign('top_goods',  get_top10());           // 销售排行
+        $smarty->assign('categories', get_categories_tree()); // 分类树
+        $smarty->assign('helps',      get_shop_help());       // 网店帮助
+        $smarty->assign('top_goods',  get_top10());           // 销售排行
         $smarty->assign('promotion_info', get_promotion_info());
         assign_dynamic('group_buy_goods');
-    // }
+    }
 
     //更新商品点击次数
     $sql = 'UPDATE ' . $ecs->table('goods') . ' SET click_count = click_count + 1 '.
@@ -178,8 +170,7 @@ elseif ($_REQUEST['act'] == 'view')
     $db->query($sql);
 
     $smarty->assign('now_time',  gmtime());           // 当前系统时间
-    // $smarty->display('group_buy_goods.dwt', $cache_id);
-    $smarty->display('group_buy_goods.dwt');
+    $smarty->display('group_buy_goods.dwt', $cache_id);
 }
 
 /*------------------------------------------------------ */
@@ -333,7 +324,7 @@ function group_buy_list($size, $page)
     /* 取得团购活动 */
     $gb_list = array();
     $now = gmtime();
-    $sql = "SELECT b.*, IFNULL(g.goods_thumb, '') AS goods_thumb,g.shop_price AS shop_price, b.act_id AS group_buy_id, ".
+    $sql = "SELECT b.*, IFNULL(g.goods_thumb, '') AS goods_thumb, b.act_id AS group_buy_id, ".
                 "b.start_time AS start_date, b.end_time AS end_date " .
             "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS b " .
                 "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON b.goods_id = g.goods_id " .
@@ -380,4 +371,5 @@ function group_buy_list($size, $page)
 
     return $gb_list;
 }
+
 ?>
