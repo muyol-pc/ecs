@@ -92,7 +92,7 @@ if (in_array($action, $ui_arr))
     $smarty->assign('action',     $action);
     $smarty->assign('lang',       $_LANG);
 }
-
+// var_dump($action);
 //用户中心欢迎页
 if ($action == 'default')
 {
@@ -200,7 +200,7 @@ elseif ($action == 'act_register')
             exit;
         }
         //写入数据库
-        $insertResult = $db->query('INSERT INTO ' . $ecs->table('users').'(user_name,name,mobile_phone,company,category,reg_time) VALUES ("'.$user_name.'","'.$user_name.'",'.$mobile_phone.',"'.$company.'",'.$category.','.$reg_time.')');
+        $insertResult = $db->query('INSERT INTO ' . $ecs->table('users').'(user_name,name,mobile_phone,company,category,reg_time) VALUES ("","'.$user_name.'",'.$mobile_phone.',"'.$company.'",'.$category.','.$reg_time.')');
         if($insertResult){
             $return['state'] = 200;
             $return['msg']   = "注册成功，进入审核阶段，请耐心等待！";
@@ -795,28 +795,31 @@ elseif ($action == 'reset_password')
     //显示重置密码的表单
     $smarty->display('user_passport.dwt');
 }
-
 /* 修改会员密码 */
 elseif ($action == 'act_edit_password')
 {
+    var_dump($action);
     include_once(ROOT_PATH . 'includes/lib_passport.php');
 
     $old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : null;
     $new_password = isset($_POST['new_password']) ? trim($_POST['new_password']) : '';
     $user_id      = isset($_POST['uid'])  ? intval($_POST['uid']) : $user_id;
     $code         = isset($_POST['code']) ? trim($_POST['code'])  : '';
+    $mobile_phone = isset($_POST['extend_field5']) ? trim($_POST['extend_field5'])  : '';
 
     if (strlen($new_password) < 6)
     {
         show_message($_LANG['passport_js']['password_shorter']);
     }
 
-    $user_info = $user->get_profile_by_id($user_id); //论坛记录
-
+    $user_info = $user->get_profile_by_id($user_id); //论坛记录 
+    // // var_dump($user);
+    // $user->edit_user(array('username'=> (empty($code) ? $_SESSION['user_name'] : $user_info['user_name']), 'old_password'=>$old_password, 'password'=>$new_password,'md5password'=>$new_password,'mobile_phone'=>$mobile_phone), empty($code) ? 0 : 1);
+    // die();
     if (($user_info && (!empty($code) && md5($user_info['user_id'] . $_CFG['hash_code'] . $user_info['reg_time']) == $code)) || ($_SESSION['user_id']>0 && $_SESSION['user_id'] == $user_id && $user->check_user($_SESSION['user_name'], $old_password)))
     {
 		
-        if ($user->edit_user(array('username'=> (empty($code) ? $_SESSION['user_name'] : $user_info['user_name']), 'old_password'=>$old_password, 'password'=>$new_password), empty($code) ? 0 : 1))
+        if ($user->edit_user(array('username'=> (empty($code) ? $_SESSION['user_name'] : $user_info['user_name']), 'old_password'=>$old_password, 'password'=>$new_password,'md5password'=>$new_password,'mobile_phone'=>$mobile_phone), empty($code) ? 0 : 1))
         {
 			$sql="UPDATE ".$ecs->table('users'). "SET `ec_salt`='0' WHERE user_id= '".$user_id."'";
 			$db->query($sql);

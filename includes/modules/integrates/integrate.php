@@ -295,6 +295,7 @@ public function is_membernone($username){
      */
     function edit_user($cfg)
     {
+        // var_dump($cfg);
         if (empty($cfg['username']))
         {
             return false;

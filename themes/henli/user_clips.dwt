@@ -24,7 +24,7 @@
       <aside class="hl-content-left">
         <ul class="hl-nav-list">
           <li class="hl-nav-item active">全部订单</li>
-          <li class="hl-nav-item">修改密码</li>
+          <li class="hl-nav-item"><a href="user.php?act=profile">修改密码</a></li>
           <li class="hl-nav-item">我的购物车</li>
           <li class="hl-nav-item">修改收货地址</li>
           <li class="hl-nav-item">团购订单</li>
