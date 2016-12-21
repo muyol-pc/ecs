@@ -42,7 +42,7 @@
                 <th width="15%">数量</th>
                 <th width="10%">运费</th>
                 <th width="10%">礼品</th>
-                <th width="20%">交易操作</th>
+                <th width="20%">交易操作</th> 
               </tr>
             </thead>
             <tbody>
