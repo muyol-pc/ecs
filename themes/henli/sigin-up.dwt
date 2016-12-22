@@ -73,10 +73,11 @@
                 return true;
             },
             success:function(data){
+                // console.log(data);
                 if(data.error==0){
                     window.location.href = "{$back_act}";
                 }else{
-                    $("#hl-error-notice").text(data.msg);
+                    $("#hl-error-notice").text(data.content);
                 }
             }
         });

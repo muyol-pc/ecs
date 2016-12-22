@@ -15,7 +15,8 @@ $db_host   = "localhost:3306";
 // $db_pass   = "root";
 
 // database name
-$db_name   = "ecshop_three";
+// $db_name   = "ecshop_three";
+$db_name   = "esc";
 
 // database username
 $db_user   = "root";
@@ -43,7 +44,7 @@ define('AUTH_KEY', 'this is a key');
 
 define('OLD_AUTH_KEY', '');
 
-define('API_TIME', '2016-12-22 10:54:53');
+define('API_TIME', '2016-12-23 03:27:52');
 
 define('STORE_KEY','b74b264e4b020496fe3377e2426e06bd');
 
