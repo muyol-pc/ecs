@@ -30,7 +30,7 @@ if (!isset($_REQUEST['step']))
 {
     $_REQUEST['step'] = "cart";
 }
-
+// var_dump($_REQUEST);
 /*------------------------------------------------------ */
 //-- PROCESSOR
 /*------------------------------------------------------ */
@@ -46,8 +46,7 @@ $smarty->assign('helps',            get_shop_help());       // 网店帮助
 $smarty->assign('lang',             $_LANG);
 $smarty->assign('show_marketprice', $_CFG['show_marketprice']);
 $smarty->assign('data_dir',    DATA_DIR);       // 数据目录
-$smarty->assign('user_name',    $_SESSION['user_name']);       // 数据目录
-$smarty->assign('user_name',    $_SESSION['user_name']);
+$smarty->assign('active',    'shopping_car');
 /*------------------------------------------------------ */
 //-- 添加商品到购物车
 /*------------------------------------------------------ */
@@ -2088,6 +2087,7 @@ elseif ($_REQUEST['step'] == 'add_package_to_cart')
 }
 else
 {
+    var_dump('shopping_car');
     /* 标记购物流程为普通商品 */
     $_SESSION['flow_type'] = CART_GENERAL_GOODS;
 
@@ -2099,7 +2099,8 @@ else
     }
 
     /* 取得商品列表，计算合计 */
-    $cart_goods = get_cart_goods();
+    $cart_goods = get_cart_goods(); 
+    // var_dump($cart_goods);
     $smarty->assign('goods_list', $cart_goods['goods_list']);
     $smarty->assign('total', $cart_goods['total']);
 
@@ -2149,12 +2150,14 @@ else
 
     $smarty->assign('fittings_list', $fittings_list);
 }
-
+// var_dump(13213123);
 $smarty->assign('currency_format', $_CFG['currency_format']);
 $smarty->assign('integral_scale',  $_CFG['integral_scale']);
 $smarty->assign('step',            $_REQUEST['step']);
+assign_template();
 assign_dynamic('shopping_flow');
 $smarty->assign('user_name',            $_SESSION['user_name']);
+// var_dump($smarty);
 $smarty->display('flow.dwt');
 
 /*------------------------------------------------------ */
@@ -2481,7 +2484,7 @@ function flow_clear_cart_alone()
 
     if (empty($cart_good))
     {
-        return;
+        return; 
     }
 
     /* 如果购物车中不可以单独销售配件的基本件不存在则删除该配件 */

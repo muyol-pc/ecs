@@ -1594,12 +1594,16 @@ function get_cart_goods($rec_type = CART_GENERAL_GOODS)
         'save_rate'    => 0, // 节省百分比
         'goods_amount' => 0, // 本店售价合计（无格式）
     );
-
+    // var_dump($_SESSION['user_id']);
+    // return;
     /* 循环、统计 */
-    $sql = "SELECT *, IF(parent_id, parent_id, goods_id) AS pid " .
-            " FROM " . $GLOBALS['ecs']->table('cart') . " " .
-            " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . $rec_type . "'" .
+    $sql = "SELECT a.*,b.gift_num ,IF(a.parent_id,a.parent_id,goods_id) AS pid " .
+            " FROM " . $GLOBALS['ecs']->table('cart') . " as a  " .
+            " LEFT JOIN (SELECT parent_id ,count(rec_id) as gift_num from ".$GLOBALS['ecs']->table('cart')." where  user_id = " . $_SESSION['user_id'] . " AND is_gift != 0 group by parent_id) as b on a.rec_id = b.parent_id ".
+            " WHERE user_id = " . $_SESSION['user_id'] . " AND rec_type = '" . $rec_type . "' AND is_gift = 0" .
             " ORDER BY pid, parent_id";
+    // var_dump($sql);
+    // return;
     $res = $GLOBALS['db']->query($sql);
 
     /* 用于统计购物车中实体商品和虚拟商品的个数 */
@@ -1612,8 +1616,8 @@ function get_cart_goods($rec_type = CART_GENERAL_GOODS)
         $total['market_price'] += $row['market_price'] * $row['goods_number'];
 
         $row['subtotal']     = price_format($row['goods_price'] * $row['goods_number'], false);
-        $row['goods_price']  = price_format($row['goods_price'], false);
-        $row['market_price'] = price_format($row['market_price'], false);
+        // $row['goods_price']  = price_format($row['goods_price'], false);
+        // $row['market_price'] = price_format($row['market_price'], false);
 
         /* 统计实体商品和虚拟商品的个数 */
         if ($row['is_real'])

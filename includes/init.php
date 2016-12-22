@@ -115,6 +115,8 @@ $err = new ecs_error('message.dwt');
 
 /* 载入系统参数 */
 $_CFG = load_config();
+// 项目专用
+$arr['template'] = 'henli';
 
 /* 载入语言文件 */
 require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
@@ -160,44 +162,6 @@ if(isset($_SERVER['PHP_SELF']))
 {
     $_SERVER['PHP_SELF']=htmlspecialchars($_SERVER['PHP_SELF']);
 }
-if (!defined('INIT_NO_SMARTY'))
-{
-    header('Cache-control: private');
-    header('Content-type: text/html; charset='.EC_CHARSET);
-
-    /* 创建 Smarty 对象。*/
-    require(ROOT_PATH . 'includes/cls_template.php');
-    $smarty = new cls_template;
-
-    $smarty->cache_lifetime = $_CFG['cache_time'];
-    $smarty->template_dir   = ROOT_PATH . 'themes/' . $_CFG['template'];
-    $smarty->cache_dir      = ROOT_PATH . 'temp/caches';
-    $smarty->compile_dir    = ROOT_PATH . 'temp/compiled';
-
-    if ((DEBUG_MODE & 2) == 2)
-    {
-        $smarty->direct_output = true;
-        $smarty->force_compile = true;
-    }
-    else
-    {
-        $smarty->direct_output = false;
-        $smarty->force_compile = false;
-    }
-
-    $smarty->assign('lang', $_LANG);
-    $smarty->assign('ecs_charset', EC_CHARSET);
-    if (!empty($_CFG['stylename']))
-    {
-        $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style_' . $_CFG['stylename'] . '.css');
-    }
-    else
-    {
-        $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style.css');
-    }
-
-}
-
 if (!defined('INIT_NO_USERS'))
 {
     /* 会员信息 */
@@ -281,6 +245,44 @@ if (!defined('INIT_NO_USERS'))
     }
 }
 
+if (!defined('INIT_NO_SMARTY'))
+{
+    header('Cache-control: private');
+    header('Content-type: text/html; charset='.EC_CHARSET);
+
+    /* 创建 Smarty 对象。*/
+    require(ROOT_PATH . 'includes/cls_template.php');
+    $smarty = new cls_template;
+    // var_dump($_CFG['template']);
+    $smarty->cache_lifetime = $_CFG['cache_time'];
+    $smarty->template_dir   = ROOT_PATH . 'themes/' . $_CFG['template'];
+    $smarty->cache_dir      = ROOT_PATH . 'temp/caches';
+    $smarty->compile_dir    = ROOT_PATH . 'temp/compiled';
+
+    if ((DEBUG_MODE & 2) == 2)
+    {
+        $smarty->direct_output = true;
+        $smarty->force_compile = true;
+    }
+    else
+    {
+        $smarty->direct_output = false;
+        $smarty->force_compile = false;
+    }
+
+    $smarty->assign('lang', $_LANG);
+    $smarty->assign('ecs_charset', EC_CHARSET);
+    if (!empty($_CFG['stylename']))
+    {
+        $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style_' . $_CFG['stylename'] . '.css');
+    }
+    else
+    {
+        $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style.css');
+    }
+    // smarty 判断登陆，项目专用
+    $smarty->assign('user_name',    $_SESSION['user_name']);
+}
 if ((DEBUG_MODE & 1) == 1)
 {
     error_reporting(E_ALL);
