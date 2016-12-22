@@ -88,7 +88,9 @@ if ($_REQUEST['act'] == 'list')
 
         assign_dynamic('seckill_list');
     }
-
+    /*echo "<pre>";
+    print_r($gb_list);
+    echo "</pre>";*/
     /* 显示模板 */
     $smarty->display('seckill_list.dwt');
 }
