@@ -346,7 +346,7 @@ img {
   background: url(images/bg-shutdown.png) center no-repeat;
 }
 .hl-countdown-num{
-  padding:0 10px;
+  padding:0 8px;
   background-color: #fff;
   margin:0 2px;
 }
