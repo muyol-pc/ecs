@@ -86,14 +86,17 @@
                 </p>
                 <p id="time_loading" class="tuan_time_loading"></p>
             </span>
-
             {elseif $seckill.cur_status eq 1}
-            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动进行中...</p>
-            <p id="time_loading" class="tuan_time_loading"></p>
+                <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                   <p >秒杀活动进行中...</p>
+                   <p id="time_loading" class="tuan_time_loading"></p>
+               </span>
             {else $seckill.cur_status eq 2}
-            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动已结束...</p>
+            <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+               <p >秒杀活动已结束...</p>
+            </span>
             {/if}
-          </div>
+        </div>
           <!--<div class="hl-ad hl-ff hl-f20">
               <span class="hl-fl hl-clock">特价秒杀</span>
               <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>

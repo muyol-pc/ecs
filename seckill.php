@@ -111,7 +111,7 @@ elseif ($_REQUEST['act'] == 'view')
     /* 取得秒杀活动信息 */
     $seckill = seckill_info($seckill_id);
 
-    if (empty($seckill))
+    if (empty($seckill)) 
     {
         ecs_header("Location: ./\n");
         exit;
