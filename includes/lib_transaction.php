@@ -281,31 +281,36 @@ function add_bonus($user_id, $bouns_sn)
  * @param   int         $start          列表起始位置
  * @return  array       $order_list     订单列表
  */
-function get_user_orders($user_id, $num = 10, $start = 0)
+function get_user_orders($user_id, $num = 10, $start = 0,$status='')
 {
     /* 取得订单列表 */
-    $arr    = array();
+    $arr    = array(); 
 
     $sql = "SELECT order_id, order_sn, order_status, shipping_status, pay_status, add_time, " .
            "(goods_amount + shipping_fee + insure_fee + pay_fee + pack_fee + card_fee + tax - discount) AS total_fee ".
            " FROM " .$GLOBALS['ecs']->table('order_info') .
-           " WHERE user_id = '$user_id' ORDER BY add_time DESC";
+           " WHERE user_id = '$user_id' {$status} ORDER BY add_time DESC";
+    // var_dump($sql);
     $res = $GLOBALS['db']->SelectLimit($sql, $num, $start);
 
+    // var_dump($res);
+    // var_dump('order_status',$row['order_status'],OS_UNCONFIRMED,OS_SPLITED);
+    // var_dump('shipping_status',$row['shipping_status'],SS_SHIPPED,SS_RECEIVED);
+    // var_dump('pay_status',$row['pay_status'],PS_UNPAYED);
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
-        if ($row['order_status'] == OS_UNCONFIRMED)
+        if ($row['order_status'] == OS_UNCONFIRMED) // 未确认
         {
             $row['handler'] = "<a href=\"user.php?act=cancel_order&order_id=" .$row['order_id']. "\" onclick=\"if (!confirm('".$GLOBALS['_LANG']['confirm_cancel']."')) return false;\">".$GLOBALS['_LANG']['cancel']."</a>";
         }
-        else if ($row['order_status'] == OS_SPLITED)
+        else if ($row['order_status'] == OS_SPLITED) // 已确认
         {
             /* 对配送状态的处理 */
-            if ($row['shipping_status'] == SS_SHIPPED)
+            if ($row['shipping_status'] == SS_SHIPPED)  // 已发货
             {
                 @$row['handler'] = "<a href=\"user.php?act=affirm_received&order_id=" .$row['order_id']. "\" onclick=\"if (!confirm('".$GLOBALS['_LANG']['confirm_received']."')) return false;\">".$GLOBALS['_LANG']['received']."</a>";
             }
-            elseif ($row['shipping_status'] == SS_RECEIVED)
+            elseif ($row['shipping_status'] == SS_RECEIVED)  // 已收货
             {
                 @$row['handler'] = '<span style="color:red">'.$GLOBALS['_LANG']['ss_received'] .'</span>';
             }

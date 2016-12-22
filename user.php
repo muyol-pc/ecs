@@ -859,22 +859,33 @@ elseif ($action == 'act_add_bonus')
 /* 查看订单列表 */
 elseif ($action == 'order_list')
 {
+    
     include_once(ROOT_PATH . 'includes/lib_transaction.php');
 
     $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
-
-    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('order_info'). " WHERE user_id = '$user_id'");
+    $status = isset($_REQUEST['status'])?intval($_REQUEST['status']):0;
+    $smarty->assign('status',  $status);
+    if ($status == 1) {  // 代付款
+        $status = " AND FIND_IN_SET(pay_status,'$,0,1') > 0 ";
+    }elseif($status == 2){   // 待发货
+        $status = " AND shipping_status = 0 ";
+    }elseif ($status == 3) {  // 待收货
+        $status = " AND shipping_status = 1 ";
+    }else{  // 全部订单
+        $status = '';
+    }
+    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('order_info'). " WHERE user_id = '$user_id' {$status}");
 
     $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
 
-    $orders = get_user_orders($user_id, $pager['size'], $pager['start']);
+    $orders = get_user_orders($user_id, $pager['size'], $pager['start'],$status);
     $merge  = get_user_merge($user_id);
 
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
     $smarty->assign('active', 'order_list');
-    $smarty->display('user_orderlist.dwt');
+    $smarty->display('user_orderlist.dwt'); 
 }
 
 /* 查看订单详情 */
@@ -884,7 +895,8 @@ elseif ($action == 'order_detail')
     include_once(ROOT_PATH . 'includes/lib_payment.php');
     include_once(ROOT_PATH . 'includes/lib_order.php');
     include_once(ROOT_PATH . 'includes/lib_clips.php');
-
+    $status = isset($_REQUEST['status'])?intval($_REQUEST['status']):0;
+    $smarty->assign('status',  $status);
     $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
 
     /* 订单详情 */
@@ -952,7 +964,10 @@ elseif ($action == 'order_detail')
 
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
-    $smarty->display('user_transaction.dwt');
+    $smarty->assign('active', 'order_list');
+    // $smarty->display('user_transaction.dwt');
+    var_dump($goods_list);
+    $smarty->display('user_orderdetail.dwt');
 }
 
 /* 取消订单 */
@@ -1140,9 +1155,10 @@ elseif ($action == 'del_attention')
 elseif ($action == 'message_list')
 {
     include_once(ROOT_PATH . 'includes/lib_clips.php');
-
+    
     $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
-
+    $status = isset($_REQUEST['status'])?intval($_REQUEST['status']):0;
+    $smarty->assign('status',  $status);
     $order_id = empty($_GET['order_id']) ? 0 : intval($_GET['order_id']);
     $order_info = array();
 
@@ -1173,7 +1189,9 @@ elseif ($action == 'message_list')
     $smarty->assign('message_list', get_message_list($user_id, $_SESSION['user_name'], $pager['size'], $pager['start'], $order_id));
     $smarty->assign('pager',        $pager);
     $smarty->assign('order_info',   $order_info);
-    $smarty->display('user_clips.dwt');
+    $smarty->assign('active', 'order_list');
+    // $smarty->display('user_clips.dwt');
+    $smarty->display('user_message.dwt');
 }
 
 /* 显示评论列表 */

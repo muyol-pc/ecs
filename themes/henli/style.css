@@ -39,11 +39,11 @@ a{ text-decoration:none; color:#666}
 /*字体颜色ecmoban.com*/
 .f1{color:#ff8a81; font-weight:bold}
 .f2{color:#ff8a81; font-weight:bold; margin-right:15px;}
-.f3{color:#9e9e9e;}
-.f4{color:#b22825;}
+.f3{color:#9e9e9e!important;}
+.f4{color:#b22825!important;}
 .f4_b{color:#ff8a81; font-weight:bold;}
 .f5{ font-size:14px; font-weight:bold;}
-.f6{color:#ff8a81;}
+.f6{color:#ff8a81!important;}
 .market{ font-size:12px; text-decoration:line-through; color:#999}
 .shop{font-family: 'Arial';font-size: 18px;color: #ff8a81; font-weight:bold }
 .market_s{text-decoration:line-through;}

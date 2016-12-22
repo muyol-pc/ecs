@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,125 +21,119 @@
 <!--当前位置 start-->
 
 <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-    <div class="hl-container clearfix">
-      <!-- /*左侧导航*/ -->
-      <aside class="hl-content-left">
-        <ul class="hl-nav-list">
-          <li class="hl-nav-item active">全部订单</li>
-          <li class="hl-nav-item">修改密码</li>
-          <li class="hl-nav-item">我的购物车</li>
-          <li class="hl-nav-item">修改收货地址</li>
-          <li class="hl-nav-item">团购订单</li>
-          <li class="hl-nav-item">秒杀订单</li>
-          <li class="hl-nav-item">已购买到的商品</li>
-          <li class="hl-nav-item">代付款商品</li>
-          <li class="hl-nav-item">可参与的活动</li>
-          <li class="hl-nav-item">活动消息</li>
-        </ul>
-      </aside>
-      <!-- /*右侧内容区*/ -->
-      <div class="hl-content-right">
-        <div class="hl-order">
-          <div class="hl-order-header hl-fs-12">
-            <span class="hl-order-header-item active">所有订单</span>
-            <span class="hl-order-header-item">代付款</span>
-            <span class="hl-order-header-item">待发货</span>
-            <span class="hl-order-header-item">待收货</span>
-          </div>
-          <table class="table hl-order-detail">
-            <thead>
-              <tr >
-                <th width="5%"></th>
-                <th width="30%" class="hl-order-proname">商品名称</th>
-                <th width="10%">价格</th>
-                <th width="15%">数量</th>
-                <th width="10%">运费</th>
-                <th width="10%">礼品</th>
-                <th width="20%">交易操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <tr class="hl-has-pro">
-                <td><input type="checkbox"></td>
-                <td><div class="hl-order-pro">
-                  <img src="images/pro.jpg" alt="" class="hl-order-pro-img">
-                  <div class="pull-left hl-order-pro-des" >
-                    <div>sfsdfs</div><div>sdfwfsfsdfs</div>
-                  </div>
-                </div></td>
-                <td><span>￥</span><span class="hl-price">5000.00</span></td>
-                <td>
-                  <div class="hl-counter clearfix">
-                    <span class="hl-counter-sub">-</span>
-                    <input class="hl-counter-num" value="10">
-                    <span class="hl-counter-add">+</span>
-                  </div>
-                  <span class="hl-prostate">有货</span>
-                </td>
-                <td>无</td>
-                <td>无</td>
-                <td>sdf</td>
-              </tr><tr>
-                <td><input type="checkbox" class=" " disabled></td>
-                <td><div class="hl-order-pro">
-                  <img src="images/pro.jpg" alt="" class="hl-order-pro-img">
-                  <div class="pull-left hl-order-pro-des" >
-                    <div>sfsdfs</div><div>sdfwfsfsdfs</div>
-                  </div>
-                </div></td>
-                <td><span>￥</span><span class="hl-price">5000.00</span></td>
-                <td>
-                  <div class="hl-counter clearfix hl-relative">
-                    <span class="hl-shade"></span>
-                    <span class="hl-counter-sub">-</span>
-                    <input class="hl-counter-num" value="10">
-                    <span class="hl-counter-add">+</span>
-                  </div>
-                  <span class="hl-prostate">无货</span>
-                </td>
-                <td>无</td>
-                <td>无</td>
-                <td>sdf</td>
-              </tr> -->
-            </tbody>
-          </table>
-
-          <!-- 订单结算 -->
-          <div class="hl-order-pay">
-            <div class="checkbox">
-              <label><input type="checkbox" id="hl-checked-all" checked="checked"> 全选 </label>
-            </div>
-            <div class="hl-order-option">
-              <a href="#">删除选中商品</a>
-              <a href="#">移动到我的关注</a>
-              <a href="#">清除下架商品</a>
-            </div>
-
-            <div class="hl-order-price">
-              <div class="hl-order-select">
-                已选择商品
-                <span class="hl-red hl-bold hl-order-pro-num">0</span>件
-              </div>
-              <div class="hl-order-total">
-                <div class="hl-order-fact">
-                  <span class="hl-order-price-notice">总价：</span>
-                  <span class="hl-red hl-bold">￥</span>
-                  <span class="hl-order-money hl-red hl-fs-20 hl-bold">0.00</span>
-                  <img src="" alt="">
-                </div>
-                <div class="hl-order-save">
-                  <span class="hl-order-price-notice">以节约：</span>
-                  <span class="hl-fs-8 hl-bold hl-gray" >￥</span>
-                  <span class=" hl-fs-8 hl-bold hl-gray">0.00</span>
+<div class="hl-container clearfix">  
+  <!-- /*左侧导航*/ -->
+  <aside class="hl-content-left">
+    <!-- #BeginLibraryItem "/library/page_nav_list.lbi" --><!-- #EndLibraryItem -->
+  </aside>
+  <!-- /*左侧导航*/ -->
+  <!-- /*右侧内容区*/ -->
+  <div class="hl-content-right">
+    <!-- 订单 -->
+    <div class="hl-order">
+      <div class="hl-order-header hl-fs-12">
+        <span class="hl-order-header-item active">购物车详情</span>
+      </div>
+      <!-- 订单 详情-->
+      <table class="table hl-order-detail">
+        <thead>
+          <tr >
+            <th width="5%"></th>
+            <th width="30%" class="hl-order-proname">商品名称</th>
+            <th width="10%">价格</th>
+            <th width="15%">数量</th>
+            <th width="10%">运费</th>
+            <th width="10%">礼品</th>
+            <th width="20%">交易操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- {foreach from=$goods_list item=goods} -->
+          <tr class="hl-has-pro"> 
+            <td><input type="checkbox"></td>
+            <td>
+              <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
+              <div class="hl-order-pro">
+                <a href="goods.php?id={$goods.goods_id}" target="_blank" class="hl-order-pro-img"><img style="width:100px; height:150px;" src="{$goods.goods_thumb}" border="0" title="{$goods.goods_name|escape:html}" /></a>
+                <div class="pull-left hl-order-pro-des" >
+                  <div><a href="goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name}</a></div>
+                  <div>{$goods.goods_attr|nl2br}</div>
                 </div>
               </div>
-              <a class="hl-order-settle hl-bg-red hl-white" href="">去结算</a>
+              <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
+                <a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6">{$goods.goods_name}<span style="color:#FF0000;">（{$lang.remark_package}）</span></a>
+                <div id="suit_{$goods.goods_id}" style="display:none">
+                    <!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
+                      <a href="goods.php?id={$package_goods_list.goods_id}" target="_blank" class="f6">{$package_goods_list.goods_name}</a><br />
+                    <!-- {/foreach} -->
+                </div>
+              <!-- {else} 优惠活动 -->
+                {$goods.goods_name}
+              <!-- {/if} -->
+            </td>
+            <td><span>&yen;</span><span class="hl-price">{$goods.goods_price}</span><input type="hidden" class="market_price" value="{$goods.market_price}" /></td>
+            <td>
+              <!-- {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0} 普通商品可修改数量 -->
+                <div class="hl-counter clearfix" onclickss="location.href='flow.php?step=clear'">
+                  <span class="hl-counter-sub">-</span>
+                  <input class="hl-counter-num" name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" >
+                  <span class="hl-counter-add">+</span>
+                </div>
+                <!-- {else} -->
+                {$goods.goods_number}
+                <!-- {/if} -->
+              <span class="hl-prostate">有货</span>
+            </td>
+            <td>无</td>
+            <td>无</td>
+            <td><a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; " class="f6">{$lang.drop}</a>
+                <!-- {if $smarty.session.user_id gt 0 && $goods.extension_code neq 'package_buy'} 如果登录了，可以加入收藏 -->
+                <a href="javascript:if (confirm('{$lang.drop_to_collect}')) location.href='flow.php?step=drop_to_collect&amp;id={$goods.rec_id}'; " class="f6">{$lang.drop_to_collect}</a>
+                <!-- {/if} -->            </td>
+            </td>
+          </tr>
+          <!-- {/foreach} -->
+        </tbody>
+      </table>
+      <!-- 订单 详情-->
+      <!-- 订单结算 -->
+      <div class="hl-order-pay">
+        <div class="checkbox">
+          <label><input type="checkbox" id="hl-checked-all" checked="checked"> 全选 </label>
+        </div>
+        <div class="hl-order-option">
+          <a href="#">删除选中商品</a>
+          <a href="#">移动到我的关注</a>
+          <a href="#">清除下架商品</a>
+        </div>
+
+        <div class="hl-order-price">
+          <div class="hl-order-select">
+            已选择商品
+            <span class="hl-red hl-bold hl-order-pro-num">33</span>件
+          </div>
+          <div class="hl-order-total">
+            <div class="hl-order-fact">
+              <span class="hl-order-price-notice">总价：</span>
+              <span class="hl-red hl-bold">￥</span>
+              <span class="hl-order-money hl-red hl-fs-20 hl-bold">2222.90</span>
+              <img src="" alt="">
+            </div>
+            <div class="hl-order-save">
+              <span class="hl-order-price-notice">以节约：</span>
+              <span class="hl-fs-8 hl-bold hl-gray" >￥</span>
+              <span class=" hl-fs-8 hl-bold hl-gray">2222.90</span>
             </div>
           </div>
+          <a class="hl-order-settle hl-bg-red hl-white" href="">去结算</a>
         </div>
       </div>
-
+      <!-- 订单结算 -->
     </div>
+    <!-- 订单-->
+  </div>
+  <!-- /*右侧内容区*/ -->
+</div>
 
 <div class="block table">
   <!-- {if $step eq "cart"} -->

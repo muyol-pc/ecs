@@ -28,71 +28,67 @@
       <div class="hl-content-right">
         <div class="hl-order">
           <div class="hl-order-header hl-fs-15">
-            <span class="hl-order-header-item active">所有订单</span>
-            <span class="hl-order-header-item">代付款</span>
-            <span class="hl-order-header-item">待发货</span>
-            <span class="hl-order-header-item">待收货</span>
+            <a class="hl-order-header-item {if $status<1||$status>3}active{/if}" href="user.php?act=order_list">所有订单</a>
+            <a class="hl-order-header-item {if $status==1}active{/if}" href="user.php?act=order_list&status=1">代付款</a>
+            <a class="hl-order-header-item {if $status==2}active{/if}" href="user.php?act=order_list&status=2">待发货</a>
+            <a class="hl-order-header-item {if $status==3}active{/if}" href="user.php?act=order_list&status=3">待收货</a>
           </div>
-          <table class="table hl-order-detail">
-            <thead>
-              <tr >
-                <th width="5%"></th>
-                <th width="30%" class="hl-order-proname">商品名称</th>
-                <th width="10%">价格</th>
-                <th width="15%">数量</th>
-                <th width="10%">运费</th>
-                <th width="10%">礼品</th>
-                <th width="20%">交易操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <tr class="hl-has-pro">
-                <td><input type="checkbox"></td>
-                <td><div class="hl-order-pro">
-                  <img src="images/pro.jpg" alt="" class="hl-order-pro-img">
-                  <div class="pull-left hl-order-pro-des" >
-                    <div>sfsdfs</div><div>sdfwfsfsdfs</div>
-                  </div>
-                </div></td>
-                <td><span>￥</span><span class="hl-price">5000.00</span></td>
-                <td>
-                  <div class="hl-counter clearfix">
-                    <span class="hl-counter-sub">-</span>
-                    <input class="hl-counter-num" value="10">
-                    <span class="hl-counter-add">+</span>
-                  </div>
-                  <span class="hl-prostate">有货</span>
-                </td>
-                <td>无</td>
-                <td>无</td>
-                <td>sdf</td>
-              </tr><tr>
-                <td><input type="checkbox" class=" " disabled></td>
-                <td><div class="hl-order-pro">
-                  <img src="images/pro.jpg" alt="" class="hl-order-pro-img">
-                  <div class="pull-left hl-order-pro-des" >
-                    <div>sfsdfs</div><div>sdfwfsfsdfs</div>
-                  </div>
-                </div></td>
-                <td><span>￥</span><span class="hl-price">5000.00</span></td>
-                <td>
-                  <div class="hl-counter clearfix hl-relative">
-                    <span class="hl-shade"></span>
-                    <span class="hl-counter-sub">-</span>
-                    <input class="hl-counter-num" value="10">
-                    <span class="hl-counter-add">+</span>
-                  </div>
-                  <span class="hl-prostate">无货</span>
-                </td>
-                <td>无</td>
-                <td>无</td>
-                <td>sdf</td>
-              </tr> -->
-            </tbody>
+       <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+          <tr align="center">
+            <td bgcolor="#ffffff">{$lang.order_number}</td>
+            <td bgcolor="#ffffff">{$lang.order_addtime}</td>
+            <td bgcolor="#ffffff">{$lang.order_money}</td>
+            <td bgcolor="#ffffff">{$lang.order_status}</td>
+            <td bgcolor="#ffffff">{$lang.handle}</td>
+          </tr>
+          <!--{foreach from=$orders item=item}-->
+          <tr>
+            <td align="center" bgcolor="#ffffff"><a href="user.php?act=order_detail&order_id={$item.order_id}&status={$status}" class="f6">{$item.order_sn}</a></td>
+            <td align="center" bgcolor="#ffffff">{$item.order_time}</td>
+            <td align="right" bgcolor="#ffffff">{$item.total_fee}</td>
+            <td align="center" bgcolor="#ffffff">{$item.order_status}</td>
+            <td align="center" bgcolor="#ffffff"><font class="f6">{$item.handler}</font></td>
+          </tr>
+          <!--{/foreach}-->
           </table>
+        <div class="blank5"></div>
+       <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+       <div class="blank5"></div>
+       <h5><span>{$lang.merge_order}</span></h5>
+       <div class="blank"></div>
+        <script type="text/javascript">
+        {foreach from=$lang.merge_order_js item=item key=key}
+          var {$key} = "{$item}";
+        {/foreach} 
+        </script>
+        <form action="user.php" method="post" name="formOrder" onsubmit="return mergeOrder()">
+          <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+            <tr>
+              <td width="22%" align="right" bgcolor="#ffffff">{$lang.first_order}:</td>
+              <td width="12%" align="left" bgcolor="#ffffff"><select name="to_order">
+              <option value="0">{$lang.select}</option>
 
+                  {html_options options=$merge}
+
+                </select></td>
+              <td width="19%" align="right" bgcolor="#ffffff">{$lang.second_order}:</td>
+              <td width="11%" align="left" bgcolor="#ffffff"><select name="from_order">
+              <option value="0">{$lang.select}</option>
+
+                  {html_options options=$merge}
+
+                </select></td>
+              <td width="36%" bgcolor="#ffffff">&nbsp;<input name="act" value="merge_order" type="hidden" />
+              <input type="submit" name="Submit"  class="bnt_blue_1" style="border:none;"  value="{$lang.merge_order}" /></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffffff">&nbsp;</td>
+              <td colspan="4" align="left" bgcolor="#ffffff">{$lang.merge_order_notice}</td>
+            </tr>
+          </table>
+        </form>
           <!-- 订单结算 -->
-          <div class="hl-order-pay">
+          <!-- <div class="hl-order-pay">
             <div class="checkbox">
               <label><input type="checkbox" id="hl-checked-all" checked="checked"> 全选 </label>
             </div>
@@ -122,7 +118,7 @@
               </div>
               <a class="hl-order-settle hl-bg-red hl-white" href="">去结算</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
