@@ -25,13 +25,13 @@ var money = function() {
 }
 
 /*全部订单选择*/
-$(".hl-order-header").on('click', '.hl-order-header-item', function(event) {
-  event.preventDefault();
-  /* Act on the event */
-  if (!$(this).hasClass('active')) {
-    $(this).addClass('active').siblings().removeClass('active');
-  }
-});
+// $(".hl-order-header").on('click', '.hl-order-header-item', function(event) {
+//   event.preventDefault();
+//    Act on the event 
+//   if (!$(this).hasClass('active')) {
+//     $(this).addClass('active').siblings().removeClass('active');
+//   }
+// });
 
 /*商品计数器——减少*/
 $(".hl-counter").on('click', '.hl-counter-sub', function(event) {

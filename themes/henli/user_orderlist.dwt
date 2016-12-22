@@ -28,10 +28,10 @@
       <div class="hl-content-right">
         <div class="hl-order">
           <div class="hl-order-header hl-fs-15">
-            <a class="hl-order-header-item {if $status<1||$status>3}active{/if}" href="user.php?act=order_list">所有订单</a>
-            <a class="hl-order-header-item {if $status==1}active{/if}" href="user.php?act=order_list&status=1">代付款</a>
-            <a class="hl-order-header-item {if $status==2}active{/if}" href="user.php?act=order_list&status=2">待发货</a>
-            <a class="hl-order-header-item {if $status==3}active{/if}" href="user.php?act=order_list&status=3">待收货</a>
+            <a class="hl-order-header-item {if $status<1||$status>3}active{/if}" href="user.php?{$act}">所有订单</a>
+            <a class="hl-order-header-item {if $status==1}active{/if}" href="user.php?{$act}&status=1">代付款</a>
+            <a class="hl-order-header-item {if $status==2}active{/if}" href="user.php?{$act}&status=2">待发货</a>
+            <a class="hl-order-header-item {if $status==3}active{/if}" href="user.php?{$act}&status=3">待收货</a>
           </div>
        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
           <tr align="center">
@@ -87,38 +87,6 @@
             </tr>
           </table>
         </form>
-          <!-- 订单结算 -->
-          <!-- <div class="hl-order-pay">
-            <div class="checkbox">
-              <label><input type="checkbox" id="hl-checked-all" checked="checked"> 全选 </label>
-            </div>
-            <div class="hl-order-option">
-              <a href="#">删除选中商品</a>
-              <a href="#">移动到我的关注</a>
-              <a href="#">清除下架商品</a>
-            </div>
-
-            <div class="hl-order-price">
-              <div class="hl-order-select">
-                已选择商品
-                <span class="hl-red hl-bold hl-order-pro-num">0</span>件
-              </div>
-              <div class="hl-order-total">
-                <div class="hl-order-fact">
-                  <span class="hl-order-price-notice">总价：</span>
-                  <span class="hl-red hl-bold">￥</span>
-                  <span class="hl-order-money hl-red hl-fs-20 hl-bold">0.00</span>
-                  <img src="" alt="">
-                </div>
-                <div class="hl-order-save">
-                  <span class="hl-order-price-notice">以节约：</span>
-                  <span class="hl-fs-8 hl-bold hl-gray" >￥</span>
-                  <span class=" hl-fs-8 hl-bold hl-gray">0.00</span>
-                </div> 
-              </div>
-              <a class="hl-order-settle hl-bg-red hl-white" href="">去结算</a>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>

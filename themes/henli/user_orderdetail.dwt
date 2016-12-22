@@ -28,10 +28,10 @@
       <div class="hl-content-right"> 
         <div class="hl-order">
           <div class="hl-order-header hl-fs-15">
-            <a class="hl-order-header-item {if $status<1||$status>3}active{/if}" href="user.php?act=order_list&status=default">所有订单</a>
-            <a class="hl-order-header-item {if $status==1}active{/if}" href="user.php?act=order_list&status=1">代付款</a>
-            <a class="hl-order-header-item {if $status==2}active{/if}" href="user.php?act=order_list&status=2">待发货</a>
-            <a class="hl-order-header-item {if $status==3}active{/if}" href="user.php?act=order_list&status=3">待收货</a>
+            <a class="hl-order-header-item {if $status<1||$status>3}active{/if}" href="user.php?{$act}">所有订单</a>
+            <a class="hl-order-header-item {if $status==1}active{/if}" href="user.php?{$act}&status=1">代付款</a>
+            <a class="hl-order-header-item {if $status==2}active{/if}" href="user.php?{$act}&status=2">待发货</a>
+            <a class="hl-order-header-item {if $status==3}active{/if}" href="user.php?{$act}&status=3">待收货</a>
           </div>
           <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
         <tr>
@@ -39,6 +39,8 @@
           <td align="left" bgcolor="#ffffff">{$order.order_sn}
           <!-- {if $order.extension_code eq "group_buy"} -->
           <a href="./group_buy.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_group_buy}</strong></a>
+          <!-- {elseif $order.extension_code eq "seckill_buy"} -->
+          <a href="./seckill_buy.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_seckill_buy}</strong></a>
           <!-- {elseif $order.extension_code eq "exchange_goods"} -->
           <a href="./exchange.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_exchange}</strong></a>
           <!--{/if}-->  

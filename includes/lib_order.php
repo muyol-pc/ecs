@@ -407,7 +407,7 @@ function card_fee($card_id, $goods_amount)
  * @param   string  $order_sn   订单号
  * @return  array   订单信息（金额都有相应格式化的字段，前缀是formated_）
  */
-function order_info($order_id, $order_sn = '')
+function order_info($order_id, $order_sn = '',$user_id=0,$type=0)
 {
     /* 计算订单各种费用之和的语句 */
     $total_fee = " (goods_amount - discount - goods_discount_fee + tax + shipping_fee + insure_fee + pay_fee + pack_fee + card_fee) AS total_fee ";
@@ -417,10 +417,18 @@ function order_info($order_id, $order_sn = '')
         $sql = "SELECT *, " . $total_fee . " FROM " . $GLOBALS['ecs']->table('order_info') .
                 " WHERE order_id = '$order_id'";
     }
-    else
+    else if (!empty($order_sn))
     {
-        $sql = "SELECT *, " . $total_fee . "  FROM " . $GLOBALS['ecs']->table('order_info') .
+        $sql = "SELECT *, " . $total_fee . " FROM " . $GLOBALS['ecs']->table('order_info') .
                 " WHERE order_sn = '$order_sn'";
+    }else if ($user_id > 0) {
+        $sql = "SELECT sum(goods_amount) as goods_amount,sum(discount) as discount,sum(goods_discount_fee) as goods_discount_fee,sum(shipping_fee) as shipping_fee,sum(insure_fee) as insure_fee,sum(pay_fee) as pay_fee,sum(pack_fee) as pack_fee,sum(card_fee) as card_fee,sum(order_amount) as order_amount,sum(surplus) as surplus,sum(integral_money) as integral_money,sum(bonus) as bonus,sum(money_paid) as money_paid,sum(goods_amount - discount - goods_discount_fee + tax + shipping_fee + insure_fee + pay_fee + pack_fee + card_fee) AS total_fee   FROM " . $GLOBALS['ecs']->table('order_info') .
+                " WHERE user_id = $user_id";
+        if ($type == 1) {
+            $sql .= " AND shipping_status = 2 ";
+        }elseif ($type == 2) {
+            $sql .= " AND pay_status  < 2 and shipping_status < 2 AND order_status NOT IN (2,3) ";
+        }
     }
     $order = $GLOBALS['db']->getRow($sql);
 
@@ -458,6 +466,42 @@ function order_finished($order)
     return $order['order_status']  == OS_CONFIRMED &&
         ($order['shipping_status'] == SS_SHIPPED || $order['shipping_status'] == SS_RECEIVED) &&
         ($order['pay_status']      == PS_PAYED   || $order['pay_status'] == PS_PAYING);
+}
+
+/**
+ * 购买商品列表
+ * @param  int  $type   0 全部 1 已购买 2 待付款
+ * @return [type]       [description]
+ * shipping_status  tinyint(1)  否   商品配送情况;0未发货,1已发货,2已收货,4退货
+pay_status  tinyint(1)  否   支付状态;0未付款;1付款中;2已付款
+ */
+
+function order_goods_buy($type=0) {
+    $sql = "SELECT a.rec_id, a.goods_id, a.goods_name, a.goods_sn, a.market_price, a.goods_number " .
+            ",a.goods_price, a.goods_attr, a.is_real, a.parent_id, a.is_gift " .
+            ",a.goods_price * a.goods_number AS subtotal, a.extension_code " .
+            ",b.order_id ,b.order_sn ".
+            "FROM " . $GLOBALS['ecs']->table('order_goods') ." as a ".
+            "INNER JOIN " . $GLOBALS['ecs']->table('order_info') ." as b ".
+            "ON a.order_id = b.order_id ".
+            "WHERE 1=1 ";
+    if ($type == 1) {
+        $sql .= " AND b.shipping_status = 2 ";
+    }elseif ($type == 2) {
+        $sql .= " AND b.pay_status  < 2 AND shipping_status < 2 AND order_status NOT IN (2,3) ";
+    }
+    $res = $GLOBALS['db']->query($sql);
+    while ($row = $GLOBALS['db']->fetchRow($res))
+    {
+        if ($row['extension_code'] == 'package_buy')
+        {
+            $row['package_goods_list'] = get_package_goods($row['goods_id']);
+        }
+        $goods_list[] = $row;
+    }
+
+    //return $GLOBALS['db']->getAll($sql);
+    return $goods_list;
 }
 
 /**
