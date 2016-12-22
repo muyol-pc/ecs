@@ -299,8 +299,7 @@ elseif ($_REQUEST['act'] == 'buy')
 function seckill_count()
 {
     $now = gmtime();
-    $sql = "SELECT COUNT(*) " .
-            "FROM " . $GLOBALS['ecs']->table('seckill');
+    $sql = "SELECT COUNT(*) " ."FROM " . $GLOBALS['ecs']->table('seckill')." WHERE start_time>".$now;
 
     return $GLOBALS['db']->getOne($sql);
 }
@@ -319,7 +318,7 @@ function seckill_list($size, $page)
     $sql = "SELECT b.*, IFNULL(g.goods_thumb, '') AS goods_thumb,g.market_price, ".
                 "b.start_time AS start_date, b.end_time AS end_date " .
             "FROM " . $GLOBALS['ecs']->table('seckill') . " AS b " .
-                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON b.goods_id = g.goods_id ORDER BY b.id DESC";
+                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON b.goods_id = g.goods_id WHERE b.start_time>'".$now."' ORDER BY b.id DESC";
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 	
     while ($seckill = $GLOBALS['db']->fetchRow($res))
