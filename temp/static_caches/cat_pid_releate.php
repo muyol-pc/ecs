@@ -6,12 +6,12 @@ $data = array (
     'cat_name' => '冰洗',
     'measure_unit' => '',
     'parent_id' => '0',
-    'is_show' => '0',
+    'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',
     'sort_order' => '50',
     'has_children' => '0',
-    'goods_num' => '5',
+    'goods_num' => '2',
   ),
   1 => 
   array (
@@ -19,12 +19,12 @@ $data = array (
     'cat_name' => '厨电',
     'measure_unit' => '',
     'parent_id' => '0',
-    'is_show' => '0',
+    'is_show' => '1',
     'show_in_nav' => '0',
     'grade' => '0',
     'sort_order' => '50',
     'has_children' => '0',
-    'goods_num' => '2',
+    'goods_num' => '13',
   ),
 );
 ?>

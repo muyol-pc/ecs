@@ -1,69 +1,29 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:79:"/home/ximenzijiadianbxhigmheenmzgisjki2aydoira2n/wwwroot/themes/henli/goods.dwt";i:1;s:97:"/home/ximenzijiadianbxhigmheenmzgisjki2aydoira2n/wwwroot/themes/henli/library/page_header_top.lbi";i:2;s:93:"/home/ximenzijiadianbxhigmheenmzgisjki2aydoira2n/wwwroot/themes/henli/library/page_header.lbi";i:3;s:89:"/home/ximenzijiadianbxhigmheenmzgisjki2aydoira2n/wwwroot/themes/henli/library/ur_here.lbi";i:4;s:93:"/home/ximenzijiadianbxhigmheenmzgisjki2aydoira2n/wwwroot/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482137822;s:8:"maketime";i:1482134222;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=8">
-<meta name="Keywords" content="" />
-<meta name="Description" content="" />
-<title>西门子i-Dos洗涤液自添加洗衣机_冰洗_西门子</title>
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
-<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
- 
-<script type="text/javascript" src="js/common.js"></script><script type="text/javascript"  src="js/action.js"></script>
-<script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
-<script type="text/javascript">
-function $id(element) {
-  return document.getElementById(element);
-}
-//切屏--是按钮，_v是内容平台，_h是内容库
-function reg(str){
-  var bt=$id(str+"_b").getElementsByTagName("h2");
-  for(var i=0;i<bt.length;i++){
-    bt[i].subj=str;
-    bt[i].pai=i;
-    bt[i].style.cursor="pointer";
-    bt[i].onclick=function(){
-      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
-      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
-        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
-        var ison=j==this.pai;
-        _bt.className=(ison?"":"h2bg");
-      }
-    }
-  }
-  $id(str+"_h").className="none";
-  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
-}
-</script>
+  <meta charset="UTF-8">
+  <title><?php echo $this->_var['page_title']; ?></title>
+  <link rel="stylesheet" type="text/css" href="themes/henli/inc/css/category-details.css"/>
+  <script type="text/javascript" src="themes/henli/inc/public/lib/jquery/jquery.min.js"></script>
+  
+  <?php echo $this->smarty_insert_scripts(array('files'=>'common.js,lefttime.js')); ?>
 </head>
-<body> 
-<link href="" rel="stylesheet" type="text/css" />
-<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script type="text/javascript">  
-var process_request = "正在处理您的请求...";
-</script>
-<!--[if lt IE 9]>
-  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+<body>
 <div class="hl-status">
-  <div class="hl-center"> 
+  <div class="hl-center">
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
-              <a class="hl-user hl-a3" href="user.php" target="_blank">登录</a>
-        <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
-          </div>
+      <a class="hl-user hl-a3" href="" target="_blank">18585272260</a>
+      <a class="hl-user-center" href="" target="_blank">个人中心</a>
+      <a class="hl-cart" href="" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr" title='5'>5</i></a>
+      <a class="hl-message" href="" target="_blank">在线留言</a>
+    </div>
   </div>
-</div> 
-<script type="text/javascript">
-var process_request = "正在处理您的请求...";
-</script>
-<div class="hl-header hl-header-bottom">
-  <div class="hl-center hl-nav"> 
-    <a class="hl-logo hl-mr10" href="http://mall.honrisen.com"></a>
+</div>
+<div class="hl-header hl-border-bottom">
+  <div class="hl-center hl-nav">
+    <a class="hl-logo hl-mr10" href=""></a>
     <a class="hl-mr20" href="" target="_blank">西门子家电</a>
     <a class="hl-mr20" href="" target="_blank">展望未来</a>
     <div class="hl-search hl-f0">
@@ -71,13 +31,7 @@ var process_request = "正在处理您的请求...";
       <button class="hl-search-button"></button>
     </div>
   </div>
-</div><div class="hl-w1100">
-<div class="blank"></div>
-<div id="ur_here">
-当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 西门子i-Dos洗涤液自添加洗衣机 
 </div>
-</div>
-<div class="blank"></div>
 <div class="hl-container">
   <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
@@ -90,24 +44,62 @@ var process_request = "正在处理您的请求...";
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="images/201612/goods_img/3_G_1482101253800.jpg" src="images/201612/goods_img/3_P_1482101253490.png" width="478"/>
+            <img zoom-img="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png" />
           </div>
         </div>
-                
-              </div>
+        <div class="hl-spec-scroll">
+          <a class="hl-prev">&lt;</a>
+          <a class="hl-next">&gt;</a>
+          <div class="hl-items">
+            <ul>
+              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
+              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69">西门子i-Dos洗涤液自添加洗衣机</h1>
+          <h1 class="hl-f18 hl-fwn hl-69"><?php echo $this->_var['gb_goods']['goods_name']; ?></h1>
           
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
             <span class="hl-fr hl-f18">已有10人参团，还差3人即可享受优惠</span>
           </div> -->
           
-          <!-- <div class="hl-ad hl-ff hl-f20">
+          <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-clock">特价秒杀</span>
-            <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
-          </div> -->
+            <?php if ($this->_var['seckill']['cur_status'] == 0): ?>
+            <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                距结束&nbsp;
+                <p id="v:timeCounter" style="margin:0px;float:right;">
+                    <span id="leftTime"><?php echo $this->_var['lang']['please_waiting']; ?></span>
+                </p>
+                <p id="time_loading" class="tuan_time_loading"></p>
+            </span>
+
+            <?php elseif ($this->_var['seckill']['cur_status'] == 1): ?>
+            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动进行中...</p>
+            <p id="time_loading" class="tuan_time_loading"></p>
+            <?php else: ?>
+            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动已结束...</p>
+            <?php endif; ?>
+          </div>
+          <!--<div class="hl-ad hl-ff hl-f20">
+              <span class="hl-fl hl-clock">特价秒杀</span>
+              <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
+          </div>-->
+
         </div>
         <div class="hl-summary">
           
@@ -121,7 +113,7 @@ var process_request = "正在处理您的请求...";
           </div> -->
           
           <div class="hl-price hl-f18">
-            价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
+            秒杀价 <strong class="hl-f30 hl-fmr">&yen; <?php echo $this->_var['seckill']['seckill_price']; ?></strong>
           </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div class="hl-dt">送　　至</div>
@@ -252,21 +244,21 @@ var process_request = "正在处理您的请求...";
               <a class="hl-contact-me hl-66" href="#"><i></i>联系客服</a>
             </div> -->
             
-            <!--<div class="hl-gift">
+            <div class="hl-gift">
               <div class="hl-dt">赠　　品</div>
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
-            </div>-->
+            </div>
             
-             <div class="hl-support-panel">
+            <!-- <div class="hl-support-panel">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
                 <span class="hl-yjhx hl-f0">
                   <a href="" class="hl-yjfx">
-                    <i>以旧换新</i>
+                    <i></i>以旧换新
                   </a>
                 </span>
               </div>
-            </div>
+            </div> -->
             <div class="hl-proinfo-color">
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
@@ -367,6 +359,7 @@ var process_request = "正在处理您的请求...";
                 </ul>
               </div>
             </div>
+
             <div class="hl-dt">数　　量</div>
             <div class="hl-dd hl-buy-count hl-f0">
               <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
@@ -382,8 +375,8 @@ var process_request = "正在处理您的请求...";
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
-            <a href="javascript:addToCart(3)" class="hl-buy-now">立即购买</a>
-            <a href="javascript:addToCart(3)" class="hl-add-cart">加入购物车</a>
+            <a href="javascript:;" class="hl-buy-now">立即购买</a>
+            <a href="javascript:;" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -392,30 +385,27 @@ var process_request = "正在处理您的请求...";
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-                   <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=1"><img src="images/201612/goods_img/1_G_1482101132312.jpg" alt=""></a>
-            <div class="hl-price">
-             价格暂定
-              <strong class="hl-disp-b hl-ups hl-f24">
-                     价格暂定
-             </strong>
-              <a class="hl-name hl-f14 hl-72" href="goods.php?id=1">西门子（SIE...</a>
-            </div>
-          </li>
-          <!-- <li>
-            <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
+          <li>
+            <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
               <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
             </div>
           </li>
           <li>
-            <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
+            <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
               <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
             </div>
-          </li> -->
+          </li>
+          <li>
+            <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/img/hl-product-8.png" alt=""></a>
+            <div class="hl-price">
+              <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
+              <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="hl-product-detail hl-fr">
@@ -429,13 +419,29 @@ var process_request = "正在处理您的请求...";
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
-                          </div>
-            <style>
-            .hl-product-pics td{padding:0;border:0;}
-            .hl-product-pics tr{border:0;}
-            </style>
-            <div class="hl-product-pics" style="overflow:hidden;">
-            <img src="/includes/kindeditor/attached/image/20161219/20161219064820_85040.jpg" alt="" />            </div>
+                <h2 class="hl-f12 hl-66 hl-fl">核心参数</h2>
+                <a class="hl-fr" href="">更多参数</a>
+              </div>
+              <ul class="hl-tab-table hl-f12 hl-clearfix">
+                <li>颜色：浅金色</li>
+                <li>面板类型：金属</li>
+                <li>制冷方式：冷风</li>
+                <li>控温方式：电脑控温</li>
+                <li>日耗电量：1.35</li>
+                <li>国家能效等级：2级</li>
+                <li>日冷冻能力：12千克</li>
+                <li>除霜模式：自动</li>
+                <li>总有效容积：610升</li>
+              </ul>
+            </div>
+            <div class="hl-product-pics">
+              <p>
+                <img src="themes/henli/inc/img/hl-product-6.png" alt="">
+              </p>
+              <p>
+                <img src="themes/henli/inc/img/hl-product-7.png" alt="">
+              </p>
+            </div>
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
@@ -825,25 +831,48 @@ var process_request = "正在处理您的请求...";
       </div>
     </div>
   </div>
-<div class="hl-center hl-server">
-  <ul class="hl-clearfix">
-    <li class="hl-tel">
-      <p>客户热线</p>
-      <p>7x24小时服务400-88-99999</p>
-    </li>
-    <li class="hl-ater">
-      <p>在线咨询</p>
-      <p>服务时间：周一至周日</p>
-    </li>
-    <li class="hl-wechart">
-      <p>官方微信</p>
-      <p>关注西门子家电微信，享受专业的贴心服务</p>
-    </li>
-  </ul>
+  <div class="hl-center hl-server hl-mt100">
+    <ul class="hl-clearfix">
+      <li class="hl-tel">
+        <p>客户热线</p>
+        <p>7x24小时服务400-88-99999</p>
+      </li>
+      <li class="hl-ater">
+        <p>在线咨询</p>
+        <p>服务时间：周一至周日</p>
+      </li>
+      <li class="hl-wechart">
+        <p>官方微信</p>
+        <p>关注西门子家电微信，享受专业的贴心服务</p>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="hl-footer hl-f14 hl-44 hl-tc">
-  <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  苏ICP备10003401号
+  &copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苏ICP备10003401号
 </div>
+<script type="text/javascript" src="themes/henli/inc/public/lib/zoom/zoom.js"></script>
+<script type="text/javascript" src="themes/henli/inc/public/dev/category-details.js"></script>
 </body>
+<script type="text/javascript">
+    var gmt_end_time = "<?php echo empty($this->_var['seckill']['gmt_end_date']) ? '0' : $this->_var['seckill']['gmt_end_date']; ?>";
+    <?php $_from = $this->_var['lang']['goods_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+    var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
+    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+    var now_time = <?php echo $this->_var['now_time']; ?>;
+    
+
+    onload = function()
+    {
+      try
+      {
+        onload_leftTime();
+      }
+      catch (e)
+      {}
+    }
+    
+</script>
 </html>

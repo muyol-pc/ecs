@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="58ecb04f-42a5-434a-8ab7-0c9ac194715c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ecs.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\0\group_buy_list_C5A54C97.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\0\index_E6805D44.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\2\goods_2A3C7B79.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\4\category_869BD09B.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\4\goods_4E5D16B0.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\caches\f\index_40F756F0.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\category.dwt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\goods.dwt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\group_buy_list.dwt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\index.dwt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\index_ad.lbi.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\page_header_top.lbi.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\pages.lbi.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\compiled\user_clips.dwt.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\query_caches\sqlcache_config_file_77a1f46fa39dc0ece526cf7b2e95df30.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\static_caches\api_str.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\test\ecs\temp\static_caches\recommend_goods.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/static_caches/cat_option_static.php" afterPath="$PROJECT_DIR$/temp/static_caches/cat_option_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/static_caches/cat_pid_releate.php" afterPath="$PROJECT_DIR$/temp/static_caches/cat_pid_releate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/category_tree.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/category_tree.lbi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/config.php" afterPath="$PROJECT_DIR$/data/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/history.lbi.php" afterPath="$PROJECT_DIR$/temp/compiled/history.lbi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/admin/message.htm.php" afterPath="$PROJECT_DIR$/temp/compiled/admin/message.htm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/compiled/admin/pageheader.htm.php" afterPath="$PROJECT_DIR$/temp/compiled/admin/pageheader.htm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seckill.php" afterPath="$PROJECT_DIR$/seckill.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/seckill_goods.dwt" afterPath="$PROJECT_DIR$/themes/henli/seckill_goods.dwt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/static_caches/shop_config.php" afterPath="$PROJECT_DIR$/temp/static_caches/shop_config.php" />
+    </list>
+    <ignored path="ecs.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ecs" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="seckill.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/seckill.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="52" selection-start="3751" selection-end="3751" vertical-scroll-proportion="-8.553572" vertical-offset="2007" max-vertical-offset="10142">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/languages/zh_cn/common.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="22" selection-start="1032" selection-end="1046" vertical-scroll-proportion="-5.017857" vertical-offset="115" max-vertical-offset="15972">
+              <folding>
+                <marker date="1482341005170" expanded="false" signature="19503:19540" placeholder="..." />
+                <marker date="1482341005170" expanded="false" signature="19708:19722" placeholder="..." />
+                <marker date="1482341005170" expanded="false" signature="19873:19887" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lib_goods.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/lib_goods.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1304" column="1" selection-start="47759" selection-end="47759" vertical-scroll-proportion="-8.793103" vertical-offset="28191" max-vertical-offset="33352">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seckill.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/seckill.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="356" column="45" selection-start="10416" selection-end="10416" vertical-scroll-proportion="-57.793102" vertical-offset="5914" max-vertical-offset="10604">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seckill_goods.dwt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/henli/seckill_goods.dwt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="19" selection-start="4974" selection-end="4974" vertical-scroll-proportion="0.6055046" vertical-offset="1650" max-vertical-offset="19360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seckill_list.dwt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/henli/seckill_list.dwt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="9" selection-start="6589" selection-end="6589" vertical-scroll-proportion="0.0" vertical-offset="2590" max-vertical-offset="3476">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/henli/inc/inc/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="348" column="13" selection-start="8859" selection-end="8859" vertical-scroll-proportion="0.0" vertical-offset="7313" max-vertical-offset="37928">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/data/config.php" />
+        <option value="$PROJECT_DIR$/themes/henli/seckill_detail.dwt" />
+        <option value="$PROJECT_DIR$/admin/order.php" />
+        <option value="$PROJECT_DIR$/themes/henli/inc/inc/app.css" />
+        <option value="$PROJECT_DIR$/seckill.php" />
+        <option value="$PROJECT_DIR$/themes/henli/seckill_list.dwt" />
+        <option value="$PROJECT_DIR$/admin/templates/account_list.htm" />
+        <option value="$PROJECT_DIR$/themes/henli/seckill_goods.dwt" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1928" />
+    <option name="y" value="-198" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="henli" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="languages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="languages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zh_cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58ecb04f-42a5-434a-8ab7-0c9ac194715c" name="Default" comment="" />
+      <created>1482370154048</created>
+      <updated>1482370154048</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-198" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12353568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/seckill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="5" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10406">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/seckill_list.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="26" selection-start="4662" selection-end="4662" vertical-scroll-proportion="0.0" vertical-offset="2119" max-vertical-offset="3476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/inc/inc/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="339" column="29" selection-start="8657" selection-end="8657" vertical-scroll-proportion="0.0" vertical-offset="7313" max-vertical-offset="37928">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="17" selection-start="316" selection-end="316" vertical-scroll-proportion="0.6702509" vertical-offset="0" max-vertical-offset="1210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/seckill_goods_info.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/seckill_goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="403" column="71" selection-start="11626" selection-end="11640" vertical-scroll-proportion="-5.6551723" vertical-offset="8460" max-vertical-offset="10098" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="139524" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/seckill_detail.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="0" selection-end="18878" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8602" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/seckill.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="9" selection-start="0" selection-end="12126" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6160" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/seckill_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/seckill_info.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3982" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/index.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="43" selection-start="849" selection-end="849" vertical-scroll-proportion="0.68989545" vertical-offset="0" max-vertical-offset="2178" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="373" column="9" selection-start="10984" selection-end="10984" vertical-scroll-proportion="-0.123655915" vertical-offset="8033" max-vertical-offset="45452">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/library/pages.lbi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="21" selection-start="1625" selection-end="1647" vertical-scroll-proportion="0.5553663" vertical-offset="356" max-vertical-offset="1474" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_time.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="605" selection-end="605" vertical-scroll-proportion="0.34367815" vertical-offset="9" max-vertical-offset="3916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="9" selection-start="2283" selection-end="2283" vertical-scroll-proportion="-0.035632186" vertical-offset="2187" max-vertical-offset="63162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/seckill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="356" column="45" selection-start="10416" selection-end="10416" vertical-scroll-proportion="-57.793102" vertical-offset="5914" max-vertical-offset="10604">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/lib_goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1304" column="1" selection-start="47759" selection-end="47759" vertical-scroll-proportion="-8.793103" vertical-offset="28191" max-vertical-offset="33352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/inc/inc/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="13" selection-start="8859" selection-end="8859" vertical-scroll-proportion="0.0" vertical-offset="7313" max-vertical-offset="37928">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/seckill_list.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="9" selection-start="6589" selection-end="6589" vertical-scroll-proportion="0.0" vertical-offset="2590" max-vertical-offset="3476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/account_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="41" selection-start="1501" selection-end="1501" vertical-scroll-proportion="0.70804596" vertical-offset="0" max-vertical-offset="2574">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seckill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="52" selection-start="3751" selection-end="3751" vertical-scroll-proportion="-8.553572" vertical-offset="2007" max-vertical-offset="10142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/languages/zh_cn/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="22" selection-start="1032" selection-end="1046" vertical-scroll-proportion="-5.017857" vertical-offset="115" max-vertical-offset="15972">
+          <folding>
+            <marker date="1482341005170" expanded="false" signature="19503:19540" placeholder="..." />
+            <marker date="1482341005170" expanded="false" signature="19708:19722" placeholder="..." />
+            <marker date="1482341005170" expanded="false" signature="19873:19887" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/seckill_goods.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="19" selection-start="4974" selection-end="4974" vertical-scroll-proportion="0.6055046" vertical-offset="1650" max-vertical-offset="19360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
