@@ -22,3 +22,4 @@ Disallow: /respond.php
 Disallow: /feed.php
 Disallow: /gallery.php
 
+
