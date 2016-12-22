@@ -70,7 +70,7 @@
                     <span class="hl-fs-20 hl-bold hl-yellow" style="font-size: 1.5rem!important;">&yen; {$seckill.seckill_price}</span>
                   </div>
                   <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8" style="width:65%;background-size: cover;">
-                    <span>距开始</span>
+                    <span>距结束</span>
                     <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">{$seckill.surplus_day}</span>
                     <span>天</span>
                     <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">{$seckill.surplus_hour}</span>

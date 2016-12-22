@@ -347,7 +347,7 @@ function seckill_list($size, $page)
 				$seckill['cur_status']  = 1;
 			}
 		}
-		$surplus = time2string($seckill['start_date']-time());
+		$surplus = time2string($seckill['end_date']-time());
 		$seckill['surplus_day']			= $surplus['day'];
 		$seckill['surplus_hour']		= $surplus['hour'];
 		$seckill['surplus_minute']		= $surplus['minute'];
