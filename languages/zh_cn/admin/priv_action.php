@@ -122,6 +122,8 @@ $_LANG['favourable'] = '优惠活动';
 $_LANG['whole_sale'] = '批发管理';
 $_LANG['package_manage'] = '超值礼包';
 $_LANG['exchange_goods'] = '积分商城商品';
+//秒杀活动
+$_LANG['seckill'] = '商品秒杀';
 
 //邮件管理
 $_LANG['attention_list'] = '关注管理';
@@ -155,10 +157,5 @@ $_LANG['charge_history']  = '充值记录 ';
 $_LANG['certificate_manage'] = '授权绑定';
 //移动版开通引导页管理
 $_LANG['lead_manage'] = '移动版';
-
-//秒杀管理
-$_LANG['seckill']         = '秒杀管理';
-$_LANG['seckill_list']         = '秒杀显示';
-$_LANG['seckill_add']         = '秒杀添加';
 
 ?>

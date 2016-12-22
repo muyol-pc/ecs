@@ -4871,6 +4871,7 @@ function order_list()
         $filter['user_name'] = empty($_REQUEST['user_name']) ? '' : trim($_REQUEST['user_name']);
         $filter['composite_status'] = isset($_REQUEST['composite_status']) ? intval($_REQUEST['composite_status']) : -1;
         $filter['group_buy_id'] = isset($_REQUEST['group_buy_id']) ? intval($_REQUEST['group_buy_id']) : 0;
+		$filter['seckill_id'] = isset($_REQUEST['seckill_id']) ? intval($_REQUEST['seckill_id']) : 0;	//秒杀活动
 
         $filter['sort_by'] = empty($_REQUEST['sort_by']) ? 'add_time' : trim($_REQUEST['sort_by']);
         $filter['sort_order'] = empty($_REQUEST['sort_order']) ? 'DESC' : trim($_REQUEST['sort_order']);
@@ -4998,6 +4999,12 @@ function order_list()
         if ($filter['group_buy_id'])
         {
             $where .= " AND o.extension_code = 'group_buy' AND o.extension_id = '$filter[group_buy_id]' ";
+        }
+		
+		/* 秒杀订单 */
+        if ($filter['seckill_id'])
+        {
+            $where .= " AND o.extension_code = 'seckill' AND o.extension_id = '$filter[seckill_id]' ";
         }
 
         /* 如果管理员属于某个办事处，只列出这个办事处管辖的订单 */

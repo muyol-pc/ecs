@@ -144,7 +144,7 @@ function onload_leftTime(now_time)
   {
     if (now_time == undefined)
     {
-      var tmp_val = parseInt(_GMTEndTime) - parseInt(cur_date.getTime() / 1000 + cur_date.getTimezoneOffset() * 60);
+      var tmp_val = parseInt(_GMTEndTime) - parseInt(cur_date.getTime() / 1000 + cur_date.getTimezoneOffset() * 60)-8*3600;
     }
     else
     {

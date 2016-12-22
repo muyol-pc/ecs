@@ -49,7 +49,7 @@ $modules['03_promotion']['08_group_buy']            = 'group_buy.php?act=list';
 //$modules['03_promotion']['14_package_list']         = 'package.php?act=list';
 //$modules['03_promotion']['ebao_commend']            = 'ebao_commend.php?act=list';
 //$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
-$modules['03_promotion']['16_seckill']       = 'seckill_goods.php?act=add';
+$modules['03_promotion']['16_seckill']       = 'seckill.php?act=list';
 
 
 

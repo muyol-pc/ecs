@@ -212,7 +212,7 @@ function get_shipping_config($area_id)
  * @access  public
  * @return  object
  */
-function init_users()
+function &init_users()
 {
     $set_modules = false;
     static $cls = null;
@@ -1493,6 +1493,8 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                   'auid'  => 0,
                   'sort'  => '',
                   'order' => '',
+				  //秒杀活动
+				  'msid'  => 0,
                 );
 
     extract(array_merge($args, $params));
@@ -1705,6 +1707,18 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
             else
             {
                 $uri = $rewrite ? 'group_buy-' . $gbid : 'group_buy.php?act=view&amp;id=' . $gbid;
+            }
+
+            break;
+		//秒杀活动
+		case 'seckill':
+            if (empty($msid))
+            {
+                return false;
+            }
+            else
+            {
+                $uri = $rewrite ? 'seckill-' . $msid : 'seckill.php?act=view&amp;id=' . $msid;
             }
 
             break;

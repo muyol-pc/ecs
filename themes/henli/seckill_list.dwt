@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="themes/henli/inc/inc/app.css" rel="stylesheet">
+    <title>秒杀</title> 
+  </head>
+  <body>
+    <div class="hl-status">
+      <div class="hl-center">
+        <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
+        <div class="hl-fr">
+          <a class="hl-user hl-a3" href="" target="_blank">18585272260</a>
+          <a class="hl-user-center" href="" target="_blank">个人中心</a>
+          <a class="hl-cart" href="" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr" title='5'>5</i></a>
+          <a class="hl-message" href="" target="_blank">在线留言</a> 
+        </div>
+      </div>
+    </div>
+    <div class="hl-header">
+      <div class="hl-center hl-nav"> 
+        <a class="hl-logo hl-mr10" href=""></a>
+        <a class="hl-mr20" href="" target="_blank">西门子家电</a>
+        <a class="hl-mr20" href="" target="_blank">展望未来</a>
+        <div class="hl-search hl-f0">
+          <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
+          <button class="hl-search-button"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 面包屑导航 -->
+    <nav class="hl-breadcrumb hl-w1100 hl-f14">
+      <span class="hl-notice">您当前所在的位置 : </span>
+      <span class="hl-prev"><a href="#">首页</a> &gt; </span>
+      <span class="hl-prev"><a href="#">活动专区</a> &gt; </span>
+      <span class="hl-now hl-blue">秒杀</span>
+    </nav>
+
+    <div class="hl-w1100">
+      <img src="themes/henli/inc/inc/images/hl-sigin-bg.png" alt="">
+    </div>
+
+    <div class="hl-w1100 hl-clearfix">
+      <ul class="hl-countdown-list hl-mt20">
+        <!-- 奇数列添加 hl-mr20 偶数列添加hl-ml20 -->
+        <li class="hl-half">
+          <a href="#" target="_blank" class="hl-countdown-item hl-mr20 hl-border-blue hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="hl-half">
+          <a href="#" target="_blank" class="hl-countdown-item hl-ml20 hl-border-gray hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="hl-half">
+          <a href="#" target="_blank" class="hl-countdown-item hl-mr20 hl-border-blue hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="hl-half">
+          <a href="#" target="_blank" class="hl-countdown-item hl-ml20 hl-border-gray hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="hl-half">
+          <a href="#" target="_blank" target="_blank" class="hl-countdown-item hl-mr20 hl-border-blue hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="hl-half">
+          <a href="#" target="_blank" class="hl-countdown-item hl-ml20 hl-border-gray hl-p10 hl-bg-shade">
+            <span class="hl-p-img hl-disp-b hl-tc" href="">
+              <img src="images/hl-product-4.png" alt="">
+            </span>
+            <div class="hl-mt5">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</div>
+
+            <div style="height: 36px;line-height: 36px;">
+              <div class="hl-half hl-gray">
+                <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
+                <s class="hl-fs-15 hl-bold">&yen; 16988.00</s>
+              </div>
+              <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+            </div>
+
+            <div style="height: 36px;line-height: 38px;">
+              <div class="hl-half hl-gray">
+                <span>秒杀价:</span>
+                <span class="hl-fs-20 hl-bold hl-yellow">&yen; 2144.00</span>
+              </div>
+              <div class="hl-half hl-countdown hl-text-r hl-white hl-fs-8">
+                <span>距结束</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">10</span>
+                <span>时</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">3</span>
+                <span>分</span>
+                <span class="hl-countdown-num hl-blue hl-fs-15 hl-blod">35</span>
+                <span>秒</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="hl-page hl-f0 hl-text-c hl-w1100">
+      <a class="hl-prev" href="javascript:;">&lt;</a>
+      <a href="javascript:;">1</a>
+      <a class="hl-curr" href="javascript:;">2</a>
+      <a href="javascript:;">3</a>
+      <a class="hl-next" href="javascript:;">&gt;</a>
+    </div>
+    <br>
+    <br>
+    <div class="hl-center hl-server">
+      <ul class="hl-clearfix">
+        <li class="hl-tel">
+          <p>客户热线</p>
+          <p>7x24小时服务400-88-99999</p>
+        </li>
+        <li class="hl-ater">
+          <p>在线咨询</p>
+          <p>服务时间：周一至周日</p>
+        </li>
+        <li class="hl-wechart">
+          <p>官方微信</p>
+          <p>关注西门子家电微信，享受专业的贴心服务</p>
+        </li>
+      </ul>
+    </div>
+    <div class="hl-footer hl-f14 hl-44 hl-tc">
+      <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      苏ICP备10003401号
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="themes/henli/inc/inc/js/seckill.js"></script>
+  </body>
+</html>
