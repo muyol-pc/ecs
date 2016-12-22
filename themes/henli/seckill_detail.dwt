@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="themes/henli/inc/inc/app.css" rel="stylesheet">
+    <link href="themes/henli/inc/inc/js/unslider/unslider.css" rel="stylesheet">
+    <!-- <link href="themes/henli/inc/inc/js/unslider/unslider.dots.css" rel="stylesheet"> -->
+    <title>秒杀详情</title>
+  </head> 
+  <body>
+    <div class="hl-status">
+      <div class="hl-center">
+        <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
+        <div class="hl-fr">
+          <a class="hl-user hl-a3" href="" target="_blank">18585272260</a>
+          <a class="hl-user-center" href="" target="_blank">个人中心</a>
+          <a class="hl-cart" href="" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr" title='5'>5</i></a>
+          <a class="hl-message" href="" target="_blank">在线留言</a> 
+        </div>
+      </div>
+    </div>
+    <div class="hl-header">
+      <div class="hl-center hl-nav"> 
+        <a class="hl-logo hl-mr10" href=""></a>
+        <a class="hl-mr20" href="" target="_blank">西门子家电</a>
+        <a class="hl-mr20" href="" target="_blank">展望未来</a>
+        <div class="hl-search hl-f0">
+          <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
+          <button class="hl-search-button"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 面包屑导航 -->
+    <nav class="hl-breadcrumb hl-w1100 hl-f14">
+      <span class="hl-notice">您当前所在的位置 : </span>
+      <span class="hl-prev"><a href="#">首页</a> &gt; </span>
+      <span class="hl-prev"><a href="#">活动专区</a> &gt; </span>
+      <span class="hl-now hl-blue"><a href="#">秒杀</a> &gt; </span>
+      <span class="hl-now hl-blue">西门子BCD-618W</span>
+    </nav>
+    
+    <div class="hl-center">
+      <div class="hl-product-intro hl-mb30 hl-clearfix">
+        <div class="hl-preview hl-fl hl-fs-12">
+          <!-- 大图轮转 -->
+          <div class="hl-banner hl-tc" style="height: 350px;">
+            <ul>
+              <li><img src="themes/henli/inc/inc/images/hl-product-4.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-4.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-4.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-4.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-5.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-5.png" alt=""></li>
+              <li><img src="themes/henli/inc/inc/images/hl-product-5.png" alt=""></li>
+            </ul>
+          </div>
+          <br>
+          <!-- 缩略图滚动 -->
+          <div class="hl-thumb" style="height:100px;">
+            <span class="hl-arrow-l"></span>
+            <span class="hl-arrow-r"></span>
+            <ul class="hl-text-c hl-clearfix">
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt=""></li>
+              <li class="active" style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+              <li style="width: 33.33%;"><img src="themes/henli/inc/inc/images/hl-product-4.png" alt="" ></li>
+            </ul>
+          </div>
+        </div>
+        <div class="hl-product-main hl-fl">
+          <div class="hl-intro hl-mb10">
+            <h1 class="hl-f18 hl-fwn hl-69">西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）</h1>
+            <div class="hl-ad hl-ff hl-f20">
+              <span class="hl-fl">团购特惠</span>
+              <span class="hl-fr hl-f18">已有10人参团，还差3人即可享受优惠</span>
+            </div>
+          </div>
+          <div class="hl-summary">
+            <div class="hl-price hl-f18">
+              团购价
+              <strong class="hl-f30 hl-">&yen; 6988.00</strong>
+              <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;8988.00</b></span>
+            </div>
+            <div class="hl-stock hl-f12 hl-66">
+              <div class="hl-dt">送　　至</div>
+              <div class="hl-dd hl-clearfix">
+                <!-- hover 添加：hl-open -->
+                <div class="hl-store-selector hl-fl">
+                  <div class="hl-city">
+                    <div class="hl-text hl-active">
+                      <div class="hl-address-placement">四川&nbsp;成都市&nbsp;高新区</div>
+                      <b></b>
+                    </div>
+                    <div class="hl-city-group">
+                      <div class="hl-content">
+                        <ul class="hl-tab-city hl-clearfix">
+                        <!-- 点击添加：hl-curr -->
+                          <li class="hl-curr hl-active">
+                            <p><a href="javascript:;">四川</a><b></b></p>
+                          </li>
+                          <li>
+                            <p><a href="javascript:;">成都</a><b></b></p>
+                          </li>
+                          <li>
+                            <p><a href="javascript:;">高新区</a><b></b></p>
+                          </li>
+                        </ul>
+                        <div class="hl-tab-content">
+                        <!-- 点击tab添加：hl-active -->
+                          <div class="hl-panel hl-province-arr hl-active">
+                            <!-- 
+                              点击添加：hl-on
+                              页面刷新添加：hl-on
+                            -->
+                            <span><a class="" href="javascript:;">北京</a></span>
+                            <span><a href="javascript:;">上海</a></span>
+                            <span><a href="javascript:;">天津</a></span>
+                            <span><a href="javascript:;">重庆</a></span>
+                            <span><a href="javascript:;">河北</a></span>
+                            <span><a href="javascript:;">山西</a></span>
+                            <span><a href="javascript:;">河南</a></span>
+                            <span><a href="javascript:;">辽宁</a></span>
+                            <span><a href="javascript:;">吉林</a></span>
+                            <span><a href="javascript:;">黑龙江</a></span>
+                            <span><a href="javascript:;">内蒙古</a></span>
+                            <span><a href="javascript:;">江苏</a></span>
+                            <span><a href="javascript:;">山东</a></span>
+                            <span><a href="javascript:;">安徽</a></span>
+                            <span><a href="javascript:;">浙江</a></span>
+                            <span><a href="javascript:;">福建</a></span>
+                            <span><a href="javascript:;">湖北</a></span>
+                            <span><a href="javascript:;">湖南</a></span>
+                            <span><a href="javascript:;">广东</a></span>
+                            <span><a href="javascript:;">广西</a></span>
+                            <span><a href="javascript:;">江西</a></span>
+                            <span><a href="javascript:;">四川</a></span>
+                            <span><a href="javascript:;">海南</a></span>
+                            <span><a href="javascript:;">贵州</a></span>
+                            <span><a href="javascript:;">云南</a></span>
+                            <span><a href="javascript:;">西藏</a></span>
+                            <span><a href="javascript:;">陕西</a></span>
+                            <span><a href="javascript:;">甘肃</a></span>
+                            <span><a href="javascript:;">青海</a></span>
+                            <span><a href="javascript:;">宁夏</a></span>
+                            <span><a href="javascript:;">新疆</a></span>
+                            <span><a href="javascript:;">台湾</a></span>
+                            <span><a href="javascript:;">港澳</a></span>
+                            <span><a href="javascript:;">钓鱼岛</a></span>
+                          </div>
+                          <div class="hl-panel hl-city-arr">
+                            <span><a href="javascript:;">凉山州</a></span>
+                            <span><a href="javascript:;">成都市</a></span>
+                            <span><a href="javascript:;">自贡市</a></span>
+                            <span><a href="javascript:;">攀枝花市</a></span>
+                            <span><a href="javascript:;">泸州市</a></span>
+                            <span><a href="javascript:;">绵阳市</a></span>
+                            <span><a href="javascript:;">德阳市</a></span>
+                            <span><a href="javascript:;">广元市</a></span>
+                            <span><a href="javascript:;">遂宁市</a></span>
+                            <span><a href="javascript:;">内江市</a></span>
+                            <span><a href="javascript:;">乐山市</a></span>
+                            <span><a href="javascript:;">宜宾市</a></span>
+                            <span><a href="javascript:;">广安市</a></span>
+                            <span><a href="javascript:;">南充市</a></span>
+                            <span><a href="javascript:;">达州市</a></span>
+                            <span><a href="javascript:;">巴中市</a></span>
+                            <span><a href="javascript:;">雅安市</a></span>
+                            <span><a href="javascript:;">眉山市</a></span>
+                            <span><a href="javascript:;">资阳市</a></span>
+                            <span><a href="javascript:;">阿坝州</a></span>
+                            <span><a href="javascript:;">甘孜州</a></span>
+                          </div>
+                          <div class="hl-panel hl-area-arr">
+                            <span><a href="javascript:;">武侯区</a></span>
+                            <span><a href="javascript:;">金牛区</a></span>
+                            <span><a href="javascript:;">青羊区</a></span>
+                            <span><a href="javascript:;">成华区</a></span>
+                            <span><a href="javascript:;">高新区</a></span>
+                            <span><a href="javascript:;">锦江区</a></span>
+                            <span><a href="javascript:;">郫县</a></span>
+                            <span><a href="javascript:;">双流区</a></span>
+                            <span><a href="javascript:;">高新西区</a></span>
+                            <span><a href="javascript:;">龙泉驿区</a></span>
+                            <span><a href="javascript:;">新都区</a></span>
+                            <span><a href="javascript:;">温江区</a></span>
+                            <span><a href="javascript:;">都江堰市</a></span>
+                            <span><a href="javascript:;">彭州市</a></span>
+                            <span><a href="javascript:;">青白江区</a></span>
+                            <span><a href="javascript:;">崇州市</a></span>
+                            <span><a href="javascript:;">金堂县</a></span>
+                            <span><a href="javascript:;">新津县</a></span>
+                            <span><a href="javascript:;">邛崃市</a></span>
+                            <span><a href="javascript:;">大邑县</a></span>
+                            <span><a href="javascript:;">浦江县</a></span>
+                          </div>
+                        </div>
+                        <!-- <a class="hl-close" href="javascript:;"></a> -->
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="hl-store-prompt hl-fl">
+                  <strong>免运费</strong>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
+                </div>
+              </div>
+              <div class="hl-dd hl-suppor">
+                <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
+              </div>
+              <div class="hl-dt">赠　　品</div>
+              <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
+              <div class="hl-proinfo-color">
+                <div class="hl-dt">版　　式</div>
+                <div class="hl-dd">
+                  <ul class="hl-tip-infor hl-clearfix">
+                    <li class="hl-selected">
+                      <a href="">
+                        <img src="themes/henli/inc/inc/img/hl-icon-img.jpg" alt=""/>
+                        <i></i>
+                        598升玻璃面板对开
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <img src="themes/henli/inc/inc/img/hl-icon-img.jpg" alt=""/>
+                        <i></i>
+                        598升玻璃面板对开
+                      </a>
+                    </li>
+                    <li class="hl-disabled">
+                      <a href="">
+                        <img src="themes/henli/inc/inc/img/hl-icon-img.jpg" alt=""/>
+                        <i></i>
+                        598升玻璃面板对开
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <img src="themes/henli/inc/inc/img/hl-icon-img.jpg" alt=""/>
+                        <i></i>
+                        598升玻璃面板对开
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hl-proinfo-type">
+                <div class="hl-dt">颜　　色</div>
+                <div class="hl-dd">
+                  <ul class="hl-color-infor hl-clearfix">
+                    <li class="hl-selected">
+                      <a href="javascript:;">
+                        浅金色
+                        <i></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        浅金色
+                        <i></i>
+                      </a>
+                    </li>
+                    <li class="hl-disabled">
+                      <a href="javascript:;">
+                        浅金色
+                        <i></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="hl-dt">数　　量</div>
+              <div class="hl-dd hl-buy-count hl-f0">
+                <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
+                <input type="text" class="hl-buy-num hl-tc" value="1" />
+                <a href="javascript:;" class="hl-plus"></a>
+                <span class="hl-promotion">正在促销</span>
+              </div>
+            </div>
+            <div class="hl-main-btns hl-f0 hl-tc">
+              <a href="javascript:;" class="hl-buy-now">马上参团</a>
+              <a href="javascript:;" class="hl-add-cart">加入购物车</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hl-product-content hl-clearfix">
+        <div class="hl-aside hl-fl">
+          <h2 class="hl-f20 hl-4a">单品推荐</h2>
+          <ul class="hl-aside-list">
+            <li>
+              <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/inc/img/hl-product-8.png" alt=""></a>
+              <div class="hl-price">
+                <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
+                <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
+              </div>
+            </li>
+            <li>
+              <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/inc/img/hl-product-8.png" alt=""></a>
+              <div class="hl-price">
+                <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
+                <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
+              </div>
+            </li>
+            <li>
+              <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/inc/img/hl-product-8.png" alt=""></a>
+              <div class="hl-price">
+                <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
+                <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="hl-product-detail hl-fr">
+          <div class="hl-tab-wrap">
+            <ul class="hl-tab-trigger hl-f18">
+              <li class="hl-selected"><a href="">产品详情</a></li>
+              <li><a href="">产品参数</a></li>
+            </ul>
+          </div>
+          <div class="hl-product-container">
+            <div class="hl-tab-con-item">
+              <div class="hl-tab-con hl-mb15">
+                <div class="hl-hd hl-f12">
+                  <h2 class="hl-f12 hl-66 hl-fl">核心参数</h2>
+                  <a class="hl-fr" href="">更多参数</a>
+                </div>
+                <ul class="hl-tab-table hl-f12 hl-clearfix">
+                  <li>颜色：浅金色</li>
+                  <li>面板类型：金属</li>
+                  <li>制冷方式：冷风</li>
+                  <li>控温方式：电脑控温</li>
+                  <li>日耗电量：1.35</li>
+                  <li>国家能效等级：2级</li>
+                  <li>日冷冻能力：12千克</li>
+                  <li>除霜模式：自动</li>
+                  <li>总有效容积：610升</li>
+                </ul>
+              </div>
+              <div class="hl-product-pics">
+                <p>
+                  <img src="themes/henli/inc/inc/img/hl-product-6.png" alt="">
+                </p>
+                <p>
+                  <img src="themes/henli/inc/inc/img/hl-product-7.png" alt="">
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="hl-center hl-server">
+      <ul class="hl-clearfix">
+        <li class="hl-tel">
+          <p>客户热线</p>
+          <p>7x24小时服务400-88-99999</p>
+        </li>
+        <li class="hl-ater">
+          <p>在线咨询</p>
+          <p>服务时间：周一至周日</p>
+        </li>
+        <li class="hl-wechart">
+          <p>官方微信</p>
+          <p>关注西门子家电微信，享受专业的贴心服务</p>
+        </li>
+      </ul>
+    </div>
+    <div class="hl-footer hl-f14 hl-44 hl-tc">
+      <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      苏ICP备10003401号
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="themes/henli/inc/inc/js/unslider/unslider.min.js"></script>
+    <script src="themes/henli/inc/inc/js/seckill-detail.js"></script>
+  </body>
+</html>
