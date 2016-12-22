@@ -122,7 +122,7 @@ elseif ($_REQUEST['act'] == 'view')
 //        exit;
 //    }
 
-	$seckill['gmt_end_date'] = $seckill['start_date'];
+	$seckill['gmt_end_date'] = $seckill['end_date'];
 	$seckill['seckill_price']=intval($seckill['seckill_price']);
 	$smarty->assign('seckill', $seckill);
 
