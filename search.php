@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ECSHOP 搜索程序
  * ============================================================================
@@ -36,6 +37,7 @@ if (empty($_GET['encode']))
     $string = str_replace('+', '%2b', base64_encode(serialize($string)));
 
     header("Location: search.php?encode=$string\n");
+
     exit;
 }
 else
