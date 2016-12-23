@@ -14,8 +14,13 @@
  */
 
 define('IN_ECS', true);
-
 require(dirname(__FILE__) . '/includes/init.php');
+include_once(ROOT_PATH . 'includes/lib_transaction.php');
+include_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/shopping_flow.php');
+$smarty->assign('lang',  $_LANG);
+$smarty->assign('country_list',       get_regions());
+$smarty->assign('shop_province_list', get_regions(1, $_CFG['shop_country']));
+$smarty->assign('shop_city_list', get_regions(2, $_CFG['shop_country']));
 
 if ((DEBUG_MODE & 2) != 2)
 {
@@ -70,7 +75,7 @@ if ($_REQUEST['act'] == 'list')
             /* 取得当前页的团购活动 */
             $gb_list = group_buy_list($size, $page);
             $tt = array();
-            $tt2 = array();
+
             foreach ($gb_list as $k => $v) {
                 $tt['tuan_price'] = $v['shop_price']*$v['zhekou']*0.1;
                 $gb_list[$k] = array_merge($v,$tt);
@@ -102,7 +107,7 @@ if ($_REQUEST['act'] == 'list')
 }
 
 /*------------------------------------------------------ */
-//-- 团购商品 --> 商品详情页面
+//-- 团购商品 --> 商品详情页面    把原价和团购价弄出来显示---zzz
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'view')
 {
@@ -113,6 +118,71 @@ elseif ($_REQUEST['act'] == 'view')
         ecs_header("Location: ./\n");
         exit;
     }
+/*-----------------------------------------------2016-1222-----------------------------------*/
+/* 查询：查询规格名称和值，不考虑价格         */
+    $_a = array();
+    $_b = array();
+    $attr_list = array();
+    $sql = "SELECT attr_id, attr_value FROM" . $ecs->table('goods_attr') . "WHERE goods_id= $group_buy_id";
+    $res = $db->query($sql);
+    while ($row = $db->fetchRow($res))
+    {
+        $attr_list[] = $row['attr_id'] . ': ' . $row['attr_value'];
+        $_a[]=$row['attr_id'];
+        $_b[]=$row['attr_value'];
+    }
+    $goods_attr = join(chr(13) . chr(10), $attr_list);
+
+/*================固定合成属性类型========================*/
+
+/*第一个：板式  id=2-----20161622--------*/
+$_k = $_k2 = $_ban = array();
+foreach ($_a as $k => $v) {
+    if ($v == 2) {
+        $_k[]=$k;
+    }
+}
+$count = count($_k);
+for ($i=0; $i < $count; $i++) {
+    $_ban[$i] = $_b[$_k[$i]];
+}
+
+
+//输出板式
+ $smarty->assign('ban',  $_ban);
+
+/*第二个：颜色  id=4-----20161622--------*/
+foreach ($_a as $k2 => $v2) {
+    if ($v2 == 6) {
+        $_k2[]=$k2;
+    }
+}
+$count = count($_k2);
+for ($i=0; $i < $count; $i++) {
+    $colors[$i] = $_b[$_k2[$i]];
+}
+
+//输出颜色
+ $smarty->assign('colors',  $colors);
+/*========================================*/
+
+/*------------------------------20161222----------------------------------------------------*/
+    /* 获得商品的信息 */
+    $tg_goods_info = get_goods_info($group_buy_id);
+
+/*查询折扣--计算团购价*/
+$tt2=array();
+$res = $db->getOne("select zhekou from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
+
+    $tt2['tuan_price'] = intval($tg_goods_info['shop_price'])*intval($res)*0.1;
+    $nwarr = array_merge($tg_goods_info,$tt2);
+    $smarty->assign('tg_goods_info',  $nwarr);
+    /*传输 商品详情*/
+    $smarty->assign('description', htmlspecialchars($tg_goods_info['goods_brief']));
+    /*商品相册*/
+    $smarty->assign('pictures',  get_goods_gallery($group_buy_id));
+    /*商品属性*/
+    $smarty->assign('goods_attr',  $goods_attr);
 
     /* 取得团购活动信息 */
     $group_buy = group_buy_info($group_buy_id);
@@ -122,19 +192,20 @@ elseif ($_REQUEST['act'] == 'view')
         ecs_header("Location: ./\n");
         exit;
     }
-//    elseif ($group_buy['is_on_sale'] == 0 || $group_buy['is_alone_sale'] == 0)
-//    {
-//        header("Location: ./\n");
-//        exit;
-//    }
+/*------------------------------20161222----------------------------------------------------*/
+   // elseif ($group_buy['is_on_sale'] == 0 || $group_buy['is_alone_sale'] == 0)
+   // {
+   //     header("Location: ./\n");
+   //     exit;
+   // }
 
     /* 缓存id：语言，团购活动id，状态，（如果是进行中）当前数量和是否登录 */
-    $cache_id = $_CFG['lang'] . '-' . $group_buy_id . '-' . $group_buy['status'];
-    if ($group_buy['status'] == GBS_UNDER_WAY)
-    {
-        $cache_id = $cache_id . '-' . $group_buy['valid_goods'] . '-' . intval($_SESSION['user_id'] > 0);
-    }
-    $cache_id = sprintf('%X', crc32($cache_id));
+    // $cache_id = $_CFG['lang'] . '-' . $group_buy_id . '-' . $group_buy['status'];
+    // if ($group_buy['status'] == GBS_UNDER_WAY)
+    // {
+    //     $cache_id = $cache_id . '-' . $group_buy['valid_goods'] . '-' . intval($_SESSION['user_id'] > 0);
+    // }
+    // $cache_id = sprintf('%X', crc32($cache_id));
 
     /* 如果没有缓存，生成缓存 */
     // if (!$smarty->is_cached('group_buy_goods.dwt', $cache_id))
@@ -179,6 +250,7 @@ elseif ($_REQUEST['act'] == 'view')
 
     $smarty->assign('now_time',  gmtime());           // 当前系统时间
     // $smarty->display('group_buy_goods.dwt', $cache_id);
+
     $smarty->display('group_buy_goods.dwt');
 }
 
@@ -189,18 +261,18 @@ elseif ($_REQUEST['act'] == 'view')
 elseif ($_REQUEST['act'] == 'buy')
 {
     /* 查询：判断是否登录 */
-    if ($_SESSION['user_id'] <= 0)
-    {
-        show_message($_LANG['gb_error_login'], '', '', 'error');
-    }
+    // if ($_SESSION['user_id'] <= 0)
+    // {
+    //     show_message($_LANG['gb_error_login'], '', '', 'error');
+    // }
 
     /* 查询：取得参数：团购活动id */
     $group_buy_id = isset($_POST['group_buy_id']) ? intval($_POST['group_buy_id']) : 0;
-    if ($group_buy_id <= 0)
-    {
-        ecs_header("Location: ./\n");
-        exit;
-    }
+    // if ($group_buy_id <= 0)
+    // {
+    //     ecs_header("Location: ./\n");
+    //     exit;
+    // }
 
     /* 查询：取得数量 */
     $number = isset($_POST['number']) ? intval($_POST['number']) : 1;
@@ -272,7 +344,7 @@ elseif ($_REQUEST['act'] == 'buy')
     {
         $attr_list[] = $row['attr_name'] . ': ' . $row['attr_value'];
     }
-    $goods_attr = join(chr(13) . chr(10), $attr_list);
+    $goods_attr = join(chr(13) . chr(10), $attr_list);var_dump($goods_attr);
 
     /* 更新：清空购物车中所有团购商品 */
     include_once(ROOT_PATH . 'includes/lib_order.php');
@@ -281,7 +353,8 @@ elseif ($_REQUEST['act'] == 'buy')
     /* 更新：加入购物车 */
     $goods_price = $group_buy['deposit'] > 0 ? $group_buy['deposit'] : $group_buy['cur_price'];
     $cart = array(
-        'user_id'        => $_SESSION['user_id'],
+        // 'user_id'        => $_SESSION['user_id'],
+        'user_id'        => 3,
         'session_id'     => SESS_ID,
         'goods_id'       => $group_buy['goods_id'],
         'product_id'     => $product_info['product_id'],
@@ -300,7 +373,7 @@ elseif ($_REQUEST['act'] == 'buy')
     );
     $db->autoExecute($ecs->table('cart'), $cart, 'INSERT');
 
-    /* 更新：记录购物流程类型：团购 */
+    /* 更新：记录购物流程类型：团购 */$_SESSION['user_id']=3;
     $_SESSION['flow_type'] = CART_GROUP_BUY_GOODS;
     $_SESSION['extension_code'] = 'group_buy';
     $_SESSION['extension_id'] = $group_buy_id;
