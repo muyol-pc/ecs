@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+<meta name="Generator" content="ECSHOP v3.0.0" />
 	<meta charset="UTF-8">
 	<title>登录</title>
 	<link rel="stylesheet" type="text/css" href="themes/henli/inc/css/sigin-up.css"/>
@@ -36,7 +37,7 @@
                     <a class="hl-f14 hl-fr hl-62 hl-mr10" id="tips" >忘记密码</a>
                 </div>
                 <div class="hl-form-group hl-mb10 hl-f14" id="hl-error-notice" style="text-align:center;color:red;height:;">
-                    <!-- 提示信息 -->
+                    
                 </div>
                 <div class="hl-form-group">
                     <button class="hl-sigin-up hl-bgc-a3 hl-f24 hl-fb">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
@@ -75,7 +76,7 @@
             success:function(data){
                 // console.log(data);
                 if(data.error==0){
-                    window.location.href = "{$back_act}";
+                    window.location.href = "<?php echo $this->_var['back_act']; ?>";
                 }else{
                     $("#hl-error-notice").text(data.content);
                 }

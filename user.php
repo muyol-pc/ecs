@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Honrisen 会员中心
  * ============================================================================
@@ -21,7 +20,7 @@ require(dirname(__FILE__) . '/includes/init.php');
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
 
 $user_id = $_SESSION['user_id'];
-$action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
+$action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'order_list';
 
 $affiliate = unserialize($GLOBALS['_CFG']['affiliate']);
 $smarty->assign('affiliate', $affiliate);
@@ -35,7 +34,7 @@ array('login','act_login','register','act_register','act_register_success','act_
     'order_query', 'is_registered', 'check_email','clear_history','qpassword_name', 'get_passwd_question', 'check_answer');
 
 /* 显示页面的action列表 */
-$ui_arr = array('register', 'register-success','login', 'profile', 'order_list', 'order_detail', 'address_list', 'collection_list',
+$ui_arr = array('register', 'register-success','login', 'profile', 'order_list', 'order_detail','order_activity', 'address_list','pro_list', 'collection_list',
 'message_list', 'tag_list', 'get_password', 'reset_password', 'booking_list', 'add_booking', 'account_raply',
 'account_deposit', 'account_log', 'account_detail', 'act_account', 'pay', 'default', 'bonus', 'group_buy',
  'group_buy_detail', 'affiliate', 'comment_list','validate_email','track_packages', 'transform_points','qpassword_name', 'get_passwd_question', 'check_answer');
@@ -344,7 +343,7 @@ elseif($action == 'check_email')
     }
     else
     {
-        echo 'ok';
+        echo 'ok'; 
     }
 }
 /* 用户登录界面 */
@@ -465,6 +464,17 @@ elseif ($action == 'signin')
 
     if ($user->login($username, $password))
     {
+        if (empty($back_act))
+        {
+            if (empty($back_act) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
+            {
+                $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], '') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
+            }
+            else
+            {
+                $back_act = '';
+            }
+        }
         update_user_info();  //更新用户信息
         recalculate_price(); // 重新计算购物车中的商品价格
         $smarty->assign('user_info', get_user_info());
@@ -799,7 +809,7 @@ elseif ($action == 'reset_password')
 /* 修改会员密码 */
 elseif ($action == 'act_edit_password')
 {
-    var_dump($action);
+    // var_dump($action);
     include_once(ROOT_PATH . 'includes/lib_passport.php');
 
     $old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : null;
@@ -865,6 +875,7 @@ elseif ($action == 'order_list')
     $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
     $status = isset($_REQUEST['status'])?intval($_REQUEST['status']):0;
     $smarty->assign('status',  $status);
+    $act = "act=order_list";
     if ($status == 1) {  // 代付款
         $status = " AND FIND_IN_SET(pay_status,'$,0,1') > 0 ";
     }elseif($status == 2){   // 待发货
@@ -880,11 +891,12 @@ elseif ($action == 'order_list')
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start'],$status);
     $merge  = get_user_merge($user_id);
-
+    // var_dump($merge);
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
     $smarty->assign('active', 'order_list');
+    $smarty->assign('act', $act);
     $smarty->display('user_orderlist.dwt'); 
 }
 
@@ -910,7 +922,7 @@ elseif ($action == 'order_detail')
     }
 
     /* 是否显示添加到购物车 */
-    if ($order['extension_code'] != 'group_buy' && $order['extension_code'] != 'exchange_goods')
+    if ($order['extension_code'] != 'group_buy'&& $order['extension_code'] != 'seckill_buy' && $order['extension_code'] != 'exchange_goods')
     {
         $smarty->assign('allow_to_cart', 1);
     }
@@ -953,7 +965,7 @@ elseif ($action == 'order_detail')
                     unset($payment_list[$key]);
                 }
             }
-        }
+        } 
         $smarty->assign('payment_list', $payment_list);
     }
 
@@ -961,12 +973,13 @@ elseif ($action == 'order_detail')
     $order['order_status'] = $_LANG['os'][$order['order_status']];
     $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
     $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
-
+    // var_dump($order);
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
     $smarty->assign('active', 'order_list');
+    $smarty->assign('act', 'act=order_list');
     // $smarty->display('user_transaction.dwt');
-    var_dump($goods_list);
+    // var_dump($goods_list);
     $smarty->display('user_orderdetail.dwt');
 }
 
@@ -1027,6 +1040,7 @@ elseif ($action == 'address_list')
     $address_id  = $db->getOne("SELECT address_id FROM " .$ecs->table('users'). " WHERE user_id='$user_id'");
 
     //赋值于模板
+    $smarty->assign('active', 'address_list');
     $smarty->assign('real_goods_count', 1);
     $smarty->assign('shop_country',     $_CFG['shop_country']);
     $smarty->assign('shop_province',    get_regions(1, $_CFG['shop_country']));
@@ -1037,8 +1051,7 @@ elseif ($action == 'address_list')
     $smarty->assign('currency_format',  $_CFG['currency_format']);
     $smarty->assign('integral_scale',   $_CFG['integral_scale']);
     $smarty->assign('name_of_region',   array($_CFG['name_of_region_1'], $_CFG['name_of_region_2'], $_CFG['name_of_region_3'], $_CFG['name_of_region_4']));
-
-    $smarty->display('user_transaction.dwt');
+    $smarty->display('address_list.dwt');
 }
 
 /* 添加/编辑收货地址的处理 */
@@ -2835,5 +2848,125 @@ elseif ($action == 'act_transform_ucenter_points')
 elseif ($action == 'clear_history')
 {
     setcookie('ECS[history]',   '', 1);
+}else if ($action == 'order_activity') { // 活动订单查询
+    // 活动类型
+    $type = isset($_REQUEST['type']) && intval($_REQUEST['type'])<1?1:intval($_REQUEST['type']);
+    // 激活选项
+    $active = $type==2?'order_seckill':'order_group';
+    include_once(ROOT_PATH . 'includes/lib_transaction.php');
+
+    $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+    $status = isset($_REQUEST['status'])?intval($_REQUEST['status']):0;
+    $smarty->assign('status',  $status);
+    $act = "act=order_activity&type={$type}";
+    if ($status == 1) {  // 代付款
+        $status = " AND FIND_IN_SET(pay_status,'$,0,1') > 0 ";
+    }elseif($status == 2){   // 待发货
+        $status = " AND shipping_status = 0 ";
+    }elseif ($status == 3) {  // 待收货
+        $status = " AND shipping_status = 1 ";
+    }else{  // 全部订单
+        $status = '';
+    }
+    // 查询活动订单的条件
+    if ($type==1) {
+        $status .= " AND extension_code = 'group_buy'";
+    }elseif ($type==2) {
+        $status .= " AND extension_code = 'seckill_buy'";
+    }
+    $record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('order_info'). " WHERE user_id = '$user_id' {$status}");
+
+    $pager  = get_pager('user.php', array('act' => $action), $record_count, $page);
+
+    $orders = get_user_orders($user_id, $pager['size'], $pager['start'],$status);
+    $merge  = get_user_merge($user_id);
+    // var_dump($merge);
+    $smarty->assign('merge',  $merge);
+    $smarty->assign('pager',  $pager);
+    $smarty->assign('orders', $orders);
+    $smarty->assign('active',  $active);
+    $smarty->assign('act',  $act);
+    $smarty->display('user_orderlist.dwt'); 
+}else if ($action == 'pro_list') {  // 商品列表
+    include_once(ROOT_PATH . 'includes/lib_transaction.php');
+    include_once(ROOT_PATH . 'includes/lib_payment.php');
+    include_once(ROOT_PATH . 'includes/lib_order.php');
+    include_once(ROOT_PATH . 'includes/lib_clips.php');
+
+    // 商品类型 已购买 待付款
+    $type = isset($_REQUEST['type']) && intval($_REQUEST['type'])<1?1:intval($_REQUEST['type']);
+    // $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
+
+    // /* 订单详情 */
+    $order = order_info(0,0,$_SESSION['user_id'],$type);
+
+    // if ($order === false)
+    // {
+    //     $err->show($_LANG['back_home_lnk'], './');
+
+    //     exit;
+    // }
+
+    // /* 是否显示添加到购物车 */
+    // if ($order['extension_code'] != 'group_buy'&& $order['extension_code'] != 'seckill_buy' && $order['extension_code'] != 'exchange_goods')
+    // {
+    //     $smarty->assign('allow_to_cart', 1);
+    // }
+
+    /* 订单商品 */
+    $goods_list = order_goods_buy($type);
+    foreach ($goods_list AS $key => $value)
+    {
+        $goods_list[$key]['market_price'] = price_format($value['market_price'], false);
+        $goods_list[$key]['goods_price']  = price_format($value['goods_price'], false);
+        $goods_list[$key]['subtotal']     = price_format($value['subtotal'], false);
+    }
+
+    // /* 设置能否修改使用余额数 */
+    // if ($order['order_amount'] > 0)
+    // {
+    //     if ($order['order_status'] == OS_UNCONFIRMED || $order['order_status'] == OS_CONFIRMED)
+    //     {
+    //         $user = user_info($order['user_id']);
+    //         if ($user['user_money'] + $user['credit_line'] > 0)
+    //         {
+    //             $smarty->assign('allow_edit_surplus', 1);
+    //             $smarty->assign('max_surplus', sprintf($_LANG['max_surplus'], $user['user_money']));
+    //         }
+    //     }
+    // }
+
+    // /* 未发货，未付款时允许更换支付方式 */
+    // if ($order['order_amount'] > 0 && $order['pay_status'] == PS_UNPAYED && $order['shipping_status'] == SS_UNSHIPPED)
+    // {
+    //     $payment_list = available_payment_list(false, 0, true);
+
+    //     /* 过滤掉当前支付方式和余额支付方式 */
+    //     if(is_array($payment_list))
+    //     {
+    //         foreach ($payment_list as $key => $payment)
+    //         {
+    //             if ($payment['pay_id'] == $order['pay_id'] || $payment['pay_code'] == 'balance')
+    //             {
+    //                 unset($payment_list[$key]);
+    //             }
+    //         }
+    //     } 
+    //     $smarty->assign('payment_list', $payment_list);
+    // }
+
+    /* 订单 支付 配送 状态语言项 */
+    // $order['order_status'] = $_LANG['os'][$order['order_status']];
+    // $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
+    // $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
+    // // var_dump($order);
+    $active = $type==2?'pro_pay':'pro_buy';
+    $smarty->assign('order',      $order);
+    $smarty->assign('goods_list', $goods_list);
+    $smarty->assign('active', $active);
+    $smarty->assign('type', $type);
+    // $smarty->display('user_transaction.dwt');
+    // var_dump($goods_list);
+    $smarty->display('user_prolist.dwt');
 }
 ?>

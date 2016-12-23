@@ -5,7 +5,7 @@ var process_request = "{$lang.process_request}";
 </script>
 <div class="hl-header hl-header-bottom">
   <div class="hl-center hl-nav"> 
-    <a class="hl-logo hl-mr10" href="http://mall.honrisen.com"></a>
+    <a class="hl-logo hl-mr10" href=""></a>
     <a class="hl-mr20" href="" target="_blank">西门子家电</a>
     <a class="hl-mr20" href="" target="_blank">展望未来</a>
     <div class="hl-search hl-f0">

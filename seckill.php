@@ -19,9 +19,12 @@ require(dirname(__FILE__) . '/includes/init.php');
 
 if ((DEBUG_MODE & 2) != 2)
 {
-    $smarty->caching = true;
+    $smarty->caching = true; 
 }
-
+// 登陆验证
+if ($_SESSION['user_id'] < 0) {
+    ecs_header('Location:user.php?act=login');
+}
 /*------------------------------------------------------ */
 //-- act 操作项的初始化
 /*------------------------------------------------------ */
@@ -29,7 +32,7 @@ if (empty($_REQUEST['act']))
 {
     $_REQUEST['act'] = 'list';
 }
-
+var_dump($_REQUEST['act']);
 /*------------------------------------------------------ */
 //-- 秒杀商品 --> 秒杀活动商品列表
 /*------------------------------------------------------ */
@@ -85,12 +88,12 @@ if ($_REQUEST['act'] == 'list')
         $smarty->assign('top_goods',  get_top10());           // 销售排行
         $smarty->assign('promotion_info', get_promotion_info());
         $smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-typegroup_buy.xml" : 'feed.php?type=group_buy'); // RSS URL
-
         assign_dynamic('seckill_list');
     }
-    /*echo "<pre>";
-    print_r($gb_list);
-    echo "</pre>";*/
+    // echo "<pre>";
+    // print_r($gb_list);
+    // echo "</pre>"; 
+
     /* 显示模板 */
     $smarty->display('seckill_list.dwt');
 }

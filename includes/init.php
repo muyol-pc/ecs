@@ -116,7 +116,7 @@ $err = new ecs_error('message.dwt');
 /* 载入系统参数 */
 $_CFG = load_config();
 // 项目专用
-$arr['template'] = 'henli';
+$_CFG['template'] = 'henli';
 
 /* 载入语言文件 */
 require(ROOT_PATH . 'languages/' . $_CFG['lang'] . '/common.php');
