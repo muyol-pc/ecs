@@ -207,22 +207,21 @@ CREATE TABLE `ecs_article_cat` (
 --
 -- 表的结构 `ecs_attribute`
 --
-
-DROP TABLE IF EXISTS `ecs_attribute`;
+drop table if exists `ecs_attribute`;
 CREATE TABLE `ecs_attribute` (
-  `attr_id` smallint(5) unsigned NOT NULL auto_increment,
-  `cat_id` smallint(5) unsigned NOT NULL default '0',
-  `attr_name` varchar(60) NOT NULL default '',
-  `attr_input_type` tinyint(1) unsigned NOT NULL default '1',
-  `attr_type` tinyint(1) unsigned NOT NULL default '1',
+  `attr_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `attr_name` varchar(60) NOT NULL DEFAULT '',
+  `attr_input_type` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `attr_type` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `attr_values` text NOT NULL,
-  `attr_index` tinyint(1) unsigned NOT NULL default '0',
-  `sort_order` tinyint(3) unsigned NOT NULL default '0',
-  `is_linked` tinyint(1) unsigned NOT NULL default '0',
-  `attr_group` tinyint( 1 ) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY  (`attr_id`),
+  `attr_index` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `is_linked` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `attr_group` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`attr_id`),
   KEY `cat_id` (`cat_id`)
-)  TYPE=MyISAM;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -582,12 +581,12 @@ CREATE TABLE `ecs_goods_article` (
 
 DROP TABLE IF EXISTS `ecs_goods_attr`;
 CREATE TABLE `ecs_goods_attr` (
-  `goods_attr_id` int(10) unsigned NOT NULL auto_increment,
-  `goods_id` mediumint(8) unsigned NOT NULL default '0',
-  `attr_id` smallint(5) unsigned NOT NULL default '0',
+  `goods_attr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `attr_id` smallint(5) unsigned NOT NULL DEFAULT '0',
   `attr_value` text NOT NULL,
-  `attr_price` varchar(255) NOT NULL default '',
-  PRIMARY KEY  (`goods_attr_id`),
+  `attr_price` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`goods_attr_id`),
   KEY `goods_id` (`goods_id`),
   KEY `attr_id` (`attr_id`)
 )  TYPE=MyISAM;
@@ -1389,18 +1388,20 @@ CREATE TABLE `ecs_agency` (
 
 DROP TABLE IF EXISTS `ecs_goods_activity`;
 CREATE TABLE `ecs_goods_activity` (
-  `act_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `act_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `act_name` varchar(255) NOT NULL,
   `act_desc` text NOT NULL,
   `act_type` tinyint(3) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL,
-  `product_id` mediumint(8) unsigned NOT NULL default '0',
+  `product_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `goods_name` varchar(255) NOT NULL,
   `start_time` int(10) unsigned NOT NULL,
   `end_time` int(10) unsigned NOT NULL,
   `is_finished` tinyint(3) unsigned NOT NULL,
   `ext_info` text NOT NULL,
-  PRIMARY KEY  (`act_id`),
+  `zhekou` varchar(20) NOT NULL DEFAULT '0.8' COMMENT '团购活动的折扣值',
+  `tuan_num` tinyint(4) NOT NULL DEFAULT '1' COMMENT '团购活动的起参团数量',
+  PRIMARY KEY (`act_id`),
   KEY `act_name` (`act_name`,`act_type`,`goods_id`)
 ) TYPE=MyISAM;
 
