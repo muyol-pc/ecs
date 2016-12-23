@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ECSHOP 首页文件
  * ============================================================================
@@ -127,8 +126,13 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('auction_list',    index_get_auction());        // 拍卖活动
     $smarty->assign('shop_notice',     $_CFG['shop_notice']);       // 商店公告
     /*jdy add 0816 添加首页幻灯插件*/
-    $smarty->assign("flash",get_flash_xml());
-    $smarty->assign('flash_count',count(get_flash_xml()));
+    $index_ad_top = get_flash_xml(1);
+    $index_ad_active = get_flash_xml(2);
+    var_dump($index_ad_active);
+    $smarty->assign("index_ad_top",$index_ad_top);
+    $smarty->assign("index_ad_active",$index_ad_active);
+    $smarty->assign('flash',count($index_ad_top));
+    $smarty->assign('flash_count',count($index_ad_top));
     /* 首页主广告设置 */
     $smarty->assign('index_ad',     $_CFG['index_ad']);
     if ($_CFG['index_ad'] == 'cus')
@@ -366,11 +370,14 @@ function index_get_links()
     return $links;
 }
 
-function get_flash_xml()
+function get_flash_xml($pos=1)
 {
+    $pos = empty($pos) || intval($pos) < 1?1 :intval($pos);
     $flashdb = array();
-    if (file_exists(ROOT_PATH . DATA_DIR . '/flash_data.xml'))
-    {
+    $sql = "SELECT ad_link as url ,ad_code as src from ".$GLOBALS['ecs']->table('ad')." where position_id = {$pos} and enabled = 1 and start_time<=".time()." and end_time >=".time();
+    var_dump($sql);
+    $flashdb = $GLOBALS['db']->getAll($sql);        
+    if (empty($flashdb) && file_exists(ROOT_PATH . DATA_DIR . '/flash_data.xml')) {
         // 兼容v2.7.0及以前版本
         if (!preg_match_all('/item_url="([^"]+)"\slink="([^"]+)"\stext="([^"]*)"\ssort="([^"]*)"/', file_get_contents(ROOT_PATH . DATA_DIR . '/flash_data.xml'), $t, PREG_SET_ORDER))
         {
@@ -382,7 +389,6 @@ function get_flash_xml()
             {
                 $val[4] = isset($val[4]) ? $val[4] : 0;
                 $flashdb[] = array('src'=>$val[1],'url'=>$val[2],'text'=>$val[3],'sort'=>$val[4]);
-//print_r($flashdb);
             }
         }
     }

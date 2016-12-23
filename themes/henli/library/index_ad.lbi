@@ -2,12 +2,11 @@
 <div class="hl-column hl-slider-con">
   <div class="hl-slider-banner">
     <ul class="hl-items">
-      <!--{foreach from=$flash name=myflash item=flash}-->
-      <li><a href="{$flash.url}"><img src="{$flash.src}" alt="" target="_blank"></a></li>
+      <!--{foreach from=$index_ad_top name=ad item=top}-->
+      <li><a href="{$top.url}" target="_blank"><img src="data/afficheimg/{$top.src}" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
       <!--{/foreach}-->
     </ul>
     <div class="hl-select  hl-f0 hl-tc"></div>
-    
   </div>    
 </div>
 

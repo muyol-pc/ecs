@@ -19,7 +19,7 @@
 {insert_scripts files='common.js,index.js'}
 
 </head>
-<body class="index_page" style="min-width:1200px;">
+<body class="index_page" style="min-width:1100px;">
 <!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
@@ -39,8 +39,8 @@
   <div class="hl-center hl-slider-con hl-activity-slider">
     <div class="hl-activity-banner">
       <ul class="hl-activity-items">
-        <!--{foreach from=$flash name=myflash item=flash}-->
-        <li><a href="{$flash.url}"><img src="{$flash.src}" alt="" target="_blank"></a></li>
+        <!--{foreach from=$index_ad_active name=ad item=active}-->
+        <li><a href="{$active.url}" target="_blank"><img src="data/afficheimg/{$active.src}" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
         <!--{/foreach}-->
       </ul>
       <div class="hl-activity-select hl-f0 hl-tr"></div>
