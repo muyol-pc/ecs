@@ -9,40 +9,13 @@
     <title><?php echo $this->_var['page_title']; ?></title>
   </head>
   <body>
-    <div class="hl-status">
-      <div class="hl-center">
-        <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
-        <div class="hl-fr">
-          <a class="hl-user hl-a3" href="" target="_blank">18585272260</a>
-          <a class="hl-user-center" href="" target="_blank">个人中心</a>
-          <a class="hl-cart" href="" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr" title='5'>5</i></a>
-          <a class="hl-message" href="" target="_blank">在线留言</a>
-        </div>
-      </div>
-    </div>
-    <div class="hl-header">
-      <div class="hl-center hl-nav">
-        <a class="hl-logo hl-mr10" href=""></a>
-        <a class="hl-mr20" href="" target="_blank">西门子家电</a>
-        <a class="hl-mr20" href="" target="_blank">展望未来</a>
-        <div class="hl-search hl-f0">
-          <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
-          <button class="hl-search-button"></button>
-        </div>
-      </div>
-    </div>
+<?php echo $this->fetch('library/page_header_top.lbi'); ?>
+<?php echo $this->fetch('library/page_header.lbi'); ?>
+<?php echo $this->fetch('library/ur_here.lbi'); ?>
 
-    
-    <nav class="hl-breadcrumb hl-w1100 hl-f14">
-      <span class="hl-notice">您当前所在的位置 : </span>
-      <span class="hl-prev"><a href="#">首页</a> &gt; </span>
-      <span class="hl-prev"><a href="#">活动专区</a> &gt; </span>
-      <span class="hl-now hl-blue">秒杀</span>
-    </nav>
-
-    <div class="hl-w1100">
+    <!-- <div class="hl-w1100">
       <img src="themes/henli/inc/inc/images/hl-sigin-bg.png" alt="">
-    </div>
+    </div> -->
 
     <div class="hl-w1100 hl-clearfix">
       <ul class="hl-countdown-list hl-mt20">
@@ -134,42 +107,8 @@
     </div>
     <br>
     <br>
-    <div class="hl-center hl-server">
-      <ul class="hl-clearfix">
-        <li class="hl-tel">
-          <p>客户热线</p>
-          <p>7x24小时服务400-88-99999</p>
-        </li>
-        <li class="hl-ater">
-          <p>在线咨询</p>
-          <p>服务时间：周一至周日</p>
-        </li>
-        <li class="hl-wechart">
-          <p>官方微信</p>
-          <p>关注西门子家电微信，享受专业的贴心服务</p>
-        </li>
-      </ul>
-    </div>
-    <div class="hl-footer hl-f14 hl-44 hl-tc">
-      <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      苏ICP备10003401号
-    </div>
+    <?php echo $this->fetch('library/page_footer.lbi'); ?>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="themes/henli/inc/inc/js/seckill.js"></script>
-  </body>
-  <script type="text/javascript">
-      var now_time = <?php echo $this->_var['now_time']; ?>;
-      
-
-      onload = function()
-      {
-        try
-        {
-          onload_leftTime();
-        }
-        catch (e)
-        {}
-      }
-      
-  </script>
+  </body> 
 </html>
