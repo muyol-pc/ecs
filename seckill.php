@@ -113,9 +113,7 @@ elseif ($_REQUEST['act'] == 'view')
 
     /* 取得秒杀活动信息 */
     $seckill = seckill_info($seckill_id);
-    echo "<pre>";
-    print_r($seckill);
-    echo "</pre>";
+
     if (empty($seckill)) 
     {
         ecs_header("Location: ./\n");
