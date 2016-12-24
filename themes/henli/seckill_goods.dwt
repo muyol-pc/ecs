@@ -43,7 +43,7 @@
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png" />
+            <img zoom-img="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png" style="width:400px;height:380px;" />
           </div>
         </div>
         <div class="hl-spec-scroll">
@@ -51,18 +51,9 @@
           <a class="hl-next">&gt;</a>
           <div class="hl-items">
             <ul>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+                <!--{foreach from=$seckill.imgs key=key item=item}-->
+                  <li><img hl-bimg="{$item.img_original}" src="{$item.thumb_url}"></li>
+                <!--{/foreach}-->
             </ul>
           </div>
         </div>

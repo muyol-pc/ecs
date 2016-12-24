@@ -92,7 +92,7 @@ if ($_REQUEST['act'] == 'list')
     }
     // echo "<pre>";
     // print_r($gb_list);
-    // echo "</pre>"; 
+    // echo "</pre>";
 
     /* 显示模板 */
     $smarty->display('seckill_list.dwt');
@@ -113,7 +113,9 @@ elseif ($_REQUEST['act'] == 'view')
 
     /* 取得秒杀活动信息 */
     $seckill = seckill_info($seckill_id);
-
+    echo "<pre>";
+    print_r($seckill);
+    echo "</pre>";
     if (empty($seckill)) 
     {
         ecs_header("Location: ./\n");
@@ -410,6 +412,9 @@ function seckill_info($seckill_id)
 	$seckill['start_time'] = local_date('Y-m-d H:i:s', $seckill['start_time']);
     $seckill['end_time'] = local_date('Y-m-d H:i:s', $seckill['end_time']);
 
+    $imgSql = "select thumb_url,img_original,img_url from ".$GLOBALS['ecs']->table('goods_gallery')." where goods_id=".$seckill['goods_id'];
+    $imgs = $GLOBALS['db']->getAll($imgSql);
+    $seckill['imgs'] = $imgs;
     return $seckill;
 }
 
