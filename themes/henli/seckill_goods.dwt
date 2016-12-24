@@ -43,7 +43,7 @@
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png" style="width:400px;height:380px;" />
+            <img zoom-img="{$seckill.imggoods.original_img}" src="{$seckill.imggoods.goods_thumb}" style="width:400px;height:380px;" />
           </div>
         </div>
         <div class="hl-spec-scroll">

@@ -113,7 +113,9 @@ elseif ($_REQUEST['act'] == 'view')
 
     /* 取得秒杀活动信息 */
     $seckill = seckill_info($seckill_id);
-
+     /*echo "<pre>";
+     print_r($seckill);
+     echo "</pre>";*/
     if (empty($seckill)) 
     {
         ecs_header("Location: ./\n");
@@ -413,6 +415,9 @@ function seckill_info($seckill_id)
     $imgSql = "select thumb_url,img_original,img_url from ".$GLOBALS['ecs']->table('goods_gallery')." where goods_id=".$seckill['goods_id'];
     $imgs = $GLOBALS['db']->getAll($imgSql);
     $seckill['imgs'] = $imgs;
+    $imggoodsSql = "select goods_thumb,goods_img,original_img from ".$GLOBALS['ecs']->table('goods')." where goods_id=".$seckill['goods_id'];
+    $imggoods = $GLOBALS['db']->getRow($imggoodsSql);
+    $seckill['imggoods'] = $imggoods;
     return $seckill;
 }
 
