@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="58ecb04f-42a5-434a-8ab7-0c9ac194715c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/lib_clips.php" afterPath="$PROJECT_DIR$/includes/lib_clips.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leftmessage.php" afterPath="$PROJECT_DIR$/leftmessage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/default/article.dwt" afterPath="$PROJECT_DIR$/themes/default/article.dwt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/article.dwt" afterPath="$PROJECT_DIR$/themes/henli/article.dwt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/article_cat.dwt" afterPath="$PROJECT_DIR$/themes/henli/article_cat.dwt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/article_pro.dwt" afterPath="$PROJECT_DIR$/themes/henli/article_pro.dwt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/dazhuanpan.dwt" afterPath="$PROJECT_DIR$/themes/henli/dazhuanpan.dwt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/guaguaka.dwt" afterPath="$PROJECT_DIR$/themes/henli/guaguaka.dwt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/index.dwt" afterPath="$PROJECT_DIR$/themes/henli/index.dwt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/leftmessage.dwt" afterPath="$PROJECT_DIR$/themes/henli/leftmessage.dwt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/henli/library/page_header.lbi" afterPath="$PROJECT_DIR$/themes/henli/library/page_header.lbi" />
     </list>
     <ignored path="ecs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,18 +35,7 @@
     <favorites_list name="ecs" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.dwt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/henli/index.dwt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -92,8 +78,6 @@
         <option value="$PROJECT_DIR$/goods.php" />
         <option value="$PROJECT_DIR$/themes/henli/inc/css/guaguaka_index.css" />
         <option value="$PROJECT_DIR$/themes/henli/inc/css/gua.css" />
-        <option value="$PROJECT_DIR$/themes/henli/dazhuanpan.dwt" />
-        <option value="$PROJECT_DIR$/themes/henli/guaguaka.dwt" />
         <option value="$PROJECT_DIR$/themes/henli/inc/css/bigwheel.css" />
         <option value="$PROJECT_DIR$/guaguaka.php" />
         <option value="$PROJECT_DIR$/dazhuanpan.php" />
@@ -103,6 +87,8 @@
         <option value="$PROJECT_DIR$/includes/lib_clips.php" />
         <option value="$PROJECT_DIR$/leftmessage.php" />
         <option value="$PROJECT_DIR$/themes/henli/index.dwt" />
+        <option value="$PROJECT_DIR$/themes/henli/dazhuanpan.dwt" />
+        <option value="$PROJECT_DIR$/themes/henli/guaguaka.dwt" />
       </list>
     </option>
   </component>
@@ -161,7 +147,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="SearchEverywhereHistory" value="" />
-    <property name="SearchEverywhereHistoryKey" value="index.d&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/index.dwt&#10;lef&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/leftmessage.php&#10;le&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/leftmessage.dwt&#10;message_b&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/message_board.dwt&#10;message.d&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/message.dwt&#10;group&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/group_buy.php&#10;user&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/user.php&#10;boots&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/themes/henli/inc/inc/css/bootstrap.min.css&#10;cls_template&#9;null&#9;null&#10;cls_template.php&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/install/includes/cls_template.php&#10;bootstr&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/themes/henli/inc/inc/css/bootstrap.css" />
+    <property name="SearchEverywhereHistoryKey" value="leftme&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/leftmessage.dwt&#10;guagua&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/guaguaka.dwt&#10;dazhuan&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/dazhuanpan.dwt&#10;page_h&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/library/page_header.lbi&#10;index.d&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/index.dwt&#10;lef&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/leftmessage.php&#10;le&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/leftmessage.dwt&#10;message_b&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/message_board.dwt&#10;message.d&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/themes/henli/message.dwt&#10;group&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/group_buy.php&#10;user&#9;FILE&#9;file:///Users/chenkun/Downloads/ecs/user.php&#10;boots&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/themes/henli/inc/inc/css/bootstrap.min.css&#10;cls_template&#9;null&#9;null&#10;cls_template.php&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/install/includes/cls_template.php&#10;bootstr&#9;FILE&#9;file:///Applications/MAMP/htdocs/ecs/themes/henli/inc/inc/css/bootstrap.css" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -267,7 +253,7 @@
       <option name="presentableId" value="Default" />
       <updated>1482370154048</updated>
       <workItem from="1482688475148" duration="2454000" />
-      <workItem from="1482692877899" duration="8948000" />
+      <workItem from="1482692877899" duration="10150000" />
     </task>
     <task id="LOCAL-00001" summary="刮刮卡活动页面接入">
       <created>1482695743328</created>
@@ -290,11 +276,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482697968836</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="刮刮卡\转盘活动页面接入">
+      <created>1482704066868</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1482704066869</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11402000" />
+    <option name="totallyTimeSpent" value="12604000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,7 +303,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25201938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25201938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -318,7 +311,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -356,13 +349,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/templates/integrates_list.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/ads_info.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -655,14 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/henli/guaguaka.dwt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="120" column="71" lean-forward="false" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/henli/inc/css/bigwheel.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3015">
@@ -683,14 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2758">
           <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/henli/dazhuanpan.dwt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -829,14 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/henli/leftmessage.dwt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -896,8 +858,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/henli/index.dwt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+        <state relative-caret-position="521">
+          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/library/page_header.lbi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/dazhuanpan.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="115" column="47" lean-forward="false" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/guaguaka.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="170" column="47" lean-forward="false" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/henli/leftmessage.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding />
         </state>
       </provider>

@@ -9,6 +9,11 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 </head>
 <body>
+	<!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+	
 	<form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
 		<ul>
 			<li>

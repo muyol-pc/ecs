@@ -168,7 +168,7 @@ loading.prototype = {
 				新手体验标和项目优选标不参与此活动
 			</div>
 		</div><!--step-three end-->
-		<div class="go-back"><a href="#">返回首页</a></div>
+		<div class="go-back"><a href="index.php">返回首页</a></div>
 	</div>
 </body>
 </html>
