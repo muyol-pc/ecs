@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>表单</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link type="text/css" rel="stylesheet" href="themes/henli/inc/css/base.css">
+<link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
+</head>
+<body>
+	<div class="form-box">
+		<ul>
+			<li>
+				<span>姓名：</span>
+				<div class="i-box"><input type="text" name=""></div>
+			</li>
+			<li>
+				<span>联系电话：</span>
+				<div class="i-box"><input type="text" name=""></div>
+			</li>
+			<li>
+				<span>电子邮箱：</span>
+				<div class="i-box"><input type="text" name=""></div>
+			</li>
+			<li>
+				<span>问题描述：</span>
+				<div class="i-box" style="margin-top:5px;"><textarea class="area"></textarea></div>
+			</li>
+			<li class="btn">
+				<span></span>
+				<div class="i-box"><button type="submit" class="post">马上提交</button></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

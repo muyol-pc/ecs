@@ -110,7 +110,7 @@ if ($action == 'default')
     $smarty->assign('user_name',        $_SESSION['user_name']);
     $smarty->assign('user_notice', $_CFG['user_notice']);
     $smarty->assign('prompt',      get_user_prompt($user_id));
-    $smarty->display('guaguaka.dwt');
+    $smarty->display('leftmessage.dwt');
 }
 
 /* 显示会员注册界面 */
@@ -161,7 +161,7 @@ elseif($action == 'act_register_success'){
     $smarty->assign('type', $type);
     // $smarty->display('user_transaction.dwt');
     // var_dump($goods_list);
-    $smarty->display('guaguaka.dwt');
+    $smarty->display('leftmessage.dwt');
 
 
 ?>

@@ -44,6 +44,7 @@
 	height: 425px;
 	float: left;
 	margin-left: 30px;
+	background: url("../img/icon2.png") no-repeat;
 }
 .step-one .win{
 	width: 462px;
@@ -99,7 +100,7 @@
 }
 .step-one .active-gift ul{
 	overflow: hidden;
-    padding: 0 48px;
+	padding: 0 48px;
 }
 .step-one .active-gift li{
 	width: 355px;
@@ -187,13 +188,13 @@
 }
 .step-two .record-list .record li span{
 	width: 33.33%;
-    float: left;
-    font-size: 26px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	float: left;
+	font-size: 26px;
+	text-align: center;
+	line-height: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .step-three{
 	background: url("../img/step_bj3.png") no-repeat;
@@ -222,3 +223,75 @@
 	color: #FFF;
 	font-size: 28px;
 }
+
+/*在线留言*/
+.form-box{
+	width: 530px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 70px 0;
+}
+.form-box li{
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+.form-box li span{
+	width: 120px;
+	float: left;
+	line-height: 34px;
+	font-size: 16px;
+	color: #808080;
+}
+.form-box li .i-box{
+	width: 405px;
+	float: right;
+	border:solid 1px #dedede;
+	overflow: hidden;
+}
+.form-box li .i-box input{
+	width: 100%;
+	line-height: 34px;
+	font-size: 16px;
+	border:0;
+	text-indent: 1em;
+}
+.form-box li .i-box .area{
+	width: 96%;
+	border:0;
+	padding: 0 2%;
+	font-size: 16px;
+	line-height: 24px;
+	height: 140px;
+}
+.form-box li.btn .i-box{
+	border:0;
+}
+.form-box li .post{
+	width: 350px;
+	height: 66px;
+	margin:0 auto;
+	text-align: center;
+	line-height: 66px;
+	font-size: 28px;
+	color: #FFF;
+	background: #009ea9;
+	border:0;
+	cursor: pointer;
+	display: block;
+	font-family: "微软雅黑";
+}
+.form-box li .post:hover{
+	background: #007b84;
+}
+
+
+
+
+
+
+
+
+
+
+
+
