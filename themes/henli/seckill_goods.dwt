@@ -43,7 +43,7 @@
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="{$seckill.imggoods.original_img}" src="{$seckill.imggoods.goods_thumb}" style="width:400px;height:380px;" />
+            <img zoom-img="{$seckill.imggoods.original_img}" src="{$seckill.imggoods.goods_thumb}" style="width:478px;height:380px;" />
           </div>
         </div>
         <div class="hl-spec-scroll">
@@ -70,13 +70,13 @@
           <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-clock">特价秒杀</span>
             {if $seckill.cur_status eq 0 }
-            <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
-                距开始&nbsp;
-                <p id="v:timeCounter" style="margin:0px;float:right;">
-                    <span id="leftTime">{$lang.please_waiting}</span>
-                </p>
-                <p id="time_loading" class="tuan_time_loading"></p>
-            </span>
+                <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                    距开始&nbsp;
+                    <p id="v:timeCounter" style="margin:0px;float:right;">
+                        <span id="leftTime">{$lang.please_waiting}</span>
+                    </p>
+                    <p id="time_loading" class="tuan_time_loading"></p>
+                </span>
             {elseif $seckill.cur_status eq 1}
                 <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
                    <p >秒杀活动进行中...</p>
