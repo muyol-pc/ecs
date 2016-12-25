@@ -4,7 +4,7 @@ $db_host   = "localhost:3306";
 
 // database name
 // $db_name   = "ximenzijiadian";
-$db_name   = "esc";
+$db_name   = "ecshop2";
 
 // database username
 // $db_user   = "ximenzijiadian";
@@ -44,7 +44,7 @@ define('AUTH_KEY', 'this is a key');
 
 define('OLD_AUTH_KEY', '');
 
-define('API_TIME', '2016-12-26 00:35:47');
+define('API_TIME', '2016-12-26 01:37:33');
 
 define('STORE_KEY','b74b264e4b020496fe3377e2426e06bd');
 
