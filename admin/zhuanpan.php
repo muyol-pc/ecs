@@ -145,7 +145,10 @@ $smarty->assign('act',$_REQUEST['act']);
             } else {
                 $insert['isshow'] = 0;
             }
-            $id= $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('bigwheel_reply'),$insert,'INSERT');
+            if(!empty($insert['title'])){
+                $id= $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('bigwheel_reply'),$insert,'INSERT');
+            }
+
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
         } else {
              $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('bigwheel_reply'),$insert,'UDPATE','id='.$id);
@@ -156,26 +159,20 @@ $smarty->assign('act',$_REQUEST['act']);
         $smarty->display('form.htm');//添加活动
     } else if($_REQUEST['act'] == 'delete'){
         $id = intval($_REQUEST['id']);
-        $rule_sql = "SELECT id FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
-        $rule = $GLOBALS['db']->getOne($rule_sql);
-        if (empty($rule)) {
-//            message('抱歉，要修改的规则不存在或是已经被删除！');
+        if(!empty($id)){
+
+            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id = ".$id;
+            $GLOBALS['db']->query($delete_sql);
+            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
         }
-        $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
-        $GLOBALS['db']->query($delete_sql);
-        ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     } else if($_REQUEST['act'] == 'deleteAll'){
 
         foreach ($_REQUEST['idArr'] as $k => $id) {
             $id = intval($id);
             if ($id == 0)
                 continue;
-            $rule_sql ="SELECT id, module FROM " . tablename('rule') . " WHERE id = ".$id;
-            $rule = $GLOBALS['db']->getOne($rule_sql);
-            if (empty($rule)) {
-                $this->webmessage('抱歉，要修改的规则不存在或是已经被删除！');
-            }
-            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
+
+            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id = ".$id;
             $GLOBALS['db']->query($delete_sql);
 
         }
@@ -184,7 +181,7 @@ $smarty->assign('act',$_REQUEST['act']);
         $id = intval($_REQUEST['id']);
         $isshow = intval($_REQUEST['isshow']);
         if (empty($id)) {
-//            message('抱歉，传递的参数错误！', '', 'error');
+exit;
         }
         $update_sql = "UPDATE " . $GLOBALS['ecs']->table('bigwheel_reply')." SET isshow=".$isshow . " WHERE id = ".$id;
         $GLOBALS['db']->query($update_sql);
@@ -194,7 +191,7 @@ $smarty->assign('act',$_REQUEST['act']);
         $id = intval($_REQUEST['id']);
         $status = intval($_REQUEST['status']);
         if (empty($id)) {
-//            message('抱歉，传递的参数错误！', '', 'error');
+exit;
         }
         $p = array('status' => $status);
         if ($status == 2) {
@@ -211,8 +208,9 @@ $smarty->assign('act',$_REQUEST['act']);
     } else if($_REQUEST['act'] == 'getphone'){
         $id = intval($_REQUEST['id']);
         $fans = $_REQUEST['fans'];
-
-        $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE id = " . $id . " and  from_user='" . $fans . "'");
+if(!empty($id)){
+    $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE id = " . $id . " and  from_user='" . $fans . "'");
+}
         if ($tel == false) {
             echo '没有登记';
         } else {

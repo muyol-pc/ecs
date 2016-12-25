@@ -145,7 +145,10 @@ if ($_REQUEST['act'] == 'manage') {
         } else {
             $insert['isshow'] = 0;
         }
-        $id= $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('scratch_reply'),$insert,'INSERT');
+        if(!empty($insert['title'])){
+            $id= $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('scratch_reply'),$insert,'INSERT');
+        }
+
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     } else {
         $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('scratch_reply'),$insert,'UDPATE','id='.$id);
@@ -156,8 +159,10 @@ if ($_REQUEST['act'] == 'manage') {
     $smarty->display('scratch_form.htm');//添加活动
 } else if($_REQUEST['act'] == 'delete'){
     $id = intval($_REQUEST['id']);
+if(!empty($id)){
 
     $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('scratch_reply') . " WHERE id = ".$id;
+}
     $GLOBALS['db']->query($delete_sql);
     ecs_header("Location: scratch.php?act=manage\n");exit;
 } else if($_REQUEST['act'] == 'deleteAll'){
@@ -176,6 +181,7 @@ if ($_REQUEST['act'] == 'manage') {
     $id = intval($_REQUEST['id']);
     $isshow = intval($_REQUEST['isshow']);
     if (empty($id)) {
+        exit;
 //            message('抱歉，传递的参数错误！', '', 'error');
     }
     $update_sql = "UPDATE " . $GLOBALS['ecs']->table('scratch_reply')." SET isshow=".$isshow . " WHERE id = ".$id;
@@ -186,6 +192,7 @@ if ($_REQUEST['act'] == 'manage') {
     $id = intval($_REQUEST['id']);
     $status = intval($_REQUEST['status']);
     if (empty($id)) {
+        exit;
 //            message('抱歉，传递的参数错误！', '', 'error');
     }
     $p = array('status' => $status);
@@ -203,7 +210,9 @@ if ($_REQUEST['act'] == 'manage') {
 } else if($_REQUEST['act'] == 'getphone'){
     $id = intval($_REQUEST['id']);
     $fans = $_REQUEST['fans'];
-
+    if (empty($id)) {
+        exit;
+    }
     $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('scratch_fans') . " WHERE id = " . $id . " and  from_user='" . $fans . "'");
     if ($tel == false) {
         echo '没有登记';
