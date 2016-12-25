@@ -43,7 +43,7 @@ else
     exit;
 }
 
-$smarty->assign('user_name',$_SESSION['user_name']); 
+$smarty->assign('user_name',$_SESSION['user_name']);
 /* 初始化分页信息 */
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
 $size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
@@ -215,9 +215,9 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     }
 
 
-    /* 品牌筛选 */
+    /* 品牌筛选  2016-1225-18:24 */
 
-    $sql = "SELECT b.brand_id, b.brand_name, COUNT(*) AS goods_num ".
+    $sql = "SELECT b.brand_id,b.brand_logo, b.brand_name, COUNT(*) AS goods_num ".
             "FROM " . $GLOBALS['ecs']->table('brand') . "AS b, ".
                 $GLOBALS['ecs']->table('goods') . " AS g LEFT JOIN ". $GLOBALS['ecs']->table('goods_cat') . " AS gc ON g.goods_id = gc.goods_id " .
             "WHERE g.brand_id = b.brand_id AND ($children OR " . 'gc.cat_id ' . db_create_in(array_unique(array_merge(array($cat_id), array_keys(cat_list($cat_id, 0, false))))) . ") AND b.is_show = 1 " .
@@ -230,6 +230,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     {
         $temp_key = $key + 1;
         $brands[$temp_key]['brand_name'] = $val['brand_name'];
+        $brands[$temp_key]['brand_logo'] = $val['brand_logo'];
         $brands[$temp_key]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => $val['brand_id'], 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
 
         /* 判断品牌是否被选中 */
@@ -244,10 +245,62 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     }
 
     $brands[0]['brand_name'] = $_LANG['all_attribute'];
+     $brands[0]['brand_logo']='';
     $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
     $brands[0]['selected'] = empty($brand) ? 1 : 0;
 
-    $smarty->assign('brands', $brands);
+/*-----------自定义查询品牌分类-----------------2016-1225-22:17------start----------------------------------*/
+
+//第一步 根据catid查询goods表，该分类对应那些产品，这些产品对应了那些品牌
+//$cat_id 分类id   distinct
+$sql="SELECT distinct(brand_id) from". $GLOBALS['ecs']->table('goods')."where cat_id=$cat_id";
+$brand_ids = $GLOBALS['db']->getAll($sql);
+$n_brands_ids = array();
+foreach ($brand_ids as $key => $value) {
+    foreach ($value as $va) {
+        $n_brands_ids[] = $va;
+    }
+}
+//得到了品牌的id,转换成一个字符串，丢到 in 查询
+$str_brands_ids = implode(',',$n_brands_ids);
+$sql2 = "select brand_id,brand_name,brand_logo from". $GLOBALS['ecs']->table('brand')."where is_show=1 and brand_id in($str_brands_ids)";
+$brand_names = $GLOBALS['db']->getAll($sql2);
+//查询遍历得到品牌数组----输出
+$smarty->assign('brand_msg', $brand_names);
+
+// $sql = "SELECT distinct(brand_id), brand_name, brand_logo ".
+//                    " FROM " . $GLOBALS['ecs']->table('category');
+//             $res = $GLOBALS['db']->getAll($sql);
+
+    // $smarty->assign('brands', $brands);
+
+/*----------------------------2016-1225-22:17------end----------------------------------*/
+/*---已知-$cat_id-------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------start----------------------------------*/
+$sql3="SELECT filter_attr from". $GLOBALS['ecs']->table('category')."where cat_id=$cat_id";
+$cat_attrbutes_ids = $GLOBALS['db']->getOne($sql3);
+$sqls = "SELECT attr_name,attr_values from". $GLOBALS['ecs']->table('attribute')."where cat_id=$cat_id and attr_id in($cat_attrbutes_ids) order by sort_order asc";
+$attr_valuess = $GLOBALS['db']->getAll($sqls);
+$new_attr_values =array();
+foreach ($attr_valuess as $key => $v_attr) {
+    $new_attr_values[]['attr_name'] = $v_attr['attr_name'];
+    // $new_attr_values[]['attr_values']=explode('\r',$v_attr['attr_values']);
+    $new_attr_values[]['attr_values']=explode(',',preg_replace('/(\n|\r|\n\r|\r\n)+/', ',', $v_attr['attr_values']));
+}
+
+$count = count($new_attr_values)/2;
+    for ($i=0; $i < $count; $i++) {
+        $rr[$i] = array_splice($new_attr_values,0,2);
+    }
+    foreach ($rr as $key => $value) {
+        foreach ($value as $k => $val) {
+            foreach ($val as $a => $v) {
+                $re_new_attr_values[$key][$a]=$v;
+            }
+        }
+    }
+$smarty->assign('attrs_ok', $re_new_attr_values);
+
+/*-----------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------end----------------------------------*/
 
 
     /* 属性筛选 */
