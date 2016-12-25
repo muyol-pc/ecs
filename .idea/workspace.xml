@@ -2,49 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58ecb04f-42a5-434a-8ab7-0c9ac194715c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/act-tit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/activity-scratch-card-bannerbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/activity-scratch-card-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/cart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/gift1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/gift2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/gift3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/icon6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/l_banner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/step_bj1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/step_bj2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/images/step_bj3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/act-tit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/activity-scratch-card-bannerbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/activity-scratch-card-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/cart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/gift1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/gift2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/gift3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/icon6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/l_banner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/step_bj1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/step_bj2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/img/step_bj3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/guaguaka.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/guaguaka.dwt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/css/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/inc/css/guaguaka_index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/js/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/henli/js/wScratchPad.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ecs.iws" />
@@ -84,6 +41,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="陈堃堃堃堃 &lt;4154323@qq.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -328,26 +290,34 @@
       <option name="presentableId" value="Default" />
       <updated>1482370154048</updated>
       <workItem from="1482688475148" duration="2454000" />
-      <workItem from="1482692877899" duration="2694000" />
+      <workItem from="1482692877899" duration="2973000" />
     </task>
+    <task id="LOCAL-00001" summary="刮刮卡活动页面接入">
+      <created>1482695743328</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1482695743328</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5148000" />
+    <option name="totallyTimeSpent" value="5427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25201938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25201938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -375,6 +345,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="刮刮卡活动页面接入" />
+    <option name="LAST_COMMIT_MESSAGE" value="刮刮卡活动页面接入" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
