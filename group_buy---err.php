@@ -77,7 +77,7 @@ if ($_REQUEST['act'] == 'list')
             $tt = array();
 
             foreach ($gb_list as $k => $v) {
-                $tt['tuan_price'] = round($v['shop_price']*$v['zhekou']*0.1);
+                $tt['tuan_price'] = $v['shop_price']*$v['zhekou']*0.1;
                 $gb_list[$k] = array_merge($v,$tt);
             }
             $smarty->assign('gb_list',  $gb_list);
@@ -105,6 +105,13 @@ if ($_REQUEST['act'] == 'list')
     // $smarty->display('group_buy_list.dwt', $cache_id);
     $smarty->display('group_buy_list.dwt');
 }
+/*============list-end================*/
+
+
+
+
+/*============view-start================*/
+
 
 /*------------------------------------------------------ */
 //-- 团购商品 --> 商品详情页面    把原价和团购价弄出来显示---zzz
@@ -166,16 +173,6 @@ for ($i=0; $i < $count; $i++) {
  $smarty->assign('colors',  $colors);
 /*========================================*/
 
-/*=======================查询已经参团人数=================start================================*/
-$buy_people = $db->getOne("select buy_people from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
-$tuan_num = $db->getOne("select tuan_num from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
-//输出已经参团人数和差值
-$buy_p=array(
-        '0' =>$buy_people,
-        '1'=> ($tuan_num-$buy_people),
-    );
- $smarty->assign('buy_p',  $buy_p);
-/*======================================end=============================================*/
 /*------------------------------20161222----------------------------------------------------*/
     /* 获得商品的信息 */
     $tg_goods_info = get_goods_info($group_buy_id);
@@ -184,10 +181,9 @@ $buy_p=array(
 $tt2=array();
 $res = $db->getOne("select zhekou from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
 
-    $tt2['tuan_price'] = round(intval($tg_goods_info['shop_price'])*intval($res)*0.1);
+    $tt2['tuan_price'] = intval($tg_goods_info['shop_price'])*intval($res)*0.1;
     $nwarr = array_merge($tg_goods_info,$tt2);
     $smarty->assign('tg_goods_info',  $nwarr);
-
     /*传输 商品详情*/
     $smarty->assign('description', htmlspecialchars($tg_goods_info['goods_brief']));
     /*商品相册*/
@@ -264,7 +260,9 @@ $res = $db->getOne("select zhekou from " . $ecs->table('goods_activity') . "wher
 
     $smarty->display('group_buy_goods.dwt');
 }
+/*======================view-end================================*/
 
+/*======================buy-start================================*/
 /*------------------------------------------------------ */
 //-- 团购商品 --> 购买
 /*------------------------------------------------------ */
@@ -393,7 +391,10 @@ elseif ($_REQUEST['act'] == 'buy')
     ecs_header("Location: ./flow.php?step=consignee\n");
     exit;
 }
+/*======================buy-end================================*/
 
+
+/*======================group_buy_count-start================================*/
 /* 取得团购活动总数 */
 function group_buy_count()
 {
@@ -405,7 +406,9 @@ function group_buy_count()
 
     return $GLOBALS['db']->getOne($sql);
 }
+/*======================group_buy_count-end================================*/
 
+/*======================group_buy_list-start================================*/
 /**
  * 取得某页的所有团购活动
  * @param   int     $size   每页记录数
