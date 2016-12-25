@@ -128,7 +128,7 @@
         <div class="hl-value">
         <!--{foreach from=$attrs_ok[2]['attr_values'] item=att_val}-->
         <!--{foreach from=$att_val item=c_val}-->
-          <a class="hl-curr" href="">{$c_val}</a>
+          <a href="">{$c_val}</a>
           <!--{/foreach}-->
         <!--{/foreach}-->
         </div>
@@ -151,7 +151,7 @@
         <div class="hl-value">
         <!--{foreach from=$attrs_ok[3]['attr_values'] item=att_val}-->
         <!--{foreach from=$att_val item=d_val}-->
-          <a class="hl-curr" href="">{$d_val}</a>
+          <a href="">{$d_val}</a>
           <!--{/foreach}-->
         <!--{/foreach}-->
         </div>
