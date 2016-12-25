@@ -30,7 +30,7 @@ if ($_REQUEST['act'] == 'manage') {
 
 //        if (!empty($list)) {
 //
-    $scratch_sql="SELECT fansnum, viewnum,starttime,endtime,isshow FROM " . $GLOBALS['ecs']->table('scratch_reply');
+    $scratch_sql="SELECT id,title,fansnum, viewnum,starttime,endtime,isshow FROM " . $GLOBALS['ecs']->table('scratch_reply');
 
     $list =  $GLOBALS['db']->getAll($scratch_sql);
     foreach ($list as &$item) {

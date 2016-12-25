@@ -26,21 +26,21 @@
                 {foreach from=$list item=row}
                 <tr>
                     <td class="with-checkbox">
-                        <input type="checkbox" name="check" value="{$row.id}"></td>	 <td>{$row.name} </td>
+                        <input type="checkbox" name="check" value="{$row.id}"></td>	 <td>{$row.title} </td>
                     <td>{$row.fansnum}</td>
                     <td>{$row.viewnum}</td>
                     <td>{$row.starttime}<br>
                         {$row.endtime}</td>
                     <td>{$row.status}</td>
                     <td>
-                        <a href="scratch.php?act=awardlist&rid=0}" class="btn btn-default" title="SN">SN</a>
+                        <a href="scratch.php?act=awardlist&id={$row.id}}" class="btn btn-default" title="SN">SN</a>
                         {if $row.isshow==0}
-                        <a class="btn btn-default" title="开始活动"href="#" onclick="drop_confirm('您确定要开始吗,设置中途可以随时修改!', 'scratch.php?act=setshow&rid=0&isshow=1');">开始活动</a>
+                        <a class="btn btn-default" title="开始活动"href="#" onclick="drop_confirm('您确定要开始吗,设置中途可以随时修改!', 'scratch.php?act=setshow&id={$row.id}&isshow=1');">开始活动</a>
                         {elseif $row.isshow==1}
-                        <a class="btn btn-default" title="结束活动" href="#" onclick="drop_confirm('您确定要暂停吗,设置中途可以随时修改!', 'scratch.php?act=setshow&rid=0&isshow=0');">结束活动</a>
+                        <a class="btn btn-default" title="结束活动" href="#" onclick="drop_confirm('您确定要暂停吗,设置中途可以随时修改!', 'scratch.php?act=setshow&id={$row.id}&isshow=0');">结束活动</a>
                         {/if}
-                        <a class="btn btn-default" href="scratch.php?act=post&rid=0" title="编辑">编辑</a>
-                        <a class="btn btn-default" href="#" onclick="drop_confirm('您确定要删除吗?', 'scratch.php?act=delete&rid=0');" title="删除">删除</a>
+                        <a class="btn btn-default" href="scratch.php?act=post&id={$row.id}" title="编辑">编辑</a>
+                        <a class="btn btn-default" href="#" onclick="drop_confirm('您确定要删除吗?', 'scratch.php?act=delete&id={$row.id}');" title="删除">删除</a>
                     </td>
                 </tr>
                 {/foreach}
