@@ -30,7 +30,7 @@ $smarty->assign('act',$_REQUEST['act']);
 
 //        if (!empty($list)) {
 //
-                $bigwheel_sql="SELECT fansnum, viewnum,starttime,endtime,isshow FROM " . $GLOBALS['ecs']->table('bigwheel_reply');
+                $bigwheel_sql="SELECT id,title,fansnum, viewnum,starttime,endtime,isshow FROM " . $GLOBALS['ecs']->table('bigwheel_reply');
 
         $list =  $GLOBALS['db']->getAll($bigwheel_sql);
         foreach ($list as &$item) {
