@@ -1,0 +1,224 @@
+/*刮刮卡*/
+.l-banner{
+	overflow: hidden;
+	text-align: center;
+}
+.l-banner img{
+	width: 100%;
+}
+.card-content{
+	width: 1295px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #fdffd7;
+}
+.step-one{
+	background: url("../img/step_bj1.png") no-repeat;
+	background-size: 100% auto;
+	overflow: hidden;
+	padding-top: 300px;
+	margin-bottom: 80px;
+}
+.step-one .surplus{
+	width: 178px;
+	height: 113px;
+	padding:0 20px 0 108px;
+	float: left;
+	background: url("../img/icon1.png") no-repeat;
+	text-align: center;
+	font-size: 20px;
+	color: #FFF;
+	text-shadow: 0 2px 2px #000;
+	line-height: 110px;
+	margin-left: 225px;
+}
+.step-one .surplus .number{
+	font-size: 28px;
+	color: #f75651;
+}
+.step-one .o-h{
+	width: 100%;
+}
+.step-one .scratch{
+	width: 730px;
+	height: 425px;
+	float: left;
+	margin-left: 30px;
+}
+.step-one .win{
+	width: 462px;
+	height: 441px;
+	float: right;
+	background: url("../img/icon3.png") no-repeat;
+	margin-right: 30px;
+	font-size: 16px;
+}
+.step-one .win .w-menu{
+	overflow: hidden;
+}
+.step-one .win .w-menu li{
+	width: 157px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	color: #FFF;
+	margin-right: 23px;
+}
+.step-one .win .w-menu li:nth-child(1){
+	margin-left: 66px;
+}
+.step-one .win .w-list{
+	width: 296px;
+	height: 360px;
+	overflow: hidden;
+	margin:0 auto;
+}
+.step-one .win .w-list li{
+	font-size: 16px;
+	border-bottom: solid 1px #dedede;
+	padding: 15px 0;
+	overflow: hidden;
+}
+.step-one .win .w-list li span{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.step-one .win .w-list li span:nth-child(1){
+	width: 170px;
+	float: left;
+}
+.step-one .win .w-list li span:nth-child(2){
+	width: 115px;
+	float: right;
+}
+.step-one .active-gift{
+	background: url("../img/act-tit.png") no-repeat;
+	padding-top: 165px;
+	overflow: hidden;
+}
+.step-one .active-gift ul{
+	overflow: hidden;
+    padding: 0 48px;
+}
+.step-one .active-gift li{
+	width: 355px;
+	height: 320px;
+	float: left;
+	margin: 0 22px;
+	overflow: hidden;
+	position: relative;
+}
+.step-one .active-gift li .circle{
+	width: 274px;
+	height: 274px;
+	border:solid 8px #f75651;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	margin-left: -145px;
+	top: 20px;
+}
+.step-one .active-gift li .pic{
+	width: 274px;
+	height: 262px;
+	position: absolute;
+	left: 50%;
+	margin-left: -137px;
+	z-index: 2;
+}
+.step-one .active-gift li .pic img{
+	width: 100%;
+}
+.step-one .active-gift li .name{
+	width: 355px;
+	height: 67px;
+	background: url("../img/icon4.png") no-repeat;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -177px;
+	z-index: 3;
+	font-size: 20px;
+	text-align: center;
+	color: #f75651;
+	line-height: 46px;
+}
+.step-one .active-gift li .name em{
+	color: #2cbce8;
+}
+.step-two{
+	background: url("../img/step_bj2.png") no-repeat;
+	padding-top: 230px;
+	overflow: hidden;
+	margin-bottom: 70px;
+}
+.step-two .record-list{
+	width: 760px;
+	padding: 0 182px;
+	height: 509px;
+	margin:0 auto;
+	overflow: hidden;
+	background: url("../img/icon5.png") no-repeat;
+}
+.step-two .record-list .name{
+	margin-top: 23px;
+	overflow: hidden;
+	border-bottom: solid 4px #f75651;
+}
+.step-two .record-list .name li{
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	font-size: 28px;
+	color: #808080;
+}
+.step-two .record-list .record{
+	overflow: hidden;
+	margin-top: 35px;
+	max-height: 325px;
+}
+.step-two .record-list .record li{
+	padding: 25px 0;
+	border-bottom: solid 1px #dedede;
+	overflow: hidden;
+}
+.step-two .record-list .record li span{
+	width: 33.33%;
+    float: left;
+    font-size: 26px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.step-three{
+	background: url("../img/step_bj3.png") no-repeat;
+	padding-top: 130px;
+	overflow: hidden;
+}
+.step-three .note{
+	background: url("../img/icon6.png") no-repeat 100% 0% #f67988;
+	margin:0 20px;
+	padding: 35px 320px 35px 60px;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 32px;
+	border-radius: 24px;
+}
+.card-content .go-back{
+	text-align: center;
+	padding: 40px 0;
+}
+.card-content .go-back a{
+	display: inline-block;
+	padding: 0 85px;
+	line-height: 68px;
+	border-radius: 34px;
+	background: #e45656;
+	color: #FFF;
+	font-size: 28px;
+}
