@@ -9,29 +9,89 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 </head>
 <body>
-	<div class="form-box">
+	<form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
 		<ul>
 			<li>
 				<span>姓名：</span>
-				<div class="i-box"><input type="text" name=""></div>
+				<div class="i-box"><input type="text" name="msg_name"></div>
 			</li>
 			<li>
 				<span>联系电话：</span>
-				<div class="i-box"><input type="text" name=""></div>
+				<div class="i-box"><input type="text" name="msg_phone"></div>
 			</li>
 			<li>
 				<span>电子邮箱：</span>
-				<div class="i-box"><input type="text" name=""></div>
+				<div class="i-box"><input type="text" name="msg_email"></div>
 			</li>
 			<li>
 				<span>问题描述：</span>
-				<div class="i-box" style="margin-top:5px;"><textarea class="area"></textarea></div>
+				<div class="i-box" style="margin-top:5px;"><textarea class="area" name="msg_content"></textarea></div>
 			</li>
 			<li class="btn">
 				<span></span>
-				<div class="i-box"><button type="submit" class="post">马上提交</button></div>
+				<div class="i-box"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
 			</li>
 		</ul>
-	</div>
+	</form>
+
+
+	<script type="text/javascript">
+        {foreach from=$lang.message_board_js item=item key=key}
+        var {$key} = "{$item}";
+        {/foreach}
+        {literal}
+        /**
+         * 提交留言信息
+        */
+        /**
+         * 电话
+         */
+
+        function submitMsgBoard(frm)
+        {
+            var msg = new Object;
+             msg.msg_name   = frm.elements['msg_name'].value;
+						 msg.msg_phone = frm.elements['msg_phone'].value;
+						 msg.msg_email = frm.elements['msg_email'].value;
+             msg.msg_content = frm.elements['msg_content'].value;
+            // msg.captcha     = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+
+
+            var msg_err = '';
+
+						if (msg.msg_name.length == 0) {
+          		msg_err += msg_name_empty + '\n'
+          	}
+
+          	if (msg.msg_phone.length == 0) {
+          		msg_err += msg_phone_empty + '\n'
+          	}
+						if (msg.msg_email.length == 0) {
+          		msg_err += msg_email_empty + '\n'
+          	}
+
+            if (msg.msg_content.length == 0)
+            {
+                msg_err += msg_content_empty + '\n'
+            }
+
+            if (msg_err.length > 0)
+            {
+                alert(msg_err);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        {/literal}
+    </script>
 </body>
+
+
+
+
+
+
 </html>

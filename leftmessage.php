@@ -152,6 +152,79 @@ if ($action == 'register')
 elseif($action == 'act_register_success'){
     $smarty->display('register-success.dwt');
 }
+//新增留言
+$action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
+if ($action == 'act_add_message')
+{
+    include_once(ROOT_PATH . 'includes/lib_clips.php');
+
+    /* 验证码防止灌水刷屏 */
+    if ((intval($_CFG['captcha']) & CAPTCHA_MESSAGE) && gd_version() > 0)
+    {
+        include_once('includes/cls_captcha.php');
+        $validator = new captcha();
+        if (!$validator->check_word($_POST['captcha']))
+        {
+            show_message($_LANG['invalid_captcha']);
+        }
+    }
+    else
+    {
+        /* 没有验证码时，用时间来限制机器人发帖或恶意发评论 */
+        if (!isset($_SESSION['send_time']))
+        {
+            $_SESSION['send_time'] = 0;
+        }
+
+        $cur_time = gmtime();
+        if (($cur_time - $_SESSION['send_time']) < 30) // 小于30秒禁止发评论
+        {
+            show_message($_LANG['cmt_spam_warning']);
+        }
+    }
+
+    $user_name = htmlspecialchars(trim($_POST['msg_name']));
+    $user_phone = htmlspecialchars(trim($_POST['msg_phone']));
+    $user_email = htmlspecialchars(trim($_POST['msg_email']));
+    // var_dump($phone);exit;
+    $user_id = !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+    $user_username = !empty($_SESSION['user_name']) ? $_SESSION['user_name'] : 0;
+        $message = array(
+        'user_id'     => $user_id,
+        'user_username' => $user_username,
+        'user_name'   => $user_name,
+        'user_email' => $user_email,
+        'user_telphone'  => $user_phone,
+        //'msg_type'    => isset($_POST['msg_type']) ? intval($_POST['msg_type'])     : 0,
+        'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '问题描述',
+        'msg_content' => isset($_POST['msg_content']) ? trim($_POST['msg_content']) : '',
+        //'order_id'    => 0,
+        //'msg_area'    => 1,
+        'upload'      => array()
+    );
+
+    if (add_message($message))
+    {
+        if (intval($_CFG['captcha']) & CAPTCHA_MESSAGE)
+        {
+            unset($_SESSION[$validator->session_word]);
+        }
+        else
+        {
+            $_SESSION['send_time'] = $cur_time;
+        }
+        $msg_info = $_CFG['message_check'] ? $_LANG['message_submit_wait'] : $_LANG['message_submit_done'];
+        show_message($msg_info, $_LANG['message_list_lnk'], 'message.php');
+    }
+    else
+    {
+        $err->show($_LANG['message_list_lnk'], 'message.php');
+    }
+}
+
+
+
+
 
 
     $active = $type==2?'pro_pay':'pro_buy';
