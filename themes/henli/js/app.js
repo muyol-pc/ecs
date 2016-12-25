@@ -50,7 +50,13 @@ $(".hl-counter").on('click', '.hl-counter-add', function(event) {
   event.preventDefault();
   /* Act on the event */
   var num = parseInt($(this).siblings('.hl-counter-num').val());
-  $(this).siblings('.hl-counter-num').val(num+1);
+  var max = parseInt($(this).siblings('.hl-counter-num').attr('max'))
+  if (max != undefined && num >= max) {
+    $(this).siblings('.hl-counter-num').val(max);
+  }else{
+    $(this).siblings('.hl-counter-num').val(num+1);
+  }
+  
   if ($(this).closest('tr').find(':checkbox').prop('checked')) {
     money();
   }
@@ -82,5 +88,14 @@ $(".hl-order-pay .checkbox input:checkbox").on('click', function(event) {
   money();
 });
 
+// 筛选商品属性
+$(".hl-stock").on('click', 'ul li a', function(event) {
+  event.preventDefault();
+  /* Act on the event */
+  var p = $(this).closest('li');
+  if (!p.hasClass('hl-selected')&&!p.hasClass('hl-disabled')) {
+    p.addClass('hl-selected').siblings().removeClass('hl-selected');
+  }
+});
 
 });

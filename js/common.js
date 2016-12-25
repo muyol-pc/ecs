@@ -5,7 +5,7 @@ function addToCart2(goodsId){
   var spec_arr     = new Array();
   var fittings_arr = new Array();
   var number       = $(".hl-stock").find(".hl-counter-num").val();
-  var formBuy      = $(".hl-stock").find('.hl-pro-attr'); 
+  var formBuy      = $(".hl-stock").find('.hl-selected.hl-pro-attr'); 
   var quick        = 0;
 
   // 检查是否有商品规格
@@ -35,11 +35,12 @@ function addToCart2(goodsId){
 function getSelectedAttributes2(formBuy)
 {
   var spec_arr = new Array();
-  var j = 0;
+  // var j = 0;
   var len = formBuy.length;
   $.each(formBuy, function(index, val) {
      /* iterate through array or object */
-     spec_arr[j] = $(this).attr("val");
+     console.log(val);
+     spec_arr[index] = $(this).attr("value");
 
   });
   // for (i = 0; i < len; i ++ )
