@@ -80,7 +80,7 @@ if ($this->_foreach['no']['total'] > 0):
           
           <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
-            <span class="hl-fr hl-f18">已有10人参团，还差3人即可享受优惠</span>
+            <span class="hl-fr hl-f18">已有<?php echo $this->_var['buy_p']['0']; ?>人参团，还差<?php echo $this->_var['buy_p']['1']; ?>人即可享受优惠</span>
           </div>
           
           <!-- <div class="hl-ad hl-ff hl-f20">
@@ -264,15 +264,15 @@ if ($this->_foreach['no']['total'] > 0):
             <div class="hl-dt">数　　量</div>
             <div class="hl-dd hl-buy-count hl-f0">
               <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
-              <input type="text" name="number" class="hl-buy-num hl-tc" value="1" />
+              <input type="text" name="number" id="number" class="hl-buy-num hl-tc" value="1" />
               <a href="javascript:;" class="hl-plus"></a>
               
               <span class="hl-promotion">正在促销</span>
               
               <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
             </div>
-            <div>
-                <?php if ($this->_var['group_buy']['status'] == 0): ?>
+            <div style="margin:10px 0;color: #999;">
+    <?php if ($this->_var['group_buy']['status'] == 0): ?>
       <?php echo $this->_var['lang']['gbs_pre_start']; ?>
       <?php elseif ($this->_var['group_buy']['status'] == 1): ?>
       <font><?php echo $this->_var['lang']['gbs_under_way']; ?>
