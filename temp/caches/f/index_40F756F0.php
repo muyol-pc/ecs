@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/index.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:48:"E:/www/ecs/ecs/themes/henli/library/index_ad.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482680552;s:8:"maketime";i:1482676952;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/index.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:68:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/index_ad.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482690962;s:8:"maketime";i:1482687362;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -27,11 +27,8 @@ var process_request = "正在处理您的请求...";
   <div class="hl-center"> 
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
-              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">admin</a>
-        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
-        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
-      <a class="hl-message" href="message.php" target="_blank">在线留言</a>
-      <a class="hl-message" href="user.php?act=logout">退出</a>
+              <a class="hl-user hl-a3" href="user.php">登录</a>
+        <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
           </div>
   </div>
 </div> 

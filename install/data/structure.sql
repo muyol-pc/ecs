@@ -1401,6 +1401,7 @@ CREATE TABLE `ecs_goods_activity` (
   `ext_info` text NOT NULL,
   `zhekou` varchar(20) NOT NULL DEFAULT '0.8' COMMENT '团购活动的折扣值',
   `tuan_num` tinyint(4) NOT NULL DEFAULT '1' COMMENT '团购活动的起参团数量',
+  `buy_people` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '已参团人数',
   PRIMARY KEY (`act_id`),
   KEY `act_name` (`act_name`,`act_type`,`goods_id`)
 ) TYPE=MyISAM;

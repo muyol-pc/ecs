@@ -4,37 +4,12 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '134',
-      'sort_order' => '1',
+      'goods_id' => '2',
+      'sort_order' => '100',
     ),
     1 => 
     array (
-      'goods_id' => '136',
-      'sort_order' => '2',
-    ),
-    2 => 
-    array (
-      'goods_id' => '140',
-      'sort_order' => '3',
-    ),
-    3 => 
-    array (
       'goods_id' => '1',
-      'sort_order' => '100',
-    ),
-    4 => 
-    array (
-      'goods_id' => '138',
-      'sort_order' => '100',
-    ),
-    5 => 
-    array (
-      'goods_id' => '139',
-      'sort_order' => '100',
-    ),
-    6 => 
-    array (
-      'goods_id' => '141',
       'sort_order' => '100',
     ),
   ),
@@ -42,37 +17,12 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '136',
-      'sort_order' => '2',
+      'goods_id' => '2',
+      'sort_order' => '100',
     ),
     1 => 
     array (
-      'goods_id' => '140',
-      'sort_order' => '3',
-    ),
-    2 => 
-    array (
       'goods_id' => '1',
-      'sort_order' => '100',
-    ),
-    3 => 
-    array (
-      'goods_id' => '137',
-      'sort_order' => '100',
-    ),
-    4 => 
-    array (
-      'goods_id' => '138',
-      'sort_order' => '100',
-    ),
-    5 => 
-    array (
-      'goods_id' => '139',
-      'sort_order' => '100',
-    ),
-    6 => 
-    array (
-      'goods_id' => '141',
       'sort_order' => '100',
     ),
   ),
@@ -80,50 +30,14 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '134',
-      'sort_order' => '1',
-    ),
-    1 => 
-    array (
-      'goods_id' => '136',
-      'sort_order' => '2',
-    ),
-    2 => 
-    array (
-      'goods_id' => '140',
-      'sort_order' => '3',
-    ),
-    3 => 
-    array (
       'goods_id' => '1',
-      'sort_order' => '100',
-    ),
-    4 => 
-    array (
-      'goods_id' => '137',
-      'sort_order' => '100',
-    ),
-    5 => 
-    array (
-      'goods_id' => '138',
-      'sort_order' => '100',
-    ),
-    6 => 
-    array (
-      'goods_id' => '141',
       'sort_order' => '100',
     ),
   ),
   'brand' => 
   array (
-    134 => '  恒基伟业',
-    136 => 'APPLE',
-    140 => '天翼',
-    1 => '有讯网络',
-    137 => '方正',
-    138 => '希捷',
-    139 => '漫步者',
-    141 => '美的',
+    2 => 'BOSCH',
+    1 => '西门子(SIEMENS)',
   ),
 );
 ?>

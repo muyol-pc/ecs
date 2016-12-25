@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482678945;s:8:"maketime";i:1482675345;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482689932;s:8:"maketime";i:1482686332;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -128,127 +128,18 @@ var process_request = "正在处理您的请求...";
             价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
           </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
-            <div class="hl-dt">送　　至</div>
-            <div class="hl-dd hl-clearfix">
-              
-              <div class="hl-store-selector hl-fl">
-                <div class="hl-city">
-                  <div class="hl-text hl-active">
-                    <div class="hl-address-placement">四川&nbsp;成都市&nbsp;高新区</div>
-                    <b></b>
-                  </div>
-                  <div class="hl-city-group">
-                    <div class="hl-content">
-                      <ul class="hl-tab-city hl-clearfix">
-                      
-                        <li class="hl-curr hl-active">
-                          <p><a href="javascript:;">四川</a><b></b></p>
-                        </li>
-                        <li>
-                          <p><a href="javascript:;">成都</a><b></b></p>
-                        </li>
-                        <li>
-                          <p><a href="javascript:;">高新区</a><b></b></p>
-                        </li>
-                      </ul>
-                      <div class="hl-tab-content">
-                      
-                        <div class="hl-panel hl-province-arr hl-active">
-                          <!--
-                            点击添加：hl-on
-                            页面刷新添加：hl-on
-                          -->
-                          <span><a class="" href="javascript:;">北京</a></span>
-                          <span><a href="javascript:;">上海</a></span>
-                          <span><a href="javascript:;">天津</a></span>
-                          <span><a href="javascript:;">重庆</a></span>
-                          <span><a href="javascript:;">河北</a></span>
-                          <span><a href="javascript:;">山西</a></span>
-                          <span><a href="javascript:;">河南</a></span>
-                          <span><a href="javascript:;">辽宁</a></span>
-                          <span><a href="javascript:;">吉林</a></span>
-                          <span><a href="javascript:;">黑龙江</a></span>
-                          <span><a href="javascript:;">内蒙古</a></span>
-                          <span><a href="javascript:;">江苏</a></span>
-                          <span><a href="javascript:;">山东</a></span>
-                          <span><a href="javascript:;">安徽</a></span>
-                          <span><a href="javascript:;">浙江</a></span>
-                          <span><a href="javascript:;">福建</a></span>
-                          <span><a href="javascript:;">湖北</a></span>
-                          <span><a href="javascript:;">湖南</a></span>
-                          <span><a href="javascript:;">广东</a></span>
-                          <span><a href="javascript:;">广西</a></span>
-                          <span><a href="javascript:;">江西</a></span>
-                          <span><a href="javascript:;">四川</a></span>
-                          <span><a href="javascript:;">海南</a></span>
-                          <span><a href="javascript:;">贵州</a></span>
-                          <span><a href="javascript:;">云南</a></span>
-                          <span><a href="javascript:;">西藏</a></span>
-                          <span><a href="javascript:;">陕西</a></span>
-                          <span><a href="javascript:;">甘肃</a></span>
-                          <span><a href="javascript:;">青海</a></span>
-                          <span><a href="javascript:;">宁夏</a></span>
-                          <span><a href="javascript:;">新疆</a></span>
-                          <span><a href="javascript:;">台湾</a></span>
-                          <span><a href="javascript:;">港澳</a></span>
-                          <span><a href="javascript:;">钓鱼岛</a></span>
-                        </div>
-                        <div class="hl-panel hl-city-arr">
-                          <span><a href="javascript:;">凉山州</a></span>
-                          <span><a href="javascript:;">成都市</a></span>
-                          <span><a href="javascript:;">自贡市</a></span>
-                          <span><a href="javascript:;">攀枝花市</a></span>
-                          <span><a href="javascript:;">泸州市</a></span>
-                          <span><a href="javascript:;">绵阳市</a></span>
-                          <span><a href="javascript:;">德阳市</a></span>
-                          <span><a href="javascript:;">广元市</a></span>
-                          <span><a href="javascript:;">遂宁市</a></span>
-                          <span><a href="javascript:;">内江市</a></span>
-                          <span><a href="javascript:;">乐山市</a></span>
-                          <span><a href="javascript:;">宜宾市</a></span>
-                          <span><a href="javascript:;">广安市</a></span>
-                          <span><a href="javascript:;">南充市</a></span>
-                          <span><a href="javascript:;">达州市</a></span>
-                          <span><a href="javascript:;">巴中市</a></span>
-                          <span><a href="javascript:;">雅安市</a></span>
-                          <span><a href="javascript:;">眉山市</a></span>
-                          <span><a href="javascript:;">资阳市</a></span>
-                          <span><a href="javascript:;">阿坝州</a></span>
-                          <span><a href="javascript:;">甘孜州</a></span>
-                        </div>
-                        <div class="hl-panel hl-area-arr">
-                          <span><a href="javascript:;">武侯区</a></span>
-                          <span><a href="javascript:;">金牛区</a></span>
-                          <span><a href="javascript:;">青羊区</a></span>
-                          <span><a href="javascript:;">成华区</a></span>
-                          <span><a href="javascript:;">高新区</a></span>
-                          <span><a href="javascript:;">锦江区</a></span>
-                          <span><a href="javascript:;">郫县</a></span>
-                          <span><a href="javascript:;">双流区</a></span>
-                          <span><a href="javascript:;">高新西区</a></span>
-                          <span><a href="javascript:;">龙泉驿区</a></span>
-                          <span><a href="javascript:;">新都区</a></span>
-                          <span><a href="javascript:;">温江区</a></span>
-                          <span><a href="javascript:;">都江堰市</a></span>
-                          <span><a href="javascript:;">彭州市</a></span>
-                          <span><a href="javascript:;">青白江区</a></span>
-                          <span><a href="javascript:;">崇州市</a></span>
-                          <span><a href="javascript:;">金堂县</a></span>
-                          <span><a href="javascript:;">新津县</a></span>
-                          <span><a href="javascript:;">邛崃市</a></span>
-                          <span><a href="javascript:;">大邑县</a></span>
-                          <span><a href="javascript:;">浦江县</a></span>
-                        </div>
-                      </div>
-                      <!-- <a class="hl-close" href="javascript:;"></a> -->
-                    </div>
-                  </div>
+            <div>
+              <div class="hl-dt">送　　至</div>
+              <div class="hl-dd hl-clearfix">
+                
+                <div class="hl-store-selector hl-fl">
+                </div>
+                <div class="hl-store-prompt hl-fl">
+                  <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
                 </div>
               </div>
-              <div class="hl-store-prompt hl-fl">
-                <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
-              </div>
             </div>
+              
             
             <!-- <div class="hl-dd hl-suppor">
               <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
@@ -261,21 +152,19 @@ var process_request = "正在处理您的请求...";
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
             </div>-->
             
-             <div class="hl-support-panel">
+             <div class="">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
-                <span class="hl-yjhx hl-f0">
-                  <a href="" class="hl-yjfx">
+              <ul><li class="hl-yjhx hl-selected hl-pro-attr"><a href="" class="hl-yjfx">
                     <i>以旧换新</i>
-                  </a>
-                </span>
+                  </a></li></ul>
               </div>
             </div>
-            <div class="hl-proinfo-color">
+            <div class="">
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
                 <ul class="hl-tip-infor hl-clearfix">
-                  <li class="hl-selected">
+                  <li class="hl-selected hl-pro-attr" value="banshi_1">
                     <a href="">
                       <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
                       <i></i>
@@ -346,11 +235,11 @@ var process_request = "正在处理您的请求...";
                 </ul>
               </div>
             </div>
-            <div class="hl-proinfo-type">
+            <div class="">
               <div class="hl-dt">颜　　色</div>
               <div class="hl-dd">
                 <ul class="hl-color-infor hl-clearfix">
-                  <li class="hl-selected">
+                  <li class="hl-selected hl-pro-attr" value="color_1">
                     <a href="javascript:;">
                       浅金色
                       <i></i>
@@ -371,23 +260,28 @@ var process_request = "正在处理您的请求...";
                 </ul>
               </div>
             </div>
-            <div class="hl-dt">数　　量</div>
-            <div class="hl-dd hl-buy-count hl-f0">
-              <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
-              <input type="text" class="hl-buy-num hl-tc" value="1" />
-              <a href="javascript:;" class="hl-plus"></a>
-              
-              <span class="hl-promotion">正在促销</span>
-              
-              <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
+            <div>
+              <div class="hl-dt">数　　量</div>
+              <div class="hl-dd hl-buy-count hl-f0">
+                <div class="hl-counter clearfix" style="width:100px;float: left;">
+                      <span class="hl-counter-sub hl-fs-20">-</span>
+                      <input class="hl-counter-num" value="10" max="2">
+                      <span class="hl-counter-add hl-fs-20">+</span>
+                    </div>
+                
+                <span class="hl-promotion">正在促销</span>
+                
+                <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
+              </div>
             </div>
+              
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
             <a href="javascript:addToCart(141)" class="hl-buy-now">立即购买</a>
-            <a href="javascript:addToCart(141)" class="hl-add-cart">加入购物车</a>
+            <a href="javascript:addToCart2(141)" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -896,6 +790,5 @@ var process_request = "正在处理您的请求...";
 <div class="hl-footer hl-f14 hl-44 hl-tc">
   <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
   苏ICP备10003401号
-</div>
-</body>
+</div></body>
 </html>

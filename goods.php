@@ -152,7 +152,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 
     /* 获得商品的信息 */
     $goods = get_goods_info($goods_id);
-
+    var_dump($goods);
     if ($goods === false)
     {
         /* 如果没有找到任何记录则跳回到首页 */
@@ -250,6 +250,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         assign_dynamic('goods');
         $volume_price_list = get_volume_price_list($goods['goods_id'], '1');
         $smarty->assign('volume_price_list',$volume_price_list);    // 商品优惠价格区间
+        // 查询商品的属性
     }
 }
 
@@ -268,11 +269,10 @@ if (!empty($_COOKIE['ECS']['history']))
 
     setcookie('ECS[history]', implode(',', $history), gmtime() + 3600 * 24 * 30);
 }
-else
+else 
 {
     setcookie('ECS[history]', $goods_id, gmtime() + 3600 * 24 * 30);
 }
-
 
 /* 更新点击次数 */
 $db->query('UPDATE ' . $ecs->table('goods') . " SET click_count = click_count + 1 WHERE goods_id = '$_REQUEST[id]'");
@@ -281,8 +281,9 @@ $smarty->assign('now_time',  gmtime());           // 当前系统时间
 $smarty->display('goods.dwt',      $cache_id);
 
 /*------------------------------------------------------ */
-//-- PRIVATE FUNCTION
+//-- PRIVATE FUNCTION 
 /*------------------------------------------------------ */
+
 
 /**
  * 获得指定商品的关联商品

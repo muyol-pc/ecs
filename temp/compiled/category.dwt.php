@@ -16,7 +16,7 @@
 <?php endif; ?>
 
 <?php echo $this->smarty_insert_scripts(array('files'=>'jquery-1.11.3.min.js,jquery.json.js')); ?>
-<?php echo $this->smarty_insert_scripts(array('files'=>'common.js,global.js,compare.js')); ?> 
+<?php echo $this->smarty_insert_scripts(array('files'=>'common.js,global.js,compare.js')); ?>
 </head>
 <body>
 <?php echo $this->fetch('library/page_header_top.lbi'); ?>
@@ -33,61 +33,101 @@
         <div class="hl-key">品牌</div>
         <div class="hl-value">
           <div class="hl-band-logos">
-            <!-- 
+<?php echo $this->_var['attrs_9']; ?>
+            <!--
               选中效果：hl-curr
               描述：点击刷新页面添加hl-curr
              -->
             <ul>
-              <li class="hl-curr"><a href=""><img src="themes/henli/images/hl-band-1.png" alt=""></a></li>
-              <li><a href=""><img src="themes/henli/images/hl-band-2.png" alt=""></a></li>
+              <?php $_from = $this->_var['brand_msg']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'brand');if (count($_from)):
+    foreach ($_from AS $this->_var['brand']):
+?>
+              <li style="margin:0 10px;"><a href="">
+              <input type="hidden" name="brandids" id="brandids" value="<?php echo $this->_var['brand']['brand_id']; ?>"/>
+              <?php if ($this->_var['brand']['brand_logo']): ?><img src="data/brandlogo/<?php echo $this->_var['brand']['brand_logo']; ?>" width="107" height="50" alt="<?php echo $this->_var['brand']['brand_name']; ?>" title="<?php echo $this->_var['brand']['brand_name']; ?>">
+                  <?php else: ?><?php echo $this->_var['brand']['brand_name']; ?><?php endif; ?>
+              </a></li>
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+
             </ul>
           </div>
         </div>
       </div>
+      <!--
+        1.所有自定义属性分类列别都在$attrs_ok
+        2. 顺序一次是   产品类型（板式），容积量，价格区间，制冷方式，控温方式，变频，能效等级，适用家庭，制冷循环
+      -->
       <div class="hl-filter-wrap">
-        <div class="hl-key">产品类型</div>
+        <div class="hl-key"><?php echo $this->_var['attrs_ok']['0']['attr_name']; ?></div>
         <div class="hl-value hl-clearfix">
-          <!-- 
+          <!--
             选中效果：hl-curr
             描述：点击刷新页面添加hl-curr
            -->
-          <ul class="hl-v-list hl-tc">
+           
+          <!-- <ul class="hl-v-list hl-tc">
             <li class="hl-curr"><a class="hl-type-1" href="">双开门</a></li>
             <li><a class="hl-type-2" href="">多门</a></li>
             <li><a class="hl-type-3" href="">三门</a></li>
             <li class="hl-curr"><a class="hl-type-4" href="">双门</a></li>
+          </ul> -->
+          <ul class="hl-v-list hl-tc">
+        <?php $_from = $this->_var['attrs_ok']['0']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+        <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'a_val');if (count($_from)):
+    foreach ($_from AS $this->_var['a_val']):
+?>
+            <li class=""><a class="hl-type-1" href=""><?php echo $this->_var['a_val']; ?></a></li>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
           </ul>
+
         </div>
       </div>
-      <!-- 
+      <!--
         点击多选：hl-all-more
         描述：点击多选按钮触发多选
         点击：hl-selected
         描述：选中多项
       -->
       <div class="hl-filter-wrap hl-multiple">
-        <div class="hl-key">总容积</div>
+        <div class="hl-key"><?php echo $this->_var['attrs_ok']['1']['attr_name']; ?></div>
         <div class="hl-value">
-          <div class="hl-v-group">
+        
+          <!-- <div class="hl-v-group">
             <a href=""><b></b><span>601升以上</span></a>
             <a href=""><b></b><span>501-600升</span></a>
             <a href=""><b></b><span>401-500升</span></a>
             <a href=""><b></b><span>301-400升</span></a>
             <a href=""><b></b><span>251-300升</span></a>
             <a href=""><b></b><span>191-250升</span></a>
+          </div> -->
+          <div class="hl-v-group">
+          <?php $_from = $this->_var['attrs_ok']['1']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+        <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'b_val');if (count($_from)):
+    foreach ($_from AS $this->_var['b_val']):
+?>
+            <a href=""><b></b><span><?php echo $this->_var['b_val']; ?></span></a>
+            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
           </div>
-          <div class="hl-btns hl-tc">
+
+          <!-- <div class="hl-btns hl-tc">
             <a class="hl-confirm hl-f12 disabled" href="javascript:;">确定</a>
             <a class="hl-cancel hl-f12" href="javascript:;">取消</a>
-          </div>
+          </div> -->
         </div>
-        <div class="hl-ext">
+        <!-- <div class="hl-ext">
           <a href="javascript:;">多选</a>
-        </div>
+        </div> -->
       </div>
       <div class="hl-filter-wrap">
-        <div class="hl-key">价格</div>
-        <div class="hl-value">
+        <div class="hl-key"><?php echo $this->_var['attrs_ok']['2']['attr_name']; ?></div>
+        
+        <!-- <div class="hl-value">
           <a class="hl-curr" href="">0-2500</a>
           <a href="">2500-4300</a>
           <a href="">4300-7000</a>
@@ -95,43 +135,163 @@
           <a href="">11300-19000</a>
           <a href="">19000以上</a>
         </div>
-        <div class="hl-price-set hl-f0">
+         -->
+        <div class="hl-value">
+        <?php $_from = $this->_var['attrs_ok']['2']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+        <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'c_val');if (count($_from)):
+    foreach ($_from AS $this->_var['c_val']):
+?>
+          <a class="hl-curr" href=""><?php echo $this->_var['c_val']; ?></a>
+          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        </div>
+
+        <!-- <div class="hl-price-set hl-f0">
           <input class="input-txt" autocomplete="off" type="text"/>
           <span>-</span>
           <input class="input-txt" autocomplete="off" type="text"/>
           <a class="hl-f12" href="javascript:;">确定</a>
-        </div>
+        </div> -->
       </div>
       <div class="hl-filter-wrap">
-        <div class="hl-key">制冷方式</div>
-        <div class="hl-value">
+        <div class="hl-key"><?php echo $this->_var['attrs_ok']['3']['attr_name']; ?></div>
+        
+        <!-- <div class="hl-value">
           <a class="hl-curr" href="">冷风</a>
           <a href="">直冷</a>
           <a href="">风直冷</a>
+        </div> -->
+        <div class="hl-value">
+        <?php $_from = $this->_var['attrs_ok']['3']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+        <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'd_val');if (count($_from)):
+    foreach ($_from AS $this->_var['d_val']):
+?>
+          <a class="hl-curr" href=""><?php echo $this->_var['d_val']; ?></a>
+          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         </div>
-        <div class="hl-ext">
+
+        <!-- <div class="hl-ext">
           <a href="javascript:;">多选</a>
-        </div>
+        </div> -->
       </div>
       <div class="hl-filter-wrap">
         <div class="hl-key">其他选项</div>
         <div class="hl-value hl-clearfix">
           
+          <style>
+            .hl-v-tab .hl-son-list{display: none;}
+            .hl-tab-cont .hl-tab-cont-item .hl-v-item a:hover{color:#ff8a00;}
+            .hl-son-list
+          </style>
+          <script>
+          var _timeout;
+              $(function(){
+                $('.hl-v-tab li').hover(function(){
+                    $('.hl-tab-cont .hl-tab-cont-item').show();
+                    $('.hl-tab-cont .hl-son-list').html($(this).find('.hl-son-list').html());
+                },function(){
+                    clearTimeout(_timeout);
+                    _timeout=setTimeout(function(){
+                        $('.hl-tab-cont .hl-tab-cont-item').hide();
+                    },2000);
+                })
+                $('.hl-tab-cont .hl-tab-cont-item').hover(function(){
+                    clearTimeout(_timeout);
+                    $(this).show();
+                },function(){
+                    $(this).hide();
+                })
+                $('.hl-v-tab li').each(function(k,v){
+                    if ($(v).hasClass('hl-open')) {
+                        $('.hl-tab-cont .hl-tab-cont-item').show();
+                        $('.hl-tab-cont .hl-son-list').html($(v).find('.hl-son-list').html());
+                    }
+                })
+              })
+          </script>
           <ul class="hl-v-tab">
-            <li class="hl-open"><a href="">控温方式</a></li>
-            <li><a href="">变频</a></li>
-            <li><a href="">国家能效等级</a></li>
-            <li><a href="">适用家庭</a></li>
-            <li><a href="">制冷循环</a></li>
+            <li class="hl-open">
+                <a href="javascript:;"><?php echo $this->_var['attrs_ok']['4']['attr_name']; ?></a>
+                <ul class="hl-son-list clearall">
+                    <?php $_from = $this->_var['attrs_ok']['4']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+                    <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'e_val');if (count($_from)):
+    foreach ($_from AS $this->_var['e_val']):
+?>
+                    <li><a href=""><?php echo $this->_var['e_val']; ?></a></li>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+            </li>
+            <li>
+                <a href=""><?php echo $this->_var['attrs_ok']['5']['attr_name']; ?></a>
+                <ul class="hl-son-list clearall">
+                    <?php $_from = $this->_var['attrs_ok']['5']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+                    <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'f_val');if (count($_from)):
+    foreach ($_from AS $this->_var['f_val']):
+?>
+                    <li><a href=""><?php echo $this->_var['f_val']; ?></a></li>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+            </li>
+            <li>
+                <a href=""><?php echo $this->_var['attrs_ok']['6']['attr_name']; ?></a>
+                <ul class="hl-son-list clearall">
+                    <?php $_from = $this->_var['attrs_ok']['6']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+                    <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'g_val');if (count($_from)):
+    foreach ($_from AS $this->_var['g_val']):
+?>
+                    <li><a href=""><?php echo $this->_var['g_val']; ?></a></li>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+            </li>
+            <li>
+                <a href=""><?php echo $this->_var['attrs_ok']['7']['attr_name']; ?></a>
+                <ul class="hl-son-list clearall">
+                    <?php $_from = $this->_var['attrs_ok']['7']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+                    <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'h_val');if (count($_from)):
+    foreach ($_from AS $this->_var['h_val']):
+?>
+                    <li><a href=""><?php echo $this->_var['h_val']; ?></a></li>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+            </li>
+            <li>
+                <a href=""><?php echo $this->_var['attrs_ok']['8']['attr_name']; ?></a>
+                <ul class="hl-son-list clearall">
+                    <?php $_from = $this->_var['attrs_ok']['8']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
+    foreach ($_from AS $this->_var['att_val']):
+?>
+                    <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'i_val');if (count($_from)):
+    foreach ($_from AS $this->_var['i_val']):
+?>
+                    <li><a href=""><?php echo $this->_var['i_val']; ?></a></li>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+            </li>
           </ul>
         </div>
         <div class="hl-tab-cont">
           <div class="hl-tab-cont-item">
             <div class="hl-v-item hl-f12">
-              <ul>
-                <li><a href="">恒温</a></li>
-                <li><a href="">变频</a></li>
-                <li><a href="">自然</a></li>
+              <ul class="hl-son-list">
+                
               </ul>
             </div>
           </div>
@@ -140,7 +300,7 @@
     </div>
   </div>
   <div class="hl-center hl-goods-main hl-clearfix">
-    <!-- 
+    <!--
       hl-aside模块可分离出来，详情页可以使用
     -->
     <div class="hl-aside hl-fl">
@@ -156,7 +316,6 @@
             <a class="hl-name hl-f14 hl-72" href=""><?php echo $this->_var['goods']['goods_name']; ?></a>
           </div>
         </li>
-
         <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
       </ul>
     </div>
