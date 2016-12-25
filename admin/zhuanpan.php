@@ -11,12 +11,23 @@ require(dirname(__FILE__) . '/includes/init.php');
 /* act操作项的初始化 */
 if (empty($_REQUEST['act']))
 {
-    $_REQUEST['act'] = 'list';
+    $_REQUEST['act'] = 'manage';
 }
 else
 {
     $_REQUEST['act'] = trim($_REQUEST['act']);
 }
+$smarty->assign('list',array());
+$smarty->assign('act',$_REQUEST['act']);
+    if ($_REQUEST['act'] == 'manage') {
+        $smarty->display('manage.htm');//活动管理
+    } else if($_REQUEST['act'] == 'awardlist'){
+        $smarty->display('awardlist.htm');//中奖名单
+    }else if($_REQUEST['act'] == 'post'){
+        $smarty->display('form.htm');//添加活动
+    }
+
+
 
 
 	 $tablename = 'bigwheel_reply';

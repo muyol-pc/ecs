@@ -1,0 +1,97 @@
+{include file="pageheader.htm"}
+{include file="common.htm"}
+<div class="main">
+	<ul class="nav nav-tabs">
+		<li{if $act == 'manage' } class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
+<li{if $act == 'post'} class="active"{/if}><a href="zhuanpan.php?act=post">添加大转盘规则</a></li>
+	</ul>
+
+    <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr>
+                    <th class='with-checkbox' style="width:50px;"></th>
+                    <th style="width:150px;">活动名称</th>
+                    <th style="width:100px;">有效参与人数</th>
+                    <th style="width:100px;">总浏览数</th>
+                    <th style="min-width:180px;">开始时间/结束时间</th>
+                    <th style="width:100px;">状态</th>
+                    <th style="width:280px;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$list item=row}
+                <tr>
+                    <td class="with-checkbox">
+                        <input type="checkbox" name="check" value="{$row.id}"></td>	 <td>{$row.name} </td>
+                    <td>{$row.fansnum}</td>
+                    <td>{$row.viewnum}</td>
+                    <td>{$row.starttime}<br>
+                        {$row.endtime}</td>
+                    <td>{$row.status}</td>
+                    <td>
+                        <a href="zhuanpan.php?act=awardlist&rid=0}" class="btn btn-default" title="SN">SN</a>
+                        {if $row.isshow==0}
+                        <a class="btn btn-default" title="开始活动"href="#" onclick="drop_confirm('您确定要开始吗,设置中途可以随时修改!', 'zhuanpan.php?act=setshow&rid=0&isshow=1');">开始活动</a>
+                        {elseif $row.isshow==1}
+                        <a class="btn btn-default" title="结束活动" href="#" onclick="drop_confirm('您确定要暂停吗,设置中途可以随时修改!', 'zhuanpan.php?act=setshow&rid=0&isshow=0');">结束活动</a>
+                        {/if}
+                        <a class="btn btn-default" href="zhuanpan.php?act=post&rid=0" title="编辑">编辑</a>
+                        <a class="btn btn-default" href="#" onclick="drop_confirm('您确定要删除吗?', 'zhuanpan.php?act=delete&rid=0');" title="删除">删除</a>
+                    </td>
+                </tr>
+                {/foreach}
+                <tr>
+                    <td><input type="checkbox" class="check_all" /></td>
+                    <td colspan="6">
+                        <input type="button" class="btn btn-primary" name="deleteall" value="删除选择的" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {$pager}
+</div>
+<script>
+$(function(){
+    $(".check_all").click(function(){
+       var checked = $(this).get(0).checked;
+		$(':checkbox').each(function(){this.checked = checked});
+    });
+	$("input[name=deleteall]").click(function(){
+ 
+		var check = $("input:checked");
+		if(check.length<1){
+			err('请选择要删除的记录!');
+			return false;
+		}
+        if( confirm("确认要删除选择的记录?")){
+		var id = new Array();
+		check.each(function(i){
+			id[i] = $(this).val();
+		});
+		$.post('zhuanpan.php?act=deleteAll', {idArr:id},function(data){
+			if (data.errno ==0)
+			{
+				location.reload();
+			} else {
+				alert(data.error);
+			}
+
+
+		},'json');
+		}
+
+	});
+});
+</script>
+<script>
+function drop_confirm(msg, url){
+    if(confirm(msg)){
+        window.location = url;
+    }
+}
+</script>
+{include file="pagefooter.htm"}
