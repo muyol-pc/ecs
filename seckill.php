@@ -90,9 +90,9 @@ if ($_REQUEST['act'] == 'list')
         $smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-typegroup_buy.xml" : 'feed.php?type=group_buy'); // RSS URL
         assign_dynamic('seckill_list');
     }
-    // echo "<pre>";
-    // print_r($gb_list);
-    // echo "</pre>";
+     /*echo "<pre>";
+     print_r($gb_list);
+     echo "</pre>";*/
 
     /* 显示模板 */
     $smarty->display('seckill_list.dwt');
@@ -113,9 +113,7 @@ elseif ($_REQUEST['act'] == 'view')
 
     /* 取得秒杀活动信息 */
     $seckill = seckill_info($seckill_id);
-     /*echo "<pre>";
-     print_r($seckill);
-     echo "</pre>";*/
+
     if (empty($seckill)) 
     {
         ecs_header("Location: ./\n");
@@ -127,10 +125,14 @@ elseif ($_REQUEST['act'] == 'view')
 //        exit;
 //    }
 
-	$seckill['gmt_end_date'] = $seckill['end_date'];
+	$seckill['gmt_end_date'] = $seckill['start_date'];
+	$seckill['gmt_start_date'] = $seckill['end_date'];
 	$seckill['seckill_price']=intval($seckill['seckill_price']);
 	$smarty->assign('seckill', $seckill);
-
+    /*echo "<pre>";
+    print_r($seckill);
+    print_r($_LANG);
+    echo "</pre>";*/
 	/* 取得秒杀商品信息 */
 	$goods_id = $seckill['goods_id'];
 	$goods = goods_info($goods_id);
@@ -304,7 +306,7 @@ elseif ($_REQUEST['act'] == 'buy')
 function seckill_count()
 {
     $now = gmtime();
-    $sql = "SELECT COUNT(*) " ."FROM " . $GLOBALS['ecs']->table('seckill')." WHERE start_time>".$now;
+    $sql = "SELECT COUNT(*) " ."FROM " . $GLOBALS['ecs']->table('seckill')." WHERE end_time>".$now;
 
     return $GLOBALS['db']->getOne($sql);
 }
@@ -320,10 +322,10 @@ function seckill_list($size, $page)
     /* 取得秒杀活动 */
     $gb_list = array();
     $now = gmtime();
-    $sql = "SELECT b.*, IFNULL(g.goods_thumb, '') AS goods_thumb,g.market_price, ".
-                "b.start_time AS start_date, b.end_time AS end_date " .
-            "FROM " . $GLOBALS['ecs']->table('seckill') . " AS b " .
-                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON b.goods_id = g.goods_id WHERE b.start_time>'".$now."' ORDER BY b.id DESC";
+    $sql = "SELECT b.*, IFNULL(g.goods_thumb, '') AS goods_thumb,g.market_price,
+            b.start_time AS start_date, b.end_time AS end_date FROM " . $GLOBALS['ecs']->table('seckill') . " AS b
+            LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g
+            ON b.goods_id = g.goods_id WHERE b.end_time>'".$now."' ORDER BY b.id DESC";
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 	
     while ($seckill = $GLOBALS['db']->fetchRow($res))
@@ -352,12 +354,20 @@ function seckill_list($size, $page)
 				$seckill['cur_status']  = 1;
 			}
 		}
-		$surplus = time2string($seckill['end_date']-time());
+		$surplus = time2string($seckill['start_date']-time());
 		$seckill['surplus_day']			= $surplus['day'];
 		$seckill['surplus_hour']		= $surplus['hour'];
 		$seckill['surplus_minute']		= $surplus['minute'];
 		$seckill['surplus_seconds']		= $surplus['second'];
-		
+
+        $surplus = time2string($seckill['end_date']-time());
+        $seckill['end_day']			= $surplus['day'];
+        $seckill['end_hour']		= $surplus['hour'];
+        $seckill['end_minute']		= $surplus['minute'];
+        $seckill['end_seconds']		= $surplus['second'];
+
+        $seckill['current_time']	= time();
+
         /* 处理图片 */
         if (empty($group_buy['goods_thumb']))
         {
