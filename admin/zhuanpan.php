@@ -36,18 +36,18 @@ $smarty->assign('act',$_REQUEST['act']);
         foreach ($list as &$item) {
 //                $item['fansnum'] = $bigwheel['fansnum'];
 //                $item['viewnum'] = $bigwheel['viewnum'];
-            $item['starttime'] = date('Y-m-d H:i', $bigwheel['starttime']);
-                $endtime = $bigwheel['endtime'] + 86399;
+            $item['starttime'] = date('Y-m-d H:i', $item['starttime']);
+                $endtime = $item['endtime'] + 86399;
             $item['endtime'] = date('Y-m-d H:i', $endtime);
                 $nowtime = time();
-                if ($bigwheel['starttime'] > $nowtime) {
+                if ($item['starttime'] > $nowtime) {
                     $item['status'] = '<span class="label label-warning">未开始</span>';
                     $item['show'] = 1;
                 } elseif ($endtime < $nowtime) {
                     $item['status'] = '<span class="label label-default ">已结束</span>';
                     $item['show'] = 0;
                 } else {
-                    if ($bigwheel['isshow'] == 1) {
+                    if ($item['isshow'] == 1) {
                         $item['status'] = '<span class="label label-success">已开始</span>';
                         $item['show'] = 2;
                     } else {
@@ -62,13 +62,12 @@ $smarty->assign('act',$_REQUEST['act']);
         $smarty->assign('list',$list);
         $smarty->display('manage.htm');//活动管理
     } else if($_REQUEST['act'] == 'awardlist'){
-        $rid = intval($_REQUEST['rid']);
-        if (empty($rid)) {
+        $id = intval($_REQUEST['id']);
+        if (empty($id)) {
 //            message('抱歉，传递的参数错误！', '', 'error');
         }
-        $params = array(':rid' => $rid, ':weid' => $_W['uniacid']);
-        $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid = ".$rid;
-        $total = $GLOBALS['db']->getCol("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid" . $rid );
+        $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.id = ".$id;
+        $total = $GLOBALS['db']->getCol("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.id" . $id );
 //        $pindex = max(1, intval($_REQUEST['page']));
 //        $psize = 12;
 //        $pager = pagination($total, $pindex, $psize);
@@ -76,20 +75,19 @@ $smarty->assign('act',$_REQUEST['act']);
         $limit = " LIMIT {$start},{$psize}";
 
         $sql = 'SELECT `a`.*, `f`.`user_name` FROM ' . $GLOBALS['ecs']->table('bigwheel_award') . ' AS `a` LEFT JOIN ' .
-            $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`rid` = '.$rid . ' ORDER BY `a`.`id` DESC ' ;
+            $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`id` = '.$id . ' ORDER BY `a`.`id` DESC ' ;
         $list =  $GLOBALS['db']->getAll($sql);
 
         //一些参数的显示
-        $num1 =  $GLOBALS['db']->getCol("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid);
-        $num2 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid and "status=1");
-        $num3 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid and "status=2");
+        $num1 =  $GLOBALS['db']->getCol("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id);
+        $num2 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id and "status=1");
+        $num3 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id and "status=2");
 
         $smarty->display('awardlist.htm');//中奖名单
     }else if($_REQUEST['act'] == 'post'){
         $id = intval($_REQUEST['reply_id']);
 
         $insert = array(
-            'rid' => $rid,
             'title' => $_REQUEST['title'],
             'content' => $_REQUEST['content'],
             'ticket_information' => $_REQUEST['ticket_information'],
@@ -157,38 +155,38 @@ $smarty->assign('act',$_REQUEST['act']);
         $smarty->assign('action',        'edit');
         $smarty->display('form.htm');//添加活动
     } else if($_REQUEST['act'] == 'delete'){
-        $rid = intval($_REQUEST['rid']);
-        $rule_sql = "SELECT id FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
+        $id = intval($_REQUEST['id']);
+        $rule_sql = "SELECT id FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
         $rule = $GLOBALS['db']->getOne($rule_sql);
         if (empty($rule)) {
 //            message('抱歉，要修改的规则不存在或是已经被删除！');
         }
-        $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
+        $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
         $GLOBALS['db']->query($delete_sql);
         ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     } else if($_REQUEST['act'] == 'deleteAll'){
 
-        foreach ($_REQUEST['idArr'] as $k => $rid) {
-            $rid = intval($rid);
-            if ($rid == 0)
+        foreach ($_REQUEST['idArr'] as $k => $id) {
+            $id = intval($id);
+            if ($id == 0)
                 continue;
-            $rule_sql ="SELECT id, module FROM " . tablename('rule') . " WHERE id = ".$rid;
+            $rule_sql ="SELECT id, module FROM " . tablename('rule') . " WHERE id = ".$id;
             $rule = $GLOBALS['db']->getOne($rule_sql);
             if (empty($rule)) {
                 $this->webmessage('抱歉，要修改的规则不存在或是已经被删除！');
             }
-            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
+            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$id;
             $GLOBALS['db']->query($delete_sql);
 
         }
         $this->webmessage('规则操作成功！', '', 0);
     } else if($_REQUEST['act'] == 'setshow'){
-        $rid = intval($_REQUEST['rid']);
+        $id = intval($_REQUEST['id']);
         $isshow = intval($_REQUEST['isshow']);
-        if (empty($rid)) {
+        if (empty($id)) {
 //            message('抱歉，传递的参数错误！', '', 'error');
         }
-        $update_sql = "UPDATE " . $GLOBALS['ecs']->table('bigwheel_reply')." SET isshow=".$isshow . " WHERE rid = ".$rid;
+        $update_sql = "UPDATE " . $GLOBALS['ecs']->table('bigwheel_reply')." SET isshow=".$isshow . " WHERE id = ".$id;
         $GLOBALS['db']->query($update_sql);
         ecs_header("Location: zhuanpan.php?act=manage\n");exit;
 //        $temp = pdo_update('bigwheel_reply', array('isshow' => $isshow), array('rid' => $rid));
@@ -211,10 +209,10 @@ $smarty->assign('act',$_REQUEST['act']);
 //            message('状态设置成功！', $this->createWebUrl('awardlist',array('rid'=>$_REQUEST['rid'])), 'success');
         }
     } else if($_REQUEST['act'] == 'getphone'){
-        $rid = intval($_REQUEST['rid']);
+        $id = intval($_REQUEST['id']);
         $fans = $_REQUEST['fans'];
 
-        $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE rid = " . $rid . " and  from_user='" . $fans . "'");
+        $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE id = " . $id . " and  from_user='" . $fans . "'");
         if ($tel == false) {
             echo '没有登记';
         } else {
