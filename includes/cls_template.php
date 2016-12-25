@@ -758,12 +758,18 @@ class cls_template
                     case 'strip_tags':
                         $p = 'strip_tags(' . $p . ')';
                         break;
+<<<<<<< HEAD
+                    case 'pro_label_format':
+                        $p = 'pro_label_format(' . $p . ')';
+                        break;
+=======
             case 'print_r':
             $p='print_r('.$p.',true)';
             break;
             case 'var_export':
             $p='var_export('.$p.',true)';
 
+>>>>>>> b3de84c4cd4acb2d9022617f4a4260cb6499f1cb
 
                         break;
                     default:

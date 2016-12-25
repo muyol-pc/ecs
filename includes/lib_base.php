@@ -18,6 +18,12 @@ if (!defined('IN_ECS'))
     die('Hacking attempt');
 }
 
+function pro_label_format($label) {
+    $len = strlen($label);
+    // if ()
+    return $len;
+}
+
 /**
  * 截取UTF-8编码下字符串的函数
  *
