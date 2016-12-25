@@ -15,7 +15,7 @@
 
 /* 当前页面标题及可用链接名称 */
 $_LANG['zhekou'] = '折扣(折)：';
-$_LANG['tuan_number'] = '起参团数量：';
+$_LANG['tuan_number'] = '起参团人数(人)：';
 /* 当前页面标题及可用链接名称 */
 $_LANG['group_buy_list'] = '团购活动列表';
 $_LANG['add_group_buy'] = '添加团购活动';
