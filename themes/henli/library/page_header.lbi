@@ -1,11 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-{insert_scripts files='jquery-1.11.3.min.js,jquery.json.js'} 
+{insert_scripts files='jquery-1.11.3.min.js,jquery.json.js'}
 <script type="text/javascript">
 var process_request = "{$lang.process_request}";
 </script>
 <div class="hl-header hl-header-bottom">
-  <div class="hl-center hl-nav"> 
-    <a class="hl-logo hl-mr10" href=""></a>
+  <div class="hl-center hl-nav">
+    <a class="hl-logo hl-mr10" href="index.php"></a>
     <a class="hl-mr20" href="" target="_blank">西门子家电</a>
     <a class="hl-mr20" href="" target="_blank">展望未来</a>
     <div class="hl-search hl-f0">

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>首页</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link type="text/css" rel="stylesheet" href="themes/henli/inc/css/base.css">
+<link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
+<link type="text/css" rel="stylesheet" href="themes/henli/inc/css/bigwheel.css">
+</head>
+<body>
+	<div class="l-banner"><img src="themes/henli/inc/img/l_banner.jpg"></div>
+	<div class="card-content">
+		<div class="step-one">
+			<div class="surplus">您还有 <em class="number">0</em> 次机会</div>
+			<div class="o-h">
+				<div class="scratch">
+					<div id="outercont">
+				        <div id="outer-cont">
+				            <div id="outer"><img src="themes/henli/inc/img/activity-lottery-3.png"></div>
+				        </div>
+				        <div id="inner-cont">
+				            <div id="inner">
+				                <img src="themes/henli/inc/img/activity-lottery-2.png">
+				            </div>
+				        </div>
+				    </div><!--outercont end-->
+				</div>
+
+				<div class="win">
+					<div class="w-menu">
+						<ul>
+							<li>获 奖 名 单</li>
+							<li>大 奖 获 得 者</li>
+						</ul>
+					</div>
+					<div class="w-list">
+						<ul>
+							<li><span>100元现金红包1</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包2</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包3</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包4</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包5</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包6</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包7</span><span>哇哈哈哈。。。</span></li>
+							<li><span>100元现金红包8</span><span>哇哈哈哈。。。</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="active-gift">
+				<ul>
+					<li>
+						<div class="circle"></div>
+						<div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+						<div class="name">一等奖<em>iPhone6 Plus</em></div>
+					</li>
+					<li>
+						<div class="circle"></div>
+						<div class="pic"><img src="themes/henli/inc/img/gift2.png"></div>
+						<div class="name">一等奖<em>iPhone6 Plus</em></div>
+					</li>
+					<li>
+						<div class="circle"></div>
+						<div class="pic"><img src="themes/henli/inc/img/gift3.png"></div>
+						<div class="name">一等奖<em>iPhone6 Plus</em></div>
+					</li>
+				</ul>
+			</div>
+		</div><!--step-one end-->
+		<div class="step-two">
+			<div class="record-list">
+				<ul class="name">
+					<li>奖项</li>
+					<li>奖品</li>
+					<li>中奖时间</li>
+				</ul>
+				<ul class="record">
+					<li>
+						<span>一等奖</span>
+						<span>100元现金券</span>
+						<span>2016.10.11  0</span>
+					</li>
+					<li>
+						<span>一等奖</span>
+						<span>100元现金券</span>
+						<span>2016.10.11  0</span>
+					</li>
+					<li>
+						<span>一等奖</span>
+						<span>100元现金券</span>
+						<span>2016.10.11  0</span>
+					</li>
+					<li>
+						<span>一等奖</span>
+						<span>100元现金券</span>
+						<span>2016.10.11  0</span>
+					</li>
+				</ul>
+			</div>
+		</div><!--step-two end-->
+		<div class="step-three">
+			<div class="note">
+				1) 本活动中奖率高达100%。<br>
+				2) 新用户完善账户信息（实名认证），即可中奖一次。<br>
+				3)  新老用户，，发送信息（平台用户名###手机号）到微信订阅号，（不可取消关注）即可增加一次抽奖机会。（例如：平台用户名###159xxxx2092）<br>
+				4) 新老用户活动期间首次投资达到100元，即可中奖一次。<br>
+				5) 新老用户每累计投资2000元，即可多中奖一次；每累计投资达到1万元，加送一次机会。（1万元6次抽奖）<br>
+				6) 抽中实物的用户，请您及时联系金百利客服人员登记收件信息，奖励将在活动结束后7个工作日内发放。<br>
+				7) 获得活动现金奖励的用户，将在中奖后的7个工作日内发放至其平台账号中(提现免费)。<br>
+				“新用户”是指完成了注册认证且从未投资过的用户。<br>
+				新手体验标和项目优选标不参与此活动
+			</div>
+		</div><!--step-three end-->
+		<div class="go-back"><a href="index.php">返回首页</a></div>
+	</div>
+</body>
+</html>
