@@ -1,9 +1,19 @@
 {include file="pageheader.htm"}
 {include file="common.htm"}
+<ul class="nav nav-tabs">
+    <li{if $act == 'manage' } class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
+    <li{if $act == 'post'} class="active"{/if}><a href="zhuanpan.php?act=post">添加大转盘规则</a></li>
+</ul>
+
+<form id="reply-form" class="form-horizontal form" action="zhuanpan.php?act=post&rid=0" method="post" enctype="multipart/form-data">
+
+<div class="form-group">
+<div class="col-sm-12">
+
 <input type="hidden" name="reply_id" value="{$reply.id}" />
 <div class="panel panel-default">
     <div class="panel-heading">
-        活动设置 (该活动需关注公众号参与)
+        活动设置
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -13,11 +23,11 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动时间</label>
-            <div class="col-sm-9 col-xs-12">
-            </div>
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动时间</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+            <!--</div>-->
+        <!--</div>-->
 
         <div class="form-group">
             <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 重复抽奖信息</label>
@@ -122,31 +132,31 @@
 				<div class="help-block">必须小于总抽奖次数！ 0 为不限制 抽完总数就不能抽了! 可以抽奖天数 = 总数/每天抽奖次数!</div>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>SN码重命名</label>
-            <div class="col-sm-9 col-xs-12">
-            	<input type="text" id="sn_rename" class="form-control" placeholder="" name="sn_rename" value="{$reply.sn_rename}">
-				<div class="help-block">例如：CND码，充值密码，SN码。这个主要用于修改SN码的名称。如果你想导入的SN码为充值密码，就设置为充值密码，其它也是如此。</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>
-            <div class="col-sm-9 col-xs-12">
-               	<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">
-				<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不清楚的情况下，请默认设置手机号！此字段主要收集用户的信息方便联系。</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>显示奖品数量</label>
-            <div class="col-sm-9 col-xs-12">
-               	<label class="radio-inline">
-                	<input type="radio" name="show_num" value="1" {if $reply.show_num == 1} checked="checked"{/if}/>显示
-                </label>
-                <label class="radio-inline">
-                	<input type="radio" name="show_num" value="2" {if $reply.show_num == 2} checked="checked"{/if}/>不显示
-                </label>
-            </div>
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>SN码重命名</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+            	<!--<input type="text" id="sn_rename" class="form-control" placeholder="" name="sn_rename" value="{$reply.sn_rename}">-->
+				<!--<div class="help-block">例如：CND码，充值密码，SN码。这个主要用于修改SN码的名称。如果你想导入的SN码为充值密码，就设置为充值密码，其它也是如此。</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+               	<!--<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">-->
+				<!--<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不清楚的情况下，请默认设置手机号！此字段主要收集用户的信息方便联系。</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>显示奖品数量</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+               	<!--<label class="radio-inline">-->
+                	<!--<input type="radio" name="show_num" value="1" {if $reply.show_num == 1} checked="checked"{/if}/>显示-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                	<!--<input type="radio" name="show_num" value="2" {if $reply.show_num == 2} checked="checked"{/if}/>不显示-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
 
@@ -156,14 +166,14 @@
 		Tip.focus("title","请输入活动名称!","right");
 		return false;
    }
-   if($("#ticket_information").isEmpty()){
-		Tip.focus("ticket_information","请输入兑奖信息!","right");
-		return false;
-   }
-   if($("#repeat_lottery_reply").isEmpty()){
-		Tip.focus("repeat_lottery_reply","请输入重复抽奖信息!","right");
-		return false;
-   }
+//   if($("#ticket_information").isEmpty()){
+//		Tip.focus("ticket_information","请输入兑奖信息!","right");
+//		return false;
+//   }
+//   if($("#repeat_lottery_reply").isEmpty()){
+//		Tip.focus("repeat_lottery_reply","请输入重复抽奖信息!","right");
+//		return false;
+//   }
   
    if($("#c_type_one").isEmpty()){	Tip.focus("c_type_one","请输入奖品类别!","left");	return false;  }
    if($("#c_name_one").isEmpty()){	Tip.focus("c_name_one","请输入奖品名称!","bottom");	return false;  }
@@ -188,14 +198,14 @@
        if($("#c_name_six").isEmpty()){	Tip.focus("c_name_six","请输入奖品名称!","left");	return false;  }
        if($("#c_num_six").isEmpty()){	Tip.focus("c_num_six","请输入奖品数量!","right");	return false;  }
    }
-   if($("#sn_rename").isEmpty()){
-		Tip.focus("sn_rename","请输入SN码重命名!","right");
-		return false;
-   }
-   if($("#tel_rename").isEmpty()){
-		Tip.focus("tel_rename","请输入电话重命名!","right");
-		return false;
-   }
+//   if($("#sn_rename").isEmpty()){
+//		Tip.focus("sn_rename","请输入SN码重命名!","right");
+//		return false;
+//   }
+//   if($("#tel_rename").isEmpty()){
+//		Tip.focus("tel_rename","请输入电话重命名!","right");
+//		return false;
+//   }
    return true;
 });
    
@@ -221,11 +231,24 @@ function doDeleteItemImage(obj,id) {
 	   $(obj).html("<i class='icon-upload-alt'></i> 删除").hide().removeAttr("disabled");
 	});
 }
-require(['jquery', 'util'], function($, u){
-	$(function(){
-		u.editor($('.richtext')[0]);
-	});
-});
+
 </script>
+
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-6">
+
+    </div>
+    <div class="col-sm-6">
+        <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1" />
+        <input type="hidden" name="act" value="{$form_act}" />
+        <input type="hidden" name="id" value="{$ads.ad_id}" />
+    </div>
+</div>
+
+</div>
+</form>
 
 {include file="pagefooter.htm"}
