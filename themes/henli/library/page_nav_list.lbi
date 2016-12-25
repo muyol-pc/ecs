@@ -7,6 +7,6 @@
   <a href="user.php?act=order_activity&type=2" class="hl-nav-item {if $active=='order_seckill'}active{/if}">秒杀订单</a>
   <a href="user.php?act=pro_list&type=1" class="hl-nav-item {if $active=='pro_buy'}active{/if}">已购买到的商品</a> 
   <a href="user.php?act=pro_list&type=2" class="hl-nav-item {if $active=='pro_pay'}active{/if}">待付款商品</a>
-  <a href="user.php?act=activity_list" class="hl-nav-item {if $active=='activity_list'}active{/if}">可参与的活动</a>
+  <a href="guaguaka.php" class="hl-nav-item {if $active=='activity_list'}active{/if}">可参与的活动</a>
   <a href="user.php?act=activity_msg" class="hl-nav-item {if $active=='activity_msg'}active{/if}">活动消息</a>
 </div>
