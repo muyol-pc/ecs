@@ -522,7 +522,7 @@ img {
 
 /*秒杀页*/
 .hl-countdown {
-  background: url(images/bg-shutdown.png) center no-repeat;
+  background: url(inc/inc/images/bg-shutdown.png) center no-repeat;
 }
 .hl-countdown-num{
   padding:0 8px;
