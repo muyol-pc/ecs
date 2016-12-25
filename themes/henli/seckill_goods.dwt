@@ -363,8 +363,18 @@
             <!-- 马上参团：团购详情页输出 -->
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             <!-- 立即购买：产品详情页输出 -->
-            <a href="javascript:;" class="hl-buy-now">立即购买</a>
-            <a href="javascript:;" class="hl-add-cart">加入购物车</a>
+            {if $seckill.cur_status eq 0 }
+                <a href="javascript:;" class="hl-add-cart">即将开始</a>
+            {elseif $seckill.cur_status eq 1}
+                <form action="seckill.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+                <input name="number" type="hidden" class="inputBg" id="number" value="1" size="4" />
+                <input type="hidden" name="seckill_id" value="{$seckill.seckill_id}" />
+                <input type="submit" class="hl-buy-now" value="立即购买" />
+                <!--<input type="submit" class="hl-buy-now" value="加入购物车" />-->
+            </form>
+            {else $seckill.cur_status eq 2}
+                <a href="javascript:;" class="hl-add-cart">已结束</a>
+            {/if}
           </div>
         </div>
       </div>
