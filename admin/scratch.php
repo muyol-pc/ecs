@@ -17,28 +17,26 @@ else
 {
     $_REQUEST['act'] = trim($_REQUEST['act']);
 }
+$smarty->assign('list',array());
 $smarty->assign('act',$_REQUEST['act']);
     if ($_REQUEST['act'] == 'manage') {
-        $pindex = max(1, intval($_REQUEST['page']));
+        $pindex = max(1, intval($_GPC['page']));
         $psize = 20;
         $params = array();
-//        $sql="select * from ".$GLOBALS['ecs']->table('bigwheel_activity');
-//        $list = $GLOBALS['db']->getAll($sql);
 
-//        $list = reply_search($sql, $params, $pindex, $psize, $total);
-//        $pager = pagination($total, $pindex, $psize);
 
-//        if (!empty($list)) {
-//
-                $bigwheel_sql="SELECT fansnum, viewnum,starttime,endtime,isshow FROM " . $GLOBALS['ecs']->table('bigwheel_reply');
+        $list = reply_search($sql, $params, $pindex, $psize, $total);
+        $pager = pagination($total, $pindex, $psize);
 
-        $list =  $GLOBALS['db']->getAll($bigwheel_sql);
-        foreach ($list as &$item) {
-//                $item['fansnum'] = $bigwheel['fansnum'];
-//                $item['viewnum'] = $bigwheel['viewnum'];
-            $item['starttime'] = date('Y-m-d H:i', $bigwheel['starttime']);
+        if (!empty($list)) {
+            foreach ($list as &$item) {
+                $condition = "`rid`={$item['id']}";
+                $bigwheel = pdo_fetch("SELECT fansnum, viewnum,starttime,endtime,isshow FROM " . tablename('bigwheel_reply') . " WHERE rid = :rid ", array(':rid' => $item['id']));
+                $item['fansnum'] = $bigwheel['fansnum'];
+                $item['viewnum'] = $bigwheel['viewnum'];
+                $item['starttime'] = date('Y-m-d H:i', $bigwheel['starttime']);
                 $endtime = $bigwheel['endtime'] + 86399;
-            $item['endtime'] = date('Y-m-d H:i', $endtime);
+                $item['endtime'] = date('Y-m-d H:i', $endtime);
                 $nowtime = time();
                 if ($bigwheel['starttime'] > $nowtime) {
                     $item['status'] = '<span class="label label-warning">未开始</span>';
@@ -55,166 +53,126 @@ $smarty->assign('act',$_REQUEST['act']);
                         $item['show'] = 1;
                     }
                 }
-//        $bigwheel['isshow'] = $bigwheel['isshow'];
-//            }
+                $item['isshow'] = $bigwheel['isshow'];
+            }
         }
-
-        $smarty->assign('list',$list);
-        $smarty->display('manage.htm');//活动管理
+        $smarty->display('scratch_manage.htm');//活动管理
     } else if($_REQUEST['act'] == 'awardlist'){
-        $rid = intval($_REQUEST['rid']);
+        $rid = intval($_GPC['rid']);
         if (empty($rid)) {
-//            message('抱歉，传递的参数错误！', '', 'error');
+            message('抱歉，传递的参数错误！', '', 'error');
         }
+        $where = '';
         $params = array(':rid' => $rid, ':weid' => $_W['uniacid']);
-        $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid = ".$rid;
-        $total = $GLOBALS['db']->getCol("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid" . $rid );
-//        $pindex = max(1, intval($_REQUEST['page']));
-//        $psize = 12;
-//        $pager = pagination($total, $pindex, $psize);
+        if (!empty($_GPC['status'])) {
+            $where.=' and a.status=:status';
+            $params[':status'] = $_GPC['status'];
+        }
+        if (!empty($_GPC['keywords'])) {
+            if (strlen($_GPC['keywords']) == 11 && is_numeric($_GPC['keywords'])) {
+                $members = pdo_fetchall("SELECT uid FROM ".tablename('mc_members')." WHERE mobile = :mobile", array(':mobile' => $_GPC['keywords']), 'uid');
+                if(!empty($members)){
+                    $fans = pdo_fetchall("SELECT openid FROM ".tablename('mc_mapping_fans')." WHERE uid in ('".implode("','", array_keys($members))."')", array(), 'openid');
+                    if(!empty($fans)){
+                        $where .= " AND a.from_user IN ('".implode("','", array_keys($fans))."')";
+                    }
+                }
+            } else {
+                $where.=' and (a.award_sn like :keywords)';
+                $params[':keywords'] = "%{$_GPC['keywords']}%";
+            }
+        }
+        $total = pdo_fetchcolumn("SELECT count(a.id) FROM " . tablename('bigwheel_award') . " a WHERE a.rid = :rid and a.weid=:weid " . $where . "", $params);
+        $pindex = max(1, intval($_GPC['page']));
+        $psize = 12;
+        $pager = pagination($total, $pindex, $psize);
         $start = ($pindex - 1) * $psize;
         $limit = " LIMIT {$start},{$psize}";
 
-        $sql = 'SELECT `a`.*, `f`.`user_name` FROM ' . $GLOBALS['ecs']->table('bigwheel_award') . ' AS `a` LEFT JOIN ' .
-            $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`rid` = '.$rid . ' ORDER BY `a`.`id` DESC ' ;
-        $list =  $GLOBALS['db']->getAll($sql);
+        $sql = 'SELECT `a`.*, `f`.`nickname` FROM ' . tablename('bigwheel_award') . ' AS `a` LEFT JOIN ' .
+            tablename('mc_mapping_fans') . ' AS `f` ON `a`.`from_user` = `f`.`openid` WHERE `a`.`rid` = :rid AND
+				`f`.`uniacid` = :weid ' . $where . ' ORDER BY `a`.`id` DESC ' . $limit;
+        $list = pdo_fetchall($sql, $params);
 
         //一些参数的显示
-        $num1 =  $GLOBALS['db']->getCol("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid);
-        $num2 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid and "status=1");
-        $num3 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$rid and "status=2");
+        $num1 = pdo_fetchcolumn("SELECT total_num FROM " . tablename($this->tablename) . " WHERE rid = :rid", array(':rid' => $rid));
+        $num2 = pdo_fetchcolumn("SELECT count(id) FROM " . tablename('bigwheel_award') . " WHERE rid = :rid and status=1", array(':rid' => $rid));
+        $num3 = pdo_fetchcolumn("SELECT count(id) FROM " . tablename('bigwheel_award') . " WHERE rid = :rid and status=2", array(':rid' => $rid));
 
-        $smarty->display('awardlist.htm');//中奖名单
+        $smarty->display('scratch_awardlist.htm');//中奖名单
     }else if($_REQUEST['act'] == 'post'){
-        $id = intval($_REQUEST['reply_id']);
-
-        $insert = array(
-            'rid' => $rid,
-            'title' => $_REQUEST['title'],
-            'content' => $_REQUEST['content'],
-            'ticket_information' => $_REQUEST['ticket_information'],
-            'description' => $_REQUEST['description'],
-            'repeat_lottery_reply' => $_REQUEST['repeat_lottery_reply'],
-            'start_picurl' => $_REQUEST['start_picurl'],
-            'end_theme' => $_REQUEST['end_theme'],
-            'end_instruction' => $_REQUEST['end_instruction'],
-            'end_picurl' => $_REQUEST['end_picurl'],
-            'probability' => $_REQUEST['probability'],
-            'c_type_one' => $_REQUEST['c_type_one'],
-            'c_name_one' => $_REQUEST['c_name_one'],
-            'c_num_one' => $_REQUEST['c_num_one'],
-            'c_type_two' => $_REQUEST['c_type_two'],
-            'c_name_two' => $_REQUEST['c_name_two'],
-            'c_num_two' => $_REQUEST['c_num_two'],
-            'c_type_three' => $_REQUEST['c_type_three'],
-            'c_name_three' => $_REQUEST['c_name_three'],
-            'c_num_three' => $_REQUEST['c_num_three'],
-            'c_type_four' => $_REQUEST['c_type_four'],
-            'c_name_four' => $_REQUEST['c_name_four'],
-            'c_num_four' => $_REQUEST['c_num_four'],
-            'c_type_five' => $_REQUEST['c_type_five'],
-            'c_name_five' => $_REQUEST['c_name_five'],
-            'c_num_five' => $_REQUEST['c_num_five'],
-            'c_type_six' => $_REQUEST['c_type_six'],
-            'c_name_six' => $_REQUEST['c_name_six'],
-            'c_num_six' => $_REQUEST['c_num_six'],
-            'award_times' => $_REQUEST['award_times'],
-            'number_times' => $_REQUEST['number_times'],
-            'most_num_times' => $_REQUEST['most_num_times'],
-            'sn_code' => $_REQUEST['sn_code'],
-            'sn_rename' => $_REQUEST['sn_rename'],
-            'tel_rename' => $_REQUEST['tel_rename'],
-            'show_num' => $_REQUEST['show_num'],
-            'createtime' => time(),
-            'copyright' => $_REQUEST['copyright'],
-            'share_title' => $_REQUEST['share_title'],
-            'share_desc' => $_REQUEST['share_desc'],
-            'share_url' => $_REQUEST['share_url'],
-            'share_txt' => $_REQUEST['share_txt'],
-            'starttime' => strtotime($_REQUEST['datelimit']['start']),
-            'endtime' => strtotime($_REQUEST['datelimit']['end']),
-            'c_rate_one' => $_REQUEST['c_rate_one'],
-            'c_rate_two' => $_REQUEST['c_rate_two'],
-            'c_rate_three' => $_REQUEST['c_rate_three'],
-            'c_rate_four' => $_REQUEST['c_rate_four'],
-            'c_rate_five' => $_REQUEST['c_rate_five'],
-            'c_rate_six' => $_REQUEST['c_rate_six'],
-        );
-        $insert['total_num'] = intval($_REQUEST['c_num_one']) + intval($_REQUEST['c_num_two']) + intval($_REQUEST['c_num_three']) + intval($_REQUEST['c_num_four']) + intval($_REQUEST['c_num_five']) + intval($_REQUEST['c_num_six']);
-        if (empty($id)) {
-            if ($insert['starttime'] <= time()) {
-                $insert['isshow'] = 1;
-            } else {
-                $insert['isshow'] = 0;
-            }
-            $id= $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('bigwheel_reply'),$insert,'INSERT');
-//            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
-        } else {
-             $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('bigwheel_reply'),$insert,'UDPATE','id='.$id);
-//            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
-        }
-        $smarty->assign('form_act',      'post');
-        $smarty->assign('action',        'edit');
-        $smarty->display('form.htm');//添加活动
+        $smarty->display('scratch_form.htm');//添加活动
     } else if($_REQUEST['act'] == 'delete'){
-        $rid = intval($_REQUEST['rid']);
-        $rule_sql = "SELECT id FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
-        $rule = $GLOBALS['db']->getOne($rule_sql);
+        $rid = intval($_GPC['rid']);
+        $rule = pdo_fetch("SELECT id, module FROM " . tablename('rule') . " WHERE id = :id and uniacid=:weid", array(':id' => $rid, ':weid' => $_W['uniacid']));
         if (empty($rule)) {
-//            message('抱歉，要修改的规则不存在或是已经被删除！');
+            message('抱歉，要修改的规则不存在或是已经被删除！');
         }
-        $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
-        $GLOBALS['db']->query($delete_sql);
-        ecs_header("Location: zhuanpan.php?act=manage\n");exit;
+        if (pdo_delete('rule', array('id' => $rid))) {
+            pdo_delete('rule_keyword', array('rid' => $rid));
+            //删除统计相关数据
+            pdo_delete('stat_rule', array('rid' => $rid));
+            pdo_delete('stat_keyword', array('rid' => $rid));
+            //调用模块中的删除
+            $module = WeUtility::createModule($rule['module']);
+            if (method_exists($module, 'ruleDeleted')) {
+                $module->ruleDeleted($rid);
+            }
+        }
+
     } else if($_REQUEST['act'] == 'deleteAll'){
 
-        foreach ($_REQUEST['idArr'] as $k => $rid) {
+        foreach ($_GPC['idArr'] as $k => $rid) {
             $rid = intval($rid);
             if ($rid == 0)
                 continue;
-            $rule_sql ="SELECT id, module FROM " . tablename('rule') . " WHERE id = ".$rid;
-            $rule = $GLOBALS['db']->getOne($rule_sql);
+            $rule = pdo_fetch("SELECT id, module FROM " . tablename('rule') . " WHERE id = :id and uniacid=:weid", array(':id' => $rid, ':weid' => $_W['uniacid']));
             if (empty($rule)) {
                 $this->webmessage('抱歉，要修改的规则不存在或是已经被删除！');
             }
-            $delete_sql = "DELETE FROM " . $GLOBALS['ecs']->table('bigwheel_activity') . " WHERE id = ".$rid;
-            $GLOBALS['db']->query($delete_sql);
-
+            if (pdo_delete('rule', array('id' => $rid))) {
+                pdo_delete('rule_keyword', array('rid' => $rid));
+                //删除统计相关数据
+                pdo_delete('stat_rule', array('rid' => $rid));
+                pdo_delete('stat_keyword', array('rid' => $rid));
+                //调用模块中的删除
+                $module = WeUtility::createModule($rule['module']);
+                if (method_exists($module, 'ruleDeleted')) {
+                    $module->ruleDeleted($rid);
+                }
+            }
         }
         $this->webmessage('规则操作成功！', '', 0);
     } else if($_REQUEST['act'] == 'setshow'){
-        $rid = intval($_REQUEST['rid']);
-        $isshow = intval($_REQUEST['isshow']);
+        $rid = intval($_GPC['rid']);
+        $isshow = intval($_GPC['isshow']);
+
         if (empty($rid)) {
-//            message('抱歉，传递的参数错误！', '', 'error');
+            message('抱歉，传递的参数错误！', '', 'error');
         }
-        $update_sql = "UPDATE " . $GLOBALS['ecs']->table('bigwheel_reply')." SET isshow=".$isshow . " WHERE rid = ".$rid;
-        $GLOBALS['db']->query($update_sql);
-        ecs_header("Location: zhuanpan.php?act=manage\n");exit;
-//        $temp = pdo_update('bigwheel_reply', array('isshow' => $isshow), array('rid' => $rid));
+        $temp = pdo_update('bigwheel_reply', array('isshow' => $isshow), array('rid' => $rid));
     } else if($_REQUEST['act'] == 'setstatus'){
-        $id = intval($_REQUEST['id']);
-        $status = intval($_REQUEST['status']);
+        global $_GPC, $_W;
+        $id = intval($_GPC['id']);
+        $status = intval($_GPC['status']);
         if (empty($id)) {
-//            message('抱歉，传递的参数错误！', '', 'error');
+            message('抱歉，传递的参数错误！', '', 'error');
         }
         $p = array('status' => $status);
         if ($status == 2) {
-            $p['consumetime'] = time();
+            $p['consumetime'] = TIMESTAMP;
         }
-        $update_sql = "UPDATE " . $GLOBALS['ecs']->table('bigwheel_award')." SET status=".$status . " WHERE id = ".$id;
-        $temp = $GLOBALS['db']->query($update_sql);
+        $temp = pdo_update('bigwheel_award', $p, array('id' => $id, 'weid' => $_W['uniacid']));
         if ($temp == false) {
-//            message('抱歉，刚才操作数据失败！', '', 'error');
+            message('抱歉，刚才操作数据失败！', '', 'error');
         } else {
-            ecs_header("Location: zhuanpan.php?act=awardlist&rid=0\n");exit;
-//            message('状态设置成功！', $this->createWebUrl('awardlist',array('rid'=>$_REQUEST['rid'])), 'success');
+            message('状态设置成功！', $this->createWebUrl('awardlist',array('rid'=>$_GPC['rid'])), 'success');
         }
     } else if($_REQUEST['act'] == 'getphone'){
-        $rid = intval($_REQUEST['rid']);
-        $fans = $_REQUEST['fans'];
-
-        $tel = $GLOBALS['db']->getCol("SELECT tel FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE rid = " . $rid . " and  from_user='" . $fans . "'");
+        global $_GPC, $_W;
+        $rid = intval($_GPC['rid']);
+        $fans = $_GPC['fans'];
+        $tel = pdo_fetchcolumn("SELECT tel FROM " . tablename('bigwheel_fans') . " WHERE rid = " . $rid . " and  from_user='" . $fans . "'");
         if ($tel == false) {
             echo '没有登记';
         } else {
@@ -222,6 +180,11 @@ $smarty->assign('act',$_REQUEST['act']);
         }
     }
 
+
+
+
+	 $tablename = 'bigwheel_reply';
+	 $tablefans = 'bigwheel_fans';
 
 	 function getItemTiles() {
 		global $_W;
@@ -235,8 +198,8 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doMobileindex() {
-		global $_REQUEST, $_W;
-		$id = intval($_REQUEST['id']);
+		global $_GPC, $_W;
+		$id = intval($_GPC['id']);
 		if (empty($id)) {
 			message('抱歉，参数错误！', '', 'error');
 		}
@@ -249,7 +212,7 @@ $smarty->assign('act',$_REQUEST['act']);
 		$keyword = pdo_fetch("select content from ".tablename('rule_keyword')." where rid=:rid and type=1",array(":rid"=>$id));
 		$reply['keyword']=  $keyword['content'];
 
-		if (empty($_W['fans']['follow']) || $_REQUEST['share'] == 1) {
+		if (empty($_W['fans']['follow']) || $_GPC['share'] == 1) {
 			$isshare = 1;
 			$running = false;
 			$msg = '请先关注公众号。';
@@ -376,9 +339,9 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doMobilegetaward() {
-		global $_REQUEST, $_W;
+		global $_GPC, $_W;
 
-		$id = intval($_REQUEST['id']);
+		$id = intval($_GPC['id']);
 		//开始抽奖咯
 		$reply = pdo_fetch("SELECT * FROM " . tablename($this->tablename) . " WHERE rid = :rid ORDER BY `id` DESC", array(':rid' => $id));
 
@@ -517,8 +480,8 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doMobilesettel() {
-		global $_REQUEST, $_W;
-		$id = intval($_REQUEST['id']);
+		global $_GPC, $_W;
+		$id = intval($_GPC['id']);
 		$fansID =$_W['member']['uid'];
 		$from_user = $_W['fans']['from_user'];
 		$fans = pdo_fetch("SELECT id FROM " . tablename($this->tablefans) . " WHERE rid = " . $id . " and fansID=" . $fansID . " and from_user='" . $from_user . "'");
@@ -528,7 +491,7 @@ $smarty->assign('act',$_REQUEST['act']);
 				'msg' => '保存数据错误！',
 			);
 		} else {
-			$temp = pdo_update($this->tablefans, array('tel' => $_REQUEST['tel']), array('rid' => $id, 'fansID' => $fansID));
+			$temp = pdo_update($this->tablefans, array('tel' => $_GPC['tel']), array('rid' => $id, 'fansID' => $fansID));
 
 			if ($temp === false) {
 
@@ -538,7 +501,7 @@ $smarty->assign('act',$_REQUEST['act']);
 				);
 			} else {
 				load()->model('mc');
-				mc_update($fansID, array('mobile' => $_REQUEST['tel']));
+				mc_update($fansID, array('mobile' => $_GPC['tel']));
 				$data = array(
 					'success' => 1,
 					'msg' => '成功提交数据',
@@ -567,10 +530,10 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function setfans() {
-		global $_REQUEST, $_W;
+		global $_GPC, $_W;
 		//增加fans次数
 		//记录用户信息
-		$id = intval($_REQUEST['id']);
+		$id = intval($_GPC['id']);
 		$fansID = $_W['fans']['id'];
 		if (empty($fansID) || empty($id))
 			return;
@@ -592,19 +555,19 @@ $smarty->assign('act',$_REQUEST['act']);
 
 
 	 function doWebManage() {
-		global $_REQUEST, $_W;
+		global $_GPC, $_W;
 
 		load()->model('reply');
-		$pindex = max(1, intval($_REQUEST['page']));
+		$pindex = max(1, intval($_GPC['page']));
 		$psize = 20;
 		$sql = "uniacid = :weid AND `module` = :module";
 		$params = array();
 		$params[':weid'] = $_W['uniacid'];
 		$params[':module'] = 'wdl_bigwheel';
 
-		if (isset($_REQUEST['keywords'])) {
+		if (isset($_GPC['keywords'])) {
 			$sql .= ' AND `name` LIKE :keywords';
-			$params[':keywords'] = "%{$_REQUEST['keywords']}%";
+			$params[':keywords'] = "%{$_GPC['keywords']}%";
 		}
 		$list = reply_search($sql, $params, $pindex, $psize, $total);
 		$pager = pagination($total, $pindex, $psize);
@@ -642,8 +605,8 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doWebDelete() {
-		global $_REQUEST, $_W;
-		$rid = intval($_REQUEST['rid']);
+		global $_GPC, $_W;
+		$rid = intval($_GPC['rid']);
 		$rule = pdo_fetch("SELECT id, module FROM " . tablename('rule') . " WHERE id = :id and uniacid=:weid", array(':id' => $rid, ':weid' => $_W['uniacid']));
 		if (empty($rule)) {
 			message('抱歉，要修改的规则不存在或是已经被删除！');
@@ -665,9 +628,9 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doWebDeleteAll() {
-		global $_REQUEST, $_W;
+		global $_GPC, $_W;
 
-		foreach ($_REQUEST['idArr'] as $k => $rid) {
+		foreach ($_GPC['idArr'] as $k => $rid) {
 			$rid = intval($rid);
 			if ($rid == 0)
 				continue;
@@ -691,20 +654,20 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doWebAwardlist() {
-		global $_REQUEST, $_W;
-		$rid = intval($_REQUEST['rid']);
+		global $_GPC, $_W;
+		$rid = intval($_GPC['rid']);
 		if (empty($rid)) {
 			message('抱歉，传递的参数错误！', '', 'error');
 		}
 		$where = '';
 		$params = array(':rid' => $rid, ':weid' => $_W['uniacid']);
-		if (!empty($_REQUEST['status'])) {
+		if (!empty($_GPC['status'])) {
 			$where.=' and a.status=:status';
-			$params[':status'] = $_REQUEST['status'];
+			$params[':status'] = $_GPC['status'];
 		}
-		if (!empty($_REQUEST['keywords'])) {
-			if (strlen($_REQUEST['keywords']) == 11 && is_numeric($_REQUEST['keywords'])) {
-				$members = pdo_fetchall("SELECT uid FROM ".tablename('mc_members')." WHERE mobile = :mobile", array(':mobile' => $_REQUEST['keywords']), 'uid');
+		if (!empty($_GPC['keywords'])) {
+			if (strlen($_GPC['keywords']) == 11 && is_numeric($_GPC['keywords'])) {
+				$members = pdo_fetchall("SELECT uid FROM ".tablename('mc_members')." WHERE mobile = :mobile", array(':mobile' => $_GPC['keywords']), 'uid');
 				if(!empty($members)){
 					$fans = pdo_fetchall("SELECT openid FROM ".tablename('mc_mapping_fans')." WHERE uid in ('".implode("','", array_keys($members))."')", array(), 'openid');
 					if(!empty($fans)){
@@ -713,11 +676,11 @@ $smarty->assign('act',$_REQUEST['act']);
 				}
 			} else {
 				$where.=' and (a.award_sn like :keywords)';
-				$params[':keywords'] = "%{$_REQUEST['keywords']}%";
+				$params[':keywords'] = "%{$_GPC['keywords']}%";
 			}
 		}
 		$total = pdo_fetchcolumn("SELECT count(a.id) FROM " . tablename('bigwheel_award') . " a WHERE a.rid = :rid and a.weid=:weid " . $where . "", $params);
-		$pindex = max(1, intval($_REQUEST['page']));
+		$pindex = max(1, intval($_GPC['page']));
 		$psize = 12;
 		$pager = pagination($total, $pindex, $psize);
 		$start = ($pindex - 1) * $psize;
@@ -741,9 +704,9 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doWebSetshow() {
-		global $_REQUEST, $_W;
-		$rid = intval($_REQUEST['rid']);
-		$isshow = intval($_REQUEST['isshow']);
+		global $_GPC, $_W;
+		$rid = intval($_GPC['rid']);
+		$isshow = intval($_GPC['isshow']);
 
 		if (empty($rid)) {
 			message('抱歉，传递的参数错误！', '', 'error');
@@ -753,9 +716,9 @@ $smarty->assign('act',$_REQUEST['act']);
 	}
 
 	 function doWebSetstatus() {
-		global $_REQUEST, $_W;
-		$id = intval($_REQUEST['id']);
-		$status = intval($_REQUEST['status']);
+		global $_GPC, $_W;
+		$id = intval($_GPC['id']);
+		$status = intval($_GPC['status']);
 		if (empty($id)) {
 			message('抱歉，传递的参数错误！', '', 'error');
 		}
@@ -767,14 +730,14 @@ $smarty->assign('act',$_REQUEST['act']);
 		if ($temp == false) {
 			message('抱歉，刚才操作数据失败！', '', 'error');
 		} else {
-			message('状态设置成功！', $this->createWebUrl('awardlist',array('rid'=>$_REQUEST['rid'])), 'success');
+			message('状态设置成功！', $this->createWebUrl('awardlist',array('rid'=>$_GPC['rid'])), 'success');
 		}
 	}
 
 	 function doWebGetphone() {
-		global $_REQUEST, $_W;
-		$rid = intval($_REQUEST['rid']);
-		$fans = $_REQUEST['fans'];
+		global $_GPC, $_W;
+		$rid = intval($_GPC['rid']);
+		$fans = $_GPC['fans'];
 		$tel = pdo_fetchcolumn("SELECT tel FROM " . tablename('bigwheel_fans') . " WHERE rid = " . $rid . " and  from_user='" . $fans . "'");
 		if ($tel == false) {
 			echo '没有登记';

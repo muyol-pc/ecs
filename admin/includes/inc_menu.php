@@ -53,7 +53,7 @@ $modules['03_promotion']['08_group_buy']            = 'group_buy.php?act=list';
 //$modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=list';
 $modules['03_promotion']['16_seckill']       = 'seckill.php?act=list';
 $modules['03_promotion']['17_zhuanpan']       = 'zhuanpan.php?act=manage';
-$modules['03_promotion']['18_guaguaka']       = 'guaguaka.php?act=list';
+$modules['03_promotion']['18_guaguaka']       = 'scratch.php?act=manage';
 
 
 

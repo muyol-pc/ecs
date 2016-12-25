@@ -1,9 +1,9 @@
 {include file="pageheader.htm"}
 <div class="main">
 	<ul class="nav nav-tabs">
-		<li{if $_REQUEST['act'] == 'manage'} class="active"{/if}><a href="../zhuanpan.php?act=manage">大转盘管理</a></li>
-		<li{if $_REQUEST['act'] == 'post'} class="active"{/if}><a href="../zhuanpan.php?act=post">添加大转盘规则</a></li>
-		<li{if $_REQUEST['act'] == 'awardlist'} class="active"{/if}><a href="../zhuanpan.php?act=awardlist&rid => 0));}">中奖名单</a></li>
+		<li{if $act == 'manage'} class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
+		<li{if $act == 'post'} class="active"{/if}><a href="zhuanpan.php?act=post">添加大转盘规则</a></li>
+		<li{if $act == 'awardlist'} class="active"{/if}><a href="zhuanpan.php?act=awardlist&rid => 0));}">中奖名单</a></li>
 	</ul>
 
 </div>
@@ -26,32 +26,33 @@
 				</tr>
 			</thead>
 			<tbody>
-				{loop $list $row}
+            {foreach from=$list item=row}
+
 				<tr>
-					<td>{$row['id']}</td>
-                	<td>{$row['award_sn']}</td>
-					<td>{$row['name']}</td>
-					<td>{if $row['status']==0}<span class="label label-default">未领取</span>
-						{elseif $row['status']==1}<span class="label label-success">已中奖</span>
+					<td>{$row.id}</td>
+                	<td>{$row.award_sn]}</td>
+					<td>{$row.name}</td>
+					<td>{if $row.status==0}<span class="label label-default">未领取</span>
+						{elseif $row.status==1}<span class="label label-success">已中奖</span>
 						{else}<span class="label label-warning">已兑奖</span>{/if}</td>
-					<td><span class="label label-info phone" data-fans="{$row['from_user']}"}>显示手机号</span></td>
-					<td>{$row['from_user']}</td>
+					<td><span class="label label-info phone" data-fans="{$row.from_user}"}>显示手机号</span></td>
+					<td>{$row.from_user}</td>
 					<td>
-						{if empty($row['nickname'])}
+						{if empty($row.nickname)}
 						<span class="label label-danger">未完善</span>
 						{else}
-						{$row['nickname']}
+						{$row.nickname}
 						{/if}
 					</td>
-					<td>{php echo date('Y/m/d H:i',$row['createtime']);}</td>
-					<td>{if $row['consumetime'] == 0}未使用{else}{php echo date('Y/m/d H:i',$row['consumetime']);}{/if}</td>
+					<td>{php echo date('Y/m/d H:i',$row.createtime);}</td>
+					<td>{if $row.consumetime == 0}未使用{else}{php echo date('Y/m/d H:i',$row.consumetime);}{/if}</td>
 					<td>
-						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为未中奖?','{php echo $this->createWebUrl('setstatus',array('status'=>0,'id'=>$row['id'],'rid'=>$row['rid']))}');"><i class="fa fa-ban"></i> 未中奖</a>
-						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为已中奖?','{php echo $this->createWebUrl('setstatus',array('status'=>1,'id'=>$row['id'],'rid'=>$row['rid']))}');"><i class="fa fa-times-circle-o"></i> 已抽中</a>
-						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为已兑奖?','{php echo $this->createWebUrl('setstatus',array('status'=>2,'id'=>$row['id'],'rid'=>$row['rid']))}');"><i class="fa fa-check-circle-o"></i> 已兑奖</a>
+						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为未中奖?','zhuanpan.php?act=setstatus&status=0&id=$row.id&rid=0');"><i class="fa fa-ban"></i> 未中奖</a>
+						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为已中奖?','zhuanpan.php?act=setstatus&status=0&id=$row.id&rid=1');"><i class="fa fa-times-circle-o"></i> 已抽中</a>
+						<a class="btn btn-default" href="#" onclick="drop_confirm('确认设置为已兑奖?','zhuanpan.php?act=setstatus&status=0&id=$row.id&rid=2');"><i class="fa fa-check-circle-o"></i> 已兑奖</a>
 					</td>
 				</tr>
-				{/loop}
+				{/foreach}
 			</tbody>
 		</table>
 	</div>
@@ -67,7 +68,7 @@
 		obj=$(this);
 		obj.text('加载中...');
 		fans=obj.attr('data-fans');
-		$.post("{php echo $this->createWebUrl('getphone',array('rid'=>$rid))}", { fans: fans},
+		$.post("zhuanpan.php?act=getphone&rid=0", { fans: fans},
 		function(data){
 			obj.removeClass('label-teal');
 			obj.text(data);
@@ -84,7 +85,7 @@
 	$('.js-pop').click(function() {
 		var starttime = $("[name='range[start]']").val();
 		var endtime = $("[name='range[end]']").val();
-		location.href="{php echo $this->createWebUrl('download',array('rid'=>$rid))}" + 
+		location.href="zhuanpan.php?act=download&rid=0" +
 		"&starttime=" + starttime +
 		"&endtime=" + endtime;
 	});
