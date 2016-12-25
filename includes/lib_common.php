@@ -2349,32 +2349,32 @@ function get_final_price($goods_id, $goods_num = '1', $is_spec_price = false, $s
     //取得商品会员价格列表
     $user_price    = $goods['shop_price'];
 
-    //比较商品的促销价格，会员价格，优惠价格
-    if (empty($volume_price) && empty($promote_price))
-    {
-        //如果优惠价格，促销价格都为空则取会员价格
-        $final_price = $user_price;
-    }
-    elseif (!empty($volume_price) && empty($promote_price))
-    {
-        //如果优惠价格为空时不参加这个比较。
-        $final_price = min($volume_price, $user_price);
-    }
-    elseif (empty($volume_price) && !empty($promote_price))
-    {
-        //如果促销价格为空时不参加这个比较。
-        $final_price = min($promote_price, $user_price);
-    }
-    elseif (!empty($volume_price) && !empty($promote_price))
-    {
-        //取促销价格，会员价格，优惠价格最小值
-        $final_price = min($volume_price, $promote_price, $user_price);
-    }
-    else
-    {
-        $final_price = $user_price;
-    }
-
+    // //比较商品的促销价格，会员价格，优惠价格
+    // if (empty($volume_price) && empty($promote_price))
+    // {
+    //     //如果优惠价格，促销价格都为空则取会员价格
+    //     $final_price = $user_price;
+    // }
+    // elseif (!empty($volume_price) && empty($promote_price))
+    // {
+    //     //如果优惠价格为空时不参加这个比较。
+    //     $final_price = min($volume_price, $user_price);
+    // }
+    // elseif (empty($volume_price) && !empty($promote_price))
+    // {
+    //     //如果促销价格为空时不参加这个比较。
+    //     $final_price = min($promote_price, $user_price);
+    // }
+    // elseif (!empty($volume_price) && !empty($promote_price))
+    // {
+    //     //取促销价格，会员价格，优惠价格最小值
+    //     $final_price = min($volume_price, $promote_price, $user_price);
+    // }
+    // else
+    // {
+    //     $final_price = $user_price;
+    // }
+    $final_price = $user_price;
     //如果需要加入规格价格
     if ($is_spec_price)
     {
@@ -2384,7 +2384,6 @@ function get_final_price($goods_id, $goods_num = '1', $is_spec_price = false, $s
             $final_price += $spec_price;
         }
     }
-
     //返回商品最终购买价格
     return $final_price;
 }

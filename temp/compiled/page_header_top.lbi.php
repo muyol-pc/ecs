@@ -1,7 +1,9 @@
 <link href="<?php echo $this->_var['ecs_css_app_path']; ?>" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
 <?php echo $this->smarty_insert_scripts(array('files'=>'jquery-1.11.3.min.js,jquery.json.js')); ?>
 <script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
 <script type="text/javascript">  
 var process_request = "<?php echo $this->_var['lang']['process_request']; ?>";
 </script>

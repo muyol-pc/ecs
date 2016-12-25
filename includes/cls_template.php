@@ -649,6 +649,9 @@ class cls_template
                     case 'strip_tags':
                         $p = 'strip_tags(' . $p . ')';
                         break;
+                    case 'pro_label_format':
+                        $p = 'pro_label_format(' . $p . ')';
+                        break;
 
                     default:
                         # code...

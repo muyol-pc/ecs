@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482689932;s:8:"maketime";i:1482686332;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482709010;s:8:"maketime";i:1482705410;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -12,7 +12,7 @@
 <link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
  
-<script type="text/javascript" src="js/common.js"></script><script type="text/javascript"  src="js/action.js"></script>
+<script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/transport_jquery.js"></script><script type="text/javascript" src="js/utils.js"></script><script type="text/javascript"  src="js/action.js"></script>
 <script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
 <script type="text/javascript">
 function $id(element) {
@@ -42,7 +42,9 @@ function reg(str){
 <body> 
 <link href="" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
 <script type="text/javascript">  
 var process_request = "正在处理您的请求...";
 </script>
@@ -91,17 +93,31 @@ var process_request = "正在处理您的请求...";
   </div>
   <div class="hl-center">
     <div class="hl-product-intro hl-mb30 hl-clearfix">
-      <div class="hl-preview hl-fl">
-        <div id="preview" class="hl-spec-preview">
-          <div class="hl-zoom">
-            <img zoom-img="images/201601/goods_img/141_G_1454030716113.jpg" src="images/201601/goods_img/141_P_1454030716550.jpg" width="478"/>
-          </div>
+      <div class="hl-preview hl-fl hl-fs-12">
+        
+        <div class="hl-banner hl-tc" style="height: 350px;">
+          <ul>
+                      <li><img src="images/201601/goods_img/141_P_1454030716550.jpg" alt=""></li>
+                      <li><img src="images/201601/goods_img/141_P_1454030716550.jpg" alt=""></li>
+                      <li><img src="images/201601/goods_img/141_G_1454030716113.jpg" alt=""></li>
+                    </ul>
         </div>
-                
-              </div>
+        
+        <br>
+        
+        <div class="hl-thumb" style="height:100px;">
+          <span class="hl-arrow-l"></span>
+          <span class="hl-arrow-r"></span>
+          <ul class="hl-text-c hl-clearfix">
+                        <li style="width: 33.33%;" class="active"><img src="images/201601/goods_img/141_P_1454030716550.jpg" alt=""></li>
+                        <li style="width: 33.33%;" ><img src="images/201601/goods_img/141_P_1454030716550.jpg" alt=""></li>
+                        <li style="width: 33.33%;" ><img src="images/201601/goods_img/141_G_1454030716113.jpg" alt=""></li>
+                      </ul>
+        </div>
+      </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69">暖怀－白18K金钻石戒指</h1>
+          <h1 class="hl-f18 hl-fwn hl-69"> 暖怀－白18K金钻石戒指</h1>
           
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
@@ -124,8 +140,8 @@ var process_request = "正在处理您的请求...";
             价格 <strong class="hl-f30 hl-fmr">&yen; 6988.00</strong>
           </div> -->
           
-          <div class="hl-price hl-f18">
-            价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
+          <div class="hl-price hl-f18 hl-shop-price">
+            价格 <strong class="hl-f30 hl-fmr">4400.00</strong>元
           </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div>
@@ -139,7 +155,6 @@ var process_request = "正在处理您的请求...";
                 </div>
               </div>
             </div>
-              
             
             <!-- <div class="hl-dd hl-suppor">
               <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
@@ -151,8 +166,7 @@ var process_request = "正在处理您的请求...";
               <div class="hl-dt">赠　　品</div>
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
             </div>-->
-            
-             <div class="">
+            <div class="">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
               <ul><li class="hl-yjhx hl-selected hl-pro-attr"><a href="" class="hl-yjfx">
@@ -160,7 +174,64 @@ var process_request = "正在处理您的请求...";
                   </a></li></ul>
               </div>
             </div>
-            <div class="">
+            
+                        <div class="">
+              <div class="hl-dt">产品类型</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='300' id="13"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      双开门                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='450' id="14"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      对开门                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='500' id="1"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      三开门                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+                        <div class="">
+              <div class="hl-dt">容积量</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='120' id="5"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      601升以上                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+                        <div class="">
+              <div class="hl-dt">颜色</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='0' id="9"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      典雅白                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='15' id="11"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      宝石蓝                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='30' id="10"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      浅金色                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+            <!--             <div class="">
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
                 <ul class="hl-tip-infor hl-clearfix">
@@ -259,13 +330,13 @@ var process_request = "正在处理您的请求...";
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <div>
               <div class="hl-dt">数　　量</div>
               <div class="hl-dd hl-buy-count hl-f0">
                 <div class="hl-counter clearfix" style="width:100px;float: left;">
                       <span class="hl-counter-sub hl-fs-20">-</span>
-                      <input class="hl-counter-num" value="10" max="2">
+                      <input class="hl-counter-num" value="1" >
                       <span class="hl-counter-add hl-fs-20">+</span>
                     </div>
                 
@@ -347,6 +418,23 @@ var process_request = "正在处理您的请求...";
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
+                              <h2 class="hl-f12 hl-66 hl-fl">商品属性</h2>
+                <a class="hl-fr" href="">更多参数</a>
+              </div>
+              <ul class="hl-tab-table hl-f12 hl-clearfix">
+                               <li>控温方式：电脑温控</li>
+                                <li>变频：360度变频</li>
+                                <li>国家能效等级：一级</li>
+                
+                <!-- <li>面板类型：金属</li>
+                <li>制冷方式：冷风</li>
+                <li>控温方式：电脑控温</li>
+                <li>日耗电量：1.35</li>
+                <li>国家能效等级：2级</li>
+                <li>日冷冻能力：12千克</li>
+                <li>除霜模式：自动</li>
+                <li>总有效容积：610升</li> -->
+              </ul>
                           </div>
             <style>
             .hl-product-pics td{padding:0;border:0;}
@@ -790,5 +878,6 @@ var process_request = "正在处理您的请求...";
 <div class="hl-footer hl-f14 hl-44 hl-tc">
   <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
   苏ICP备10003401号
-</div></body>
+</div>
+</body>
 </html>

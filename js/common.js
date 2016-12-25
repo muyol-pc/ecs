@@ -25,8 +25,8 @@ function addToCart2(goodsId){
   goods.goods_id = goodsId;
   goods.number   = number;
   goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
-  console.log(goods);
-  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
+  // console.log(goods);
+  Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
 }
 
 /**
@@ -37,11 +37,14 @@ function getSelectedAttributes2(formBuy)
   var spec_arr = new Array();
   // var j = 0;
   var len = formBuy.length;
+  // console.log(formBuy);
   $.each(formBuy, function(index, val) {
      /* iterate through array or object */
-     console.log(val);
-     spec_arr[index] = $(this).attr("value");
-
+     // console.log(val);
+     // console.log($(val).attr("id"));
+     if ($(val).attr("id")!=undefined) {
+       spec_arr.push($(val).attr("id"));
+     }
   });
   // for (i = 0; i < len; i ++ )
   // {
@@ -55,7 +58,7 @@ function getSelectedAttributes2(formBuy)
   //     j++ ;
   //   }
   // }
-  console.log(spec_arr);
+  // console.log(spec_arr);
   return spec_arr;
 }
 
@@ -82,13 +85,11 @@ function addToCart(goodsId, parentId)
     }
 	  quick = 1;
   }
-
   goods.quick    = quick;
   goods.spec     = spec_arr;
   goods.goods_id = goodsId;
   goods.number   = number;
   goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
-
   Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
 }
 /**
@@ -101,7 +102,7 @@ function repurchase(order_id) {
     if (data.error == 0) {
       location.href = cart_url;
     } else {
-      console.log(data);
+      // console.log(data);
       alert(data.message);
     }
   }, 'POST', 'JSON');
@@ -137,6 +138,8 @@ function getSelectedAttributes(formBuy)
  */
 function addToCartResponse(result)
 {
+  // console.log(result); 
+  // return;
   if (result.error > 0)
   {
     // 如果需要缺货登记，跳转

@@ -1,22 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482707703;s:8:"maketime";i:1482704103;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8">
-<meta name="Keywords" content="<?php echo $this->_var['keywords']; ?>" />
-<meta name="Description" content="<?php echo $this->_var['description']; ?>" />
-
-<title><?php echo $this->_var['page_title']; ?></title>
-
+<meta name="Keywords" content="" />
+<meta name="Description" content="国庆大促，下单再减10%" />
+<title>暖怀－白18K金钻石戒指_冰洗_ECSHOP演示站</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="<?php echo $this->_var['ecs_css_path']; ?>" rel="stylesheet" type="text/css" />
+<link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
  
-<?php echo $this->smarty_insert_scripts(array('files'=>'common.js')); ?>
-<?php echo $this->smarty_insert_scripts(array('files'=>'transport_jquery.js,utils.js')); ?>
-<script type="text/javascript"  src="js/action.js"></script>
+<script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/transport_jquery.js"></script><script type="text/javascript" src="js/utils.js"></script><script type="text/javascript"  src="js/action.js"></script>
 <script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
 <script type="text/javascript">
 function $id(element) {
@@ -44,10 +40,50 @@ function reg(str){
 </script>
 </head>
 <body> 
-<?php echo $this->fetch('library/page_header_top.lbi'); ?>
-<?php echo $this->fetch('library/page_header.lbi'); ?>
-<?php echo $this->fetch('library/ur_here.lbi'); ?>
-
+<link href="" rel="stylesheet" type="text/css" />
+<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
+<script type="text/javascript">  
+var process_request = "正在处理您的请求...";
+</script>
+<!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<div class="hl-status">
+  <div class="hl-center"> 
+    <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
+    <div class="hl-fr">
+              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">admin</a>
+        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
+        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
+      <a class="hl-message" href="message.php" target="_blank">在线留言</a>
+      <a class="hl-message" href="user.php?act=logout">退出</a>
+          </div>
+  </div>
+</div> 
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+<div class="hl-header hl-header-bottom">
+  <div class="hl-center hl-nav"> 
+    <a class="hl-logo hl-mr10" href=""></a>
+    <a class="hl-mr20" href="" target="_blank">西门子家电</a>
+    <a class="hl-mr20" href="" target="_blank">展望未来</a>
+    <div class="hl-search hl-f0">
+      <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
+      <button class="hl-search-button"></button>
+    </div>
+  </div>
+</div><div class="hl-w1100">
+<div class="blank"></div>
+<div id="ur_here">
+当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 暖怀－白18K金钻石戒指 
+</div>
+</div>
+<div class="blank"></div>
 <div class="hl-container">
   <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
@@ -56,18 +92,14 @@ function reg(str){
     <span class="hl-simsun hl-there">&nbsp;&gt;&nbsp;<a href="">西门子</a></span>
   </div>
   <div class="hl-center">
-
     <div class="hl-product-intro hl-mb30 hl-clearfix">
       <div class="hl-preview hl-fl hl-fs-12">
         
         <div class="hl-banner hl-tc" style="height: 350px;">
           <ul>
-          <?php $_from = $this->_var['pictures']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'pic');if (count($_from)):
-    foreach ($_from AS $this->_var['pic']):
-?>
-            <li><img src="<?php echo $this->_var['pic']['img_url']; ?>" alt=""></li>
-          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-          </ul>
+                      <li><img src="images/201601/goods_img/140_P_1454030885463.jpg" alt=""></li>
+                      <li><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></li>
+                    </ul>
         </div>
         
         <br>
@@ -76,17 +108,14 @@ function reg(str){
           <span class="hl-arrow-l"></span>
           <span class="hl-arrow-r"></span>
           <ul class="hl-text-c hl-clearfix">
-            <?php $_from = $this->_var['pictures']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'pic');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['pic']):
-?>
-            <li style="width: 33.33%;" <?php if ($this->_var['key'] == 0): ?>class="active"<?php endif; ?>><img src="<?php echo $this->_var['pic']['img_url']; ?>" alt=""></li>
-            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-          </ul>
+                        <li style="width: 33.33%;" class="active"><img src="images/201601/goods_img/140_P_1454030885463.jpg" alt=""></li>
+                        <li style="width: 33.33%;" ><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></li>
+                      </ul>
         </div>
       </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69"> <?php echo $this->_var['goods']['goods_style_name']; ?></h1>
+          <h1 class="hl-f18 hl-fwn hl-69"> 暖怀－白18K金钻石戒指</h1>
           
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
@@ -110,7 +139,7 @@ function reg(str){
           </div> -->
           
           <div class="hl-price hl-f18 hl-shop-price">
-            价格 <strong class="hl-f30 hl-fmr"><?php echo $this->_var['goods']['shop_price']; ?></strong>元
+            价格 <strong class="hl-f30 hl-fmr">4400.00</strong>元
           </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div>
@@ -118,7 +147,6 @@ function reg(str){
               <div class="hl-dd hl-clearfix">
                 
                 <div class="hl-store-selector hl-fl">
-
                 </div>
                 <div class="hl-store-prompt hl-fl">
                   <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
@@ -145,28 +173,7 @@ function reg(str){
               </div>
             </div>
             
-            <?php $_from = $this->_var['specification']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
-    foreach ($_from AS $this->_var['attr']):
-?>
-            <div class="">
-              <div class="hl-dt"><?php echo $this->_var['attr']['name']; ?></div>
-              <div class="hl-dd">
-              <ul class="hl-tip-infor hl-clearfix">
-                <?php $_from = $this->_var['attr']['values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'value');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['value']):
-?>
-                <li class="hl-pro-attr <?php if ($this->_var['key'] == 0): ?>hl-selected<?php else: ?>hl-disabled<?php endif; ?>" price='<?php echo $this->_var['value']['price']; ?>' id="<?php echo $this->_var['value']['id']; ?>"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      <?php echo $this->_var['value']['label']; ?>
-                </a>
-                </li>
-                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-              </ul>
-              </div>
-            </div>
-            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-<!--             <div class="">
+            <!--             <div class="">
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
                 <ul class="hl-tip-infor hl-clearfix">
@@ -286,8 +293,8 @@ function reg(str){
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
-            <a href="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-buy-now">立即购买</a>
-            <a href="javascript:addToCart2(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-add-cart">加入购物车</a>
+            <a href="javascript:addToCart(140)" class="hl-buy-now">立即购买</a>
+            <a href="javascript:addToCart2(140)" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -296,24 +303,36 @@ function reg(str){
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_21976400_1482704103');if (count($_from)):
-    foreach ($_from AS $this->_var['goods_0_21976400_1482704103']):
-?>
-          <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods_0_21976400_1482704103']['id']; ?>"><img src="<?php echo $this->_var['goods_0_21976400_1482704103']['goods_img']; ?>" alt=""></a>
+                   <li>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=134"><img src="images/201601/goods_img/134_G_1454032795393.jpg" alt=""></a>
             <div class="hl-price">
              价格暂定
               <strong class="hl-disp-b hl-ups hl-f24">
-               <?php if ($this->_var['goods_0_21976400_1482704103']['promote_price'] != ""): ?>
-      价格暂定
-       <?php else: ?>
-      价格暂定
-      <?php endif; ?>
-      </strong>
-              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods_0_21976400_1482704103']['url']; ?>"><?php echo $this->_var['goods_0_21976400_1482704103']['short_style_name']; ?></a>
+                     价格暂定
+             </strong>
+              <a class="hl-name hl-f14 hl-72" href="goods.php?id=134">爱冕－白18K...</a>
             </div>
           </li>
-<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+          <li>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=136"><img src="images/201601/goods_img/136_G_1454032609800.jpg" alt=""></a>
+            <div class="hl-price">
+             价格暂定
+              <strong class="hl-disp-b hl-ups hl-f24">
+                     价格暂定
+             </strong>
+              <a class="hl-name hl-f14 hl-72" href="goods.php?id=136">比 翼 － 铂...</a>
+            </div>
+          </li>
+          <li>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=140"><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></a>
+            <div class="hl-price">
+             价格暂定
+              <strong class="hl-disp-b hl-ups hl-f24">
+                     价格暂定
+             </strong>
+              <a class="hl-name hl-f14 hl-72" href="goods.php?id=140">暖怀－白18K...</a>
+            </div>
+          </li>
           <!-- <li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
@@ -341,37 +360,41 @@ function reg(str){
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
-              <?php $_from = $this->_var['properties']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'property_group');if (count($_from)):
-    foreach ($_from AS $this->_var['key'] => $this->_var['property_group']):
-?>
-                <h2 class="hl-f12 hl-66 hl-fl"><?php echo htmlspecialchars($this->_var['key']); ?></h2>
-                <a class="hl-fr" href="">更多参数</a>
-              </div>
-              <ul class="hl-tab-table hl-f12 hl-clearfix">
-               <?php $_from = $this->_var['property_group']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'property');if (count($_from)):
-    foreach ($_from AS $this->_var['property']):
-?>
-                <li><?php echo htmlspecialchars($this->_var['property']['name']); ?>：<?php echo $this->_var['property']['value']; ?></li>
-                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-
-                <!-- <li>面板类型：金属</li>
-                <li>制冷方式：冷风</li>
-                <li>控温方式：电脑控温</li>
-                <li>日耗电量：1.35</li>
-                <li>国家能效等级：2级</li>
-                <li>日冷冻能力：12千克</li>
-                <li>除霜模式：自动</li>
-                <li>总有效容积：610升</li> -->
-              </ul>
-              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
-            </div>
+                          </div>
             <style>
             .hl-product-pics td{padding:0;border:0;}
             .hl-product-pics tr{border:0;}
             </style>
             <div class="hl-product-pics" style="overflow:hidden;">
-            <?php echo $this->_var['goods']['goods_desc']; ?>
-            </div>
+            <p>&nbsp;</p>
+<table id="Table_01" width="900" height="5800" border="0" cellpadding="0" cellspacing="0" style="color: rgb(0, 0, 0); font-size: 12px; font-family: Arial, 宋体;">
+    <tbody>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体; text-align: center;"><img src="http://img.zbird.cn/picdb/278/30/27830_1_.jpg" width="900" height="594" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/30/27830_4_.jpg" width="900" height="881" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/31/27831_1_.jpg" width="900" height="1074" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/31/27831_4_.jpg" width="900" height="996" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/32/27832_1_.jpg" width="900" height="516" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/32/27832_4_.jpg" width="900" height="600" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/33/27833_1_.jpg" width="900" height="505" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+        <tr>
+            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://img.zbird.cn/picdb/278/33/27833_4_.jpg" width="900" height="634" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
+        </tr>
+    </tbody>
+</table>            </div>
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
@@ -761,6 +784,25 @@ function reg(str){
       </div>
     </div>
   </div>
-<?php echo $this->fetch('library/page_footer.lbi'); ?>
+<div class="hl-center hl-server">
+  <ul class="hl-clearfix">
+    <li class="hl-tel">
+      <p>客户热线</p>
+      <p>7x24小时服务400-88-99999</p>
+    </li>
+    <li class="hl-ater">
+      <p>在线咨询</p>
+      <p>服务时间：周一至周日</p>
+    </li>
+    <li class="hl-wechart">
+      <p>官方微信</p>
+      <p>关注西门子家电微信，享受专业的贴心服务</p>
+    </li>
+  </ul>
+</div>
+<div class="hl-footer hl-f14 hl-44 hl-tc">
+  <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  苏ICP备10003401号
+</div>
 </body>
 </html>

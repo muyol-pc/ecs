@@ -1084,7 +1084,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     if ($parent > 0)
     {
         $sql = "SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('cart') .
-                " WHERE goods_id='$parent' AND session_id='" . SESS_ID . "' AND extension_code <> 'package_buy'";
+                " WHERE goods_id='$parent' AND user_id='" . $_SESSION['user_id'] . "' AND extension_code <> 'package_buy'";
         if ($GLOBALS['db']->getOne($sql) == 0)
         {
             $GLOBALS['err']->add($GLOBALS['_LANG']['no_basic_goods'], ERR_NO_BASIC_GOODS);
@@ -1129,7 +1129,6 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
         if ($num > $goods['goods_number'])
         {
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['shortage'], $goods['goods_number']), ERR_OUT_OF_STOCK);
-
             return false;
         }
 
@@ -1155,7 +1154,6 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     $goods['market_price'] += $spec_price;
     $goods_attr             = get_goods_attr_info($spec);
     $goods_attr_id          = join(',', $spec);
-
     /* 初始化要插入购物车的基本件数据 */
     $parent = array(
         'user_id'       => $_SESSION['user_id'],
@@ -1173,7 +1171,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
         'is_shipping'   => $goods['is_shipping'],
         'rec_type'      => $rec_type
     );
-
+    // var_dump($spec_price,$goods_price,$goods_attr_id,$parent);
     /* 如果该配件在添加为基本件的配件时，所设置的“配件价格”比原价低，即此配件在价格上提供了优惠， */
     /* 则按照该配件的优惠价格卖，但是每一个基本件只能购买一个优惠价格的“该配件”，多买的“该配件”不享 */
     /* 受此优惠 */
@@ -1196,7 +1194,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     {
         $sql = "SELECT goods_id, SUM(goods_number) AS count " .
                 "FROM " . $GLOBALS['ecs']->table('cart') .
-                " WHERE session_id = '" . SESS_ID . "'" .
+                " WHERE user_id = '" . $_SESSION['user_id'] . "'" .
                 " AND parent_id = 0" .
                 " AND extension_code <> 'package_buy' " .
                 " AND goods_id " . db_create_in(array_keys($basic_list)) .
@@ -1214,7 +1212,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     {
         $sql = "SELECT parent_id, SUM(goods_number) AS count " .
                 "FROM " . $GLOBALS['ecs']->table('cart') .
-                " WHERE session_id = '" . SESS_ID . "'" .
+                " WHERE user_id = '" . $_SESSION['user_id'] . "'" .
                 " AND goods_id = '$goods_id'" .
                 " AND extension_code <> 'package_buy' " .
                 " AND parent_id " . db_create_in(array_keys($basic_count_list)) .
@@ -1264,7 +1262,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     {
         /* 检查该商品是否已经存在在购物车中 */
         $sql = "SELECT goods_number FROM " .$GLOBALS['ecs']->table('cart').
-                " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
+                " WHERE user_id = '" .$_SESSION['user_id']. "' AND goods_id = '$goods_id' ".
                 " AND parent_id = 0 AND goods_attr = '" .get_goods_attr_info($spec). "' " .
                 " AND extension_code <> 'package_buy' " .
                 " AND rec_type = 'CART_GENERAL_GOODS'";
@@ -1287,7 +1285,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
                 $goods_price = get_final_price($goods_id, $num, true, $spec);
                 $sql = "UPDATE " . $GLOBALS['ecs']->table('cart') . " SET goods_number = '$num'" .
                        " , goods_price = '$goods_price'".
-                       " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
+                       " WHERE user_id = '" .$_SESSION['user_id']. "' AND goods_id = '$goods_id' ".
                        " AND parent_id = 0 AND goods_attr = '" .get_goods_attr_info($spec). "' " .
                        " AND extension_code <> 'package_buy' " .
                        "AND rec_type = 'CART_GENERAL_GOODS'";
@@ -1300,7 +1298,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
                 return false;
             }
         }
-        else //购物车没有此物品，则插入
+        else // 购物车没有此物品，则插入
         {
             $goods_price = get_final_price($goods_id, $num, true, $spec);
             $parent['goods_price']  = max($goods_price, 0);
@@ -1311,7 +1309,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
     }
 
     /* 把赠品删除 */
-    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('cart') . " WHERE session_id = '" . SESS_ID . "' AND is_gift <> 0";
+    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('cart') . " WHERE user_id = '" . SESS_ID . "' AND is_gift <> 0";
     $GLOBALS['db']->query($sql);
 
     return true;
@@ -1354,9 +1352,9 @@ function get_goods_attr_info($arr, $type = 'pice')
         while ($row = $GLOBALS['db']->fetchRow($res))
         {
             $attr_price = round(floatval($row['attr_price']), 2);
-            $attr .= sprintf($fmt, $row['attr_name'], $row['attr_value'], $attr_price);
+            // $attr .= sprintf($fmt, $row['attr_name'], $row['attr_value'], $attr_price);
+            $attr .= sprintf($fmt, $row['attr_name'], $row['attr_value'], 0);
         }
-
         $attr = str_replace('[0]', '', $attr);
     }
 

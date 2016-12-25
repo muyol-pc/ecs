@@ -515,7 +515,7 @@ function get_goods_info($goods_id)
             "WHERE g.goods_id = '$goods_id' AND g.is_delete = 0 " .
             "GROUP BY g.goods_id";
     $row = $GLOBALS['db']->getRow($sql);
-
+    // var_dump($row);
     if ($row !== false)
     {
         /* 用户评论级别取整 */

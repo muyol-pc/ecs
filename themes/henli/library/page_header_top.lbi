@@ -1,8 +1,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="{$ecs_css_app_path}" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
 {insert_scripts files='jquery-1.11.3.min.js,jquery.json.js'}
 <script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
 <script type="text/javascript">  
 var process_request = "{$lang.process_request}";
 </script>
