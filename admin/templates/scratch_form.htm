@@ -1,10 +1,10 @@
 {include file="pageheader.htm"}
 {include file="common.htm"}
 <ul class="nav nav-tabs">
-    <li{if $act == 'manage' } class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
-    <li{if $act == 'post'} class="active"{/if}><a href="zhuanpan.php?act=post">添加大转盘规则</a></li>
+    <li{if $act == 'manage' } class="active"{/if}><a href="scratch.php?act=manage">刮刮卡管理</a></li>
+    <li{if $act == 'post'} class="active"{/if}><a href="scratch.php?act=post">添加刮刮卡活动</a></li>
 </ul>
-<form id="reply-form" class="form-horizontal form" action="zhuanpan.php?act=post&rid=0" method="post" enctype="multipart/form-data">
+<form id="reply-form" class="form-horizontal form" action="scratch.php?act=post" method="post" enctype="multipart/form-data">
 
 <div class="form-group">
 <div class="col-sm-12">
@@ -136,7 +136,7 @@
         <div class="form-group">
             <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>
             <div class="col-sm-9 col-xs-12">
-               	<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply['tel_rename']}">
+               	<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">
 				<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</div>
             </div>
         </div>
