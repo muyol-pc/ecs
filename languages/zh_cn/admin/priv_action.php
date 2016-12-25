@@ -124,6 +124,9 @@ $_LANG['package_manage'] = '超值礼包';
 $_LANG['exchange_goods'] = '积分商城商品';
 //秒杀活动
 $_LANG['seckill'] = '商品秒杀';
+// 游戏
+$_LANG['zhuanpan'] = '大转盘';
+$_LANG['guaguaka'] = '刮刮卡';
 
 //邮件管理
 $_LANG['attention_list'] = '关注管理';

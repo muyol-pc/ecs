@@ -38,6 +38,8 @@ if (!defined('IN_ECS'))
     $purview['goods_auto']           = 'goods_auto';
 //秒杀管理
     $purview['16_seckill']        = 'seckill';
+    $purview['17_zhuanpan']        = 'zhuanpan';
+    $purview['18_guaguaka']        = 'guaguaka';
 //促销管理权限
     $purview['02_snatch_list']       = 'snatch_manage';
     $purview['04_bonustype_list']    = 'bonus_manage';

@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/index.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:68:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/index_ad.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482648887;s:8:"maketime";i:1482645287;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/index.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:48:"E:/www/ecs/ecs/themes/henli/library/index_ad.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482677637;s:8:"maketime";i:1482674037;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -49,11 +49,11 @@ var process_request = "正在处理您的请求...";
 <script type="text/javascript" src="js/jquery.SuperSlide.js"></script><div class="hl-column hl-slider-con">
   <div class="hl-slider-banner">
     <ul class="hl-items">
-            <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
+            <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
             <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
-            <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
+            <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
             <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
-            <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
+            <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
             <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:400px;" alt="" target="_blank"></a></li>
           </ul>
     <div class="hl-select  hl-f0 hl-tc"></div>
@@ -96,11 +96,11 @@ var process_request = "正在处理您的请求...";
   <div class="hl-center hl-slider-con hl-activity-slider">
     <div class="hl-activity-banner">
       <ul class="hl-activity-items">
-                <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
+                <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
                 <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
-                <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
+                <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
                 <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
-                <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
+                <li><a href="seckill.php?act=list" target="_blank"><img src="data/afficheimg/20160128exxdnz.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
                 <li><a href="group_buy.php" target="_blank"><img src="data/afficheimg/20160129prsrpo.jpg" style="display:block;width:100%;height:360px;" alt="" target="_blank"></a></li>
               </ul>
       <div class="hl-activity-select hl-f0 hl-tr"></div>

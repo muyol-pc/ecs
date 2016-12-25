@@ -207,6 +207,10 @@ $_LANG['package_add'] = '添加超值礼包';
 $_LANG['16_seckill'] = '商品秒杀';
 $_LANG['seckill_add'] = '添加秒杀商品';
 
+//游戏
+$_LANG['17_zhuanpan'] = '大转盘';
+$_LANG['18_guaguaka'] = '刮刮卡';
+
 /* 订单管理 */
 $_LANG['02_order_list'] = '订单列表';
 $_LANG['03_order_query'] = '订单查询';

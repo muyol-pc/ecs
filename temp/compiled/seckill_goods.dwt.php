@@ -44,7 +44,7 @@
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png" />
+            <img zoom-img="<?php echo $this->_var['seckill']['imggoods']['original_img']; ?>" src="<?php echo $this->_var['seckill']['imggoods']['goods_thumb']; ?>" style="width:478px;height:380px;" />
           </div>
         </div>
         <div class="hl-spec-scroll">
@@ -52,18 +52,11 @@
           <a class="hl-next">&gt;</a>
           <div class="hl-items">
             <ul>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b3.png" src="themes/henli/inc/img/s3.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b1.png" src="themes/henli/inc/img/s1.png"></li>
-              <li><img hl-bimg="themes/henli/inc/img/b2.png" src="themes/henli/inc/img/s2.png"></li>
+                <?php $_from = $this->_var['seckill']['imgs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+                  <li><img hl-bimg="<?php echo $this->_var['item']['img_original']; ?>" src="<?php echo $this->_var['item']['thumb_url']; ?>"></li>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </ul>
           </div>
         </div>
@@ -80,21 +73,23 @@
           <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-clock">特价秒杀</span>
             <?php if ($this->_var['seckill']['cur_status'] == 0): ?>
-            <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
-                距结束&nbsp;
-                <p id="v:timeCounter" style="margin:0px;float:right;">
-                    <span id="leftTime"><?php echo $this->_var['lang']['please_waiting']; ?></span>
-                </p>
-                <p id="time_loading" class="tuan_time_loading"></p>
-            </span>
-
+                <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                    距开始&nbsp;
+                    <p id="v:timeCounter" style="margin:0px;float:right;">
+                        <span id="leftTime"><?php echo $this->_var['lang']['please_waiting']; ?></span>
+                    </p>
+                    <p id="time_loading" class="tuan_time_loading"></p>
+                </span>
             <?php elseif ($this->_var['seckill']['cur_status'] == 1): ?>
-            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动进行中...</p>
-            <p id="time_loading" class="tuan_time_loading"></p>
+                <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                   <p >秒杀活动进行中...</p>
+                </span>
             <?php else: ?>
-            <p style="height:80px; line-height:80px;font-weight:bold;">秒杀活动已结束...</p>
+                <span class="hl-fr hl-cut-time hl-f18" style="float:right;margin-right:10px;letter-spacing:2px;">
+                   <p >秒杀活动已结束...</p>
+                </span>
             <?php endif; ?>
-          </div>
+        </div>
           <!--<div class="hl-ad hl-ff hl-f20">
               <span class="hl-fl hl-clock">特价秒杀</span>
               <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
@@ -375,8 +370,18 @@
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
-            <a href="javascript:;" class="hl-buy-now">立即购买</a>
-            <a href="javascript:;" class="hl-add-cart">加入购物车</a>
+            <?php if ($this->_var['seckill']['cur_status'] == 0): ?>
+                <a href="javascript:;" class="hl-add-cart">即将开始</a>
+            <?php elseif ($this->_var['seckill']['cur_status'] == 1): ?>
+                <form action="seckill.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+                <input name="number" type="hidden" class="inputBg" id="number" value="1" size="4" />
+                <input type="hidden" name="seckill_id" value="<?php echo $this->_var['seckill']['seckill_id']; ?>" />
+                <input type="submit" class="hl-buy-now" value="立即购买" />
+                <!--<input type="submit" class="hl-buy-now" value="加入购物车" />-->
+            </form>
+            <?php else: ?>
+                <a href="javascript:;" class="hl-add-cart">已结束</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
