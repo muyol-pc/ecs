@@ -17,7 +17,7 @@
 
 <script type="text/javascript" src="themes/henli/inc/public/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="themes/henli/js/json2.js"></script>
-  <?php echo $this->smarty_insert_scripts(array('files'=>'transport.js,utils.js,region.js,shopping_flow.js')); ?>
+  <?php echo $this->smarty_insert_scripts(array('files'=>'utils.js,region.js,shopping_flow.js')); ?>
 
 <script type="text/javascript">
 
@@ -93,6 +93,7 @@ if ($this->_foreach['no']['total'] > 0):
           
           <div class="hl-price hl-team-buy hl-f18">
           团购价 <strong class="hl-f30 hl-fmr">&yen; <?php echo $this->_var['tg_goods_info']['tuan_price']; ?></strong>
+          <input type="hidden" name="<?php echo $this->_var['tg_goods_info']['tuan_price']; ?>" />
             <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;<?php echo $this->_var['tg_goods_info']['shop_price']; ?></b></span>
           </div>
           
@@ -207,6 +208,10 @@ if ($this->_foreach['no']['total'] > 0):
                             $(this).siblings().removeClass('hl-selected');
                             $(this).addClass('hl-selected');
                         })
+                        $('.hl-tip-infor li a').click(function(){
+                            var _banshi = $(this).find('span').text();
+                            $('#banshi').val(_banshi);
+                        })
                     })
                 </script>
                 <?php $_from = $this->_var['ban']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'banshi');if (count($_from)):
@@ -216,11 +221,12 @@ if ($this->_foreach['no']['total'] > 0):
                     <a href="javascript:;">
                       <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
                       <i></i>
-                  <?php echo $this->_var['banshi']; ?>
+                      <span><?php echo $this->_var['banshi']; ?></span>
                     </a>
                   </li>
                 <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
+                <input type="hidden" name="banshi" id="banshi" />
               </div>
             </div>
             <div class="hl-proinfo-type">
@@ -234,6 +240,10 @@ if ($this->_foreach['no']['total'] > 0):
                             $(this).siblings().removeClass('hl-selected');
                             $(this).addClass('hl-selected');
                         })
+                        $('.hl-color-infor li a').click(function(){
+                            var _colors = $(this).find('span').text();
+                            $('#colors').val(_colors);
+                        })
                     })
                 </script>
                 <?php $_from = $this->_var['colors']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'color');if (count($_from)):
@@ -241,12 +251,13 @@ if ($this->_foreach['no']['total'] > 0):
 ?>
                   <li>
                     <a href="javascript:;">
-                      <?php echo $this->_var['color']; ?>
                       <i></i>
+                      <span><?php echo $this->_var['color']; ?></span>
                     </a>
                   </li>
                   <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
+                <input type="hidden" name="colors" id="colors" />
               </div>
             </div>
 

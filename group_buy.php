@@ -273,11 +273,11 @@ elseif ($_REQUEST['act'] == 'buy')
     //     ecs_header("Location: ./\n");
     //     exit;
     // }
-
+var_dump($group_buy_id);
     /* 查询：取得数量 */
     $number = isset($_POST['number']) ? intval($_POST['number']) : 1;
     $number = $number < 1 ? 1 : $number;
-
+var_dump($number);
     /* 查询：取得团购活动信息 */
     $group_buy = group_buy_info($group_buy_id, $number);
     if (empty($group_buy))
