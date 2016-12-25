@@ -1,9 +1,9 @@
-<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:60:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/category.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482644761;s:8:"maketime";i:1482641161;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:40:"E:/www/ecs/ecs/themes/henli/category.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482678906;s:8:"maketime";i:1482675306;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="" />
+<meta name="Keywords" content="冰洗" />
 <meta name="Description" content="" />
 <title>冰洗_ECSHOP演示站</title>
 <link rel="shortcut icon" href="favicon.ico" />
@@ -26,8 +26,11 @@ var process_request = "正在处理您的请求...";
   <div class="hl-center"> 
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
-              <a class="hl-user hl-a3" href="user.php">登录</a>
-        <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
+              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">admin</a>
+        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
+        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
+      <a class="hl-message" href="message.php" target="_blank">在线留言</a>
+      <a class="hl-message" href="user.php?act=logout">退出</a>
           </div>
   </div>
 </div> 
@@ -169,7 +172,21 @@ var process_request = "正在处理您的请求...";
       <h2 class="hl-f20 hl-4a">单品推荐</h2>
       <ul class="hl-aside-list">
               <li>
-          <a class="hl-p-img hl-disp-b" href="goods.php?id="><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></a>
+          <a class="hl-p-img hl-disp-b" href="goods.php?id="><img src="images/201601/goods_img/134_G_1454032795393.jpg" alt=""></a>
+          <div class="hl-price">
+            <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+            <a class="hl-name hl-f14 hl-72" href=""></a>
+          </div>
+        </li>
+                <li>
+          <a class="hl-p-img hl-disp-b" href="goods.php?id="><img src="images/201601/goods_img/136_G_1454032609800.jpg" alt=""></a>
+          <div class="hl-price">
+            <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+            <a class="hl-name hl-f14 hl-72" href=""></a>
+          </div>
+        </li>
+                <li>
+          <a class="hl-p-img hl-disp-b" href="goods.php?id="><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></a>
           <div class="hl-price">
             <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
             <a class="hl-name hl-f14 hl-72" href=""></a>
@@ -179,6 +196,55 @@ var process_request = "正在处理您的请求...";
     </div>
     <div class="hl-main-cont hl-fl">
       <ul class="hl-goods-list hl-clearfix">
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=141"><img src="images/201601/goods_img/141_G_1454030716113.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">暖怀－白18K金钻石戒指</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=140"><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">暖怀－白18K金钻石戒指</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=139"><img src="images/201601/goods_img/139_G_1454031123024.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">愿望－红18K金钻石手镯</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=138"><img src="images/201601/goods_img/138_G_1454031251121.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">光芒－红18K金钻石套链</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=137"><img src="images/201601/goods_img/137_G_1454031910977.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">北极光爱之舞系列铂金婚戒套装</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=136"><img src="images/201601/goods_img/136_G_1454032609800.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">比 翼 － 铂900对戒</a>
+                </div>
+              </li>
+            <li>
+                <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=134"><img src="images/201601/goods_img/134_G_1454032795393.jpg" alt=""></a>
+                <div class="hl-price hl-mt10">
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <a class="hl-name hl-f14 hl-72" href="">爱冕－白18K金钻石戒指</a>
+                </div>
+              </li>
             <li>
                 <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=1"><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></a>
                 <div class="hl-price hl-mt10">
@@ -217,6 +283,5 @@ var process_request = "正在处理您的请求...";
 <div class="hl-footer hl-f14 hl-44 hl-tc">
   <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
   苏ICP备10003401号
-</div>
-</body>
+</div></body>
 </html>

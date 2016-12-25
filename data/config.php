@@ -4,7 +4,7 @@ $db_host   = "localhost:3306";
 
 // database name
 // $db_name   = "ximenzijiadian";
-// $db_name   = "esc";
+$db_name   = "esc";
 
 // database username
 // $db_user   = "ximenzijiadian";
@@ -16,7 +16,7 @@ $db_host   = "localhost:3306";
 
 // database name
 // $db_name   = "ecshop_three";
-$db_name   = "ecshop2";
+// $db_name   = "ecshop2";
 
 // database username
 $db_user   = "root";

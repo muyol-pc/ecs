@@ -365,21 +365,21 @@ function reg(str){
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_17370200_1482627608');if (count($_from)):
-    foreach ($_from AS $this->_var['goods_0_17370200_1482627608']):
+         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_77393200_1482675345');if (count($_from)):
+    foreach ($_from AS $this->_var['goods_0_77393200_1482675345']):
 ?>
           <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods_0_17370200_1482627608']['id']; ?>"><img src="<?php echo $this->_var['goods_0_17370200_1482627608']['goods_img']; ?>" alt=""></a>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods_0_77393200_1482675345']['id']; ?>"><img src="<?php echo $this->_var['goods_0_77393200_1482675345']['goods_img']; ?>" alt=""></a>
             <div class="hl-price">
              价格暂定
               <strong class="hl-disp-b hl-ups hl-f24">
-               <?php if ($this->_var['goods_0_17370200_1482627608']['promote_price'] != ""): ?>
+               <?php if ($this->_var['goods_0_77393200_1482675345']['promote_price'] != ""): ?>
       价格暂定
        <?php else: ?>
       价格暂定
       <?php endif; ?>
       </strong>
-              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods_0_17370200_1482627608']['url']; ?>"><?php echo $this->_var['goods_0_17370200_1482627608']['short_style_name']; ?></a>
+              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods_0_77393200_1482675345']['url']; ?>"><?php echo $this->_var['goods_0_77393200_1482675345']['short_style_name']; ?></a>
             </div>
           </li>
 <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>

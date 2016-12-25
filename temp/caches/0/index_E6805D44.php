@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/index.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:48:"E:/www/ecs/ecs/themes/henli/library/index_ad.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482677694;s:8:"maketime";i:1482674094;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/index.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:48:"E:/www/ecs/ecs/themes/henli/library/index_ad.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482680552;s:8:"maketime";i:1482676952;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -84,8 +84,7 @@ var process_request = "正在处理您的请求...";
         trigger: "click"
       });
     };
-</script>
-<div class="hl-center hl-washer hl-clearfix hl-mb20">
+</script><div class="hl-center hl-washer hl-clearfix hl-mb20">
   <h2 class="hl-f30 hl-h2 hl-4a hl-tc">冰洗专区</h2>
   <a class="hl-half" href="category.php?id=1" style="">
     <div class="hl-pr20"><img src="data/afficheimg/20160129bcmitn.jpg" alt="" height="250px;" /></div>

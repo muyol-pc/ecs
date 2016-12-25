@@ -1,5 +1,63 @@
 /* $Id : common.js 4865 2007-01-31 14:04:10Z paulgao $ */
 
+function addToCart2(goodsId){
+  var goods        = new Object();
+  var spec_arr     = new Array();
+  var fittings_arr = new Array();
+  var number       = $(".hl-stock").find(".hl-counter-num").val();
+  var formBuy      = $(".hl-stock").find('.hl-pro-attr'); 
+  var quick        = 0;
+
+  // 检查是否有商品规格
+  if (formBuy.length>0)
+  {
+    spec_arr = getSelectedAttributes2(formBuy);
+
+    // if (formBuy.elements['number'])
+    // {
+    //   number = formBuy.elements['number'].value;
+    // }
+    quick = 1;
+  }
+
+  goods.quick    = quick;
+  goods.spec     = spec_arr;
+  goods.goods_id = goodsId;
+  goods.number   = number;
+  goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+  console.log(goods);
+  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
+}
+
+/**
+ * 获得选定的商品属性
+ */
+function getSelectedAttributes2(formBuy)
+{
+  var spec_arr = new Array();
+  var j = 0;
+  var len = formBuy.length;
+  $.each(formBuy, function(index, val) {
+     /* iterate through array or object */
+     spec_arr[j] = $(this).attr("val");
+
+  });
+  // for (i = 0; i < len; i ++ )
+  // {
+  //   var prefix = formBuy.elements[i].name.substr(0, 5);
+
+  //   if (prefix == 'spec_' && (
+  //     ((formBuy.elements[i].type == 'radio' || formBuy.elements[i].type == 'checkbox') && formBuy.elements[i].checked) ||
+  //     formBuy.elements[i].tagName == 'SELECT'))
+  //   {
+  //     spec_arr[j] = formBuy.elements[i].value;
+  //     j++ ;
+  //   }
+  // }
+  console.log(spec_arr);
+  return spec_arr;
+}
+
 /* *
  * 添加商品到购物车
  */
@@ -10,7 +68,7 @@ function addToCart(goodsId, parentId)
   var fittings_arr = new Array();
   var number       = 1;
   var formBuy      = document.forms['ECS_FORMBUY'];
-  var quick		   = 0;
+  var quick		     = 0;
 
   // 检查是否有商品规格
   if (formBuy)
@@ -21,8 +79,7 @@ function addToCart(goodsId, parentId)
     {
       number = formBuy.elements['number'].value;
     }
-
-	quick = 1;
+	  quick = 1;
   }
 
   goods.quick    = quick;
