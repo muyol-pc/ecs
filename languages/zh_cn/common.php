@@ -17,6 +17,8 @@
 $_LANG['empty_username_password'] = '对不起，您必须完整填写用户名和密码。';
 $_LANG['shot_message'] = "短消息";
 
+
+// sdf
 /* 公共语言项 */
 $_LANG['sys_msg'] = '系统提示';
 $_LANG['catalog'] = '目录';
