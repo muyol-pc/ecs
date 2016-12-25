@@ -258,8 +258,8 @@
               <!-- 正在促销，每人限购2件 -->
               <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
             </div>
-            <div>
-                <!-- {if $group_buy.status eq 0} 未开始 -->
+            <div style="margin:10px 0;color: #999;">
+    <!-- {if $group_buy.status eq 0} 未开始 -->
       {$lang.gbs_pre_start}
       <!-- {elseif $group_buy.status eq 1} 进行中 -->
       <font>{$lang.gbs_under_way}

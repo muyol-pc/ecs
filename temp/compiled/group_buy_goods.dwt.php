@@ -271,8 +271,8 @@ if ($this->_foreach['no']['total'] > 0):
               
               <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
             </div>
-            <div>
-                <?php if ($this->_var['group_buy']['status'] == 0): ?>
+            <div style="margin:10px 0;color: #999;">
+    <?php if ($this->_var['group_buy']['status'] == 0): ?>
       <?php echo $this->_var['lang']['gbs_pre_start']; ?>
       <?php elseif ($this->_var['group_buy']['status'] == 1): ?>
       <font><?php echo $this->_var['lang']['gbs_under_way']; ?>
