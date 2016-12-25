@@ -12,11 +12,13 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="{$ecs_css_app_path}" rel="stylesheet" type="text/css" />
 {* 包含脚本文件 *}
 {insert_scripts files='common.js'}
 </head>
 <body>
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
   <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 
@@ -32,7 +34,7 @@
   <!--left end-->
   <!--right start-->
   <div class="AreaR">
- 
+
     <div >
                     <form action="{$search_url}" name="search_form" method="post" class="article_search">
         <input name="keywords" type="text" id="requirement" value="{$search_value}" class="inputBg" />
@@ -60,7 +62,7 @@
 
   <div class="blank5"></div>
   <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
-  </div>  
+  </div>
   <!--right end-->
 </div>
 

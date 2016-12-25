@@ -12,7 +12,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-<link href="{$ecs_css_app_path}" rel="stylesheet" type="text/css" /> 
+<link href="{$ecs_css_app_path}" rel="stylesheet" type="text/css" />
 
 
 {* 包含脚本文件 *}
@@ -63,7 +63,7 @@
           <p class="hl-f30 hl-4a">互动专区</p>
           <p class="hl-f18 hl-93 hl-ups">Interactive activities</p>
         </h2>
-        <a href="">
+        <a href="dazhuanpan.php">
           <img src="images/hl-cj.png" alt=""/>
         </a>
       </li>

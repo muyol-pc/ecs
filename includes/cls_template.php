@@ -297,7 +297,7 @@ class cls_template
                  $source= str_replace('%%%SMARTYSP'.$curr_sp.'%%%', '<?php echo \''.str_replace("'", "\'", $sp_match[1][$curr_sp]).'\'; ?>'."\n", $source);
             }
         }
-        
+
         if (!function_exists('version_compare') || version_compare(phpversion(), '5.3.0', '<')) {
             return preg_replace("/{([^\}\{\n]*)}/e", "\$this->select('\\1');", $source);
         } else {
@@ -546,7 +546,122 @@ class cls_template
         }
     }
 
-    /**
+    // /**
+    //  * 处理smarty标签中的变量标签
+    //  *
+    //  * @access  public
+    //  * @param   string     $val
+    //  *
+    //  * @return  bool
+    //  */
+    // function get_val($val)
+    // {
+    //     if (strrpos($val, '[') !== false)
+    //     {
+    //         if (!function_exists('version_compare') || version_compare(phpversion(), '5.3.0', '<')) {
+    //             $val = preg_replace("/\[([^\[\]]*)\]/eis", "'.'.str_replace('$','\$','\\1')", $val);
+    //         } else {
+    //             include(ROOT_PATH . 'includes' . DIRECTORY_SEPARATOR . 'patch' . DIRECTORY_SEPARATOR . 'includes_cls_template_get_val.php');
+    //         }
+    //     }
+
+    //     if (strrpos($val, '|') !== false)
+    //     {
+    //         $moddb = explode('|', $val);
+    //         $val = array_shift($moddb);
+    //     }
+
+    //     if (empty($val))
+    //     {
+    //         return '';
+    //     }
+
+    //     if (strpos($val, '.$') !== false)
+    //     {
+    //         $all = explode('.$', $val);
+
+    //         foreach ($all AS $key => $val)
+    //         {
+    //             $all[$key] = $key == 0 ? $this->make_var($val) : '['. $this->make_var($val) . ']';
+    //         }
+    //         $p = implode('', $all);
+    //     }
+    //     else
+    //     {
+    //         $p = $this->make_var($val);
+    //     }
+
+    //     if (!empty($moddb))
+    //     {
+    //         foreach ($moddb AS $key => $mod)
+    //         {
+    //             $s = explode(':', $mod);
+    //             switch ($s[0])
+    //             {
+    //                 case 'escape':
+    //                     $s[1] = trim($s[1], '"');
+    //                     if ($s[1] == 'html')
+    //                     {
+    //                         $p = 'htmlspecialchars(' . $p . ')';
+    //                     }
+    //                     elseif ($s[1] == 'url')
+    //                     {
+    //                         $p = 'urlencode(' . $p . ')';
+    //                     }
+    //                     elseif ($s[1] == 'decode_url')
+    //                     {
+    //                         $p = 'urldecode(' . $p . ')';
+    //                     }
+    //                     elseif ($s[1] == 'quotes')
+    //                     {
+    //                         $p = 'addslashes(' . $p . ')';
+    //                     }
+    //                     elseif ($s[1] == 'u8_url')
+    //                     {
+    //                         if (EC_CHARSET != 'utf-8')
+    //                         {
+    //                             $p = 'urlencode(ecs_iconv("' . EC_CHARSET . '", "utf-8",' . $p . '))';
+    //                         }
+    //                         else
+    //                         {
+    //                             $p = 'urlencode(' . $p . ')';
+    //                         }
+    //                     }
+    //                     else
+    //                     {
+    //                         $p = 'htmlspecialchars(' . $p . ')';
+    //                     }
+    //                     break;
+
+    //                 case 'nl2br':
+    //                     $p = 'nl2br(' . $p . ')';
+    //                     break;
+
+    //                 case 'default':
+    //                     $s[1] = $s[1]{0} == '$' ?  $this->get_val(substr($s[1], 1)) : "'$s[1]'";
+    //                     $p = 'empty(' . $p . ') ? ' . $s[1] . ' : ' . $p;
+    //                     break;
+
+    //                 case 'truncate':
+    //                     $p = 'sub_str(' . $p . ",$s[1])";
+    //                     break;
+
+    //                 case 'strip_tags':
+    //                     $p = 'strip_tags(' . $p . ')';
+    //                     break;
+
+    //                 default:
+    //                     # code...
+    //                     break;
+    //             }
+    //         }
+    //     }
+
+    //     return $p;
+    // }
+/*=========================================2016-1225=start============================================*/
+
+/**
      * 处理smarty标签中的变量标签
      *
      * @access  public
@@ -558,11 +673,7 @@ class cls_template
     {
         if (strrpos($val, '[') !== false)
         {
-            if (!function_exists('version_compare') || version_compare(phpversion(), '5.3.0', '<')) {
-                $val = preg_replace("/\[([^\[\]]*)\]/eis", "'.'.str_replace('$','\$','\\1')", $val);
-            } else {
-                include(ROOT_PATH . 'includes' . DIRECTORY_SEPARATOR . 'patch' . DIRECTORY_SEPARATOR . 'includes_cls_template_get_val.php');
-            }
+            $val = preg_replace("/\[([^\[\]]*)\]/eis", "'.'.str_replace('$','\$','\\1')", $val);
         }
 
         if (strrpos($val, '|') !== false)
@@ -632,7 +743,6 @@ class cls_template
                             $p = 'htmlspecialchars(' . $p . ')';
                         }
                         break;
-
                     case 'nl2br':
                         $p = 'nl2br(' . $p . ')';
                         break;
@@ -645,11 +755,17 @@ class cls_template
                     case 'truncate':
                         $p = 'sub_str(' . $p . ",$s[1])";
                         break;
-
                     case 'strip_tags':
                         $p = 'strip_tags(' . $p . ')';
                         break;
+            case 'print_r':
+            $p='print_r('.$p.',true)';
+            break;
+            case 'var_export':
+            $p='var_export('.$p.',true)';
 
+
+                        break;
                     default:
                         # code...
                         break;
@@ -660,6 +776,11 @@ class cls_template
         return $p;
     }
 
+
+
+
+
+/*============================================2016-1225=end=========================================*/
     /**
      * 处理去掉$的字符串
      *
