@@ -165,7 +165,16 @@ for ($i=0; $i < $count; $i++) {
 //输出颜色
  $smarty->assign('colors',  $colors);
 /*========================================*/
-
+/*=======================查询已经参团人数=================start================================*/
+$buy_people = $db->getOne("select buy_people from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
+$tuan_num = $db->getOne("select tuan_num from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
+//输出已经参团人数和差值
+$buy_p=array(
+        '0' =>$buy_people,
+        '1'=> ($tuan_num-$buy_people),
+    );
+ $smarty->assign('buy_p',  $buy_p);
+/*======================================end=============================================*/
 /*------------------------------20161222----------------------------------------------------*/
     /* 获得商品的信息 */
     $tg_goods_info = get_goods_info($group_buy_id);
@@ -177,6 +186,7 @@ $res = $db->getOne("select zhekou from " . $ecs->table('goods_activity') . "wher
     $tt2['tuan_price'] = intval($tg_goods_info['shop_price'])*intval($res)*0.1;
     $nwarr = array_merge($tg_goods_info,$tt2);
     $smarty->assign('tg_goods_info',  $nwarr);
+    var_dump($nwarr);
     /*传输 商品详情*/
     $smarty->assign('description', htmlspecialchars($tg_goods_info['goods_brief']));
     /*商品相册*/
@@ -273,11 +283,11 @@ elseif ($_REQUEST['act'] == 'buy')
     //     ecs_header("Location: ./\n");
     //     exit;
     // }
-var_dump($group_buy_id);
+
     /* 查询：取得数量 */
     $number = isset($_POST['number']) ? intval($_POST['number']) : 1;
     $number = $number < 1 ? 1 : $number;
-var_dump($number);
+
     /* 查询：取得团购活动信息 */
     $group_buy = group_buy_info($group_buy_id, $number);
     if (empty($group_buy))
