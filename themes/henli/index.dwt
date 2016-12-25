@@ -63,7 +63,7 @@
           <p class="hl-f30 hl-4a">互动专区</p>
           <p class="hl-f18 hl-93 hl-ups">Interactive activities</p>
         </h2>
-        <a href="dazhuanpan.php">
+        <a href="guaguaka.php">
           <img src="images/hl-cj.png" alt=""/>
         </a>
       </li>
@@ -81,7 +81,7 @@
           <p class="hl-f30 hl-4a">关于我们</p>
           <p class="hl-f18 hl-93 hl-ups">About us</p>
         </h2>
-        <a href="">
+        <a href="article.php?id=5">
           <img src="images/hl-bx.png" alt=""/>
         </a>
       </li>
