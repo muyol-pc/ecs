@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:60:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/category.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482690964;s:8:"maketime";i:1482687364;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:60:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/category.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482691745;s:8:"maketime";i:1482688145;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -146,12 +146,12 @@ var process_request = "正在处理您的请求...";
         </div>
          -->
         <div class="hl-value">
-                          <a class="hl-curr" href="">0-2500</a>
-                                    <a class="hl-curr" href="">2501-4300</a>
-                                    <a class="hl-curr" href="">4301-7000</a>
-                                    <a class="hl-curr" href="">7001-11300</a>
-                                    <a class="hl-curr" href="">11301-19000</a>
-                                    <a class="hl-curr" href="">19001以上</a>
+                          <a href="">0-2500</a>
+                                    <a href="">2501-4300</a>
+                                    <a href="">4301-7000</a>
+                                    <a href="">7001-11300</a>
+                                    <a href="">11301-19000</a>
+                                    <a href="">19001以上</a>
                           </div>
         <!-- <div class="hl-price-set hl-f0">
           <input class="input-txt" autocomplete="off" type="text"/>
@@ -169,9 +169,9 @@ var process_request = "正在处理您的请求...";
           <a href="">风直冷</a>
         </div> -->
         <div class="hl-value">
-                          <a class="hl-curr" href="">冷风</a>
-                                    <a class="hl-curr" href="">直冷</a>
-                                    <a class="hl-curr" href="">风直冷</a>
+                          <a href="">冷风</a>
+                                    <a href="">直冷</a>
+                                    <a href="">风直冷</a>
                           </div>
         <!-- <div class="hl-ext">
           <a href="javascript:;">多选</a>

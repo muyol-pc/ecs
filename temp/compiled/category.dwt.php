@@ -143,7 +143,7 @@
         <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'c_val');if (count($_from)):
     foreach ($_from AS $this->_var['c_val']):
 ?>
-          <a class="hl-curr" href=""><?php echo $this->_var['c_val']; ?></a>
+          <a href=""><?php echo $this->_var['c_val']; ?></a>
           <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         </div>
@@ -170,7 +170,7 @@
         <?php $_from = $this->_var['att_val']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'd_val');if (count($_from)):
     foreach ($_from AS $this->_var['d_val']):
 ?>
-          <a class="hl-curr" href=""><?php echo $this->_var['d_val']; ?></a>
+          <a href=""><?php echo $this->_var['d_val']; ?></a>
           <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         </div>
