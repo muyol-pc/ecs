@@ -107,7 +107,7 @@ document.getElementById('history_list').innerHTML = '{$lang.no_history}';
               </tr>
               <tr>
                 <td align="right">{$lang.message_title}</td>
-                <td><input name="msg_title" type="text" class="inputBg" size="30" /></td>
+                <td><input name="msg_title" type="text" class="inputBg" size="30" style="width:400px;height:36px;" /></td>
               </tr>
             <!-- 判断是否启用验证码{if $enabled_mes_captcha} -->
               <tr>
@@ -118,12 +118,12 @@ document.getElementById('history_list').innerHTML = '{$lang.no_history}';
             <!--{/if}-->
               <tr>
                 <td align="right" valign="top">{$lang.message_content}</td>
-                <td><textarea name="msg_content" cols="100" rows="20" wrap="virtual" style="border:1px solid #ccc;"></textarea></td>
+                <td><textarea name="msg_content" cols="100" rows="20" wrap="virtual" style="border:1px solid #ccc;width: 400px;height: 120px;"></textarea></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td><input type="hidden" name="act" value="act_add_message" />
-                  <input type="submit" value="{$lang.post_message}" class="bnt_blue_1" />
+                  <input type="submit" value="{$lang.post_message}" class="bnt_blue_1" style="cursor:pointer;"/>
                 </td>
               </tr>
             </table>

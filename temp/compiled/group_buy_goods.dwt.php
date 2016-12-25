@@ -1,36 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>{$page_title}</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<meta name="Keywords" content="<?php echo $this->_var['keywords']; ?>" />
+<meta name="Description" content="<?php echo $this->_var['description']; ?>" />
+
+<title><?php echo $this->_var['page_title']; ?></title>
+
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->_var['ecs_css_path']; ?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="themes/henli/inc/css/category-details.css"/>
-{* 包含脚本文件 transport.js,region.js,shopping_flow.js *}
-{insert_scripts files='common.js,lefttime.js'}
+
+<?php echo $this->smarty_insert_scripts(array('files'=>'common.js,lefttime.js')); ?>
 
 <script type="text/javascript" src="themes/henli/inc/public/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="themes/henli/js/json2.js"></script>
-  {insert_scripts files='utils.js,region.js,shopping_flow.js'}
+  <?php echo $this->smarty_insert_scripts(array('files'=>'utils.js,region.js,shopping_flow.js')); ?>
 
 <script type="text/javascript">
 
-  {foreach from=$lang.js_languages item=item key=key}
-    var {$key} = "{$item}";
-  {/foreach}
+  <?php $_from = $this->_var['lang']['js_languages']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+    var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
+  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 </script>
 
 </head>
 <body>
-<!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<?php echo $this->fetch('library/page_header_top.lbi'); ?>
+<?php echo $this->fetch('library/page_header.lbi'); ?>
 
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <?php echo $this->fetch('library/ur_here.lbi'); ?>
 
 <div class="hl-container">
   <div class="hl-center hl-crumbs hl-f14">
@@ -44,38 +47,42 @@
       <div class="hl-preview hl-fl">
         <div id="preview" class="hl-spec-preview">
           <div class="hl-zoom">
-            <img zoom-img="{$tg_goods_info.goods_img}" src="{$pictures.0.img_url}" width="478"/>
+            <img zoom-img="<?php echo $this->_var['tg_goods_info']['goods_img']; ?>" src="<?php echo $this->_var['pictures']['0']['img_url']; ?>" width="478"/>
           </div>
         </div>
-        <!-- {if $pictures}-->
+        <?php if ($this->_var['pictures']): ?>
         <div class="hl-spec-scroll">
           <a class="hl-prev">&lt;</a>
           <a class="hl-next">&gt;</a>
           <div class="hl-items">
             <ul>
-            <!-- {foreach from=$pictures item=picture name=no}-->
+            <?php $_from = $this->_var['pictures']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'picture');$this->_foreach['no'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['no']['total'] > 0):
+    foreach ($_from AS $this->_var['picture']):
+        $this->_foreach['no']['iteration']++;
+?>
 
-             <!-- {if $smarty.foreach.no.iteration < 2}  -->
-              <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-              <!-- {else}-->
-             <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-               <!-- {/if}-->
-            <!--{/foreach}-->
+             <?php if ($this->_foreach['no']['iteration'] < 2): ?>
+              <li><img hl-bimg="<?php echo $this->_var['picture']['img_url']; ?>" src="<?php if ($this->_var['picture']['thumb_url']): ?><?php echo $this->_var['picture']['thumb_url']; ?><?php else: ?><?php echo $this->_var['picture']['img_url']; ?><?php endif; ?>"></li>
+              <?php else: ?>
+             <li><img hl-bimg="<?php echo $this->_var['picture']['img_url']; ?>" src="<?php if ($this->_var['picture']['thumb_url']): ?><?php echo $this->_var['picture']['thumb_url']; ?><?php else: ?><?php echo $this->_var['picture']['img_url']; ?><?php endif; ?>"></li>
+               <?php endif; ?>
+            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 
             </ul>
           </div>
         </div>
-        <!-- {/if}-->
+        <?php endif; ?>
       </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69">{$goods.goods_style_name}</h1>
-          <!-- 团购特惠：团购详情页输出 -->
+          <h1 class="hl-f18 hl-fwn hl-69"><?php echo $this->_var['goods']['goods_style_name']; ?></h1>
+          
           <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
             <span class="hl-fr hl-f18">已有10人参团，还差3人即可享受优惠</span>
           </div>
-          <!-- 特价秒杀：秒杀详情页输出 -->
+          
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-clock">特价秒杀</span>
             <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
@@ -83,24 +90,24 @@
         </div>
         <form action="group_buy.php?act=buy" method="post">
         <div class="hl-summary">
-          <!-- 如果是团购详情页：输出团购价 -->
+          
           <div class="hl-price hl-team-buy hl-f18">
-          团购价 <strong class="hl-f30 hl-fmr">&yen; {$tg_goods_info.tuan_price}</strong>
-          <input type="hidden" name="{$tg_goods_info.tuan_price}" />
-            <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;{$tg_goods_info.shop_price}</b></span>
+          团购价 <strong class="hl-f30 hl-fmr">&yen; <?php echo $this->_var['tg_goods_info']['tuan_price']; ?></strong>
+          <input type="hidden" name="<?php echo $this->_var['tg_goods_info']['tuan_price']; ?>" />
+            <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;<?php echo $this->_var['tg_goods_info']['shop_price']; ?></b></span>
           </div>
-          <!-- 如果是产品详情页：输出价格 -->
+          
           <!-- <div class="hl-price hl-cost hl-f18">
             价格 <strong class="hl-f30 hl-fmr">&yen; 6988.00</strong>
           </div> -->
-          <!-- 如果是秒杀详情页：输出价格 -->
+          
           <!-- <div class="hl-price hl-f18">
             价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
           </div> -->
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div class="hl-dt">送　　至</div>
             <div class="hl-dd hl-clearfix">
-              <!-- hover 添加：hl-open -->
+              
               <div class="hl-store-selector hl-fl">
                 <div class="hl-city">
                   <div class="hl-text hl-active">
@@ -110,7 +117,7 @@
                   <div class="hl-city-group">
                     <div class="hl-content">
                       <ul class="hl-tab-city hl-clearfix">
-                      <!-- 点击添加：hl-curr -->
+                      
                         <li class="hl-curr hl-active">
                           <p><a href="javascript:;">四川</a><b></b></p>
                         </li>
@@ -122,15 +129,17 @@
                         </li>
                       </ul>
                       <div class="hl-tab-content">
-                      <!-- 点击tab添加：hl-active -->
+                      
                         <div class="hl-panel hl-province-arr hl-active" name="province">
                           <!--
                             点击添加：hl-on
                             页面刷新添加：hl-on
                           -->
-                          <!--{foreach from=$shop_province_list item=province}-->
-                          <span><a class="" href="javascript:;" value="{$province.region_id}" EQ="">{$province.region_name}</a></span>
-                          <!--{/foreach}-->
+                          <?php $_from = $this->_var['shop_province_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'province');if (count($_from)):
+    foreach ($_from AS $this->_var['province']):
+?>
+                          <span><a class="" href="javascript:;" value="<?php echo $this->_var['province']['region_id']; ?>" EQ=""><?php echo $this->_var['province']['region_name']; ?></a></span>
+                          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                         </div>
                         <script>
                           $(function(){
@@ -166,18 +175,18 @@
                 <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
               </div>
             </div>
-            <!-- 服务：团购详情页面输出，详情页面输出 -->
+            
             <!-- <div class="hl-dd hl-suppor">
               <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
               产品详情页：输出联系客服
               <a class="hl-contact-me hl-66" href="#"><i></i>联系客服</a>
             </div> -->
-            <!-- 赠品：团购详情页输出,秒杀详情页输出 -->
+            
             <!--<div class="hl-gift">
               <div class="hl-dt">赠　　品</div>
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
             </div>-->
-            <!-- 支持：产品详情页输出 -->
+            
              <!-- <div class="hl-support-panel">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
@@ -205,15 +214,17 @@
                         })
                     })
                 </script>
-                <!--{foreach from=$ban item=banshi}-->
+                <?php $_from = $this->_var['ban']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'banshi');if (count($_from)):
+    foreach ($_from AS $this->_var['banshi']):
+?>
                   <li>
                     <a href="javascript:;">
                       <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
                       <i></i>
-                      <span>{$banshi}</span>
+                      <span><?php echo $this->_var['banshi']; ?></span>
                     </a>
                   </li>
-                <!--{/foreach}-->
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
                 <input type="hidden" name="banshi" id="banshi" />
               </div>
@@ -235,14 +246,16 @@
                         })
                     })
                 </script>
-                <!--{foreach from=$colors item=color}-->
+                <?php $_from = $this->_var['colors']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'color');if (count($_from)):
+    foreach ($_from AS $this->_var['color']):
+?>
                   <li>
                     <a href="javascript:;">
                       <i></i>
-                      <span>{$color}</span>
+                      <span><?php echo $this->_var['color']; ?></span>
                     </a>
                   </li>
-                  <!--{/foreach}-->
+                  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
                 </ul>
                 <input type="hidden" name="colors" id="colors" />
               </div>
@@ -253,56 +266,58 @@
               <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
               <input type="text" name="number" class="hl-buy-num hl-tc" value="1" />
               <a href="javascript:;" class="hl-plus"></a>
-              <!-- 正在促销：团购详情页输出，秒杀详情页输出 -->
+              
               <span class="hl-promotion">正在促销</span>
-              <!-- 正在促销，每人限购2件 -->
+              
               <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
             </div>
             <div>
-                <!-- {if $group_buy.status eq 0} 未开始 -->
-      {$lang.gbs_pre_start}
-      <!-- {elseif $group_buy.status eq 1} 进行中 -->
-      <font>{$lang.gbs_under_way}
-      <span id="leftTime">{$lang.please_waiting}</span></font><br />
-      <!-- {/if} -->
+                <?php if ($this->_var['group_buy']['status'] == 0): ?>
+      <?php echo $this->_var['lang']['gbs_pre_start']; ?>
+      <?php elseif ($this->_var['group_buy']['status'] == 1): ?>
+      <font><?php echo $this->_var['lang']['gbs_under_way']; ?>
+      <span id="leftTime"><?php echo $this->_var['lang']['please_waiting']; ?></span></font><br />
+      <?php endif; ?>
             </div>
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
-            <!-- 马上参团：团购详情页输出 -->
+            
             <style>
               .hl-just-team{background-color: #00959f; margin-right: 38px;}
             </style>
-            <input type="hidden" name="group_buy_id" value="{$tg_goods_info.goods_id}" />
+            <input type="hidden" name="group_buy_id" value="<?php echo $this->_var['tg_goods_info']['goods_id']; ?>" />
             <input class="hl-just-team" type="submit" value="马上参团" />
-            <!-- 立即购买：产品详情页输出 -->
-            <!-- <a href="javascript:addToCart({$goods.goods_id})" class="hl-buy-now">立即购买</a> -->
-            <!-- <a href="javascript:addToCart({$goods.goods_id})" class="hl-add-cart">加入购物车</a> -->
+            
+            <!-- <a href="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-buy-now">立即购买</a> -->
+            <!-- <a href="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-add-cart">加入购物车</a> -->
           </div>
         </div>
     </form>
-        <!--end-->
+        
       </div>
     </div>
     <div class="hl-product-content hl-clearfix">
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-         {foreach from=$promotion_goods item=goods}
+         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
+    foreach ($_from AS $this->_var['goods']):
+?>
           <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.id}"><img src="{$goods.goods_img}" alt=""></a>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods']['id']; ?>"><img src="<?php echo $this->_var['goods']['goods_img']; ?>" alt=""></a>
             <div class="hl-price">
              价格暂定
               <strong class="hl-disp-b hl-ups hl-f24">
-               {if $goods.promote_price neq ""}
+               <?php if ($this->_var['goods']['promote_price'] != ""): ?>
       价格暂定
-       {else}
+       <?php else: ?>
       价格暂定
-      {/if}
+      <?php endif; ?>
       </strong>
-              <a class="hl-name hl-f14 hl-72" href="{$goods.url}">{$goods.short_style_name}</a>
+              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods']['url']; ?>"><?php echo $this->_var['goods']['short_style_name']; ?></a>
             </div>
           </li>
-{/foreach}
+<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
           <!-- <li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
@@ -330,14 +345,18 @@
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
-              <!-- {foreach from=$properties item=property_group key=key} -->
-                <h2 class="hl-f12 hl-66 hl-fl">{$key|escape}</h2>
+              <?php $_from = $this->_var['properties']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'property_group');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['property_group']):
+?>
+                <h2 class="hl-f12 hl-66 hl-fl"><?php echo htmlspecialchars($this->_var['key']); ?></h2>
                 <a class="hl-fr" href="">更多参数</a>
               </div>
               <ul class="hl-tab-table hl-f12 hl-clearfix">
-               <!-- {foreach from=$property_group item=property} -->
-                <li>{$property.name|escape:html}：{$property.value}</li>
-                <!-- {/foreach}-->
+               <?php $_from = $this->_var['property_group']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'property');if (count($_from)):
+    foreach ($_from AS $this->_var['property']):
+?>
+                <li><?php echo htmlspecialchars($this->_var['property']['name']); ?>：<?php echo $this->_var['property']['value']; ?></li>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 
                 <!-- <li>面板类型：金属</li>
                 <li>制冷方式：冷风</li>
@@ -348,14 +367,14 @@
                 <li>除霜模式：自动</li>
                 <li>总有效容积：610升</li> -->
               </ul>
-              <!-- {/foreach}-->
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </div>
             <style>
             .hl-product-pics td{padding:0;border:0;}
             .hl-product-pics tr{border:0;}
             </style>
             <div class="hl-product-pics" style="overflow:hidden;">
-            {$tg_goods_info.goods_desc}
+            <?php echo $this->_var['tg_goods_info']['goods_desc']; ?>
             </div>
           </div>
           <div class="hl-tab-con-item">
@@ -747,19 +766,21 @@
     </div>
   </div>
 
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<?php echo $this->fetch('library/page_footer.lbi'); ?>
 
 <script type="text/javascript" src="themes/henli/inc/public/lib/zoom/zoom.js"></script>
 <script type="text/javascript" src="themes/henli/inc/public/dev/category-details.js"></script>
 </body>
 
 <script type="text/javascript">
-var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
-{foreach from=$lang.goods_js item=item key=key}
-var {$key} = "{$item}";
-{/foreach}
-var now_time = {$now_time};
-<!-- {literal} -->
+var gmt_end_time = "<?php echo empty($this->_var['group_buy']['gmt_end_date']) ? '0' : $this->_var['group_buy']['gmt_end_date']; ?>";
+<?php $_from = $this->_var['lang']['goods_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
+<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+var now_time = <?php echo $this->_var['now_time']; ?>;
+
 
 onload = function()
 {
@@ -770,6 +791,6 @@ onload = function()
   catch (e)
   {}
 }
-<!-- {/literal} -->
+
 </script>
 </html>
