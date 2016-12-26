@@ -32,7 +32,7 @@ if (empty($_REQUEST['act']))
 {
     $_REQUEST['act'] = 'list';
 }
-var_dump($_REQUEST['act']);
+//var_dump($_REQUEST['act']);
 /*------------------------------------------------------ */
 //-- 秒杀商品 --> 秒杀活动商品列表
 /*------------------------------------------------------ */
@@ -135,6 +135,54 @@ elseif ($_REQUEST['act'] == 'view')
     echo "</pre>";*/
 	/* 取得秒杀商品信息 */
 	$goods_id = $seckill['goods_id'];
+
+    /* 查询：查询规格名称和值，不考虑价格         */
+    $_a = array();
+    $_b = array();
+    $attr_list = array();
+    $sql = "SELECT attr_id, attr_value FROM" . $ecs->table('goods_attr') . "WHERE goods_id= $goods_id";
+    $res = $db->query($sql);
+    while ($row = $db->fetchRow($res))
+    {
+        $attr_list[] = $row['attr_id'] . ': ' . $row['attr_value'];
+        $_a[]=$row['attr_id'];
+        $_b[]=$row['attr_value'];
+    }
+    $goods_attr = join(chr(13) . chr(10), $attr_list);
+
+    /*================固定合成属性类型========================*/
+
+    /*第一个：板式  id=2-----20161622--------*/
+    $_k = $_k2 = $_ban = array();
+    foreach ($_a as $k => $v) {
+        if ($v == 2) {
+            $_k[]=$k;
+        }
+    }
+    $count = count($_k);
+    for ($i=0; $i < $count; $i++) {
+        $_ban[$i] = $_b[$_k[$i]];
+    }
+
+
+//输出板式
+    $smarty->assign('ban',  $_ban);
+
+    /*第二个：颜色  id=4-----20161622--------*/
+    foreach ($_a as $k2 => $v2) {
+        if ($v2 == 6) {
+            $_k2[]=$k2;
+        }
+    }
+    $count = count($_k2);
+    for ($i=0; $i < $count; $i++) {
+        $colors[$i] = $_b[$_k2[$i]];
+    }
+
+//输出颜色
+    $smarty->assign('colors',  $colors);
+    /*========================================*/
+
 	$goods = goods_info($goods_id);
 	if (empty($goods))
 	{

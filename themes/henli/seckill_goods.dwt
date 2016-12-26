@@ -255,74 +255,35 @@
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
                 <ul class="hl-tip-infor hl-clearfix">
-                  <li class="hl-selected">
+                  <!--<li class="hl-selected">
                     <a href="">
                       <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
                       <i></i>
                       598升玻璃面板对开
                     </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
+                  </li>-->
+                  <script>
+                      $(function(){
+                          $('.hl-tip-infor li').eq(0).addClass('hl-selected');
+                          $('.hl-tip-infor li').click(function(){
+                              $(this).siblings().removeClass('hl-selected');
+                              $(this).addClass('hl-selected');
+                          })
+                          $('.hl-tip-infor li a').click(function(){
+                              var _banshi = $(this).find('span').text();
+                              $('#banshi').val(_banshi);
+                          })
+                      })
+                  </script>
+                  <!--{foreach from=$ban item=banshi}-->
+                    <li>
+                      <a href="javascript:;">
+                        <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                        <i></i>
+                        <span>{$banshi}</span>
+                      </a>
+                    </li>
+                  <!--{/foreach}-->
                 </ul>
               </div>
             </div>
@@ -330,24 +291,33 @@
               <div class="hl-dt">颜　　色</div>
               <div class="hl-dd">
                 <ul class="hl-color-infor hl-clearfix">
-                  <li class="hl-selected">
+                  <!--<li class="hl-selected">
                     <a href="javascript:;">
                       浅金色
                       <i></i>
                     </a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">
-                      浅金色
-                      <i></i>
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="javascript:;">
-                      浅金色
-                      <i></i>
-                    </a>
-                  </li>
+                  </li>-->
+                  <script>
+                      $(function(){
+                          $('.hl-color-infor li').eq(0).addClass('hl-selected');
+                          $('.hl-color-infor li').click(function(){
+                              $(this).siblings().removeClass('hl-selected');
+                              $(this).addClass('hl-selected');
+                          })
+                          $('.hl-color-infor li a').click(function(){
+                              var _colors = $(this).find('span').text();
+                              $('#colors').val(_colors);
+                          })
+                      })
+                  </script>
+                  <!--{foreach from=$colors item=color}-->
+                    <li>
+                      <a href="javascript:;">
+                        <i></i>
+                        <span>{$color}</span>
+                      </a>
+                    </li>
+                    <!--{/foreach}-->
                 </ul>
               </div>
             </div>
