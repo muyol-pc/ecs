@@ -71,7 +71,7 @@ loading.prototype = {
 	<div class="l-banner"><img src="themes/henli/inc/img/l_banner.jpg"></div>
 	<div class="card-content">
 		<div class="step-one">
-			<div class="surplus">您还有 <em class="number">{$reply.most_num_times}</em> 次机会</div>
+			<div class="surplus">您还有 <em class="number" id ="number">{$times}</em> 次机会</div>
 			<div class="o-h">
 				<div class="scratch">
 					<!-- <img src="themes/henli/inc/img/icon2.png"> -->
@@ -184,11 +184,14 @@ $("#scratchpad").wScratchPad({
 			$.ajax({
 				url: "guaguaka.php?act=getaward&id={$reply.id}&user_id={$user_name}",dataType: 'json',type: 'post',
 				success: function(data) {
+				if(parseInt($("#number").text())>0){
+				 $("#number").text(parseInt($("#number").text()) - 1);
+				}
 
 					goon = false;
 					count ++;
-					credit -= bonus;
-					$("#credit").text(credit);
+					//credit -= bonus;
+					//$("#credit").text(credit);
 					if($("#count").length>0){
 						$("#count").text(parseInt($("#count").text())+1);
 					}

@@ -12,6 +12,7 @@
                 <thead class="navbar-inner">
                 <tr>
                     <th class='with-checkbox' style="width:50px;"></th>
+                    <th style="width:40px;">id</th>
                     <th style="width:150px;">活动名称</th>
                     <th style="width:100px;">有效参与人数</th>
                     <th style="width:100px;">总浏览数</th>
@@ -24,7 +25,10 @@
                 {foreach from=$list item=row}
                 <tr>
                     <td class="with-checkbox">
-                        <input type="checkbox" name="check" value="{$row.id}"></td>	 <td>{$row.title} </td>
+
+                        <input type="checkbox" name="check" value="{$row.id}"></td>
+                    <td>{$row.id}</td>
+                    <td>{$row.title} </td>
                     <td>{$row.fansnum}</td>
                     <td>{$row.viewnum}</td>
                     <td>{$row.starttime}<br>

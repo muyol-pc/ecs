@@ -29,7 +29,8 @@
 #inner-cont {
     position: absolute;
     width: 100%;
-    top: 112px; 
+    top: 112px;
+    left: 5px;
     /* -moz-transform: rotate(-5deg);
     -webkit-transform: rotate(-5deg);
     -o-transform: rotate(-5deg);
@@ -45,9 +46,14 @@
 }
 
 #inner {
-    width: 140px;
+    width: 170px;
     cursor: pointer;
     margin: 0 auto;
+    /*transform-origin: 5% 5%;*/
+    /*-moz-transform-origin:5% 5%;*/
+    /*-webkit-transform-origin:5% 5%;*/
+    /*-ms-transform-origin:5% 5%;*/
+    /*-o-transform-origin:5% 5%;*/
 }
 
 #outer img, #inner img {
