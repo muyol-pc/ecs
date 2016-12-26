@@ -4,12 +4,12 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '2',
+      'goods_id' => '1',
       'sort_order' => '100',
     ),
     1 => 
     array (
-      'goods_id' => '1',
+      'goods_id' => '2',
       'sort_order' => '100',
     ),
   ),
@@ -17,12 +17,12 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '2',
+      'goods_id' => '1',
       'sort_order' => '100',
     ),
     1 => 
     array (
-      'goods_id' => '1',
+      'goods_id' => '2',
       'sort_order' => '100',
     ),
   ),
@@ -36,8 +36,8 @@ $data = array (
   ),
   'brand' => 
   array (
-    2 => 'BOSCH',
     1 => '西门子(SIEMENS)',
+    2 => 'BOSCH',
   ),
 );
 ?>

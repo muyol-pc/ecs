@@ -7,6 +7,14 @@
   <a href="user.php?act=order_activity&type=2" class="hl-nav-item <?php if ($this->_var['active'] == 'order_seckill'): ?>active<?php endif; ?>">秒杀订单</a>
   <a href="user.php?act=pro_list&type=1" class="hl-nav-item <?php if ($this->_var['active'] == 'pro_buy'): ?>active<?php endif; ?>">已购买到的商品</a> 
   <a href="user.php?act=pro_list&type=2" class="hl-nav-item <?php if ($this->_var['active'] == 'pro_pay'): ?>active<?php endif; ?>">待付款商品</a>
+<<<<<<< HEAD
+  <a href="guaguaka.php" class="hl-nav-item <?php if ($this->_var['active'] == 'activity_list'): ?>active<?php endif; ?>">可参与的活动</a>
+=======
+<<<<<<< HEAD
+  <a href="guaguaka.php" class="hl-nav-item <?php if ($this->_var['active'] == 'activity_list'): ?>active<?php endif; ?>">可参与的活动</a>
+=======
   <a href="user.php?act=activity_list" class="hl-nav-item <?php if ($this->_var['active'] == 'activity_list'): ?>active<?php endif; ?>">可参与的活动</a>
+>>>>>>> 783b96818cca0461bde7289660cd94dd20103648
+>>>>>>> origin/master
   <a href="user.php?act=activity_msg" class="hl-nav-item <?php if ($this->_var['active'] == 'activity_msg'): ?>active<?php endif; ?>">活动消息</a>
 </div>

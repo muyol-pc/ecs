@@ -4502,3 +4502,21 @@ INSERT INTO `ecs_ad_position` (`position_id`, `position_name`, `ad_width`, `ad_h
 INSERT INTO `ecs_template` (`filename`, `region`, `library`, `sort_order`, `id`, `number`, `type`, `theme`) VALUES
 ('index', '全宽行', '/library/cat_goods.lbi', 0, '132', 6, 1, 'henli');
 UPDATE `ecs_admin_user` SET  `nav_list` = '商品列表|goods.php?act=list,订单列表|order.php?act=list,商店设置|shop_config.php?act=list_edit,移动版|lead.php?act=list,服务市场|service_market.php' WHERE  `ecs_admin_user`.`user_id` =1;
+
+
+-- ----------------------------
+-- Records of ecs_scratch_reply
+-- ----------------------------
+INSERT INTO `ecs_scratch_reply` VALUES ('1', '刮刮卡活动开始了!', '', '', '', '1', '', '1482681600', '1483286400', '亲，继续努力哦~~', '', '', '', '2', '322', '4', '3', '1', '3', '23', '5', '0', '3', '4', '2', '6', '0', '4', '5', '323', '8', '0', '6', '6', '23', '9', '0', '7', '7', '23', '80', '0', '8', '112', '0', '100', '100', '100', '0', '', '手机号', '', '0', '23', '4', '1482717684', '', '', '', '', '0');
+INSERT INTO `ecs_scratch_reply` VALUES ('4', 'fadasfdas', '1) 本活动中奖率高达100%。测试<br>\r\n       2) 新用户完善账户信息（实名认证），即可中奖一次。<br>\r\n        3)  新老用户，，发送信息（平台用户名###手机号）到微信订阅号，（不可取消关注）即可增加一次抽奖机会。（例如：平台用户名###159xxxx2092）<br>\r\n       4) 新老用户活动期间首次投资达到100元，即可中奖一次。<br>\r\n       5) 新老用户每累计投资2000元，即可多中奖一次；每累计投资达到1万元，加送一次机会。（1万元6次抽奖）<br>\r\n       6)', '', '', '1', '', '2016-12-22 15:14', '2016-12-31 15:14', 'afasdfas', '', '', '', '一等奖', 'iphone7', '1', '0', '1', '二等奖', 'iphone5s', '20', '0', '5', '三等奖', '小米 max', '30', '0', '10', '4321', 'sdfa', '0', '0', '0', '54', 'sdfa', '0', '0', '0', '45', 'fda', '0', '0', '0', '51', '0', '11', '12', '3', '0', '', '', '', '0', '82', '2', '1482752551', '', '', '', '', '0');
+
+
+-- ----------------------------
+-- Records of ecs_scratch_fans
+-- ----------------------------
+INSERT INTO `ecs_scratch_fans` VALUES ('1', '0', 'oYL1-t_udGuxTcZrtT0og2vwRo4A', '', '1', '1', '0', '1482681600', '1482686208', null);
+INSERT INTO `ecs_scratch_fans` VALUES ('2', '0', '9991e3d9ff18ac66b2efa32f1952d1ca', '', '0', '0', '0', '0', '1482686228', null);
+INSERT INTO `ecs_scratch_fans` VALUES ('3', '0', '34527524163986ba7af9b1cc7e57ca09', '', '0', '0', '0', '0', '1482686329', null);
+INSERT INTO `ecs_scratch_fans` VALUES ('4', '0', 'e4ae9161da5d56678dcae5a64c38ccb4', '', '10', '10', '0', '1482681600', '1482686336', null);
+INSERT INTO `ecs_scratch_fans` VALUES ('5', '1', 'admin', '', '1', '1', '0', '1482681600', '1482748958', '4');
+INSERT INTO `ecs_scratch_fans` VALUES ('6', '0', '', '', '0', '0', '0', '0', '1482752009', '4');

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v3.0.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>表单</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -9,20 +10,20 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 </head>
 <body>
-	<!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
-	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+	<?php echo $this->fetch('library/page_header_top.lbi'); ?>
+	<?php echo $this->fetch('library/page_header.lbi'); ?>
 
-	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+	<?php echo $this->fetch('library/ur_here.lbi'); ?>
 
 	<form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
 		<ul>
 			<li>
 				<span>姓名：</span>
-				<div class="i-box"><input type="text" name="msg_name" value="{$user_name}"></div>
+				<div class="i-box"><input type="text" name="msg_name" value="<?php echo $this->_var['user_name']; ?>"></div>
 			</li>
 			<li>
 				<span>联系电话：</span>
-				<div class="i-box"><input type="text" name="msg_phone" value="{$mobile_phone2|print_r}"></div>
+				<div class="i-box"><input type="text" name="msg_phone" value="<?php echo $this->_var['mobile_phone2']; ?>"></div>
 			</li>
 			<li>
 				<span>电子邮箱：</span>
@@ -41,10 +42,12 @@
 
 
 	<script type="text/javascript">
-        {foreach from=$lang.message_board_js item=item key=key}
-        var {$key} = "{$item}";
-        {/foreach}
-        {literal}
+        <?php $_from = $this->_var['lang']['message_board_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+        var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        
         /**
          * 提交留言信息
         */
@@ -90,7 +93,7 @@
                 return true;
             }
         }
-        {/literal}
+        
     </script>
 </body>
 

@@ -1,18 +1,26 @@
+<<<<<<< HEAD:temp/caches/7/goods_60AB3E36.php
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/goods.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:67:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/ur_here.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482695601;s:8:"maketime";i:1482692001;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+=======
 <?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/goods.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:47:"E:/www/ecs/ecs/themes/henli/library/ur_here.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482709010;s:8:"maketime";i:1482705410;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+>>>>>>> origin/master:temp/caches/c/goods_C3AE265E.php
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8">
-<meta name="Keywords" content="" />
-<meta name="Description" content="国庆大促，下单再减10%" />
-<title>暖怀－白18K金钻石戒指_冰洗_ECSHOP演示站</title>
+<meta name="Keywords" content="西门子（SIEMENS） 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 601升以上 浅金色 电脑温控 360度变频 典雅白 宝石蓝 单选属性二" />
+<meta name="Description" content="" />
+<title>西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）_冰洗_ECSHOP演示站</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD:temp/caches/7/goods_60AB3E36.php
+<script type="text/javascript" src="js/common.js"></script><script type="text/javascript"  src="js/action.js"></script>
+=======
  
 <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/transport_jquery.js"></script><script type="text/javascript" src="js/utils.js"></script><script type="text/javascript"  src="js/action.js"></script>
+>>>>>>> origin/master:temp/caches/c/goods_C3AE265E.php
 <script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
 <script type="text/javascript">
 function $id(element) {
@@ -39,7 +47,7 @@ function reg(str){
 }
 </script>
 </head>
-<body> 
+<body>
 <link href="" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
 <link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
@@ -56,11 +64,8 @@ var process_request = "正在处理您的请求...";
   <div class="hl-center"> 
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
-              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">admin</a>
-        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
-        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
-      <a class="hl-message" href="message.php" target="_blank">在线留言</a>
-      <a class="hl-message" href="user.php?act=logout">退出</a>
+              <a class="hl-user hl-a3" href="user.php">登录</a>
+        <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
           </div>
   </div>
 </div> 
@@ -80,19 +85,32 @@ var process_request = "正在处理您的请求...";
 </div><div class="hl-w1100">
 <div class="blank"></div>
 <div id="ur_here">
-当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 暖怀－白18K金钻石戒指 
+当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 
 </div>
 </div>
 <div class="blank"></div>
 <div class="hl-container">
-  <div class="hl-center hl-crumbs hl-f14">
+<!--   <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
     <span class="hl-simsun"><a href="">首页</a></span>
     <span class="hl-simsun">&nbsp;&gt;&nbsp;<a href="">活动专区</a>&nbsp;&gt;&nbsp;<a href="">秒杀</a></span>
     <span class="hl-simsun hl-there">&nbsp;&gt;&nbsp;<a href="">西门子</a></span>
-  </div>
+  </div> -->
   <div class="hl-center">
     <div class="hl-product-intro hl-mb30 hl-clearfix">
+<<<<<<< HEAD:temp/caches/7/goods_60AB3E36.php
+      <div class="hl-preview hl-fl">
+        <div id="preview" class="hl-spec-preview">
+          <div class="hl-zoom">
+            <img zoom-img="images/201612/goods_img/1_G_1482079848641.jpg" src="images/201612/goods_img/1_P_1482079848492.png" width="478"/>
+          </div>
+        </div>
+        
+              </div>
+      <div class="hl-product-main hl-fl">
+        <div class="hl-intro hl-mb10">
+          <h1 class="hl-f18 hl-fwn hl-69">西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）</h1>
+=======
       <div class="hl-preview hl-fl hl-fs-12">
         
         <div class="hl-banner hl-tc" style="height: 350px;">
@@ -118,6 +136,7 @@ var process_request = "正在处理您的请求...";
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
           <h1 class="hl-f18 hl-fwn hl-69"> 暖怀－白18K金钻石戒指</h1>
+>>>>>>> origin/master:temp/caches/c/goods_C3AE265E.php
           
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
@@ -242,67 +261,118 @@ var process_request = "正在处理您的请求...";
                       598升玻璃面板对开
                     </a>
                   </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
+                   Array
+(
+    [商品属性] => Array
+        (
+            [3] => Array
+                (
+                    [name] => 控温方式
+                    [value] => 电脑温控
+                )
+            [4] => Array
+                (
+                    [name] => 变频
+                    [value] => 360度变频
+                )
+            [5] => Array
+                (
+                    [name] => 国家能效等级
+                    [value] => 一级
+                )
+        )
+)
+                   Array
+(
+    [15] => Array
+        (
+            [attr_type] => 1
+            [name] => 测试单选属性
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [label] => 单选属性二
+                            [price] => 999
+                            [format_price] => ￥999.00元
+                            [id] => 20
+                        )
+                )
+        )
+    [2] => Array
+        (
+            [attr_type] => 2
+            [name] => 产品类型
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [label] => 双开门
+                            [price] => 0
+                            [format_price] => ￥0.00元
+                            [id] => 13
+                        )
+                    [1] => Array
+                        (
+                            [label] => 对开门
+                            [price] => 0
+                            [format_price] => ￥0.00元
+                            [id] => 14
+                        )
+                    [2] => Array
+                        (
+                            [label] => 三开门
+                            [price] => 808
+                            [format_price] => ￥808.00元
+                            [id] => 1
+                        )
+                )
+        )
+    [1] => Array
+        (
+            [attr_type] => 1
+            [name] => 容积量
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [label] => 601升以上
+                            [price] => 1001
+                            [format_price] => ￥1001.00元
+                            [id] => 5
+                        )
+                )
+        )
+    [6] => Array
+        (
+            [attr_type] => 2
+            [name] => 颜色
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [label] => 典雅白
+                            [price] => 0
+                            [format_price] => ￥0.00元
+                            [id] => 9
+                        )
+                    [1] => Array
+                        (
+                            [label] => 浅金色
+                            [price] => 0
+                            [format_price] => ￥0.00元
+                            [id] => 10
+                        )
+                    [2] => Array
+                        (
+                            [label] => 宝石蓝
+                            [price] => 0
+                            [format_price] => ￥0.00元
+                            [id] => 11
+                        )
+                )
+        )
+)
                 </ul>
               </div>
             </div>
@@ -345,14 +415,13 @@ var process_request = "正在处理您的请求...";
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
-              
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
-            <a href="javascript:addToCart(141)" class="hl-buy-now">立即购买</a>
-            <a href="javascript:addToCart2(141)" class="hl-add-cart">加入购物车</a>
+            <a href="javascript:addToCart(1)" class="hl-buy-now">立即购买</a>
+            <a href="javascript:addToCart2(1)" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -362,33 +431,13 @@ var process_request = "正在处理您的请求...";
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
                    <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=134"><img src="images/201601/goods_img/134_G_1454032795393.jpg" alt=""></a>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=1"><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></a>
             <div class="hl-price">
              价格暂定
               <strong class="hl-disp-b hl-ups hl-f24">
                      价格暂定
              </strong>
-              <a class="hl-name hl-f14 hl-72" href="goods.php?id=134">爱冕－白18K...</a>
-            </div>
-          </li>
-          <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=136"><img src="images/201601/goods_img/136_G_1454032609800.jpg" alt=""></a>
-            <div class="hl-price">
-             价格暂定
-              <strong class="hl-disp-b hl-ups hl-f24">
-                     价格暂定
-             </strong>
-              <a class="hl-name hl-f14 hl-72" href="goods.php?id=136">比 翼 － 铂...</a>
-            </div>
-          </li>
-          <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id=140"><img src="images/201601/goods_img/140_G_1454030885422.jpg" alt=""></a>
-            <div class="hl-price">
-             价格暂定
-              <strong class="hl-disp-b hl-ups hl-f24">
-                     价格暂定
-             </strong>
-              <a class="hl-name hl-f14 hl-72" href="goods.php?id=140">暖怀－白18K...</a>
+              <a class="hl-name hl-f14 hl-72" href="goods.php?id=1">西门子（SIE...</a>
             </div>
           </li>
           <!-- <li>
@@ -441,35 +490,7 @@ var process_request = "正在处理您的请求...";
             .hl-product-pics tr{border:0;}
             </style>
             <div class="hl-product-pics" style="overflow:hidden;">
-            <p>&nbsp;</p>
-<table id="Table_01" width="900" height="7400" border="0" cellpadding="0" cellspacing="0" style="color: rgb(0, 0, 0); font-size: 12px; font-family: Arial, 宋体;">
-    <tbody>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体; text-align: center;"><img src="http://imu.zbird.cn/261/88/26188_1" width="900" height="636" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imu.zbird.cn/261/88/26188_4" width="900" height="592" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imp.zbird.cn/261/89/26189_1" width="900" height="1336" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imp.zbird.cn/261/89/26189_4" width="900" height="838" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imu.zbird.cn/261/92/26192_1" width="900" height="694" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imu.zbird.cn/261/92/26192_4" width="900" height="810" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imp.zbird.cn/261/93/26193_1" width="900" height="1372" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-        <tr>
-            <td style="color: rgb(51, 51, 51); font-size: 12px; font-family: Arial, 宋体;"><img src="http://imp.zbird.cn/261/93/26193_4" width="900" height="1122" alt="" style="padding: 0px; margin: 0px; border: 0px;" /></td>
-        </tr>
-    </tbody>
-</table>            </div>
+            <img src="/ecs/includes/kindeditor/attached/image/20161222/20161222224357_77049.jpg" alt="" />            </div>
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
@@ -880,4 +901,8 @@ var process_request = "正在处理您的请求...";
   苏ICP备10003401号
 </div>
 </body>
+<<<<<<< HEAD:temp/caches/7/goods_60AB3E36.php
 </html>
+=======
+</html>
+>>>>>>> origin/master:temp/caches/c/goods_C3AE265E.php
