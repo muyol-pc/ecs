@@ -1,4 +1,5 @@
 {include file="pageheader.htm"}
+{include file="common.htm"}
 <div class="main">
 	<ul class="nav nav-tabs">
 		<li{if $act == 'manage'} class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
@@ -6,7 +7,19 @@
 		<li{if $act == 'awardlist'} class="active"{/if}><a href="zhuanpan.php?act=awardlist&rid => 0));}">中奖名单</a></li>
 	</ul>
 
-</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row-fluid">
+                <div class="span8 control-group">
+                    <a class="btn btn-default" href="zhuanpan.php?act=awardlist">全部</a>
+                    <a class="btn btn-default" href="zhuanpan.php?act=awardlist&status=1">已中奖</a>
+                    <a class="btn btn-default" href="zhuanpan.php?act=awardlist&status=2">已兑换</a>
+                </div>
+            </div>
+            <div class="alert" style="margin-bottom:0;">
+                本次活动奖品总数：{$num1}个　　抽中未兑换：{$num2}个　　抽中已兑换：{$num3}个　　 领取规则 : 先到先得！
+            </div>
+        </div>
 
 	<div style="position:relative">
 		<div class="panel-body table-responsive">

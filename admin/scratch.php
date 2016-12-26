@@ -67,7 +67,7 @@ if ($_REQUEST['act'] == 'manage') {
 //            message('抱歉，传递的参数错误！', '', 'error');
     }
     $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.id = ".$id;
-    $total = $GLOBALS['db']->getCol("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.id" . $id );
+    $total = $GLOBALS['db']->getOne("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.id=" . $id );
 //        $pindex = max(1, intval($_REQUEST['page']));
 //        $psize = 12;
 //        $pager = pagination($total, $pindex, $psize);
@@ -79,13 +79,13 @@ if ($_REQUEST['act'] == 'manage') {
     $list =  $GLOBALS['db']->getAll($sql);
 
     //一些参数的显示
-    $num1 =  $GLOBALS['db']->getCol("SELECT total_num FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id);
-    $num2 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=1");
-    $num3 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=2");
-
+//    $num1 =  $GLOBALS['db']->getOne("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id =".$id);
+//    $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=1");
+//    $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=2");
+    $smarty->assign('list',$list);
     $smarty->display('scratch_awardlist.htm');//中奖名单
 }else if($_REQUEST['act'] == 'post'){
-    $id = intval($_REQUEST['reply_id']);
+    $id = intval($_REQUEST['id']);
 
     $insert = array(
         'title' => $_REQUEST['title'],
@@ -151,9 +151,16 @@ if ($_REQUEST['act'] == 'manage') {
 
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     } else {
-        $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('scratch_reply'),$insert,'UDPATE','id='.$id);
+        $scratch_sql="SELECT * FROM " . $GLOBALS['ecs']->table('scratch_reply')." WHERE "."id=".$id;
+
+        $reply =  $GLOBALS['db']->getRow($scratch_sql);
+        $smarty->assign('reply',     $reply);
+        if(!empty($insert['title'])) {
+            $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('scratch_reply'), $insert, 'UDPATE', 'id=' . $id);
+        }
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     }
+    $smarty->assign('reply',     $reply);
     $smarty->assign('form_act',      'post');
     $smarty->assign('action',        'edit');
     $smarty->display('scratch_form.htm');//添加活动
