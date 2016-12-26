@@ -357,7 +357,16 @@
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-          <li>
+            <!--{foreach from=$linkGoods key=keys item=linkitem}-->
+                <li>
+                    <a class="hl-p-img hl-disp-b" href=""><img src="{$linkitem.goods_thumb}" alt=""></a>
+                    <div class="hl-price">
+                      <strong class="hl-disp-b hl-ups hl-f24">&yen; {$linkitem.shop_price}</strong>
+                      <a class="hl-name hl-f14 hl-72" href="">{$linkitem.goods_name}</a>
+                    </div>
+                  </li>
+            <!--{/foreach}-->
+          <!--<li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
@@ -377,7 +386,7 @@
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
               <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
             </div>
-          </li>
+          </li>-->
         </ul>
       </div>
       <div class="hl-product-detail hl-fr">

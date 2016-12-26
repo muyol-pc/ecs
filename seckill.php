@@ -140,12 +140,22 @@ elseif ($_REQUEST['act'] == 'view')
 	$seckill['seckill_price']=intval($seckill['seckill_price']);
 	$smarty->assign('seckill', $seckill);
 
-    /*echo "<pre>";
-    print_r($seckill);
-    echo "</pre>";*/
+
 
 	/* 取得秒杀商品信息 */
 	$goods_id = $seckill['goods_id'];
+
+    //获取关联商品
+    $link_goods = $GLOBALS['db']->getAll("SELECT link_goods_id FROM " . $ecs->table('link_goods') . " WHERE goods_id= $goods_id");
+    $linkGoods  = array();
+    foreach($link_goods as $ks => $vs){
+        $linkGoods[] = $GLOBALS['db']->getRow("SELECT * FROM ". $ecs->table('goods') ." WHERE goods_id=".$vs['link_goods_id']);
+    }
+    //输出关联商品
+    $smarty->assign('linkGoods', $linkGoods);
+    /*echo "<pre>";
+    print_r($linkGoods);
+    echo "</pre>";*/
 
     /* 查询：查询规格名称和值，不考虑价格         */
     $_a = array();
