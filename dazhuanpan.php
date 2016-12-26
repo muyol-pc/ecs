@@ -38,14 +38,14 @@ if ($action == 'index')
     if (empty($id)) {
         message('抱歉，参数错误！', '', 'error');
     }
-    $reply = $db->getRow("SELECT * FROM " . $ecs->table('scratch_reply') . " WHERE id =". $id." ORDER BY `id` DESC");
+    $reply = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_reply') . " WHERE id =". $id." ORDER BY `id` DESC");
     if ($reply == false) {
         message('', '抱歉，活动已经结束，下次再来吧！');
     }
 
     $fansID = $user_id;
     $from_user = $user_name;
-    $fans = $db->getRow("SELECT * FROM " . $ecs->table('scratch_fans') . " WHERE rid = " . $id . " and fansID='" . $fansID . "' and from_user='" . $from_user . "'");
+    $fans = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_fans') . " WHERE rid = " . $id . " and fansID='" . $fansID . "' and from_user='" . $from_user . "'");
 
     if ($fans == false) {
         $insert = array(
@@ -57,7 +57,7 @@ if ($action == 'index')
             'awardnum' => 0,
             'createtime' => time(),
         );
-        $temp = $db->autoExecute($ecs->table('scratch_fans'),$insert,"INSERT");
+        $temp = $db->autoExecute($ecs->table('bigwheel_fans'),$insert,"INSERT");
         if ($temp == false) {
             message('', '抱歉，操作数据失败！');
         }
@@ -75,7 +75,7 @@ if ($action == 'index')
     if(!empty($from_user)){
         $condition= " and from_user='" . $from_user . "'";
     }
-    $award = $db->getAll("SELECT * FROM " . $ecs->table('bigwheel_award') . " WHERE " ." rid = " . $id . $condition. " order by id desc");
+    $award = $db->getAll("SELECT * FROM " . $ecs->table('bigwheel_award') . " WHERE " ." rid = " . $id . $condition." order by id desc");
     if ($award != false) {
         $awardone = $award[0];
     }
@@ -92,12 +92,12 @@ if ($action == 'index')
         $fans['todaynum'] = 0;
     }
     //判断总次数超过限制,一般情况不会到这里的，考虑特殊情况,回复提示文字msg，便于测试
-    if ($running && $reply['starttime'] > time()) {
+    if ($running && strtotime($reply['starttime']) > time()) {
         $running = false;
         $msg = '活动还没有开始呢！';
     }
     //判断总次数超过限制,一般情况不会到这里的，考虑特殊情况,回复提示文字msg，便于测试
-    if ($running && $reply['endtime'] < time()) {
+    if ($running && strtotime($reply['endtime']) < time()) {
         $running = false;
         $msg = '活动已经结束了，下次再来吧！';
     }
@@ -167,6 +167,9 @@ if ($action == 'index')
         $condition= " and from_user='" . $from_user . "'";
     }
     $records = $db->getAll("SELECT * FROM " . $ecs->table('bigwheel_award') . " WHERE " ." rid = " . $id . $condition." order by id desc");
+    $smarty->assign('user_name', $user_name);
+    $smarty->assign('msg', $msg);
+    $smarty->assign('running', $running);
     $smarty->assign('records', $records);
     $smarty->assign('awards', $awards);
     $smarty->assign('fans', $fans);
@@ -175,7 +178,7 @@ if ($action == 'index')
 } else if ($action == 'getaward'){
     $id = intval($_REQUEST['id']);
     //开始抽奖咯
-    $reply = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_reply') . " WHERE rid =".$id." ORDER BY `id` DESC");
+    $reply = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_reply') . " WHERE id =".$id." ORDER BY `id` DESC");
     if ($reply == false) {
         message();
     }
@@ -190,6 +193,7 @@ if ($action == 'index')
     if ($endtime < time()) {
         message(array("success" => 2, "msg" => '活动已经结束了，下次再来吧！'), "");
     }
+
     //第一步，判断有没有已经领取奖品了，如果领取了，则不能再领取了
 
     $fans = $db->getRow('SELECT * FROM ' . $ecs->table('bigwheel_fans') . " WHERE rid =".$id." AND from_user = '".$user_name."'");
@@ -197,6 +201,7 @@ if ($action == 'index')
         //不存在false的情况，如果是false，则表明是非法
         //$this->message();
         $fans = array(
+            'fansID'=>$user_id,
             'rid' => $id,
             'from_user' => $user_name,
             'todaynum' => 0,
@@ -286,6 +291,7 @@ if ($action == 'index')
         //保存sn到award中
         $insert = array(
             'rid' => $id,
+            'fansID'=>$user_id,
             'from_user' => $user_name,
             'name' => $awardtype,
             'description' => $awardname,
@@ -354,13 +360,7 @@ if ($action == 'index')
     echo json_encode($data);
 }
 
-//用户注册成功页
-elseif($action == 'act_register_success'){
-    $smarty->display('register-success.dwt');
-}
-;
 
-$smarty->display('guaguaka.dwt');
 
 //json
 function message($_data = '', $_msg = '') {
@@ -386,7 +386,7 @@ function setfans() {
     $id = intval($_REQUEST['id']);
     $user_id = $_SESSION['user_id'];
     $user_name=$_SESSION['user_name'];
-    $fans = $GLOBALS['db']->getRow("SELECT * FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE rid = " . $id . " and from_user='" . $user_name . "'");
+    $fans = $GLOBALS['db']->getRow("SELECT * FROM " . $GLOBALS['ecs']->table('bigwheel_fans') . " WHERE rid = " . $id . " and from_user= '" . $user_name . "'");
     if(empty($fans)){
         return;
     }
@@ -399,7 +399,8 @@ function setfans() {
         'totalnum' => $fans['totalnum'] + 1,
         'last_time' => time(),
     );
-    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('bigwheel_fans'), $update, "UPDATE",'id='.$fans['id']);
+
+    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('bigwheel_fans'), $update, "UPDATE",'id='. $fans['id']);
 }
 function random($length, $numeric = FALSE) {
     $seed = base_convert(md5(microtime() . $_SERVER['DOCUMENT_ROOT']), 16, $numeric ? 10 : 35);

@@ -1,11 +1,6 @@
-.activity-lottery-winning{ background: url(../addons/wdl_scratch/style/image/activity-lottery-bg2.jpg) #2a8a00;overflow-x: hidden;}
-.activity-lottery-end{ background: url(../addons/wdl_scratch/style/image/activity-lottery-bg2.jpg) #2a8a00;overflow-x: hidden;}
 .activity-coupon-winning{ background-color:#8d0001;overflow-x: hidden;}
 .activity-coupon-end{ background-color:#8d0001;overflow-x: hidden;}
-.activity-scratch-card-winning{background: url(../addons/wdl_scratch/style/image/activity-scratch-card-bg.jpg) #944f20;overflow-x: hidden;}
-.activity-scratch-card-end{background: url(../addons/wdl_scratch/style/image/activity-scratch-card-bg.jpg) #944f20;overflow-x: hidden;}
 .activity-lottery-winning .main{
-    background: url(../addons/wdl_scratch/style/image/activity-lottery-bg.png) no-repeat top center;
     background-size: 320px auto;
 }
 
@@ -43,10 +38,10 @@
 }
 #scratchpad,#prize{
     position: absolute;
-    width: 647px;
+    width: 655px;
     height: 315px;
     top: 13px;
-    left: 34px;
+    left: 40px;
     text-align: center;
     font-size: 66px;
     line-height: 315px;
@@ -99,7 +94,6 @@
 }
 .box .title-orange {
     padding: 0 5px 0px 10px;
-    background:url(../addons/wdl_scratch/style/image/title-bg-orange.png) no-repeat 0 0;
     border-radius: 3px 3px 3px 0;
     color:#ffffff;
     height:22px;
@@ -107,7 +101,6 @@
 }
 .box .title-green {
     padding: 0 5px 0px 10px;
-    background:url(../addons/wdl_scratch/style/image/title-bg-green.png) no-repeat 0 0;
     border-radius: 3px 3px 3px 0;
     color:#ffffff;
     height:22px;
@@ -115,7 +108,6 @@
 }
 .box .title-brown {
     padding: 0 5px 0px 10px;
-    background:url(../addons/wdl_scratch/style/image/title-bg-brown.png) no-repeat 0 0;
     border-radius: 3px 3px 3px 0;
     color:#ffffff;
     height:22px;
