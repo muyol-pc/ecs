@@ -71,12 +71,8 @@ $(".hl-counter").on('change', '.hl-counter-num', function(event) {
   event.preventDefault();
   /* Act on the event */
   var num = parseInt($(this).val());
-  if (isNaN(num)) {
+  if (isNaN(num) || num < 2) {
     $(this).val(1);
-    return;
-  }
-  if (num < 2) {
-    $(this).val(1);  
   }
   if ($(this).closest('tr').find(':checkbox').prop('checked')) {
     money();
@@ -173,8 +169,21 @@ $(".hl-thumb").on('click', '.hl-arrow-l', function(event) {
     }
     unslider.unslider('animate:'+$(this).index());
   });
-});
 
+  // 结算
+  $(".hl-order-settle").on('click',  function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    var ipt = $(".hl-has-pro input[type='checkbox']:checked");
+    var id = new Array();
+    $.each(ipt, function(index, val) {
+       /* iterate through array or object */
+       id.push(val.value);
+    });
+    window.location.href = $(this).attr('href')+"&rec_id="+id.join(',');
+    return false;
+  });
+});
 function drop_goods(_this) {
   // stopDefault(_this);
   var ipt = $(".hl-order-detail .hl-has-pro input:checked");

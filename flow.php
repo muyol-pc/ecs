@@ -16,11 +16,16 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
-require(ROOT_PATH . 'includes/lib_order.php');
+require(ROOT_PATH . 'includes/lib_order.php'); 
 
 /* 载入语言文件 */
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/shopping_flow.php');
+
+if ($_SESSION['user_id'] < 1){
+    ecs_header("Location:user.php?act=login");
+    exit();
+}
 
 /*------------------------------------------------------ */
 //-- INPUT
@@ -40,7 +45,7 @@ assign_dynamic('flow');
 $position = assign_ur_here(0, $_LANG['shopping_flow']);
 $smarty->assign('page_title',       $position['title']);    // 页面标题
 $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
-
+// var_dump($_LANG);
 $smarty->assign('categories',       get_categories_tree()); // 分类树
 $smarty->assign('helps',            get_shop_help());       // 网店帮助
 $smarty->assign('lang',             $_LANG);
@@ -430,7 +435,7 @@ elseif ($_REQUEST['step'] == 'drop_consignee')
         show_message($_LANG['not_fount_consignee']);
     }
 }
-elseif ($_REQUEST['step'] == 'checkout')
+elseif ($_REQUEST['step'] == 'checkout') 
 {
     /*------------------------------------------------------ */
     //-- 订单确认
@@ -438,7 +443,7 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     /* 取得购物类型 */
     $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
-
+    // var_dump($flow_type);
     /* 团购标志 */
     if ($flow_type == CART_GROUP_BUY_GOODS)
     {
@@ -454,12 +459,13 @@ elseif ($_REQUEST['step'] == 'checkout')
         //正常购物流程  清空其他购物流程情况
         $_SESSION['flow_order']['extension_code'] = '';
     }
-
+    $rec_id = preg_replace('/[^0-9,]+/','',$_REQUEST['rec_id']);
+    if ($rec_id) $rec_id = " AND FIND_IN_SET(rec_id,'$,{$rec_id}') ";
     /* 检查购物车中是否有商品 */
     $sql = "SELECT COUNT(*) FROM " . $ecs->table('cart') .
         " WHERE user_id = '" . $_SESSION['user_id'] . "' " .
-        "AND parent_id = 0 AND is_gift = 0 AND rec_type = '$flow_type'";
-
+        "AND parent_id = 0 AND is_gift = 0 AND rec_type = '$flow_type' ".$rec_id;
+    // var_dump('sql',$sql);
     if ($db->getOne($sql) == 0)
     {
         show_message($_LANG['no_goods_in_cart'], '', '', 'warning');
@@ -470,15 +476,15 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 如果用户已经登录了则检查是否有默认的收货地址
      * 如果没有登录则跳转到登录和注册页面
      */
-    if (empty($_SESSION['direct_shopping']) && $_SESSION['user_id'] == 0)
+    if (empty($_SESSION['direct_shopping']) && $_SESSION['user_id'] < 1)
     {
         /* 用户没有登录且没有选定匿名购物，转向到登录页面 */
-        ecs_header("Location: flow.php?step=login\n");
+        ecs_header("Location: user.php\n");
         exit;
     }
 
-    $consignee = get_consignee($_SESSION['user_id']);
-
+    $consignee = get_consignee($_SESSION['user_id']); 
+    // var_dump($consignee);
     /* 检查收货人信息是否完整 */
     if (!check_consignee_info($consignee, $flow_type))
     {
@@ -489,9 +495,12 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     $_SESSION['flow_consignee'] = $consignee;
     $smarty->assign('consignee', $consignee);
+    // var_dump($_SESSION);
 
     /* 对商品信息赋值 */
-    $cart_goods = cart_goods($flow_type); // 取得商品列表，计算合计
+    $cart_goods = cart_goods($flow_type,$rec_id); // 取得商品列表，计算合计
+    // var_dump('------------------------','goods_list',$cart_goods);
+    // return;
     $smarty->assign('goods_list', $cart_goods);
 
     /* 对是否允许修改购物车赋值 */
@@ -503,7 +512,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     {
         $smarty->assign('allow_edit_cart', 1);
     }
-
+    // var_dump($_CFG);
     /*
      * 取得购物流程设置
      */
@@ -512,6 +521,8 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 取得订单信息
      */
     $order = flow_order_info();
+    // var_dump('---------------------------------------------------------',$order);
+    // return;
     $smarty->assign('order', $order);
 
     /* 计算折扣 */
@@ -527,7 +538,7 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 计算订单的费用
      */
     $total = order_fee($order, $cart_goods, $consignee);
-
+    // var_dump('---------------------------------------------------------',$total);
     $smarty->assign('total', $total);
     $smarty->assign('shopping_money', sprintf($_LANG['shopping_money'], $total['formated_goods_price']));
     $smarty->assign('market_price_desc', sprintf($_LANG['than_market_price'], $total['formated_market_price'], $total['formated_saving'], $total['save_rate']));
@@ -2167,7 +2178,7 @@ $smarty->assign('step',            $_REQUEST['step']);
 assign_template();
 assign_dynamic('shopping_flow');
 // var_dump($smarty);
-$smarty->display('flow.dwt');
+$smarty->display('flow.dwt'); 
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION

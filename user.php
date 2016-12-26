@@ -355,16 +355,18 @@ elseif ($action == 'login')
     {
         if (empty($back_act) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
         {
-            $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], '') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
+            $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], '') || strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'logout') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
         }
         else
         {
-            $back_act = '';
+            $back_act = 'index.php';
         }
 
     }
-
-
+    if ($_SESSION['user_id'] > 0) {
+        ecs_header("Location:".$back_act);
+        exit();
+    }
     $captcha = intval($_CFG['captcha']);
     if (($captcha & CAPTCHA_LOGIN) && (!($captcha & CAPTCHA_LOGIN_FAIL) || (($captcha & CAPTCHA_LOGIN_FAIL) && $_SESSION['login_fail'] > 2)) && gd_version() > 0)
     {
@@ -503,7 +505,7 @@ elseif ($action == 'logout')
 {
     if ((!isset($back_act)|| empty($back_act)) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
     {
-        $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], '') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
+        $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], '') || strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'logout') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
     }
 
     $user->logout();
