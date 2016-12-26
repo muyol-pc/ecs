@@ -76,7 +76,7 @@ $(".hl-counter").on('change', '.hl-counter-num', function(event) {
     return;
   }
   if (num < 2) {
-    $(this).val(1);
+    $(this).val(1);  
   }
   if ($(this).closest('tr').find(':checkbox').prop('checked')) {
     money();
