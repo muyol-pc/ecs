@@ -8,22 +8,22 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/base.css">
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/gua.css">
-<script src="themes/henli/inc/js/jquery.js" type="text/javascript" type="text/javascript"></script>
-<script src="themes/henli/inc/js/wScratchPad.js" type="text/javascript" type="text/javascript"></script>
-<script src="themes/henli/inc/js/alert.js" type="text/javascript" type="text/javascript"></script>
+<script src="themes/henli/js/jquery.js" type="text/javascript" type="text/javascript"></script>
+<script src="themes/henli/js/wScratchPad.js" type="text/javascript" type="text/javascript"></script>
+<script src="themes/henli/js/alert.js" type="text/javascript" type="text/javascript"></script>
 <script type="text/javascript">
 function loading(canvas,options){
   this.canvas = canvas;
   if(options){
     this.radius = options.radius||12;
     this.circleLineWidth = options.circleLineWidth||4;
-    this.circleColor = options.circleColor||'lightgray';
-    this.moveArcColor = options.moveArcColor||'gray';
+    this.circleColor = options.circleColor||'white';
+    this.moveArcColor = options.moveArcColor||'white';
   }else{
     this.radius = 12;
     this.circelLineWidth = 4;
-    this.circleColor = 'lightgray';
-    this.moveArcColor = 'gray';
+    this.circleColor = 'white';
+    this.moveArcColor = 'white';
   }
 }
 loading.prototype = {
@@ -77,7 +77,7 @@ loading.prototype = {
 					<!-- <img src="themes/henli/inc/img/icon2.png"> -->
 					<div class="main">
 						<div class="cover" id="cover">
-							<div id="prize">谢谢参与</div>
+							<div id="prize" style="color:red">谢谢参与</div>
 							<div id="scratchpad"></div>
 							<a href="javascript:;" id="more"  target="_self" style="display: none">再来一次 (<span id="flood">5</span>)</a>
 						</div>
@@ -93,7 +93,7 @@ loading.prototype = {
 					<div class="w-list">
 						<ul>
 						{foreach from=$awards item=row}
-							<li><span>{$row.prizetype}</span><span>{$row.from_user}</span></li>
+							<li><span>{$row.name}</span><span>{$row.from_user}</span></li>
                         {/foreach}
 						</ul>
 					</div>
@@ -132,8 +132,8 @@ loading.prototype = {
 				<ul class="record">
 				{foreach from=$records item=row}
 					<li>
-						<span>{$row.prizetype}</span>
-						<span>100元现金券</span>
+						<span>{$row.name}</span>
+						<span>{$row.description}</span>
 						<span>{$row.createtime}</span>
 					</li>
 					{/foreach}
@@ -175,14 +175,14 @@ $("#scratchpad").mousedown(function() {
 });
 {else}
 $("#scratchpad").wScratchPad({
-	width : 150,
-	height : 40,
-	color : "#a9a9a7",
+	width : 655,
+	height : 315,
+	image2:"themes/henli/images/scratch_bg.jpg",
 	scratchMove : function(){
 		num++;
 		if(num == 2){
 			$.ajax({
-				url: "guaguaka.php?act=getaward&id={$id}&user_id={$userid}",dataType: 'json',type: 'post',
+				url: "guaguaka.php?act=getaward&id={$reply.id}&user_id={$user_name}",dataType: 'json',type: 'post',
 				success: function(data) {
 
 					goon = false;
@@ -196,11 +196,11 @@ $("#scratchpad").wScratchPad({
 						$("#totalcount").text(parseInt($("#totalcount").text())+1)
 					}
 					if(data.success) {
-						$("#drawid").attr("value", data.drawid)
-						$("#sncode").text(data.sn);
+						//$("#drawid").attr("value", data.drawid)
+						//$("#sncode").text(data.sn);
 						$("#prize").text(data.name);
-						$("#name").text(data.name + " - " + data.award);
-						$("#result").slideToggle(500);
+						//$("#name").text(data.name + " - " + data.award);
+						//$("#result").slideToggle(500);
 					} else {
 						$("#prize").text(data.name);
 						$('#more').show();
@@ -224,7 +224,7 @@ function time_flood() {
 		setTimeout('time_flood()', 1000);
 	} else {
 
-		$('#more').attr('href', 'guaguaka.php?act=index&id={$id}&timestamp=1');
+		$('#more').attr('href', 'guaguaka.php?act=index&id={$reply.id}');
 	}
 }
 

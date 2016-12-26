@@ -13,16 +13,16 @@
 	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
 	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-	
+
 	<form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
 		<ul>
 			<li>
 				<span>姓名：</span>
-				<div class="i-box"><input type="text" name="msg_name"></div>
+				<div class="i-box"><input type="text" name="msg_name" value="{$user_name}"></div>
 			</li>
 			<li>
 				<span>联系电话：</span>
-				<div class="i-box"><input type="text" name="msg_phone"></div>
+				<div class="i-box"><input type="text" name="msg_phone" value="{$mobile_phone2|print_r}"></div>
 			</li>
 			<li>
 				<span>电子邮箱：</span>

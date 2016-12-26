@@ -763,8 +763,6 @@ class cls_template
                         $p = 'pro_label_format(' . $p . ')';
                         break;
 
-
-                        break;
                     default:
                         # code...
                         break;
