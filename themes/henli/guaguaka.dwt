@@ -71,7 +71,7 @@ loading.prototype = {
 	<div class="l-banner"><img src="themes/henli/inc/img/l_banner.jpg"></div>
 	<div class="card-content">
 		<div class="step-one">
-			<div class="surplus">您还有 <em class="number">0</em> 次机会</div>
+			<div class="surplus">您还有 <em class="number">{$reply.most_num_times}</em> 次机会</div>
 			<div class="o-h">
 				<div class="scratch">
 					<!-- <img src="themes/henli/inc/img/icon2.png"> -->
@@ -92,35 +92,33 @@ loading.prototype = {
 					</div>
 					<div class="w-list">
 						<ul>
-							<li><span>100元现金红包1</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包2</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包3</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包4</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包5</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包6</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包7</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包8</span><span>哇哈哈哈。。。</span></li>
+						{foreach from=$awards item=row}
+							<li><span>{$row.prizetype}</span><span>{$row.from_user}</span></li>
+                        {/foreach}
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="active-gift">
 				<ul>
+
 					<li>
 						<div class="circle"></div>
 						<div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
+						<div class="name">{$reply.c_type_one}<em>{$reply.c_name_one}</em></div>
 					</li>
 					<li>
-						<div class="circle"></div>
-						<div class="pic"><img src="themes/henli/inc/img/gift2.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
-					</li>
-					<li>
-						<div class="circle"></div>
-						<div class="pic"><img src="themes/henli/inc/img/gift3.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
-					</li>
+                        <div class="circle"></div>
+                        <div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+                        <div class="name">{$reply.c_type_two}<em>{$reply.c_name_two}</em></div>
+                    </li>
+
+                    <li>
+                        <div class="circle"></div>
+                        <div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+                        <div class="name">{$reply.c_type_three}<em>{$reply.c_name_three}</em></div>
+                    </li>
+
 				</ul>
 			</div>
 		</div><!--step-one end-->
@@ -132,43 +130,132 @@ loading.prototype = {
 					<li>中奖时间</li>
 				</ul>
 				<ul class="record">
+				{foreach from=$records item=row}
 					<li>
-						<span>一等奖</span>
+						<span>{$row.prizetype}</span>
 						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
+						<span>{$row.createtime}</span>
 					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
+					{/foreach}
 				</ul>
 			</div>
 		</div><!--step-two end-->
 		<div class="step-three">
 			<div class="note">
-				1) 本活动中奖率高达100%。<br>
-				2) 新用户完善账户信息（实名认证），即可中奖一次。<br>
-				3)  新老用户，，发送信息（平台用户名###手机号）到微信订阅号，（不可取消关注）即可增加一次抽奖机会。（例如：平台用户名###159xxxx2092）<br>
-				4) 新老用户活动期间首次投资达到100元，即可中奖一次。<br>
-				5) 新老用户每累计投资2000元，即可多中奖一次；每累计投资达到1万元，加送一次机会。（1万元6次抽奖）<br>
-				6) 抽中实物的用户，请您及时联系金百利客服人员登记收件信息，奖励将在活动结束后7个工作日内发放。<br>
-				7) 获得活动现金奖励的用户，将在中奖后的7个工作日内发放至其平台账号中(提现免费)。<br>
-				“新用户”是指完成了注册认证且从未投资过的用户。<br>
-				新手体验标和项目优选标不参与此活动
+				{$reply.description}
 			</div>
 		</div><!--step-three end-->
 		<div class="go-back"><a href="index.php">返回首页</a></div>
 	</div>
 </body>
+<script type="text/javascript">
+window.sncode = "null";
+window.prize = "感谢参与";
+var num = 0;
+var goon = true;
+var count = 0;
+var credit = 0;
+var bonus = 0;
+var flood = 3;
+
+$(function(){
+	var useragent = window.navigator.userAgent.toLowerCase();
+	var statu="enable";
+	if(bonus) {
+		if(credit < bonus) {
+			$('#prize').hide();
+			alert('您的积分不足');
+			return;
+		}
+	}
+{if $running==false}
+$("#scratchpad").addClass("no");
+$("#scratchpad").mousedown(function() {
+	alert('{$msg}');
+});
+{else}
+$("#scratchpad").wScratchPad({
+	width : 150,
+	height : 40,
+	color : "#a9a9a7",
+	scratchMove : function(){
+		num++;
+		if(num == 2){
+			$.ajax({
+				url: "guaguaka.php?act=getaward&id={$id}&user_id={$userid}",dataType: 'json',type: 'post',
+				success: function(data) {
+
+					goon = false;
+					count ++;
+					credit -= bonus;
+					$("#credit").text(credit);
+					if($("#count").length>0){
+						$("#count").text(parseInt($("#count").text())+1);
+					}
+					if($("#totalcount").length>0){
+						$("#totalcount").text(parseInt($("#totalcount").text())+1)
+					}
+					if(data.success) {
+						$("#drawid").attr("value", data.drawid)
+						$("#sncode").text(data.sn);
+						$("#prize").text(data.name);
+						$("#name").text(data.name + " - " + data.award);
+						$("#result").slideToggle(500);
+					} else {
+						$("#prize").text(data.name);
+						$('#more').show();
+						setTimeout('time_flood()', 1000);
+					}
+				}
+			});
+		}
+
+	}
+});
+{/if}
+//loadingObj.hide();
+	$(".loading-mask").remove();
+});
+
+function time_flood() {
+	flood --;
+	$('#flood').text(flood);
+	if(flood > 0) {
+		setTimeout('time_flood()', 1000);
+	} else {
+
+		$('#more').attr('href', 'guaguaka.php?act=index&id={$id}&timestamp=1');
+	}
+}
+
+$("#save-btn").bind("click", function() {
+	var btn = $(this);
+	var tel = $("#tel").val();
+	if (tel == '') {
+		alert("请输入手机号码");
+		return
+	}
+
+	var submitData = {
+		code: $("#sncode").text(),
+		tel: tel,
+		ac: "settel"
+	};
+	$.post('guaguaka.php?act=settel&id={$id}&user_id=$user_id', submitData, function(data) {
+		if (data.success == true) {
+			alert(data.msg);
+			$("#result").slideUp(500);
+		} else {
+			alert(data.msg);
+		}
+		$('#more').show();
+		setTimeout('time_flood()', 1000);
+		},"json")
+});
+
+
+       
+
+</script>
+
 </html>

@@ -47,7 +47,12 @@
 				<div class="help-block">如果设置只允许抽一次奖的，可写：你已经玩过了，下次再来。 如果设置可多次抽奖，请写：继续努力哦！</div>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动说明</label>
+            <div class="col-sm-9 col-xs-12">
+                <textarea style="height:60px;" id='description' name="description" class="form-control" cols="60">{$reply.description}</textarea>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -145,13 +150,13 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>
-            <div class="col-sm-9 col-xs-12">
-               	<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">
-				<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</div>
-            </div>
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+               	<!--<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">-->
+				<!--<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--<div class="form-group">-->
             <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>显示奖品数量</label>-->
             <!--<div class="col-sm-9 col-xs-12">-->

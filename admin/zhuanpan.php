@@ -66,8 +66,8 @@ $smarty->assign('act',$_REQUEST['act']);
         if (empty($id)) {
 //            message('抱歉，传递的参数错误！', '', 'error');
         }
-        $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.id = ".$id;
-        $total = $GLOBALS['db']->getOne("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.id=" . $id );
+        $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid = ".$id;
+        $total = $GLOBALS['db']->getOne("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " a WHERE a.rid=" . $id );
 //        $pindex = max(1, intval($_REQUEST['page']));
 
 //        $psize = 12;
@@ -76,13 +76,13 @@ $smarty->assign('act',$_REQUEST['act']);
         $limit = " LIMIT {$start},{$psize}";
 
         $sql = 'SELECT `a`.*, `f`.`user_name` FROM ' . $GLOBALS['ecs']->table('bigwheel_award') . ' AS `a` LEFT JOIN ' .
-            $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`id` = '.$id . ' ORDER BY `a`.`id` DESC ' ;
+            $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`rid` = '.$id . ' ORDER BY `a`.`id` DESC ' ;
         $list =  $GLOBALS['db']->getAll($sql);
 
         //一些参数的显示
         $num1 =  $GLOBALS['db']->getOne("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id =".$id);
-        $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id ." and status=1");
-        $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id ." and status=2");
+        $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$id ." and status=1");
+        $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE rid =".$id ." and status=2");
         $smarty->assign('total',$total);
         $smarty->assign('num1',$num1);
         $smarty->assign('num2',$num2);
