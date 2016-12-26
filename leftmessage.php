@@ -106,9 +106,13 @@ if ($action == 'default')
             $smarty->assign('next_rank_name', sprintf($_LANG['next_level'], $rank['next_rank'] ,$rank['next_rank_name']));
         }
     }
-    $smarty->assign('info',        get_user_default($user_id));
+    $curr_userid = $_SESSION['user_id'];
+    $sql="SELECT mobile_phone FROM ".$GLOBALS['ecs']->table('users')."WHERE user_id=$curr_userid";
+    $mobile_phone = $db->getOne($sql);
+    // $smarty->assign('info',        get_user_default($user_id));
     $smarty->assign('user_name',        $_SESSION['user_name']);
-    $smarty->assign('user_notice', $_CFG['user_notice']);
+    $smarty->assign('mobile_phone2',        $mobile_phone);
+    // $smarty->assign('user_notice', $_CFG['user_notice']);
     $smarty->assign('prompt',      get_user_prompt($user_id));
     $smarty->display('leftmessage.dwt');
 }
@@ -143,9 +147,9 @@ if ($action == 'register')
     //echo md5("jiayongze");
     /* 增加是否关闭注册 */
     $smarty->assign('shop_reg_closed', $_CFG['shop_reg_closed']);
-//    $smarty->assign('back_act', $back_act);
+
     $smarty->display('register.dwt');
-//    $smarty->display('user_passport.dwt');
+
 }
 
 //用户注册成功页
@@ -191,15 +195,14 @@ if ($action == 'act_add_message')
     $user_username = !empty($_SESSION['user_name']) ? $_SESSION['user_name'] : 0;
         $message = array(
         'user_id'     => $user_id,
-        'user_username' => $user_username,
         'user_name'   => $user_name,
         'user_email' => $user_email,
         'user_telphone'  => $user_phone,
-        //'msg_type'    => isset($_POST['msg_type']) ? intval($_POST['msg_type'])     : 0,
+        'msg_type'    => isset($_POST['msg_type']) ? intval($_POST['msg_type'])     : 0,
         'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '问题描述',
         'msg_content' => isset($_POST['msg_content']) ? trim($_POST['msg_content']) : '',
-        //'order_id'    => 0,
-        //'msg_area'    => 1,
+        'order_id'    => 0,
+        'msg_area'    => 1,
         'upload'      => array()
     );
 
