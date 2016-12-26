@@ -1,16 +1,21 @@
 {include file="pageheader.htm"}
 {include file="common.htm"}
+{insert_scripts files="validator.js,../js/utils.js"}
+
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
 <ul class="nav nav-tabs">
     <li{if $act == 'manage' } class="active"{/if}><a href="zhuanpan.php?act=manage">大转盘管理</a></li>
     <li{if $act == 'post'} class="active"{/if}><a href="zhuanpan.php?act=post">添加大转盘规则</a></li>
 </ul>
 
-<form id="reply-form" class="form-horizontal form" action="zhuanpan.php?act=post&rid=0" method="post" enctype="multipart/form-data">
+<form id="reply-form" class="form-horizontal form" action="zhuanpan.php?act=post" method="post" enctype="multipart/form-data">
 
 <div class="form-group">
 <div class="col-sm-12">
 
-<input type="hidden" name="reply_id" value="{$reply.id}" />
+<input type="hidden" name="id" value="{$reply.id}" />
 <div class="panel panel-default">
     <div class="panel-heading">
         活动设置
@@ -22,7 +27,20 @@
                	<input type="text" id="title" class="form-control" placeholder="" name="title" value="{$reply.title}">
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动开始时间</label>
+            <div class="col-sm-9 col-xs-12">
+                <!--{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$reply['starttime']),'endtime'=>date('Y-m-d',$reply['endtime'])))}-->
+                <input name="starttime" type="text" id="starttime" size="22" value="{$reply.starttime}" readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('starttime', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');" value="{$lang.btn_select}" class="button"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动结束时间</label>
+            <div class="col-sm-9 col-xs-12">
+                <!--{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$reply['starttime']),'endtime'=>date('Y-m-d',$reply['endtime'])))}-->
+                <input name="endtime" type="text" id="endtime" size="22" value="{$reply.endtime}" readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('endtime', '%Y-%m-%d %H:%M', '24', false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
+            </div>
+        </div>
         <!--<div class="form-group">-->
             <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动时间</label>-->
             <!--<div class="col-sm-9 col-xs-12">-->
@@ -36,7 +54,12 @@
 				<div class="help-block">如果设置只允许抽一次奖的，可写：你已经玩过了，下次再来。 如果设置可多次抽奖，请写：继续努力哦！</div>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动说明</label>
+            <div class="col-sm-9 col-xs-12">
+                <textarea style="height:60px;" id='description' name="description" class="form-control" cols="60">{$reply.description}</textarea>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -61,7 +84,7 @@
 							</thead>
 							<tbody id="re-items">
 							<tr id='c_one'>
-								<td><input id="c_type_one" name="c_type_one" type="text" class="form-control" value="{$reply.c_type_one]}" maxlength="10" placeholder='例如:一等奖' style="width:100px;"/></td>
+								<td><input id="c_type_one" name="c_type_one" type="text" class="form-control" value="{$reply.c_type_one}" maxlength="10" placeholder='例如:一等奖' style="width:100px;"/></td>
 								<td><input id="c_name_one" name="c_name_one" type="text" class="form-control" value="{$reply.c_name_one}"  maxlength="50"/></td>
 								<td><input id="c_num_one"  name="c_num_one" type="text" class="form-control" value="{$reply.c_num_one}" /></td>
 								<td><input id="c_rate_one"  name="c_rate_one" type="text" class="form-control" value="{$reply.c_rate_one}" /></td>
@@ -244,7 +267,6 @@ function doDeleteItemImage(obj,id) {
     <div class="col-sm-6">
         <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1" />
         <input type="hidden" name="act" value="{$form_act}" />
-        <input type="hidden" name="id" value="{$ads.ad_id}" />
     </div>
 </div>
 

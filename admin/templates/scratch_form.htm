@@ -1,5 +1,10 @@
 {include file="pageheader.htm"}
 {include file="common.htm"}
+{insert_scripts files="validator.js,../js/utils.js"}
+
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
 <ul class="nav nav-tabs">
     <li{if $act == 'manage' } class="active"{/if}><a href="scratch.php?act=manage">刮刮卡管理</a></li>
     <li{if $act == 'post'} class="active"{/if}><a href="scratch.php?act=post">添加刮刮卡活动</a></li>
@@ -8,7 +13,7 @@
 
 <div class="form-group">
 <div class="col-sm-12">
-<input type="hidden" name="reply_id" value="{$reply.id}" />
+<input type="hidden" name="id" value="{$reply.id}" />
 <div class="panel panel-default">
     <div class="panel-heading">
         活动设置
@@ -22,12 +27,19 @@
         </div>
 
         <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动时间</label>
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动开始时间</label>
             <div class="col-sm-9 col-xs-12">
                	<!--{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$reply['starttime']),'endtime'=>date('Y-m-d',$reply['endtime'])))}-->
+                <input name="starttime" type="text" id="starttime" size="22" value='{$reply.starttime}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('starttime', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');" value="{$lang.btn_select}" class="button"/>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动结束时间</label>
+            <div class="col-sm-9 col-xs-12">
+                <!--{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$reply['starttime']),'endtime'=>date('Y-m-d',$reply['endtime'])))}-->
+                <input name="endtime" type="text" id="endtime" size="22" value='{$reply.endtime}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('endtime', '%Y-%m-%d %H:%M', '24', false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 重复抽奖信息</label>
             <div class="col-sm-9 col-xs-12">
@@ -35,7 +47,12 @@
 				<div class="help-block">如果设置只允许抽一次奖的，可写：你已经玩过了，下次再来。 如果设置可多次抽奖，请写：继续努力哦！</div>
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 活动说明</label>
+            <div class="col-sm-9 col-xs-12">
+                <textarea style="height:60px;" id='description' name="description" class="form-control" cols="60">{$reply.description}</textarea>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -61,7 +78,7 @@
 							</thead>
 							<tbody id="re-items">
                             <tr id='c_one'>
-                                <td><input id="c_type_one" name="c_type_one" type="text" class="form-control" value="{$reply.c_type_one]}" maxlength="10" placeholder='例如:一等奖' style="width:100px;"/></td>
+                                <td><input id="c_type_one" name="c_type_one" type="text" class="form-control" value="{$reply.c_type_one}" maxlength="10" placeholder='例如:一等奖' style="width:100px;"/></td>
                                 <td><input id="c_name_one" name="c_name_one" type="text" class="form-control" value="{$reply.c_name_one}"  maxlength="50"/></td>
                                 <td><input id="c_num_one"  name="c_num_one" type="text" class="form-control" value="{$reply.c_num_one}" /></td>
                                 <td><input id="c_rate_one"  name="c_rate_one" type="text" class="form-control" value="{$reply.c_rate_one}" /></td>
@@ -133,13 +150,13 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>
-            <div class="col-sm-9 col-xs-12">
-               	<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">
-				<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</div>
-            </div>
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>手机号重命名</label>-->
+            <!--<div class="col-sm-9 col-xs-12">-->
+               	<!--<input type="text" id="tel_rename" class="form-control" placeholder="" name="tel_rename" value="{$reply.tel_rename}">-->
+				<!--<div class="help-block">例如：QQ号,微信号,手机号,,邮寄地址! 不懂请默认设置手机号! 此字段主要收集用户的信息方便联系</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--<div class="form-group">-->
             <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>显示奖品数量</label>-->
             <!--<div class="col-sm-9 col-xs-12">-->
@@ -162,15 +179,15 @@
 		Tip.focus("title","请输入活动名称!","right");
 		return false;
    }
-  
-    if($("#ticket_information").isEmpty()){
-		Tip.focus("ticket_information","请输入兑奖信息!","right");
-		return false;
-   }
-   if($("#repeat_lottery_reply").isEmpty()){
-		Tip.focus("repeat_lottery_reply","请输入重复抽奖信息!","right");
-		return false;
-   }
+//
+//    if($("#ticket_information").isEmpty()){
+//		Tip.focus("ticket_information","请输入兑奖信息!","right");
+//		return false;
+//   }
+//   if($("#repeat_lottery_reply").isEmpty()){
+//		Tip.focus("repeat_lottery_reply","请输入重复抽奖信息!","right");
+//		return false;
+//   }
   
    if($("#c_type_one").isEmpty()){	Tip.focus("c_type_one","请输入奖品类别!","left");	return false;  }
    if($("#c_name_one").isEmpty()){	Tip.focus("c_name_one","请输入奖品名称!","bottom");	return false;  }
@@ -198,15 +215,15 @@
      }
 
 
-
-     if($("#sn_rename").isEmpty()){
-		Tip.focus("sn_rename","请输入SN码重命名!","right");
-		return false;
-   }
-   if($("#tel_rename").isEmpty()){
-		Tip.focus("tel_rename","请输入电话重命名!","right");
-		return false;
-   }
+//
+//     if($("#sn_rename").isEmpty()){
+//		Tip.focus("sn_rename","请输入SN码重命名!","right");
+//		return false;
+//   }
+//   if($("#tel_rename").isEmpty()){
+//		Tip.focus("tel_rename","请输入电话重命名!","right");
+//		return false;
+//   }
    return true;
 });
  function moreItem() {
@@ -243,6 +260,7 @@ function doDeleteItemImage(obj,id) {
     </div>
     <div class="col-sm-6">
         <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1" />
+        <input type="hidden" name="act" value="{$form_act}" />
     </div>
 </div>
 

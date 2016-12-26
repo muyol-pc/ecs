@@ -33,12 +33,12 @@
   <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 
 <div class="hl-container">
-  <div class="hl-center hl-crumbs hl-f14">
+  <!-- <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
     <span class="hl-simsun"><a href="">首页</a></span>
     <span class="hl-simsun">&nbsp;&gt;&nbsp;<a href="">活动专区</a>&nbsp;&gt;&nbsp;<a href="">秒杀</a></span>
     <span class="hl-simsun hl-there">&nbsp;&gt;&nbsp;<a href="">西门子</a></span>
-  </div>
+  </div> -->
   <div class="hl-center">
     <div class="hl-product-intro hl-mb30 hl-clearfix">
       <div class="hl-preview hl-fl">

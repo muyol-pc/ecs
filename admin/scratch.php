@@ -36,8 +36,8 @@ if ($_REQUEST['act'] == 'manage') {
     foreach ($list as &$item) {
 //                $item['fansnum'] = $bigwheel['fansnum'];
 //                $item['viewnum'] = $bigwheel['viewnum'];
-        $item['starttime'] = date('Y-m-d H:i', $item['starttime']);
-        $endtime = $item['endtime'] + 86399;
+        $item['starttime'] = date('Y-m-d H:i', strtotime($item['starttime']));
+        $endtime = strtotime($item['endtime']);
         $item['endtime'] = date('Y-m-d H:i', $endtime);
         $nowtime = time();
         if ($item['starttime'] > $nowtime) {
@@ -66,8 +66,8 @@ if ($_REQUEST['act'] == 'manage') {
     if (empty($id)) {
 //            message('抱歉，传递的参数错误！', '', 'error');
     }
-    $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.id = ".$id;
-    $total = $GLOBALS['db']->getCol("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.id" . $id );
+    $total_sql="SELECT count(a.id) FROM " .  $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.rid = ".$id;
+    $total = $GLOBALS['db']->getOne("SELECT count(a.id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " a WHERE a.rid=" . $id );
 //        $pindex = max(1, intval($_REQUEST['page']));
 //        $psize = 12;
 //        $pager = pagination($total, $pindex, $psize);
@@ -75,17 +75,21 @@ if ($_REQUEST['act'] == 'manage') {
     $limit = " LIMIT {$start},{$psize}";
 
     $sql = 'SELECT `a`.*, `f`.`user_name` FROM ' . $GLOBALS['ecs']->table('scratch_award') . ' AS `a` LEFT JOIN ' .
-        $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`id` = '.$id . ' ORDER BY `a`.`id` DESC ' ;
+        $GLOBALS['ecs']->table('users') . ' AS `f` ON `a`.`from_user` = `f`.`user_name` WHERE `a`.`rid` = '.$id . ' ORDER BY `a`.`id` DESC ' ;
     $list =  $GLOBALS['db']->getAll($sql);
 
     //一些参数的显示
-    $num1 =  $GLOBALS['db']->getCol("SELECT total_num FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id);
-    $num2 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=1");
-    $num3 =  $GLOBALS['db']->getCol("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE id =".$id and "status=2");
-
+    $num1 =  $GLOBALS['db']->getOne("SELECT total_num FROM " . $GLOBALS['ecs']->table('scratch_reply') . " WHERE id =".$id);
+    $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE rid =".$id. " and status=1");
+    $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('scratch_award') . " WHERE rid =".$id. " and status=2");
+    $smarty->assign('total',$total);
+    $smarty->assign('num1',$num1);
+    $smarty->assign('num2',$num2);
+    $smarty->assign('num3',$num3);
+    $smarty->assign('list',$list);
     $smarty->display('scratch_awardlist.htm');//中奖名单
 }else if($_REQUEST['act'] == 'post'){
-    $id = intval($_REQUEST['reply_id']);
+    $id = intval($_REQUEST['id']);
 
     $insert = array(
         'title' => $_REQUEST['title'],
@@ -129,8 +133,8 @@ if ($_REQUEST['act'] == 'manage') {
         'share_desc' => $_REQUEST['share_desc'],
         'share_url' => $_REQUEST['share_url'],
         'share_txt' => $_REQUEST['share_txt'],
-        'starttime' => strtotime($_REQUEST['datelimit']['start']),
-        'endtime' => strtotime($_REQUEST['datelimit']['end']),
+        'starttime' => $_REQUEST['starttime'],
+        'endtime' => $_REQUEST['endtime'],
         'c_rate_one' => $_REQUEST['c_rate_one'],
         'c_rate_two' => $_REQUEST['c_rate_two'],
         'c_rate_three' => $_REQUEST['c_rate_three'],
@@ -140,7 +144,7 @@ if ($_REQUEST['act'] == 'manage') {
     );
     $insert['total_num'] = intval($_REQUEST['c_num_one']) + intval($_REQUEST['c_num_two']) + intval($_REQUEST['c_num_three']) + intval($_REQUEST['c_num_four']) + intval($_REQUEST['c_num_five']) + intval($_REQUEST['c_num_six']);
     if (empty($id)) {
-        if ($insert['starttime'] <= time()) {
+        if (strtotime($insert['starttime']) <= time()) {
             $insert['isshow'] = 1;
         } else {
             $insert['isshow'] = 0;
@@ -151,9 +155,16 @@ if ($_REQUEST['act'] == 'manage') {
 
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     } else {
-        $GLOBALS['db']->autoExecute( $GLOBALS['ecs']->table('scratch_reply'),$insert,'UDPATE','id='.$id);
+        $scratch_sql="SELECT * FROM " . $GLOBALS['ecs']->table('scratch_reply')." WHERE "."id=".$id;
+
+        $reply =  $GLOBALS['db']->getRow($scratch_sql);
+        $smarty->assign('reply',     $reply);
+        if(!empty($insert['title'])) {
+            $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('scratch_reply'), $insert, 'UDPATE', 'id=' . $id);
+        }
 //            ecs_header("Location: zhuanpan.php?act=manage\n");exit;
     }
+    $smarty->assign('reply',     $reply);
     $smarty->assign('form_act',      'post');
     $smarty->assign('action',        'edit');
     $smarty->display('scratch_form.htm');//添加活动
@@ -176,7 +187,7 @@ if(!empty($id)){
         $GLOBALS['db']->query($delete_sql);
 
     }
-    $this->webmessage('规则操作成功！', '', 0);
+    webmessage('规则操作成功！', '', 0);
 } else if($_REQUEST['act'] == 'setshow'){
     $id = intval($_REQUEST['id']);
     $isshow = intval($_REQUEST['isshow']);

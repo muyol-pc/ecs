@@ -63,7 +63,7 @@
           <p class="hl-f30 hl-4a">互动专区</p>
           <p class="hl-f18 hl-93 hl-ups">Interactive activities</p>
         </h2>
-        <a href="guaguaka.php">
+        <a href="guaguaka.php?id=4">
           <img src="images/hl-cj.png" alt=""/>
         </a>
       </li>
