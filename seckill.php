@@ -69,15 +69,22 @@ if ($_REQUEST['act'] == 'list')
     {
         if ($count > 0)
         {
+
             /* 取得当前页的秒杀活动 */
             $gb_list = seckill_list($size, $page);
+            foreach($gb_list as $key=>$value){
+                //获取当前商品已购买总数
+                $goods_buys = $GLOBALS['db']->getOne("SELECT COUNT(a.goods_id) FROM ". $ecs->table('order_goods')." AS a
+                                           INNER JOIN ". $ecs->table('order_info')." AS b ON b.order_id=a.order_id
+                                           WHERE a.goods_id=".$value['goods_id']);
+                $gb_list[$key]['goods_buys'] = $goods_buys;
+            }
             $smarty->assign('gb_list',  $gb_list);
 
             /* 设置分页链接 */
             $pager = get_pager('seckill.php', array('act' => 'list'), $count, $page, $size);
             $smarty->assign('pager', $pager);
         }
-
         /* 模板赋值 */
         $smarty->assign('cfg', $_CFG);
         assign_template();
@@ -132,12 +139,23 @@ elseif ($_REQUEST['act'] == 'view')
 	$seckill['gmt_start_date'] = $seckill['end_date'];
 	$seckill['seckill_price']=intval($seckill['seckill_price']);
 	$smarty->assign('seckill', $seckill);
-    /*echo "<pre>";
-    print_r($seckill);
-    print_r($_LANG);
-    echo "</pre>";*/
+
+
+
 	/* 取得秒杀商品信息 */
 	$goods_id = $seckill['goods_id'];
+
+    //获取关联商品
+    $link_goods = $GLOBALS['db']->getAll("SELECT link_goods_id FROM " . $ecs->table('link_goods') . " WHERE goods_id= $goods_id");
+    $linkGoods  = array();
+    foreach($link_goods as $ks => $vs){
+        $linkGoods[] = $GLOBALS['db']->getRow("SELECT * FROM ". $ecs->table('goods') ." WHERE goods_id=".$vs['link_goods_id']);
+    }
+    //输出关联商品
+    $smarty->assign('linkGoods', $linkGoods);
+    /*echo "<pre>";
+    print_r($linkGoods);
+    echo "</pre>";*/
 
     /* 查询：查询规格名称和值，不考虑价格         */
     $_a = array();
@@ -201,6 +219,12 @@ elseif ($_REQUEST['act'] == 'view')
 	/* 取得商品的规格 */
 	$properties = get_goods_properties($goods_id);
 	$smarty->assign('specification', $properties['spe']); // 商品规格
+	$smarty->assign('attribute', $properties['pro']['商品属性']); // 商品属性
+	$smarty->assign('lnk', $properties['lnk']); // 商品规格
+
+    /*echo "<pre>";
+    print_r($properties['spe']);
+    echo "</pre>";*/
 
 	//模板赋值
 	$smarty->assign('cfg', $_CFG);

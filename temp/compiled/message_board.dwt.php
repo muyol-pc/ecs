@@ -14,8 +14,11 @@
   <?php echo $this->fetch('library/page_header.lbi'); ?>
 
   <?php echo $this->fetch('library/ur_here.lbi'); ?>
-
-  <form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
+<style>
+  .i-box{height: 50px;}
+  .i-box input{line-height: 50px;height: 50px;}
+</style>
+  <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
     <ul>
       <li>
         <span>姓名：</span>
@@ -31,8 +34,18 @@
       </li>
       <li>
         <span>问题描述：</span>
-        <div class="i-box" style="margin-top:5px;"><textarea class="area" name="msg_content"></textarea></div>
+        <div class="i-box" style="margin-top:5px;height: 140px;px"><textarea class="area" name="msg_content" style="width: 100%;"></textarea></div>
       </li>
+      <li>
+        <?php if ($this->_var['enabled_mes_captcha']): ?>
+
+                <span><?php echo $this->_var['lang']['comment_captcha']; ?>：</span>
+              <div class="i-box" style="margin-top:5px;"><input type="text" size="8" name="captcha"  class="inputBg" style="width: 303px;height: 50px;line-height: 50px"/>
+                <img src="captcha.php?<?php echo $this->_var['rand']; ?>" alt="captcha" style="cursor: pointer;float:right;" onClick="this.src='captcha.php?'+Math.random()" />
+              </div>
+            <?php endif; ?>
+      </li>
+
       <li class="btn">
         <span></span>
         <div class="i-box"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>

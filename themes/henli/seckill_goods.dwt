@@ -357,7 +357,16 @@
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-          <li>
+            <!--{foreach from=$linkGoods key=keys item=linkitem}-->
+                <li>
+                    <a class="hl-p-img hl-disp-b" href=""><img src="{$linkitem.goods_thumb}" alt=""></a>
+                    <div class="hl-price">
+                      <strong class="hl-disp-b hl-ups hl-f24">&yen; {$linkitem.shop_price}</strong>
+                      <a class="hl-name hl-f14 hl-72" href="">{$linkitem.goods_name}</a>
+                    </div>
+                  </li>
+            <!--{/foreach}-->
+          <!--<li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/inc/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
@@ -377,7 +386,7 @@
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
               <a class="hl-name hl-f14 hl-72" href="">西门子(SIEMENS) BCD-610W(KA92NV03TI) 610升 对开门冰箱(浅金</a>
             </div>
-          </li>
+          </li>-->
         </ul>
       </div>
       <div class="hl-product-detail hl-fr">
@@ -395,28 +404,29 @@
                 <a class="hl-fr" href="">更多参数</a>
               </div>
               <ul class="hl-tab-table hl-f12 hl-clearfix">
-                <li>颜色：浅金色</li>
-                <li>面板类型：金属</li>
-                <li>制冷方式：冷风</li>
-                <li>控温方式：电脑控温</li>
-                <li>日耗电量：1.35</li>
-                <li>国家能效等级：2级</li>
-                <li>日冷冻能力：12千克</li>
-                <li>除霜模式：自动</li>
-                <li>总有效容积：610升</li>
+                <!-- {foreach from=$attribute item=attributev} 商品属性 -->
+                    <li>{$attributev.name}：{$attributev.value}</li>
+                <!--{/foreach}  end-->
+                <!-- {foreach from=$lnk item=lnkv} 商品规格 -->
+                    <li>{$lnkv.name}：{$lnkv.value}</li>
+                <!--{/foreach}  end-->
+                    <!--<li>颜色：浅金色</li>
+                    <li>面板类型：金属</li>
+                    <li>制冷方式：冷风</li>
+                    <li>控温方式：电脑控温</li>
+                    <li>日耗电量：1.35</li>
+                    <li>国家能效等级：2级</li>
+                    <li>日冷冻能力：12千克</li>
+                    <li>除霜模式：自动</li>
+                    <li>总有效容积：610升</li>-->
               </ul>
             </div>
             <div class="hl-product-pics">
-              <p>
-                <img src="themes/henli/inc/img/hl-product-6.png" alt="">
-              </p>
-              <p>
-                <img src="themes/henli/inc/img/hl-product-7.png" alt="">
-              </p>
+              {$seckill.seckill_content}
             </div>
           </div>
           <div class="hl-tab-con-item">
-            <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
+            <!--<table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
               <tbody>
                 <tr>
                   <th colspan="3">包裹清单</th>
@@ -427,13 +437,13 @@
                   <td class="hl-err"></td>
                 </tr>
               </tbody>
-            </table>
+            </table>-->
             <table id="hl-item-parameter" class="hl-pro-para-tbl hl-f12">
               <tbody>
                 <tr>
                   <th colspan="3">主体参数</th>
                 </tr>
-                <tr>
+                <!--<tr>
                   <td class="name">
                     <div class="name-inner">
                     <span>商品名称</span>
@@ -441,8 +451,19 @@
                   </td>
                   <td class="hl-val">西门子冰箱BCD-610W(KA92NV03TI)</td>
                   <td class="hl-err"></td>
-                </tr>
-              <tr>
+                </tr>-->
+                <!-- {foreach from=$attribute item=attributev} 商品属性 -->
+                    <tr>
+                      <td class="name">
+                        <div class="name-inner">
+                        <span>{$attributev.name}</span>
+                      </div>
+                      </td>
+                      <td class="hl-val">{$attributev.value}</td>
+                      <td class="hl-err"></td>
+                    </tr>
+                <!--{/foreach}  end-->
+              <!--<tr>
                 <td class="name">
                   <div class="name-inner">
                     <span>品牌</span>
@@ -541,10 +562,10 @@
                 <td class="hl-val">四口及以上</td>
                 <td class="hl-err"></td>
               </tr>
-              <tr>
+              <tr>-->
                 <th colspan="3">基本参数</th>
               </tr>
-              <tr>
+              <!--<tr>
                 <td class="name">
                   <div class="name-inner">
                     <span>电压/频率</span>
@@ -552,8 +573,19 @@
                 </td>
                 <td class="hl-val">220V/50Hz</td>
                 <td class="hl-err"></td>
-              </tr>
-              <tr>
+              </tr>-->
+              <!-- {foreach from=$lnk item=lnkv} 商品规格 -->
+                  <tr>
+                      <td class="name">
+                        <div class="name-inner">
+                          <span>{$lnkv.name}</span>
+                        </div>
+                      </td>
+                      <td class="hl-val">{$lnkv.value}</td>
+                      <td class="hl-err"></td>
+                    </tr>
+              <!--{/foreach}  end-->
+              <!--<tr>
                 <td class="name">
                   <div class="name-inner">
                     <span>制冷方式</span>
@@ -666,8 +698,8 @@
                 </td>
                 <td class="hl-val">42dB</td>
                 <td class="hl-err"></td>
-              </tr>
-              <tr>
+              </tr>-->
+              <!--<tr>
                 <th colspan="3">功能参数</th>
               </tr>
               <tr>
@@ -733,8 +765,8 @@
                 </td>
                 <td class="hl-val">非智能</td>
                 <td class="hl-err"></td>
-              </tr>
-              <tr>
+              </tr>-->
+              <!--<tr>
                 <th colspan="3">规格参数</th>
               </tr>
               <tr>
@@ -795,7 +827,7 @@
                 </td>
                 <td class="hl-val">975*790*1840毫米</td>
                 <td class="hl-err"></td>
-              </tr>
+              </tr>-->
               </tbody>
             </table>
           </div>

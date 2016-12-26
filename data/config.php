@@ -3,6 +3,7 @@
 $db_host   = "localhost:3306";
 
 $db_name   = "ecshop2";
+// $db_name   = "esc";
 
 // database username
 $db_user   = "root";

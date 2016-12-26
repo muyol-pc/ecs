@@ -13,7 +13,10 @@
   <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
   <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-
+<style>
+  .i-box{height: 50px;}
+  .i-box input{line-height: 50px;height: 50px;}
+</style>
   <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
     <ul>
       <li>
@@ -30,8 +33,18 @@
       </li>
       <li>
         <span>问题描述：</span>
-        <div class="i-box" style="margin-top:5px;"><textarea class="area" name="msg_content"></textarea></div>
+        <div class="i-box" style="margin-top:5px;height: 140px;px"><textarea class="area" name="msg_content" style="width: 100%;"></textarea></div>
       </li>
+      <li>
+        <!-- 判断是否启用验证码{if $enabled_mes_captcha} -->
+
+                <span>{$lang.comment_captcha}：</span>
+              <div class="i-box" style="margin-top:5px;"><input type="text" size="8" name="captcha"  class="inputBg" style="width: 303px;height: 50px;line-height: 50px"/>
+                <img src="captcha.php?{$rand}" alt="captcha" style="cursor: pointer;float:right;" onClick="this.src='captcha.php?'+Math.random()" />
+              </div>
+            <!--{/if}-->
+      </li>
+
       <li class="btn">
         <span></span>
         <div class="i-box"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
