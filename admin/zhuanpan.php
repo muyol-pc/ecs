@@ -36,8 +36,8 @@ $smarty->assign('act',$_REQUEST['act']);
         foreach ($list as &$item) {
 //                $item['fansnum'] = $bigwheel['fansnum'];
 //                $item['viewnum'] = $bigwheel['viewnum'];
-            $item['starttime'] = date('Y-m-d H:i', $item['starttime']);
-                $endtime = $item['endtime'] + 86399;
+            $item['starttime'] = date('Y-m-d H:i', strtotime($item['starttime']));
+                $endtime = strtotime($item['endtime']);
             $item['endtime'] = date('Y-m-d H:i', $endtime);
                 $nowtime = time();
                 if ($item['starttime'] > $nowtime) {
@@ -187,7 +187,7 @@ $smarty->assign('act',$_REQUEST['act']);
             $GLOBALS['db']->query($delete_sql);
 
         }
-        $this->webmessage('规则操作成功！', '', 0);
+        webmessage('规则操作成功！', '', 0);
     } else if($_REQUEST['act'] == 'setshow'){
         $id = intval($_REQUEST['id']);
         $isshow = intval($_REQUEST['isshow']);
