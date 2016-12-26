@@ -80,9 +80,13 @@ $smarty->assign('act',$_REQUEST['act']);
         $list =  $GLOBALS['db']->getAll($sql);
 
         //一些参数的显示
-//        $num1 =  $GLOBALS['db']->getOne("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id =".$id);
-//        $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id and "status=1");
-//        $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id and "status=2");
+        $num1 =  $GLOBALS['db']->getOne("SELECT total_num FROM " . $GLOBALS['ecs']->table('bigwheel_reply') . " WHERE id =".$id);
+        $num2 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id ." and status=1");
+        $num3 =  $GLOBALS['db']->getOne("SELECT count(id) FROM " . $GLOBALS['ecs']->table('bigwheel_award') . " WHERE id =".$id ." and status=2");
+        $smarty->assign('total',$total);
+        $smarty->assign('num1',$num1);
+        $smarty->assign('num2',$num2);
+        $smarty->assign('num3',$num3);
         $smarty->assign('list',$list);
         $smarty->display('awardlist.htm');//中奖名单
     }else if($_REQUEST['act'] == 'post'){
@@ -130,8 +134,8 @@ $smarty->assign('act',$_REQUEST['act']);
             'share_desc' => $_REQUEST['share_desc'],
             'share_url' => $_REQUEST['share_url'],
             'share_txt' => $_REQUEST['share_txt'],
-            'starttime' => strtotime($_REQUEST['datelimit']['start']),
-            'endtime' => strtotime($_REQUEST['datelimit']['end']),
+            'starttime' => $_REQUEST['starttime'],
+            'endtime' => $_REQUEST['endtime'],
             'c_rate_one' => $_REQUEST['c_rate_one'],
             'c_rate_two' => $_REQUEST['c_rate_two'],
             'c_rate_three' => $_REQUEST['c_rate_three'],
@@ -141,7 +145,7 @@ $smarty->assign('act',$_REQUEST['act']);
         );
         $insert['total_num'] = intval($_REQUEST['c_num_one']) + intval($_REQUEST['c_num_two']) + intval($_REQUEST['c_num_three']) + intval($_REQUEST['c_num_four']) + intval($_REQUEST['c_num_five']) + intval($_REQUEST['c_num_six']);
         if (empty($id)) {
-            if ($insert['starttime'] <= time()) {
+            if (strtotime($insert['starttime']) <= time()) {
                 $insert['isshow'] = 1;
             } else {
                 $insert['isshow'] = 0;
