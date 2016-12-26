@@ -20,7 +20,7 @@ var process_request = "<?php echo $this->_var['lang']['process_request']; ?>";
         <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank"><?php echo $this->_var['user_name']; ?></a>
         <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
         <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'><?php echo $this->_var['car_num']; ?></i></a>
-      <a class="hl-message" href="message.php" target="_blank">在线留言</a>
+      <a class="hl-message" href="leftmessage.php" target="_blank">在线留言</a>
       <a class="hl-message" href="user.php?act=logout">退出</a>
       <?php else: ?>
         <a class="hl-user hl-a3" href="user.php">登录</a>
