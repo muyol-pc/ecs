@@ -29,7 +29,10 @@
   
   <div class="hl-content-right">
     
+<<<<<<< HEAD
     <?php if ($this->_var['step'] == "cart"): ?>
+=======
+>>>>>>> 783b96818cca0461bde7289660cd94dd20103648
     <div class="hl-order">
       <div class="hl-order-header hl-fs-12">
         <span class="hl-order-header-item active">购物车详情</span>
@@ -136,7 +139,11 @@
             <div class="hl-order-fact">
               <span class="hl-order-price-notice">总价：</span>
               <span class="hl-red hl-bold hl-fs-15">&yen;</span>
+<<<<<<< HEAD
               <span class="hl-order-money hl-red hl-fs-15 hl-bold">0.00</span> 
+=======
+              <span class="hl-order-money hl-red hl-fs-15 hl-bold">0.00</span>
+>>>>>>> 783b96818cca0461bde7289660cd94dd20103648
               <img src="" alt="">
             </div>
             <div class="hl-order-save">
@@ -145,11 +152,16 @@
               <span class="hl-order-free hl-bold hl-gray hl-fs-15">0.00</span>
             </div>
           </div>
+<<<<<<< HEAD
           <a class="hl-order-settle hl-bg-red hl-white hl-fs-15" href="flow.php?step=checkout">去结算</a>
+=======
+          <a class="hl-order-settle hl-bg-red hl-white hl-fs-15" href="">去结算</a>
+>>>>>>> 783b96818cca0461bde7289660cd94dd20103648
         </div>
       </div>
       
     </div>
+<<<<<<< HEAD
     <?php endif; ?>
     
   <?php if ($this->_var['step'] == "checkout"): ?>
@@ -543,6 +555,16 @@
   </div>
   
 </div>
+=======
+    
+  </div>
+  
+</div>
+
+
+
+
+>>>>>>> 783b96818cca0461bde7289660cd94dd20103648
 
 </div>
 <br />
