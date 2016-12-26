@@ -54,7 +54,7 @@ a{ text-decoration:none; color:#666}
 .bnt_blue_2{background:url(images/bg.gif) no-repeat 0px -696px; width:139px; height:21px;text-align:center; line-height:22px; color:#333; border:none; cursor:pointer;overflow:hidden}
 .bnt_bonus{background:url(images/bg.gif) no-repeat -56px 0px; width:52px; height:21px;text-align:center; line-height:22px; color:#333; border:none; cursor:pointer;overflow:hidden}*/
 /*box from ec moban*/
-.box_1{border:1px solid #ddd; background-color:#fff;}
+.box_1{padding: 0 40px; background-color:#fff;}
 .box_2{border:1px solid #ddd; background:url(images/box_2Bg.gif) repeat-x top left;background-color:#edf8fe;   }
 .boxCenterList{padding:8px;}
 /*模块标题*/
