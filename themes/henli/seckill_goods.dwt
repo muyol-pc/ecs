@@ -389,7 +389,7 @@
         </div>
         <div class="hl-product-container">
           <div class="hl-tab-con-item hl-curr">
-            <div class="hl-tab-con hl-mb15">
+            <!--<div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
                 <h2 class="hl-f12 hl-66 hl-fl">核心参数</h2>
                 <a class="hl-fr" href="">更多参数</a>
@@ -413,7 +413,8 @@
               <p>
                 <img src="themes/henli/inc/img/hl-product-7.png" alt="">
               </p>
-            </div>
+            </div>-->
+            {$seckill.seckill_content}
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">

@@ -132,10 +132,11 @@ elseif ($_REQUEST['act'] == 'view')
 	$seckill['gmt_start_date'] = $seckill['end_date'];
 	$seckill['seckill_price']=intval($seckill['seckill_price']);
 	$smarty->assign('seckill', $seckill);
+
     /*echo "<pre>";
     print_r($seckill);
-    print_r($_LANG);
     echo "</pre>";*/
+
 	/* 取得秒杀商品信息 */
 	$goods_id = $seckill['goods_id'];
 
@@ -201,6 +202,10 @@ elseif ($_REQUEST['act'] == 'view')
 	/* 取得商品的规格 */
 	$properties = get_goods_properties($goods_id);
 	$smarty->assign('specification', $properties['spe']); // 商品规格
+
+    /*echo "<pre>";
+    print_r($properties['spe']);
+    echo "</pre>";*/
 
 	//模板赋值
 	$smarty->assign('cfg', $_CFG);
