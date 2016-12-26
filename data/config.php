@@ -30,11 +30,9 @@ define('AUTH_KEY', 'this is a key');
 
 define('OLD_AUTH_KEY', '');
 
-<<<<<<< HEAD
+
 define('API_TIME', '2016-12-26 23:34:16');
-=======
-define('API_TIME', '2016-12-26 23:40:55');
->>>>>>> 783b96818cca0461bde7289660cd94dd20103648
+
 
 
 define('STORE_KEY','b74b264e4b020496fe3377e2426e06bd');
