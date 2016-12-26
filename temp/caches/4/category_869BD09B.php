@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:60:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/category.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482691745;s:8:"maketime";i:1482688145;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:4:{i:0;s:60:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/category.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482766117;s:8:"maketime";i:1482762517;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -13,7 +13,9 @@
 <body>
 <link href="" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
 <script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
 <script type="text/javascript">  
 var process_request = "正在处理您的请求...";
 </script>
@@ -29,13 +31,12 @@ var process_request = "正在处理您的请求...";
         <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
           </div>
   </div>
-</div> 
-<script type="text/javascript">
+</div><script type="text/javascript">
 var process_request = "正在处理您的请求...";
 </script>
 <div class="hl-header hl-header-bottom">
-  <div class="hl-center hl-nav"> 
-    <a class="hl-logo hl-mr10" href=""></a>
+  <div class="hl-center hl-nav">
+    <a class="hl-logo hl-mr10" href="index.php"></a>
     <a class="hl-mr20" href="" target="_blank">西门子家电</a>
     <a class="hl-mr20" href="" target="_blank">展望未来</a>
     <div class="hl-search hl-f0">

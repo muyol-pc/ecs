@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/index.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:68:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/index_ad.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482690962;s:8:"maketime";i:1482687362;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/index.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:68:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/index_ad.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482766113;s:8:"maketime";i:1482762513;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
@@ -9,13 +9,15 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
-<link href="" rel="stylesheet" type="text/css" /> 
+<link href="" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/index.js"></script>
 </head>
 <body class="index_page" style="min-width:1100px;">
 <link href="" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
 <script type="text/javascript">  
 var process_request = "正在处理您的请求...";
 </script>
@@ -31,13 +33,12 @@ var process_request = "正在处理您的请求...";
         <a class="hl-user-center" href="user.php?act=register" target="_blank">注册</a>
           </div>
   </div>
-</div> 
-<script type="text/javascript">
+</div><script type="text/javascript">
 var process_request = "正在处理您的请求...";
 </script>
 <div class="hl-header hl-header-bottom">
-  <div class="hl-center hl-nav"> 
-    <a class="hl-logo hl-mr10" href=""></a>
+  <div class="hl-center hl-nav">
+    <a class="hl-logo hl-mr10" href="index.php"></a>
     <a class="hl-mr20" href="" target="_blank">西门子家电</a>
     <a class="hl-mr20" href="" target="_blank">展望未来</a>
     <div class="hl-search hl-f0">
@@ -122,7 +123,7 @@ var process_request = "正在处理您的请求...";
           <p class="hl-f30 hl-4a">互动专区</p>
           <p class="hl-f18 hl-93 hl-ups">Interactive activities</p>
         </h2>
-        <a href="">
+        <a href="guaguaka.php?id=4">
           <img src="themes/henli/images/hl-cj.png" alt=""/>
         </a>
       </li>
@@ -131,7 +132,7 @@ var process_request = "正在处理您的请求...";
           <p class="hl-f30 hl-4a">在线留言</p>
           <p class="hl-f18 hl-93 hl-ups">Online message</p>
         </h2>
-        <a href="message.php">
+        <a href="leftmessage.php">
           <img src="themes/henli/images/hl-pc.png" alt=""/>
         </a>
       </li>
@@ -140,7 +141,7 @@ var process_request = "正在处理您的请求...";
           <p class="hl-f30 hl-4a">关于我们</p>
           <p class="hl-f18 hl-93 hl-ups">About us</p>
         </h2>
-        <a href="">
+        <a href="article.php?id=5">
           <img src="themes/henli/images/hl-bx.png" alt=""/>
         </a>
       </li>
@@ -165,6 +166,5 @@ var process_request = "正在处理您的请求...";
 <div class="hl-footer hl-f14 hl-44 hl-tc">
   <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
   苏ICP备10003401号
-</div>
-</body>
+</div></body>
 </html>

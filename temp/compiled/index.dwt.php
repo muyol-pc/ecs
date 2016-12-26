@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="<?php echo $this->_var['ecs_css_path']; ?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo $this->_var['ecs_css_app_path']; ?>" rel="stylesheet" type="text/css" /> 
+<link href="<?php echo $this->_var['ecs_css_app_path']; ?>" rel="stylesheet" type="text/css" />
 
 
 
@@ -68,7 +68,7 @@ if ($this->_foreach['ad']['total'] > 0):
           <p class="hl-f30 hl-4a">互动专区</p>
           <p class="hl-f18 hl-93 hl-ups">Interactive activities</p>
         </h2>
-        <a href="">
+        <a href="guaguaka.php?id=4">
           <img src="themes/henli/images/hl-cj.png" alt=""/>
         </a>
       </li>
@@ -77,7 +77,7 @@ if ($this->_foreach['ad']['total'] > 0):
           <p class="hl-f30 hl-4a">在线留言</p>
           <p class="hl-f18 hl-93 hl-ups">Online message</p>
         </h2>
-        <a href="message.php">
+        <a href="leftmessage.php">
           <img src="themes/henli/images/hl-pc.png" alt=""/>
         </a>
       </li>
@@ -86,7 +86,7 @@ if ($this->_foreach['ad']['total'] > 0):
           <p class="hl-f30 hl-4a">关于我们</p>
           <p class="hl-f18 hl-93 hl-ups">About us</p>
         </h2>
-        <a href="">
+        <a href="article.php?id=5">
           <img src="themes/henli/images/hl-bx.png" alt=""/>
         </a>
       </li>

@@ -12,7 +12,7 @@
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
-{* 包含脚本文件 *} 
+{* 包含脚本文件 *}
 {insert_scripts files='common.js'}
 {insert_scripts files='transport_jquery.js,utils.js'}
 <script type="text/javascript"  src="js/action.js"></script>
@@ -42,18 +42,18 @@ function reg(str){
 }
 </script>
 </head>
-<body> 
+<body>
 <!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 
 <div class="hl-container">
-  <div class="hl-center hl-crumbs hl-f14">
+  <!-- <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
     <span class="hl-simsun"><a href="">首页</a></span>
     <span class="hl-simsun">&nbsp;&gt;&nbsp;<a href="">活动专区</a>&nbsp;&gt;&nbsp;<a href="">秒杀</a></span>
     <span class="hl-simsun hl-there">&nbsp;&gt;&nbsp;<a href="">西门子</a></span>
-  </div>
+  </div> -->
   <div class="hl-center">
 
     <div class="hl-product-intro hl-mb30 hl-clearfix">
@@ -66,7 +66,7 @@ function reg(str){
           <!-- {/foreach} -->
           </ul>
         </div>
-        
+
         <br>
         <!-- 缩略图滚动 -->
         <div class="hl-thumb" style="height:100px;">
@@ -271,7 +271,7 @@ function reg(str){
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
-              
+
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
             <!-- 马上参团：团购详情页输出 -->
