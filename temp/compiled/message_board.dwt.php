@@ -15,7 +15,7 @@
 
   <?php echo $this->fetch('library/ur_here.lbi'); ?>
 
-  <form action="leftmessage.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
+  <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
     <ul>
       <li>
         <span>姓名：</span>
