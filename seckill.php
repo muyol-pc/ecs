@@ -21,6 +21,7 @@ if ((DEBUG_MODE & 2) != 2)
 {
     $smarty->caching = true; 
 }
+
 // 登陆验证
 if ($_SESSION['user_id'] < 0) {
     ecs_header('Location:user.php?act=login');
@@ -124,6 +125,8 @@ elseif ($_REQUEST['act'] == 'view')
 //        header("Location: ./\n");
 //        exit;
 //    }
+
+
 
 	$seckill['gmt_end_date'] = $seckill['start_date'];
 	$seckill['gmt_start_date'] = $seckill['end_date'];
