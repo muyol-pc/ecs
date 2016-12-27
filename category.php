@@ -46,7 +46,8 @@ else
 $smarty->assign('user_name',$_SESSION['user_name']);
 /* 初始化分页信息 */
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
-$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+//$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+$size = 3;//test zhongyuzhi
 $brand = isset($_REQUEST['brand']) && intval($_REQUEST['brand']) > 0 ? intval($_REQUEST['brand']) : 0;
 $price_max = isset($_REQUEST['price_max']) && intval($_REQUEST['price_max']) > 0 ? intval($_REQUEST['price_max']) : 0;
 $price_min = isset($_REQUEST['price_min']) && intval($_REQUEST['price_min']) > 0 ? intval($_REQUEST['price_min']) : 0;
@@ -387,8 +388,8 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
     $smarty->assign('categories',       get_categories_tree($cat_id)); // 分类树
-    $smarty->assign('helps',            get_shop_help());              // 网店帮助
-    $smarty->assign('top_goods',        get_top10());                  // 销售排行
+//    $smarty->assign('helps',            get_shop_help());              // 网店帮助
+//    $smarty->assign('top_goods',        get_top10());                  // 销售排行
     $smarty->assign('show_marketprice', $_CFG['show_marketprice']);
     $smarty->assign('category',         $cat_id);
     $smarty->assign('brand_id',         $brand);
@@ -419,16 +420,16 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 
 
     /* 调查 */
-    $vote = get_vote();
-    if (!empty($vote))
-    {
-        $smarty->assign('vote_id',     $vote['id']);
-        $smarty->assign('vote',        $vote['content']);
-    }
+//    $vote = get_vote();
+//    if (!empty($vote))
+//    {
+//        $smarty->assign('vote_id',     $vote['id']);
+//        $smarty->assign('vote',        $vote['content']);
+//    }
 
-    $smarty->assign('best_goods',      get_category_recommend_goods('best', $children, $brand, $price_min, $price_max, $ext));
+//    $smarty->assign('best_goods',      get_category_recommend_goods('best', $children, $brand, $price_min, $price_max, $ext));
     $smarty->assign('promotion_goods', get_category_recommend_goods('promote', $children, $brand, $price_min, $price_max, $ext));
-    $smarty->assign('hot_goods',       get_category_recommend_goods('hot', $children, $brand, $price_min, $price_max, $ext));
+//    $smarty->assign('hot_goods',       get_category_recommend_goods('hot', $children, $brand, $price_min, $price_max, $ext));
 
     $count = get_cagtegory_goods_count($children, $brand, $price_min, $price_max, $ext);
     $max_page = ($count> 0) ? ceil($count / $size) : 1;

@@ -74,7 +74,7 @@
                   <ul class="hl-v-list hl-tc">
                     <!--{foreach from=$filter_attr.attr_list item=att_val}-->
 
-                        <li class=""><a class="hl-type-1" href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                        <li class=""><a class="hl-type-1" href="{$att_val.url}" {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
 
                     <!--{/foreach}-->
                   </ul>
@@ -97,7 +97,7 @@
 
                     <div class="hl-value">
                     <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                        <a href="{$att_val.url}"><span>{$att_val.attr_value}</span></a>
+                        <a href="{$att_val.url}" {if $att_val.selected} style="color: #ff8a00;"{/if}><span>{$att_val.attr_value}</span></a>
                         <!--{/foreach}-->
 
                      </div>
@@ -120,7 +120,7 @@
                 <div class="hl-value">
                 <!--{foreach from=$price_grade item=grade}-->
 
-                  <a href="{$grade.url}">{$grade.price_range}</a>
+                  <a href="{$grade.url}" {if $grade.selected} style="color: #ff8a00;"{/if}>{$grade.price_range}</a>
 
                 <!--{/foreach}-->
                 </div>
@@ -138,7 +138,7 @@
               <div class="hl-value">
 
                   <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                       <a href="{$att_val.url}"><span>{$att_val.attr_value}</span></a>
+                       <a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}><span>{$att_val.attr_value}</span></a>
                        <!--{/foreach}-->
 
                 </div>
@@ -189,7 +189,7 @@
                             <ul class="hl-son-list clearall">
 
                              <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                                 <li><a href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                                 <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
                              <!--{/foreach}-->
                              </ul>
                          <!--{/if}-->
@@ -202,7 +202,7 @@
                         <ul class="hl-son-list clearall">
 
                              <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                               <li><a href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                               <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
                              <!--{/foreach}-->
                         </ul>
                      <!--{/if}-->
@@ -214,7 +214,7 @@
                            <a href="">{$filter_attr.filter_attr_name}</a>
                            <ul class="hl-son-list clearall">
                                 <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                                  <li><a href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                                  <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
                                 <!--{/foreach}-->
                            </ul>
                         <!--{/if}-->
@@ -227,7 +227,7 @@
                           <ul class="hl-son-list clearall">
 
                                <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                                 <li><a href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                                 <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
                                <!--{/foreach}-->
                           </ul>
                        <!--{/if}-->
@@ -240,7 +240,7 @@
                            <ul class="hl-son-list clearall">
 
                                 <!--{foreach from=$filter_attr.attr_list item=att_val}-->
-                                  <li><a href="{$att_val.url}">{$att_val.attr_value}</a></li>
+                                  <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
                                 <!--{/foreach}-->
                            </ul>
                         <!--{/if}-->
@@ -292,13 +292,10 @@
       {/foreach}
 
       </ul>
-      <div class="hl-page hl-f0 hl-tr">
-        <a class="hl-prev" href="javascript:;">&lt;</a>
-        <a href="javascript:;">1</a>
-        <a class="hl-curr" href="javascript:;">2</a>
-        <a href="javascript:;">3</a>
-        <a class="hl-next" href="javascript:;">&gt;</a>
-      </div>
+
+        <div class="hl-page">
+            <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+        </div>
     </div>
   </div>
 </div>
