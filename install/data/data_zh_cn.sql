@@ -4501,7 +4501,7 @@ INSERT INTO `ecs_ad_position` (`position_id`, `position_name`, `ad_width`, `ad_h
 
 INSERT INTO `ecs_template` (`filename`, `region`, `library`, `sort_order`, `id`, `number`, `type`, `theme`) VALUES
 ('index', '全宽行', '/library/cat_goods.lbi', 0, '132', 6, 1, 'henli');
-UPDATE `ecs_admin_user` SET  `nav_list` = '商品列表|goods.php?act=list,订单列表|order.php?act=list,商店设置|shop_config.php?act=list_edit,移动版|lead.php?act=list,服务市场|service_market.php' WHERE  `ecs_admin_user`.`user_id` =1;
+UPDATE `ecs_admin_user` SET  `nav_list` = '商品列表|goods.php?act=list,订单列表|order.php?act=list,商店设置|shop_config.php?act=list_edit' WHERE  `ecs_admin_user`.`user_id` =1;
 
 
 -- ----------------------------
