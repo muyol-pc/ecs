@@ -198,7 +198,7 @@ function add_message($message)
             " (msg_id, parent_id, user_id, user_name, user_email, msg_title, msg_type, msg_status,  msg_content, msg_time, message_img, order_id, msg_area,user_telphone)".
             " VALUES (NULL, 0, '$message[user_id]', '$message[user_name]', '$message[user_email]', ".
             " '$message[msg_title]', '$message[msg_type]', '$status', '$message[msg_content]', '".gmtime()."', '$img_name', '$message[order_id]', '$message[msg_area]', '$message[user_telphone]')";
-    $GLOBALS['db']->query($sql);
+    $re = $GLOBALS['db']->query($sql);
 
     return true;
 }
