@@ -32,7 +32,13 @@ p a{color:#006acd; text-decoration:underline;}
     <h3><span><?php echo $this->_var['lang']['system_info']; ?></span></h3>
     <div class="boxCenterList RelaArticle" align="center">
       <div style="margin:20px auto;">
-      <p style="font-size: 14px; font-weight:bold; color: red;"><?php echo $this->_var['message']['content']; ?></p>
+      <p style="font-size: 14px; font-weight:bold; color: red;">
+      <?php if ($this->_var['msg_err']): ?>
+      <?php echo $this->_var['msg_err']; ?>
+      <?php else: ?>
+      <?php echo $this->_var['message']['content']; ?>
+      <?php endif; ?>
+      </p>
         <div class="blank"></div>
         <?php if ($this->_var['message']['url_info']): ?>
           <?php $_from = $this->_var['message']['url_info']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('info', 'url');if (count($_from)):

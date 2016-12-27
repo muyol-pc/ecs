@@ -16,6 +16,8 @@
 <style>
   .i-box{height: 50px;}
   .i-box input{line-height: 50px;height: 50px;}
+  /*页面留白*/
+  .blank{height:8px; line-height:8px; clear:both; visibility:hidden;}
 </style>
   <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
     <ul>
@@ -47,7 +49,7 @@
 
       <li class="btn">
         <span></span>
-        <div class="i-box"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
+        <div class="i-box" style="height:66px;"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
       </li>
     </ul>
   </form>

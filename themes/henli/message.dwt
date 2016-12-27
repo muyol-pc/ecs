@@ -31,7 +31,13 @@ p a{color:#006acd; text-decoration:underline;}
     <h3><span>{$lang.system_info}</span></h3>
     <div class="boxCenterList RelaArticle" align="center">
       <div style="margin:20px auto;">
-      <p style="font-size: 14px; font-weight:bold; color: red;">{$message.content}</p>
+      <p style="font-size: 14px; font-weight:bold; color: red;">
+      <!-- {if $msg_err} -->
+      {$msg_err}
+      <!--{else}-->
+      {$message.content}
+      <!--{/if}-->
+      </p>
         <div class="blank"></div>
         <!-- {if $message.url_info} -->
           <!--{foreach from=$message.url_info key=info item=url}-->

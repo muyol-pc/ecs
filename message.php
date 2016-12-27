@@ -15,7 +15,8 @@
 
 define('IN_ECS', true);
 
-require(dirname(__FILE__) . '/includes/init.php');
+require(dirname(__FILE__) . '\includes\init.php');
+require(dirname(__FILE__) . '\includes\lib_clips.php');
 
 if (empty($_CFG['message_board']))
 {
@@ -51,22 +52,23 @@ if ($action == 'act_add_message')
         }
     }
 
-    $user_name = htmlspecialchars(trim($_POST['name']));
-    $phone = htmlspecialchars(trim($_POST['phone']));
-    // var_dump($phone);exit;
+    $user_name = htmlspecialchars(trim($_POST['msg_name']));
+    $phone = htmlspecialchars(trim($_POST['msg_phone']));
+    $msg_email = htmlspecialchars(trim($_POST['msg_email']));
+
     $user_id = !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
     $message = array(
         'user_id'     => $user_id,
         'user_name'   => $user_name,
         'user_telphone'  => $phone,
+        'user_email'   =>$msg_email,
         'msg_type'    => isset($_POST['msg_type']) ? intval($_POST['msg_type'])     : 0,
-        'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '',
+        'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '问题描述',
         'msg_content' => isset($_POST['msg_content']) ? trim($_POST['msg_content']) : '',
         'order_id'    => 0,
         'msg_area'    => 1,
         'upload'      => array()
      );
-
     if (add_message($message))
     {
         if (intval($_CFG['captcha']) & CAPTCHA_MESSAGE)
@@ -82,6 +84,7 @@ if ($action == 'act_add_message')
     }
     else
     {
+        $smarty->assign('msg_err',  '留言发表失败');
         $err->show($_LANG['message_list_lnk'], 'message.php');
     }
 }
