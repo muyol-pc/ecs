@@ -228,7 +228,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 
     foreach ($brands AS $key => $val)
     {
-        $temp_key = $key + 1;
+        $temp_key = $key;
         $brands[$temp_key]['brand_name'] = $val['brand_name'];
         $brands[$temp_key]['brand_logo'] = $val['brand_logo'];
         $brands[$temp_key]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => $val['brand_id'], 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
@@ -244,29 +244,30 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
         }
     }
 
-    $brands[0]['brand_name'] = $_LANG['all_attribute'];
-     $brands[0]['brand_logo']='';
-    $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
-    $brands[0]['selected'] = empty($brand) ? 1 : 0;
-
+//    $brands[0]['brand_name'] = $_LANG['all_attribute'];
+//     $brands[0]['brand_logo']='';
+//    $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
+//    $brands[0]['selected'] = empty($brand) ? 1 : 0;
+//    var_dump($brands);exit;
+    $smarty->assign('brand_msg', $brands);
 /*-----------自定义查询品牌分类-----------------2016-1225-22:17------start----------------------------------*/
 
 //第一步 根据catid查询goods表，该分类对应那些产品，这些产品对应了那些品牌
 //$cat_id 分类id   distinct
-$sql="SELECT distinct(brand_id) from". $GLOBALS['ecs']->table('goods')."where cat_id=$cat_id";
-$brand_ids = $GLOBALS['db']->getAll($sql);
-$n_brands_ids = array();
-foreach ($brand_ids as $key => $value) {
-    foreach ($value as $va) {
-        $n_brands_ids[] = $va;
-    }
-}
-//得到了品牌的id,转换成一个字符串，丢到 in 查询
-$str_brands_ids = implode(',',$n_brands_ids);
-$sql2 = "select brand_id,brand_name,brand_logo from". $GLOBALS['ecs']->table('brand')."where is_show=1 and brand_id in($str_brands_ids)";
-$brand_names = $GLOBALS['db']->getAll($sql2);
-//查询遍历得到品牌数组----输出
-$smarty->assign('brand_msg', $brand_names);
+//$sql="SELECT distinct(brand_id) from". $GLOBALS['ecs']->table('goods')."where cat_id=$cat_id";
+//$brand_ids = $GLOBALS['db']->getAll($sql);
+//$n_brands_ids = array();
+//foreach ($brand_ids as $key => $value) {
+//    foreach ($value as $va) {
+//        $n_brands_ids[] = $va;
+//    }
+//}
+////得到了品牌的id,转换成一个字符串，丢到 in 查询
+//$str_brands_ids = implode(',',$n_brands_ids);
+//$sql2 = "select brand_id,brand_name,brand_logo from". $GLOBALS['ecs']->table('brand')."where is_show=1 and brand_id in($str_brands_ids)";
+//$brand_names = $GLOBALS['db']->getAll($sql2);
+////查询遍历得到品牌数组----输出
+//$smarty->assign('brand_msg', $brand_names);
 
 // $sql = "SELECT distinct(brand_id), brand_name, brand_logo ".
 //                    " FROM " . $GLOBALS['ecs']->table('category');

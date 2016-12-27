@@ -291,12 +291,12 @@ function reg(str){
           <li>
             <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.id}"><img src="{$goods.goods_img}" alt=""></a>
             <div class="hl-price">
-             价格暂定
+             {$goods.shop_price}
               <strong class="hl-disp-b hl-ups hl-f24">
                {if $goods.promote_price neq ""}
-      价格暂定
+     {$goods.market_price}
        {else}
-      价格暂定
+     {$goods.promote_price}
       {/if}
       </strong>
               <a class="hl-name hl-f14 hl-72" href="{$goods.url}">{$goods.short_style_name}</a>

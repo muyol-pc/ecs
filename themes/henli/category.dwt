@@ -39,8 +39,7 @@
              -->
             <ul>
               <!--{foreach from=$brand_msg item=brand}-->
-              <li style="margin:0 10px;"><a href="">
-              <input type="hidden" name="brandids" id="brandids" value="{$brand.brand_id}"/>
+              <li style="margin:0 10px;"><a href="{$brand.url}" {if $brand.selected} style="border: 1px solid #ff8a00;"{/if}>
               {if $brand.brand_logo}<img src="data/brandlogo/{$brand.brand_logo}" width="107" height="50" alt="{$brand.brand_name}" title="{$brand.brand_name}">
                   {else}{$brand.brand_name}{/if}
               </a></li>
@@ -271,7 +270,7 @@
         <li>
           <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.goods_id}"><img src="{$goods.goods_img}" alt=""></a>
           <div class="hl-price">
-            <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+            <strong class="hl-disp-b hl-ups hl-f24">{$goods.shop_price}</strong>
             <a class="hl-name hl-f14 hl-72" href="">{$goods.goods_name}</a>
           </div>
         </li>
@@ -284,7 +283,7 @@
       <li>
                 <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id={$goods.goods_id}"><img src="{$goods.goods_img}" alt=""></a>
                 <div class="hl-price hl-mt10">
-                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <strong class="hl-disp-b hl-ups hl-f24">{$goods.shop_price}</strong>
                   <a class="hl-name hl-f14 hl-72" href="">{$goods.goods_name}</a>
                 </div>
               </li>

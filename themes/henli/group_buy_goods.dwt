@@ -95,7 +95,7 @@
           </div> -->
           <!-- 如果是秒杀详情页：输出价格 -->
           <!-- <div class="hl-price hl-f18">
-            价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
+            价格 <strong class="hl-f30 hl-fmr">{$goods.shop_price}</strong>
           </div> -->
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div class="hl-dt">送　　至</div>
@@ -291,12 +291,12 @@
           <li>
             <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.id}"><img src="{$goods.goods_img}" alt=""></a>
             <div class="hl-price">
-             价格暂定
+             {$goods.shop_price}
               <strong class="hl-disp-b hl-ups hl-f24">
                {if $goods.promote_price neq ""}
-      价格暂定
+      {$goods.market_price}
        {else}
-      价格暂定
+      {$goods.promote_price}
       {/if}
       </strong>
               <a class="hl-name hl-f14 hl-72" href="{$goods.url}">{$goods.short_style_name}</a>

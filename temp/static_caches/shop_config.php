@@ -1,9 +1,9 @@
 <?php
 $data = array (
-  'shop_name' => 'ECSHOP',
-  'shop_title' => 'ECSHOP演示站',
-  'shop_desc' => 'ECSHOP演示站',
-  'shop_keywords' => 'ECSHOP演示站',
+  'shop_name' => '西门子家电',
+  'shop_title' => '西门子家电',
+  'shop_desc' => '西门子家电',
+  'shop_keywords' => '西门子家电',
   'shop_country' => '1',
   'shop_province' => '2',
   'shop_city' => '52',
@@ -57,7 +57,7 @@ $data = array (
   'message_board' => '1',
   'certificate_id' => '',
   'token' => '',
-  'certi' => 'http://service.shopex.cn/openapi/api.php',
+//  'certi' => 'http://service.shopex.cn/openapi/api.php',
   'send_verify_email' => '0',
   'ent_id' => '',
   'ent_ac' => '',
