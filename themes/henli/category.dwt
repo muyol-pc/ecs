@@ -195,7 +195,7 @@
               })
           </script>
           <ul class="hl-v-tab">
-            <li class="hl-open">
+            <li><!-- class="hl-open"-->
                 <a href="javascript:;">{$attrs_ok.4.attr_name}</a>
                 <ul class="hl-son-list clearall">
                     <!--{foreach from=$attrs_ok[4]['attr_values'] item=att_val}-->
