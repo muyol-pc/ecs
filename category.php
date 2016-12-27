@@ -211,7 +211,6 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
         $price_grade[0]['selected'] = empty($price_max) ? 1 : 0;
 
         $smarty->assign('price_grade',     $price_grade);
-
     }
 
 
@@ -277,29 +276,30 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 
 /*----------------------------2016-1225-22:17------end----------------------------------*/
 /*---已知-$cat_id-------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------start----------------------------------*/
-$sql3="SELECT filter_attr from". $GLOBALS['ecs']->table('category')."where cat_id=$cat_id";
-$cat_attrbutes_ids = $GLOBALS['db']->getOne($sql3);
-$sqls = "SELECT attr_name,attr_values from". $GLOBALS['ecs']->table('attribute')."where cat_id=$cat_id and attr_id in($cat_attrbutes_ids) order by sort_order asc";
-$attr_valuess = $GLOBALS['db']->getAll($sqls);
-$new_attr_values =array();
-foreach ($attr_valuess as $key => $v_attr) {
-    $new_attr_values[]['attr_name'] = $v_attr['attr_name'];
-    // $new_attr_values[]['attr_values']=explode('\r',$v_attr['attr_values']);
-    $new_attr_values[]['attr_values']=explode(',',preg_replace('/(\n|\r|\n\r|\r\n)+/', ',', $v_attr['attr_values']));
-}
-
-$count = count($new_attr_values)/2;
-    for ($i=0; $i < $count; $i++) {
-        $rr[$i] = array_splice($new_attr_values,0,2);
-    }
-    foreach ($rr as $key => $value) {
-        foreach ($value as $k => $val) {
-            foreach ($val as $a => $v) {
-                $re_new_attr_values[$key][$a]=$v;
-            }
-        }
-    }
-$smarty->assign('attrs_ok', $re_new_attr_values);
+//$sql3="SELECT filter_attr from". $GLOBALS['ecs']->table('category')."where cat_id=$cat_id";
+//$cat_attrbutes_ids = $GLOBALS['db']->getOne($sql3);
+//$sqls = "SELECT attr_name,attr_values from". $GLOBALS['ecs']->table('attribute')."where cat_id=$cat_id and attr_id in($cat_attrbutes_ids) order by sort_order asc";
+//$attr_valuess = $GLOBALS['db']->getAll($sqls);
+//$new_attr_values =array();
+//foreach ($attr_valuess as $key => $v_attr) {
+//    $new_attr_values[]['attr_name'] = $v_attr['attr_name'];
+//    // $new_attr_values[]['attr_values']=explode('\r',$v_attr['attr_values']);
+//    $new_attr_values[]['attr_values']=explode(',',preg_replace('/(\n|\r|\n\r|\r\n)+/', ',', $v_attr['attr_values']));
+//}
+//
+//$count = count($new_attr_values)/2;
+//    for ($i=0; $i < $count; $i++) {
+//        $rr[$i] = array_splice($new_attr_values,0,2);
+//    }
+//    foreach ($rr as $key => $value) {
+//        foreach ($value as $k => $val) {
+//            foreach ($val as $a => $v) {
+//                $re_new_attr_values[$key][$a]=$v;
+//            }
+//        }
+//    }
+//
+//$smarty->assign('attrs_ok', $re_new_attr_values);
 
 /*-----------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------end----------------------------------*/
 
