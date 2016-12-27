@@ -47,7 +47,7 @@
 
       <li class="btn">
         <span></span>
-        <div class="i-box"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
+        <div class="i-box" style="height:66px;"><input type="hidden" name="act" value="act_add_message" /><button type="submit" class="post">马上提交</button></div>
       </li>
     </ul>
   </form>
