@@ -17,6 +17,8 @@
 <style>
   .i-box{height: 50px;}
   .i-box input{line-height: 50px;height: 50px;}
+  /*页面留白*/
+  /* .blank{height:8px; line-height:8px; clear:both; visibility:hidden;} */
 </style>
   <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard(this)" class="form-box">
     <ul>
