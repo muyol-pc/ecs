@@ -184,6 +184,7 @@ for ($i=0; $i < $count; $i++) {
 /*========================================*/
 
 /*======================================end=============================================*/
+<<<<<<< HEAD
 /*------------------------------20161222----------------------------------------------------*/
     /*获得商品团购信息*/
     $goods = array_merge($goods,get_group_info($group_buy_id));
@@ -197,6 +198,22 @@ for ($i=0; $i < $count; $i++) {
     //     'thumb_url'=>$group_buy['goods_thumb'],
     //     'img_desc'=>''
     // );
+=======
+/*------------------------------20161222---------------这里有团购价的计算出炉-------------------------------------*/
+    /* 获得商品的信息 */
+    $tg_goods_info = get_goods_info($group_buy_id);
+
+/*查询折扣--计算团购价*/
+$tt2=array();
+$res = $db->getOne("select zhekou from " . $ecs->table('goods_activity') . "where goods_id = $group_buy_id");/*返回的是值，不是数组*/
+
+    $tt2['tuan_price'] = round(intval($tg_goods_info['shop_price'])*intval($res)*0.1);
+    $nwarr = array_merge($tg_goods_info,$tt2);
+    $smarty->assign('tg_goods_info',  $nwarr);
+
+    /*传输 商品详情*/
+    $smarty->assign('description', htmlspecialchars($tg_goods_info['goods_brief']));
+>>>>>>> origin/master
     /*商品相册*/
     $smarty->assign('pictures',  $pic);
     /*商品属性*/
