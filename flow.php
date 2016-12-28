@@ -313,7 +313,7 @@ elseif ($_REQUEST['step'] == 'consignee')
     //-- 收货人信息
     /*------------------------------------------------------ */
     include_once('includes/lib_transaction.php');
-
+    var_dump($_POST);
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
     {
         /* 取得购物类型 */

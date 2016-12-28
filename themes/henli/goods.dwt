@@ -19,7 +19,7 @@
 <script type="text/javascript" src="js/mzp-packed-me.js"></script>
 <script type="text/javascript">
 function $id(element) {
-  return document.getElementById(element);
+  return document.getElementById(element); 
 }
 //切屏--是按钮，_v是内容平台，_h是内容库
 function reg(str){
@@ -140,7 +140,7 @@ function reg(str){
               </div>
             </div>
             <!-- 支持：产品详情页输出 -->
-            <!-- {foreach from=$specification item=attr} -->
+            <!-- {foreach from=$specification item=attr} --> 
             <div class="">
               <div class="hl-dt">{$attr.name}</div>
               <div class="hl-dd">
@@ -262,7 +262,7 @@ function reg(str){
               <div class="hl-dd hl-buy-count hl-f0">
                 <div class="hl-counter clearfix" style="width:100px;float: left;">
                       <span class="hl-counter-sub hl-fs-20">-</span>
-                      <input class="hl-counter-num" value="1" >
+                      <input name="good_num" class="hl-counter-num" value="1" >
                       <span class="hl-counter-add hl-fs-20">+</span>
                     </div>
                 <!-- 正在促销：团购详情页输出，秒杀详情页输出 -->
