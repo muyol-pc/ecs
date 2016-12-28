@@ -167,6 +167,9 @@ if ($action == 'index')
         $condition= " and from_user='" . $from_user . "'";
     }
     $records = $db->getAll("SELECT * FROM " . $ecs->table('scratch_award') . " WHERE " ." rid = " . $id . $condition." order by id desc");
+    $user_fan = $db->getRow("SELECT * FROM " . $ecs->table('scratch_fans') . " WHERE rid= ".$id.$condition." ORDER BY `id` DESC");
+    $smarty->assign('user_fan', $user_fan);//自己的抽奖记录
+    $smarty->assign('times', $reply['most_num_times']-$user_fan['todaynum']);//剩余抽奖次数
     $smarty->assign('user_name', $user_name);
     $smarty->assign('msg', $msg);
     $smarty->assign('running', $running);
@@ -302,7 +305,7 @@ if ($action == 'index')
         );
         $temp=$db->autoExecute($ecs->table("scratch_award"),$insert,"INSERT");
         //保存中奖人信息到fans中
-        $db->autoExecute($ecs->table('scratch_fans'), array('awardnum' => $fans['awardnum'] + 1),"id=".$fans['id']);
+        $db->autoExecute($ecs->table('scratch_fans'), array('awardnum' => $fans['awardnum'] + 1),"UPDATE","id=".$fans['id']);
         $k = 0;
         if ($prizetype == 'one') {
             $k = 1;

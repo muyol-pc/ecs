@@ -15,14 +15,14 @@
 
 define('IN_ECS', true);
 
-require(dirname(__FILE__) . '/includes/init.php');
+require(dirname(__FILE__) . '\includes\init.php');
+require(dirname(__FILE__) . '\includes\lib_clips.php');
 
 if (empty($_CFG['message_board']))
 {
     show_message($_LANG['message_board_close']);
 }
 $action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
-
 if ($action == 'act_add_message')
 {
     include_once(ROOT_PATH . 'includes/lib_clips.php');
@@ -52,22 +52,23 @@ if ($action == 'act_add_message')
         }
     }
 
-    $user_name = htmlspecialchars(trim($_POST['name']));
-    $phone = htmlspecialchars(trim($_POST['phone']));
+    $user_name = htmlspecialchars(trim($_POST['msg_name']));
+    $phone = htmlspecialchars(trim($_POST['msg_phone']));
+    $msg_email = htmlspecialchars(trim($_POST['msg_email']));
 
     $user_id = !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
     $message = array(
         'user_id'     => $user_id,
         'user_name'   => $user_name,
         'user_telphone'  => $phone,
+        'user_email'   =>$msg_email,
         'msg_type'    => isset($_POST['msg_type']) ? intval($_POST['msg_type'])     : 0,
-        'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '',
+        'msg_title'   => isset($_POST['msg_title']) ? trim($_POST['msg_title'])     : '问题描述',
         'msg_content' => isset($_POST['msg_content']) ? trim($_POST['msg_content']) : '',
         'order_id'    => 0,
         'msg_area'    => 1,
         'upload'      => array()
      );
-
     if (add_message($message))
     {
         if (intval($_CFG['captcha']) & CAPTCHA_MESSAGE)
@@ -83,6 +84,7 @@ if ($action == 'act_add_message')
     }
     else
     {
+        $smarty->assign('msg_err',  '留言发表失败');
         $err->show($_LANG['message_list_lnk'], 'message.php');
     }
 }
@@ -93,10 +95,10 @@ if ($action == 'default')
     $position = assign_ur_here(0, $_LANG['message_board']);
     $smarty->assign('page_title', $position['title']);    // 页面标题
     $smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
-    // $smarty->assign('helps',      get_shop_help());       // 网店帮助
+    $smarty->assign('helps',      get_shop_help());       // 网店帮助
 
-    // $smarty->assign('categories', get_categories_tree()); // 分类树
-    // $smarty->assign('top_goods',  get_top10());           // 销售排行
+    $smarty->assign('categories', get_categories_tree()); // 分类树
+    $smarty->assign('top_goods',  get_top10());           // 销售排行
     $smarty->assign('cat_list',   cat_list(0, 0, true, 2, false));
     $smarty->assign('brand_list', get_brand_list());
     $smarty->assign('promotion_info', get_promotion_info());

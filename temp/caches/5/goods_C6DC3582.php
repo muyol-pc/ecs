@@ -1,37 +1,88 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/goods.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:67:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/ur_here.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482852803;s:8:"maketime";i:1482849203;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>{$page_title}</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta name="Keywords" content="西门子（SIEMENS） 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 601升以上 浅金色 电脑温控 360度变频 典雅白 宝石蓝 单选属性二" />
+<meta name="Description" content="" />
+<title>西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）_冰洗_西门子家电</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="themes/henli/inc/css/category-details.css"/>
-{* 包含脚本文件 transport.js,region.js,shopping_flow.js *}
-{insert_scripts files='common.js,lefttime.js'}
-
-<script type="text/javascript" src="themes/henli/inc/public/lib/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="themes/henli/js/json2.js"></script>
-  {insert_scripts files='utils.js,region.js,shopping_flow.js'}
-
+<link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/transport_jquery.js"></script><script type="text/javascript" src="js/utils.js"></script><script type="text/javascript"  src="js/action.js"></script>
+<script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
 <script type="text/javascript">
-
-  {foreach from=$lang.js_languages item=item key=key}
-    var {$key} = "{$item}";
-  {/foreach}
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onclick=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
 </script>
-
 </head>
 <body>
-<!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-
+<link href="" rel="stylesheet" type="text/css" />
+<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
+<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script src="themes/henli/js/app.js"></script>
+<script src="themes/henli/js/unslider.min.js"></script>
+<script type="text/javascript">  
+var process_request = "正在处理您的请求...";
+</script>
+<!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<div class="hl-status">
+  <div class="hl-center"> 
+    <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
+    <div class="hl-fr">
+              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">crab</a>
+        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
+        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
+      <a class="hl-message" href="leftmessage.php" target="_blank">在线留言</a>
+      <a class="hl-message" href="user.php?act=logout">退出</a>
+          </div>
+  </div>
+</div><script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+<div class="hl-header hl-header-bottom">
+  <div class="hl-center hl-nav">
+    <a class="hl-logo hl-mr10" href="index.php"></a>
+    <a class="hl-mr20" href="" target="_blank">西门子家电</a>
+    <a class="hl-mr20" href="" target="_blank">展望未来</a>
+    <div class="hl-search hl-f0">
+      <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
+      <button class="hl-search-button"></button>
+    </div>
+  </div>
+</div>
+<div class="hl-w1100">
+<div class="blank"></div>
+<div id="ur_here">
+当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 
+</div>
+</div>
+<div class="blank"></div>
 <div class="hl-container">
   <!-- <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
@@ -41,231 +92,285 @@
   </div> -->
   <div class="hl-center">
     <div class="hl-product-intro hl-mb30 hl-clearfix">
-      <div class="hl-preview hl-fl">
-        <div id="preview" class="hl-spec-preview">
-          <div class="hl-zoom">
-            <img zoom-img="{$tg_goods_info.goods_img}" src="{$pictures.0.img_url}" width="478"/>
-          </div>
+      <div class="hl-preview hl-fl hl-fs-12">
+        
+        <div class="hl-banner hl-tc" style="height: 350px;">
+          <ul>
+                      <li><img src="images/201612/goods_img/1_P_1482079848492.png" alt=""></li>
+                      <li><img src="images/201612/goods_img/1_P_1482080167263.png" alt=""></li>
+                      <li><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></li>
+                    </ul>
         </div>
-        <!-- {if $pictures}-->
-        <div class="hl-spec-scroll">
-          <a class="hl-prev">&lt;</a>
-          <a class="hl-next">&gt;</a>
-          <div class="hl-items">
-            <ul>
-            <!-- {foreach from=$pictures item=picture name=no}-->
-
-             <!-- {if $smarty.foreach.no.iteration < 2}  -->
-              <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-              <!-- {else}-->
-             <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-               <!-- {/if}-->
-            <!--{/foreach}-->
-
-            </ul>
-          </div>
+        <br>
+        
+        <div class="hl-thumb" style="height:100px;">
+          <span class="hl-arrow-l"></span>
+          <span class="hl-arrow-r"></span>
+          <ul class="hl-text-c hl-clearfix">
+                        <li style="width: 33.33%;" class="active"><img src="images/201612/goods_img/1_P_1482079848492.png" alt=""></li>
+                        <li style="width: 33.33%;" ><img src="images/201612/goods_img/1_P_1482080167263.png" alt=""></li>
+                        <li style="width: 33.33%;" ><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></li>
+                      </ul>
         </div>
-        <!-- {/if}-->
       </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69">{$goods.goods_style_name}</h1>
-          <!-- 团购特惠：团购详情页输出 -->
-          <div class="hl-ad hl-ff hl-f20">
+          <h1 class="hl-f18 hl-fwn hl-69"> 西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）</h1>
+          
+          <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
-            <span class="hl-fr hl-f18">已有{$buy_p.0}人参团，还差{$buy_p.1}人即可享受优惠</span>
-          </div>
-          <!-- 特价秒杀：秒杀详情页输出 -->
+            <span class="hl-fr hl-f18">已有10人参团，还差3人即可享受优惠</span>
+          </div> -->
+          
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-clock">特价秒杀</span>
             <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
           </div> -->
         </div>
-        <form action="flow.php?act=buy" method="post">
         <div class="hl-summary">
-          <!-- 如果是团购详情页：输出团购价 -->
-          <div class="hl-price hl-team-buy hl-f18">
-          团购价 <strong class="hl-f30 hl-fmr">&yen; {$tg_goods_info.tuan_price}</strong>
-          <input type="hidden" name="{$tg_goods_info.tuan_price}" />
-            <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;{$tg_goods_info.shop_price}</b></span>
-          </div>
-          <!-- 如果是产品详情页：输出价格 -->
+          
+          <!-- <div class="hl-price hl-team-buy hl-f18">
+          团购价 <strong class="hl-f30 hl-fmr">&yen; 6988.00</strong>
+            <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;8988.00</b></span>
+          </div> -->
+          
           <!-- <div class="hl-price hl-cost hl-f18">
             价格 <strong class="hl-f30 hl-fmr">&yen; 6988.00</strong>
           </div> -->
-          <!-- 如果是秒杀详情页：输出价格 -->
-          <!-- <div class="hl-price hl-f18">
-            价格 <strong class="hl-f30 hl-fmr">{$goods.shop_price}</strong>
-          </div> -->
+          
+          <div class="hl-price hl-f18 hl-shop-price">
+            价格 <strong class="hl-f30 hl-fmr">6988.00</strong>元
+          </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
-            <div class="hl-dt">送　　至</div>
-            <div class="hl-dd hl-clearfix">
-              <!-- hover 添加：hl-open -->
-              <div class="hl-store-selector hl-fl">
-                <div class="hl-city">
-                  <div class="hl-text hl-active">
-                    <div class="hl-address-placement">四川&nbsp;成都市&nbsp;高新区</div>
-                    <b></b>
-                  </div>
-                  <div class="hl-city-group">
-                    <div class="hl-content">
-                      <ul class="hl-tab-city hl-clearfix">
-                      <!-- 点击添加：hl-curr -->
-                        <li class="hl-curr hl-active">
-                          <p><a href="javascript:;">四川</a><b></b></p>
-                        </li>
-                        <li>
-                          <p><a href="javascript:;">成都</a><b></b></p>
-                        </li>
-                        <li>
-                          <p><a href="javascript:;">高新区</a><b></b></p>
-                        </li>
-                      </ul>
-                      <div class="hl-tab-content">
-                      <!-- 点击tab添加：hl-active -->
-                        <div class="hl-panel hl-province-arr hl-active" name="province">
-                          <!--
-                            点击添加：hl-on
-                            页面刷新添加：hl-on
-                          -->
-                          <!--{foreach from=$shop_province_list item=province}-->
-                          <span><a class="" href="javascript:;" value="{$province.region_id}" EQ="">{$province.region_name}</a></span>
-                          <!--{/foreach}-->
-                        </div>
-                        <script>
-                          $(function(){
-                            $('.hl-province-arr span a').click(function(){
-                                // $.ajax({
-                                //   url:'includes/myajax.php',
-                                //   type:'post',
-                                //   dataType:'text',
-                                //   data:{'pid':$(this).attr('value')},
-                                //   success:function(v){
-                                //       $('.hl-city-arr').html(v);
-                                //   }
-                                // })
-                                var _region = new region();
-                                _region.loadCities($(this).attr('value'),'city');
-                            })
-                          })
-                        </script>
-                        <div class="hl-panel hl-city-arr" name="city">
-
-                        </div>
-                        <div class="hl-panel hl-area-arr">
-                          <span><a href="javascript:;">武侯区</a></span>
-
-                        </div>
-                      </div>
-                      <!-- <a class="hl-close" href="javascript:;"></a> -->
-                    </div>
-                  </div>
+            <div>
+              <div class="hl-dt">送　　至</div>
+              <div class="hl-dd hl-clearfix">
+                
+                <div class="hl-store-selector hl-fl">
+                </div>
+                <div class="hl-store-prompt hl-fl">
+                  <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
                 </div>
               </div>
-              <div class="hl-store-prompt hl-fl">
-                <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
-              </div>
             </div>
-            <!-- 服务：团购详情页面输出，详情页面输出 -->
+            
             <!-- <div class="hl-dd hl-suppor">
               <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
               产品详情页：输出联系客服
               <a class="hl-contact-me hl-66" href="#"><i></i>联系客服</a>
             </div> -->
-            <!-- 赠品：团购详情页输出,秒杀详情页输出 -->
+            
             <!--<div class="hl-gift">
               <div class="hl-dt">赠　　品</div>
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
             </div>-->
-            <!-- 支持：产品详情页输出 -->
-             <!-- <div class="hl-support-panel">
+            <div class="">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
-                <span class="hl-yjhx hl-f0">
-                  <a href="" class="hl-yjfx">
+              <ul><li class="hl-yjhx hl-selected hl-pro-attr"><a href="" class="hl-yjfx">
                     <i>以旧换新</i>
-                  </a>
-                </span>
-              </div>
-            </div> -->
-            <!-- 支持：产品详情页输出 -->
-            <!-- {foreach from=$specification item=attr} --> 
-            <div class="">
-              <div class="hl-dt">{$attr.name}</div>
-              <div class="hl-dd">
-              <ul class="hl-tip-infor hl-clearfix">
-                <!-- {foreach from=$attr.values item=value key=key} -->
-                <li class="hl-pro-attr {if $key==0}hl-selected{else}hl-disabled{/if}" price='{$value.price}' id="{$value.id}"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      {$value.label}
-                </a>
-                </li>
-                <!-- {/foreach} -->
-              </ul>
+                  </a></li></ul>
               </div>
             </div>
-            <!-- {/foreach} -->
+            
+                        <div class="">
+              <div class="hl-dt">测试单选属性</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='999' id="20"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      单选属性二                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+                        <div class="">
+              <div class="hl-dt">产品类型</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='0' id="13"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      双开门                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='0' id="14"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      对开门                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='808' id="1"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      三开门                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+                        <div class="">
+              <div class="hl-dt">容积量</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='1001' id="5"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      601升以上                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+                        <div class="">
+              <div class="hl-dt">颜色</div>
+              <div class="hl-dd">
+              <ul class="hl-tip-infor hl-clearfix">
+                                <li class="hl-pro-attr hl-selected" price='0' id="9"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      典雅白                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='0' id="10"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      浅金色                </a>
+                </li>
+                                <li class="hl-pro-attr hl-disabled" price='0' id="11"><a href="">
+                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
+                      <i></i>
+                      宝石蓝                </a>
+                </li>
+                              </ul>
+              </div>
+            </div>
+            <!--             <div class="">
+              <div class="hl-dt">版　　式</div>
+              <div class="hl-dd">
+                <ul class="hl-tip-infor hl-clearfix">
+                  <li class="hl-selected hl-pro-attr" value="banshi_1">
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li class="hl-disabled">
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li><li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li><li>
+                    <a href="">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      598升玻璃面板对开
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="">
+              <div class="hl-dt">颜　　色</div>
+              <div class="hl-dd">
+                <ul class="hl-color-infor hl-clearfix">
+                  <li class="hl-selected hl-pro-attr" value="color_1">
+                    <a href="javascript:;">
+                      浅金色
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      浅金色
+                      <i></i>
+                    </a>
+                  </li>
+                  <li class="hl-disabled">
+                    <a href="javascript:;">
+                      浅金色
+                      <i></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
             <div>
               <div class="hl-dt">数　　量</div>
               <div class="hl-dd hl-buy-count hl-f0">
                 <div class="hl-counter clearfix" style="width:100px;float: left;">
-                  <span class="hl-counter-sub hl-fs-20">-</span>
-                  <input class="hl-counter-num" value="1" >
-                  <span class="hl-counter-add hl-fs-20">+</span>
-                </div>
-                <!-- 正在促销：团购详情页输出，秒杀详情页输出 -->
+                      <span class="hl-counter-sub hl-fs-20">-</span>
+                      <input class="hl-counter-num" value="1" >
+                      <span class="hl-counter-add hl-fs-20">+</span>
+                    </div>
+                
                 <span class="hl-promotion">正在促销</span>
-                <!-- 正在促销，每人限购2件 -->
+                
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
-            <div style="margin:10px 0;color: #999;">
-    <!-- {if $group_buy.status eq 0} 未开始 -->
-      {$lang.gbs_pre_start}
-      <!-- {elseif $group_buy.status eq 1} 进行中 -->
-      <font>{$lang.gbs_under_way}
-      <span id="leftTime">{$lang.please_waiting}</span></font><br />
-      <!-- {/if} -->
-            </div>
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
-            <!-- 马上参团：团购详情页输出 -->
-            <style>
-              .hl-just-team{background-color: #00959f; margin-right: 38px;}
-            </style>
-            <input type="hidden" name="group_buy_id" value="{$tg_goods_info.goods_id}" />
-            <input class="hl-just-team" type="submit" value="马上参团" />
-            <!-- 立即购买：产品详情页输出 -->
-            <!-- <a href="javascript:addToCart({$goods.goods_id})" class="hl-buy-now">立即购买</a> -->
-            <!-- <a href="javascript:addToCart({$goods.goods_id})" class="hl-add-cart">加入购物车</a> -->
+            
+            <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
+            
+            <a href="javascript:addToCart(1)" class="hl-buy-now">立即购买</a>
+            <a href="javascript:addToCart2(1)" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
-    </form>
-        <!--end-->
       </div>
     </div>
     <div class="hl-product-content hl-clearfix">
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-         {foreach from=$promotion_goods item=goods}
-          <li>
-            <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.id}"><img src="{$goods.goods_img}" alt=""></a>
-            <div class="hl-price">
-             {$goods.shop_price}
-              <strong class="hl-disp-b hl-ups hl-f24">
-               {if $goods.promote_price neq ""}
-      {$goods.market_price}
-       {else}
-      {$goods.promote_price}
-      {/if}
-      </strong>
-              <a class="hl-name hl-f14 hl-72" href="{$goods.url}">{$goods.short_style_name}</a>
-            </div>
-          </li>
-{/foreach}
-          <!-- <li>
+                   <!-- <li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
@@ -292,15 +397,14 @@
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
-              <!-- {foreach from=$properties item=property_group key=key} -->
-                <h2 class="hl-f12 hl-66 hl-fl">{$key|escape}</h2>
+                              <h2 class="hl-f12 hl-66 hl-fl">商品属性</h2>
                 <a class="hl-fr" href="">更多参数</a>
               </div>
               <ul class="hl-tab-table hl-f12 hl-clearfix">
-               <!-- {foreach from=$property_group item=property} -->
-                <li>{$property.name|escape:html}：{$property.value}</li>
-                <!-- {/foreach}-->
-
+                               <li>控温方式：电脑温控</li>
+                                <li>变频：360度变频</li>
+                                <li>国家能效等级：一级</li>
+                
                 <!-- <li>面板类型：金属</li>
                 <li>制冷方式：冷风</li>
                 <li>控温方式：电脑控温</li>
@@ -310,15 +414,13 @@
                 <li>除霜模式：自动</li>
                 <li>总有效容积：610升</li> -->
               </ul>
-              <!-- {/foreach}-->
-            </div>
+                          </div>
             <style>
             .hl-product-pics td{padding:0;border:0;}
             .hl-product-pics tr{border:0;}
             </style>
             <div class="hl-product-pics" style="overflow:hidden;">
-            {$tg_goods_info.goods_desc}
-            </div>
+            <img src="/ecs/includes/kindeditor/attached/image/20161222/20161222224357_77049.jpg" alt="" />            </div>
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
@@ -708,30 +810,25 @@
       </div>
     </div>
   </div>
-
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-
-<script type="text/javascript" src="themes/henli/inc/public/lib/zoom/zoom.js"></script>
-<script type="text/javascript" src="themes/henli/inc/public/dev/category-details.js"></script>
+<div class="hl-center hl-server">
+  <ul class="hl-clearfix">
+    <li class="hl-tel">
+      <p>客户热线</p>
+      <p>7x24小时服务400-88-99999</p>
+    </li>
+    <li class="hl-ater">
+      <p>在线咨询</p>
+      <p>服务时间：周一至周日</p>
+    </li>
+    <li class="hl-wechart">
+      <p>官方微信</p>
+      <p>关注西门子家电微信，享受专业的贴心服务</p>
+    </li>
+  </ul>
+</div>
+<div class="hl-footer hl-f14 hl-44 hl-tc">
+  <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  苏ICP备10003401号
+</div>
 </body>
-
-<script type="text/javascript">
-var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
-{foreach from=$lang.goods_js item=item key=key}
-var {$key} = "{$item}";
-{/foreach}
-var now_time = {$now_time};
-<!-- {literal} -->
-
-onload = function()
-{
-  try
-  {
-    onload_leftTime();
-  }
-  catch (e)
-  {}
-}
-<!-- {/literal} -->
-</script>
 </html>

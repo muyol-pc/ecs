@@ -4208,10 +4208,10 @@ INSERT INTO `ecs_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 (6, 0, 'hidden', 'hidden', '', '', '', '1'),
 (7, 0, 'goods', 'group', '', '', '', '1'),
 (8, 0, 'sms', 'group', '', '', '', '1'),
-(101, 1, 'shop_name', 'text', '', '', 'ECSHOP', '1'),
-(102, 1, 'shop_title', 'text', '', '', 'ECSHOP演示站', '1'),
-(103, 1, 'shop_desc', 'text', '', '', 'ECSHOP演示站', '1'),
-(104, 1, 'shop_keywords', 'text', '', '', 'ECSHOP演示站', '1'),
+(101, 1, 'shop_name', 'text', '', '', '西门子家电', '1'),
+(102, 1, 'shop_title', 'text', '', '', '西门子家电', '1'),
+(103, 1, 'shop_desc', 'text', '', '', '西门子家电', '1'),
+(104, 1, 'shop_keywords', 'text', '', '', '西门子家电', '1'),
 (105, 1, 'shop_country', 'manual', '', '', '1', '1'),
 (106, 1, 'shop_province', 'manual', '', '', '2', '1'),
 (107, 1, 'shop_city', 'manual', '', '', '52', '1'),
@@ -4501,7 +4501,7 @@ INSERT INTO `ecs_ad_position` (`position_id`, `position_name`, `ad_width`, `ad_h
 
 INSERT INTO `ecs_template` (`filename`, `region`, `library`, `sort_order`, `id`, `number`, `type`, `theme`) VALUES
 ('index', '全宽行', '/library/cat_goods.lbi', 0, '132', 6, 1, 'henli');
-UPDATE `ecs_admin_user` SET  `nav_list` = '商品列表|goods.php?act=list,订单列表|order.php?act=list,商店设置|shop_config.php?act=list_edit,移动版|lead.php?act=list,服务市场|service_market.php' WHERE  `ecs_admin_user`.`user_id` =1;
+UPDATE `ecs_admin_user` SET  `nav_list` = '商品列表|goods.php?act=list,订单列表|order.php?act=list,商店设置|shop_config.php?act=list_edit' WHERE  `ecs_admin_user`.`user_id` =1;
 
 
 -- ----------------------------

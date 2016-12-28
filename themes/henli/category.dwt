@@ -27,56 +27,62 @@
 
 <div class="hl-container">
   <div class="hl-center">
+   <!--组合搜索 开始-->
     <div class="hl-filter">
       <div class="hl-filter-wrap">
-        <div class="hl-key">品牌</div>
-        <div class="hl-value">
-          <div class="hl-band-logos">
-{$attrs_9|print_r}
-            <!--
-              选中效果：hl-curr
-              描述：点击刷新页面添加hl-curr
-             -->
-            <ul>
-              <!--{foreach from=$brand_msg item=brand}-->
-              <li style="margin:0 10px;"><a href="">
-              <input type="hidden" name="brandids" id="brandids" value="{$brand.brand_id}"/>
-              {if $brand.brand_logo}<img src="data/brandlogo/{$brand.brand_logo}" width="107" height="50" alt="{$brand.brand_name}" title="{$brand.brand_name}">
-                  {else}{$brand.brand_name}{/if}
-              </a></li>
-              <!--{/foreach}-->
+         <div class="hl-key">品牌</div>
+         <div class="hl-value">
+            <div class="hl-band-logos">
+                {$attrs_9|print_r}
+                    <!--
+                      选中效果：hl-curr
+                      描述：点击刷新页面添加hl-curr
+                     -->
+                  <ul>
+                      <!--{foreach from=$brand_msg item=brand}-->
+                      <li style="margin:0 10px;"><a href="{$brand.url}" {if $brand.selected} style="border: 1px solid #ff8a00;"{/if}>
+                      {if $brand.brand_logo}<img src="data/brandlogo/{$brand.brand_logo}" width="107" height="50" alt="{$brand.brand_name}" title="{$brand.brand_name}">
+                          {else}{$brand.brand_name}{/if}
+                      </a></li>
+                      <!--{/foreach}-->
 
-            </ul>
-          </div>
-        </div>
+                  </ul>
+             </div>
+         </div>
       </div>
+
       <!--
         1.所有自定义属性分类列别都在$attrs_ok
         2. 顺序一次是   产品类型（板式），容积量，价格区间，制冷方式，控温方式，变频，能效等级，适用家庭，制冷循环
       -->
       <div class="hl-filter-wrap">
-        <div class="hl-key">{$attrs_ok.0.attr_name}</div>
-        <div class="hl-value hl-clearfix">
-          <!--
-            选中效果：hl-curr
-            描述：点击刷新页面添加hl-curr
-           -->
-           <!--html原模板-->
-          <!-- <ul class="hl-v-list hl-tc">
-            <li class="hl-curr"><a class="hl-type-1" href="">双开门</a></li>
-            <li><a class="hl-type-2" href="">多门</a></li>
-            <li><a class="hl-type-3" href="">三门</a></li>
-            <li class="hl-curr"><a class="hl-type-4" href="">双门</a></li>
-          </ul> -->
-          <ul class="hl-v-list hl-tc">
-        <!--{foreach from=$attrs_ok[0]['attr_values'] item=att_val}-->
-        <!--{foreach from=$att_val item=a_val}-->
-            <li class=""><a class="hl-type-1" href="">{$a_val}</a></li>
-        <!--{/foreach}-->
-        <!--{/foreach}-->
-          </ul>
+         <!--{foreach from=$filter_attr_list item=filter_attr}-->
+             <!--{if $filter_attr.filter_attr_name eq "产品类型"}-->
+                <div class="hl-key">{$filter_attr.filter_attr_name}</div>
+                <div class="hl-value hl-clearfix">
+                  <!--
+                    选中效果：hl-curr
+                    描述：点击刷新页面添加hl-curr
+                   -->
+                    <!--html原模板-->
+                    <!-- <ul class="hl-v-list hl-tc">
+                    <li class="hl-curr"><a class="hl-type-1" href="">双开门</a></li>
+                    <li><a class="hl-type-2" href="">多门</a></li>
+                    <li><a class="hl-type-3" href="">三门</a></li>
+                    <li class="hl-curr"><a class="hl-type-4" href="">双门</a></li>
+                     </ul> -->
+                  <ul class="hl-v-list hl-tc">
+                    <!--{foreach from=$filter_attr.attr_list item=att_val}-->
 
-        </div>
+                        <li class=""><a class="hl-type-1" href="{$att_val.url}" {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+
+                    <!--{/foreach}-->
+                  </ul>
+                </div>
+
+            <!--{/if}-->
+          <!--{/foreach}-->
+
       </div>
       <!--
         点击多选：hl-all-more
@@ -85,80 +91,59 @@
         描述：选中多项
       -->
       <div class="hl-filter-wrap hl-multiple">
-        <div class="hl-key">{$attrs_ok.1.attr_name}</div>
-        <div class="hl-value">
-        <!--html原模板-->
-          <!-- <div class="hl-v-group">
-            <a href=""><b></b><span>601升以上</span></a>
-            <a href=""><b></b><span>501-600升</span></a>
-            <a href=""><b></b><span>401-500升</span></a>
-            <a href=""><b></b><span>301-400升</span></a>
-            <a href=""><b></b><span>251-300升</span></a>
-            <a href=""><b></b><span>191-250升</span></a>
-          </div> -->
-          <div class="hl-v-group">
-          <!--{foreach from=$attrs_ok[1]['attr_values'] item=att_val}-->
-        <!--{foreach from=$att_val item=b_val}-->
-            <a href=""><b></b><span>{$b_val}</span></a>
-            <!--{/foreach}-->
-        <!--{/foreach}-->
-          </div>
+        <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                <!--{if $filter_attr.filter_attr_name eq "容积量"}-->
+                <div class="hl-key">{$filter_attr.filter_attr_name}</div>
 
-          <!-- <div class="hl-btns hl-tc">
-            <a class="hl-confirm hl-f12 disabled" href="javascript:;">确定</a>
-            <a class="hl-cancel hl-f12" href="javascript:;">取消</a>
-          </div> -->
-        </div>
-        <!-- <div class="hl-ext">
-          <a href="javascript:;">多选</a>
-        </div> -->
+                    <div class="hl-value">
+                    <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                        <a href="{$att_val.url}" {if $att_val.selected} style="color: #ff8a00;"{/if}><span>{$att_val.attr_value}</span></a>
+                        <!--{/foreach}-->
+
+                     </div>
+
+                <!--{/if}-->
+             <!--{/foreach}-->
       </div>
       <div class="hl-filter-wrap">
-        <div class="hl-key">{$attrs_ok.2.attr_name}</div>
-        <!--html原模板-->
-        <!-- <div class="hl-value">
-          <a class="hl-curr" href="">0-2500</a>
-          <a href="">2500-4300</a>
-          <a href="">4300-7000</a>
-          <a href="">7000-11300</a>
-          <a href="">11300-19000</a>
-          <a href="">19000以上</a>
-        </div>
-         -->
-        <div class="hl-value">
-        <!--{foreach from=$attrs_ok[2]['attr_values'] item=att_val}-->
-        <!--{foreach from=$att_val item=c_val}-->
-          <a href="">{$c_val}</a>
-          <!--{/foreach}-->
-        <!--{/foreach}-->
-        </div>
+                <div class="hl-key">价格</div>
+                <!--html原模板-->
+                <!-- <div class="hl-value">
+                  <a class="hl-curr" href="">0-2500</a>
+                  <a href="">2500-4300</a>
+                  <a href="">4300-7000</a>
+                  <a href="">7000-11300</a>
+                  <a href="">11300-19000</a>
+                  <a href="">19000以上</a>
+                </div>
+                 -->
+                <div class="hl-value">
+                <!--{foreach from=$price_grade item=grade}-->
 
-        <!-- <div class="hl-price-set hl-f0">
-          <input class="input-txt" autocomplete="off" type="text"/>
-          <span>-</span>
-          <input class="input-txt" autocomplete="off" type="text"/>
-          <a class="hl-f12" href="javascript:;">确定</a>
-        </div> -->
+                  <a href="{$grade.url}" {if $grade.selected} style="color: #ff8a00;"{/if}>{$grade.price_range}</a>
+
+                <!--{/foreach}-->
+                </div>
       </div>
       <div class="hl-filter-wrap">
-        <div class="hl-key">{$attrs_ok.3.attr_name}</div>
-        <!--html原模板-->
-        <!-- <div class="hl-value">
-          <a class="hl-curr" href="">冷风</a>
-          <a href="">直冷</a>
-          <a href="">风直冷</a>
-        </div> -->
-        <div class="hl-value">
-        <!--{foreach from=$attrs_ok[3]['attr_values'] item=att_val}-->
-        <!--{foreach from=$att_val item=d_val}-->
-          <a href="">{$d_val}</a>
-          <!--{/foreach}-->
-        <!--{/foreach}-->
-        </div>
+        <!--{foreach from=$filter_attr_list item=filter_attr}-->
+           <!--{if $filter_attr.filter_attr_name eq "制冷方式"}-->
+                      <div class="hl-key">{$filter_attr.filter_attr_name}</div>
+                        <!--html原模板-->
+                        <!-- <div class="hl-value">
+                          <a class="hl-curr" href="">冷风</a>
+                          <a href="">直冷</a>
+                          <a href="">风直冷</a>
+                        </div> -->
+              <div class="hl-value">
 
-        <!-- <div class="hl-ext">
-          <a href="javascript:;">多选</a>
-        </div> -->
+                  <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                       <a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}><span>{$att_val.attr_value}</span></a>
+                       <!--{/foreach}-->
+
+                </div>
+           <!--{/if}-->
+        <!--{/foreach}-->
       </div>
       <div class="hl-filter-wrap">
         <div class="hl-key">其他选项</div>
@@ -196,55 +181,70 @@
               })
           </script>
           <ul class="hl-v-tab">
+
             <li class="hl-open">
-                <a href="javascript:;">{$attrs_ok.4.attr_name}</a>
-                <ul class="hl-son-list clearall">
-                    <!--{foreach from=$attrs_ok[4]['attr_values'] item=att_val}-->
-                    <!--{foreach from=$att_val item=e_val}-->
-                    <li><a href="">{$e_val}</a></li>
-                    <!--{/foreach}-->
-                    <!--{/foreach}-->
-                </ul>
+                <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                       <!--{if $filter_attr.filter_attr_name eq "控温方式"}-->
+                            <a href="">{$filter_attr.filter_attr_name}</a>
+                            <ul class="hl-son-list clearall">
+
+                             <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                                 <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+                             <!--{/foreach}-->
+                             </ul>
+                         <!--{/if}-->
+                <!--{/foreach}-->
             </li>
             <li>
-                <a href="">{$attrs_ok.5.attr_name}</a>
-                <ul class="hl-son-list clearall">
-                    <!--{foreach from=$attrs_ok[5]['attr_values'] item=att_val}-->
-                    <!--{foreach from=$att_val item=f_val}-->
-                    <li><a href="">{$f_val}</a></li>
-                    <!--{/foreach}-->
-                    <!--{/foreach}-->
-                </ul>
+              <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                     <!--{if $filter_attr.filter_attr_name eq "变频"}-->
+                        <a href="">{$filter_attr.filter_attr_name}</a>
+                        <ul class="hl-son-list clearall">
+
+                             <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                               <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+                             <!--{/foreach}-->
+                        </ul>
+                     <!--{/if}-->
+              <!--{/foreach}-->
             </li>
             <li>
-                <a href="">{$attrs_ok.6.attr_name}</a>
-                <ul class="hl-son-list clearall">
-                    <!--{foreach from=$attrs_ok[6]['attr_values'] item=att_val}-->
-                    <!--{foreach from=$att_val item=g_val}-->
-                    <li><a href="">{$g_val}</a></li>
-                    <!--{/foreach}-->
-                    <!--{/foreach}-->
-                </ul>
+                <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                        <!--{if $filter_attr.filter_attr_name eq "国家能效等级"}-->
+                           <a href="">{$filter_attr.filter_attr_name}</a>
+                           <ul class="hl-son-list clearall">
+                                <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                                  <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+                                <!--{/foreach}-->
+                           </ul>
+                        <!--{/if}-->
+                <!--{/foreach}-->
             </li>
             <li>
-                <a href="">{$attrs_ok.7.attr_name}</a>
-                <ul class="hl-son-list clearall">
-                    <!--{foreach from=$attrs_ok[7]['attr_values'] item=att_val}-->
-                    <!--{foreach from=$att_val item=h_val}-->
-                    <li><a href="">{$h_val}</a></li>
-                    <!--{/foreach}-->
-                    <!--{/foreach}-->
-                </ul>
+               <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                       <!--{if $filter_attr.filter_attr_name eq "适用家庭"}-->
+                          <a href="">{$filter_attr.filter_attr_name}</a>
+                          <ul class="hl-son-list clearall">
+
+                               <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                                 <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+                               <!--{/foreach}-->
+                          </ul>
+                       <!--{/if}-->
+               <!--{/foreach}-->
             </li>
             <li>
-                <a href="">{$attrs_ok.8.attr_name}</a>
-                <ul class="hl-son-list clearall">
-                    <!--{foreach from=$attrs_ok[8]['attr_values'] item=att_val}-->
-                    <!--{foreach from=$att_val item=i_val}-->
-                    <li><a href="">{$i_val}</a></li>
-                    <!--{/foreach}-->
-                    <!--{/foreach}-->
-                </ul>
+                <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                        <!--{if $filter_attr.filter_attr_name eq "制冷循环"}-->
+                           <a href="">{$filter_attr.filter_attr_name}</a>
+                           <ul class="hl-son-list clearall">
+
+                                <!--{foreach from=$filter_attr.attr_list item=att_val}-->
+                                  <li><a href="{$att_val.url}"  {if $att_val.selected} style="color: #ff8a00;"{/if}>{$att_val.attr_value}</a></li>
+                                <!--{/foreach}-->
+                           </ul>
+                        <!--{/if}-->
+                <!--{/foreach}-->
             </li>
           </ul>
         </div>
@@ -259,6 +259,7 @@
         </div>
       </div>
     </div>
+     <!--组合搜索 结束-->
   </div>
   <div class="hl-center hl-goods-main hl-clearfix">
     <!--
@@ -271,7 +272,7 @@
         <li>
           <a class="hl-p-img hl-disp-b" href="goods.php?id={$goods.goods_id}"><img src="{$goods.goods_img}" alt=""></a>
           <div class="hl-price">
-            <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+            <strong class="hl-disp-b hl-ups hl-f24">{$goods.shop_price}</strong>
             <a class="hl-name hl-f14 hl-72" href="">{$goods.goods_name}</a>
           </div>
         </li>
@@ -284,20 +285,17 @@
       <li>
                 <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id={$goods.goods_id}"><img src="{$goods.goods_img}" alt=""></a>
                 <div class="hl-price hl-mt10">
-                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
+                  <strong class="hl-disp-b hl-ups hl-f24">{$goods.shop_price}</strong>
                   <a class="hl-name hl-f14 hl-72" href="">{$goods.goods_name}</a>
                 </div>
               </li>
       {/foreach}
 
       </ul>
-      <div class="hl-page hl-f0 hl-tr">
-        <a class="hl-prev" href="javascript:;">&lt;</a>
-        <a href="javascript:;">1</a>
-        <a class="hl-curr" href="javascript:;">2</a>
-        <a href="javascript:;">3</a>
-        <a class="hl-next" href="javascript:;">&gt;</a>
-      </div>
+
+        <div class="hl-page">
+            <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+        </div>
     </div>
   </div>
 </div>

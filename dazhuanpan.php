@@ -39,10 +39,10 @@ if ($action == 'index')
         message('抱歉，参数错误！', '', 'error');
     }
     $reply = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_reply') . " WHERE id =". $id." ORDER BY `id` DESC");
+
     if ($reply == false) {
         message('', '抱歉，活动已经结束，下次再来吧！');
     }
-
     $fansID = $user_id;
     $from_user = $user_name;
     $fans = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_fans') . " WHERE rid = " . $id . " and fansID='" . $fansID . "' and from_user='" . $from_user . "'");
@@ -167,6 +167,10 @@ if ($action == 'index')
         $condition= " and from_user='" . $from_user . "'";
     }
     $records = $db->getAll("SELECT * FROM " . $ecs->table('bigwheel_award') . " WHERE " ." rid = " . $id . $condition." order by id desc");
+    $user_fan = $db->getRow("SELECT * FROM " . $ecs->table('bigwheel_fans') . " WHERE rid= ".$id.$condition." ORDER BY `id` DESC");
+    $smarty->assign('user_fan', $user_fan);//自己的抽奖记录
+    $smarty->assign('times', $reply['most_num_times']-$user_fan['todaynum']);//剩余抽奖次数
+
     $smarty->assign('user_name', $user_name);
     $smarty->assign('msg', $msg);
     $smarty->assign('running', $running);
@@ -302,7 +306,7 @@ if ($action == 'index')
         );
         $temp=$db->autoExecute($ecs->table("bigwheel_award"),$insert,"INSERT");
         //保存中奖人信息到fans中
-        $db->autoExecute($ecs->table('bigwheel_fans'), array('awardnum' => $fans['awardnum'] + 1),"id=".$fans['id']);
+        $db->autoExecute($ecs->table('bigwheel_fans'), array('awardnum' => $fans['awardnum'] + 1),"UPDATE","id=".$fans['id']);
         $k = 0;
         if ($prizetype == 'one') {
             $k = 1;

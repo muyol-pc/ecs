@@ -37,7 +37,11 @@
                     <span>原&nbsp;&nbsp;&nbsp;&nbsp;价:</span>
                     <s class="hl-fs-15 hl-bold">&yen; <?php echo $this->_var['seckill']['market_price']; ?></s>
                   </div>
+<<<<<<< HEAD
                   <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow">185</span>人够买</div>
+=======
+                  <div class="hl-half hl-gray hl-text-c">已有<span class="hl-bold hl-yellow"><?php echo $this->_var['seckill']['goods_buys']; ?></span>人够买</div>
+>>>>>>> origin/master
                 </div>
 
                 <div style="height: 36px;line-height: 38px;">

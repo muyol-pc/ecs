@@ -8,14 +8,17 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/base.css">
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/bigwheel.css">
+<script src="themes/henli/js/jquery.js" type="text/javascript" type="text/javascript"></script>
+<script src="themes/henli/js/alert.js" type="text/javascript" type="text/javascript"></script>
+
 </head>
 <body>
 	<div class="l-banner"><img src="themes/henli/inc/img/l_banner.jpg"></div>
 	<div class="card-content">
 		<div class="step-one">
-			<div class="surplus">您还有 <em class="number">0</em> 次机会</div>
+			<div class="surplus">您还有 <em class="number" id ="number">{$times}</em> 次机会</div>
 			<div class="o-h">
-				<div class="scratch">
+				<div class="bigwheel">
 					<div id="outercont">
 				        <div id="outer-cont">
 				            <div id="outer"><img src="themes/henli/inc/img/activity-lottery-3.png"></div>
@@ -37,35 +40,31 @@
 					</div>
 					<div class="w-list">
 						<ul>
-							<li><span>100元现金红包1</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包2</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包3</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包4</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包5</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包6</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包7</span><span>哇哈哈哈。。。</span></li>
-							<li><span>100元现金红包8</span><span>哇哈哈哈。。。</span></li>
+							{foreach from=$awards item=row}
+                                <li><span>{$row.name}</span><span>{$row.from_user}</span></li>
+                            {/foreach}
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="active-gift">
 				<ul>
-					<li>
-						<div class="circle"></div>
-						<div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
-					</li>
-					<li>
-						<div class="circle"></div>
-						<div class="pic"><img src="themes/henli/inc/img/gift2.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
-					</li>
-					<li>
-						<div class="circle"></div>
-						<div class="pic"><img src="themes/henli/inc/img/gift3.png"></div>
-						<div class="name">一等奖<em>iPhone6 Plus</em></div>
-					</li>
+						<li>
+                            <div class="circle"></div>
+                            <div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+                            <div class="name">{$reply.c_type_one}<em>{$reply.c_name_one}</em></div>
+                        </li>
+                        <li>
+                            <div class="circle"></div>
+                            <div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+                            <div class="name">{$reply.c_type_two}<em>{$reply.c_name_two}</em></div>
+                        </li>
+
+                        <li>
+                            <div class="circle"></div>
+                            <div class="pic"><img src="themes/henli/inc/img/gift1.png"></div>
+                            <div class="name">{$reply.c_type_three}<em>{$reply.c_name_three}</em></div>
+                        </li>
 				</ul>
 			</div>
 		</div><!--step-one end-->
@@ -77,43 +76,192 @@
 					<li>中奖时间</li>
 				</ul>
 				<ul class="record">
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
-					<li>
-						<span>一等奖</span>
-						<span>100元现金券</span>
-						<span>2016.10.11  0</span>
-					</li>
+					{foreach from=$records item=row}
+                        <li>
+                            <span>{$row.name}</span>
+                            <span>{$row.description}</span>
+                            <span>{$row.createtime}</span>
+                        </li>
+                    {/foreach}
 				</ul>
 			</div>
 		</div><!--step-two end-->
 		<div class="step-three">
 			<div class="note">
-				1) 本活动中奖率高达100%。<br>
-				2) 新用户完善账户信息（实名认证），即可中奖一次。<br>
-				3)  新老用户，，发送信息（平台用户名###手机号）到微信订阅号，（不可取消关注）即可增加一次抽奖机会。（例如：平台用户名###159xxxx2092）<br>
-				4) 新老用户活动期间首次投资达到100元，即可中奖一次。<br>
-				5) 新老用户每累计投资2000元，即可多中奖一次；每累计投资达到1万元，加送一次机会。（1万元6次抽奖）<br>
-				6) 抽中实物的用户，请您及时联系金百利客服人员登记收件信息，奖励将在活动结束后7个工作日内发放。<br>
-				7) 获得活动现金奖励的用户，将在中奖后的7个工作日内发放至其平台账号中(提现免费)。<br>
-				“新用户”是指完成了注册认证且从未投资过的用户。<br>
-				新手体验标和项目优选标不参与此活动
+				{$reply.description}
 			</div>
 		</div><!--step-three end-->
 		<div class="go-back"><a href="index.php">返回首页</a></div>
 	</div>
 </body>
+
+<script type="text/javascript">
+    $(function () {
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60)
+                    }
+        })();
+        var totalDeg = 360 * 3 + 0;
+        var steps = [];
+        var lostDeg = [30, 90, 150, 210, 270, 330];
+        var prizeDeg = [6, 66, 126, 186, 246, 306];
+        var prize, sncode, prizename, prizedes;
+        var count = 0;
+        var now = 0;
+        var a = 0.01;
+        var outter, inner, timer, running = false;
+
+        function countSteps() {
+            var t = Math.sqrt(2 * totalDeg / a);
+            var v = a * t;
+            for (var i = 0; i < t; i++) {
+                steps.push((2 * v * i - a * i * i) / 2)
+            }
+            steps.push(totalDeg)
+        }
+
+        function step() {
+            //outter.style.webkitTransform = 'rotate(' + steps[now++] + 'deg)';
+            //outter.style.MozTransform = 'rotate(' + steps[now++] + 'deg)';
+
+            inner.style.webkitTransform = 'rotate(' + steps[now++] + 'deg)';
+            inner.style.MozTransform = 'rotate(' + steps[now++] + 'deg)';
+            inner.style.Transform
+            transform-origin: x-offset
+            if (now < steps.length) {
+                running = true;
+                requestAnimFrame(step)
+            } else {
+                running = false;
+                setTimeout(function () {
+                            if (prize != null) {
+                               // $("#sncode").text(sncode);
+                               // $("#prizetype").text(prizename + " - " + prizedes);
+                               // $("#result").slideToggle(500);
+                                //$("#outercont").slideUp(500)
+                            } else {
+                                alert("{$reply.repeat_lottery_reply}")
+                            }
+                        },
+                        200)
+            }
+        }
+
+        function run() {
+            running = true;
+            timer = setInterval(function () {
+                        i += 5;
+                        //outter.style.webkitTransform = 'rotate(' + i + 'deg)';
+                        //outter.style.MozTransform = 'rotate(' + i + 'deg)'
+                        inner.style.webkitTransform = 'rotate(' + i + 'deg)';
+                        inner.style.MozTransform = 'rotate(' + i + 'deg)'
+                    },
+                    1)
+        }
+
+        function start(deg) {
+            deg = deg || lostDeg[parseInt(lostDeg.length * Math.random())];
+            running = true;
+            clearInterval(timer);
+            totalDeg = 360 * 2 + deg;
+            steps = [];
+            now = 0;
+            countSteps();
+            requestAnimFrame(step)
+        }
+
+        window.start = start;
+        outter = document.getElementById('outer');
+        inner = document.getElementById('inner');
+        i = 10;
+        $("#inner").click(function () {
+            if (running) return;
+
+            $.ajax({
+                url: "dazhuanpan.php?act=getaward&id={$reply.id}",
+                dataType: "json",
+                data: {
+                    t: Math.random()
+                },
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+                     if(parseInt($("#number").text())>0){
+                         $("#number").text(parseInt($("#number").text()) - 1);
+                        }
+                    if (data.success) {
+
+                        if (data.success == 1) {
+                            run();
+                            prize = data.prizetype;
+                            //prizename = data.name;
+                            //prizedes = data.award;
+                            //sncode = data.sn;
+                            start(prizeDeg[data.prizetype - 1]);
+
+                           // if ($("#count").length > 0) {
+                           //     $("#count").text(parseInt($("#count").text()) + 1);
+                           // }
+                           // if ($("#totalcount").length > 0) {
+                            //    $("#totalcount").text(parseInt($("#totalcount").text()) + 1)
+                           // }
+
+                        }
+                        else {
+                            prize = null;
+                            clearInterval(timer);
+                            alert(data.msg);
+                        }
+                    } else {
+                        prize = null;
+                        run();
+                        start();
+
+                        if ($("#count").length > 0) {
+                            $("#count").text(parseInt($("#count").text()) + 1);
+                        }
+                        if ($("#totalcount").length > 0) {
+                            $("#totalcount").text(parseInt($("#totalcount").text()) + 1)
+                        }
+
+                    }
+                    running = false;
+                    count++;
+
+                },
+                error: function () {
+                    prize = null;
+                    start();
+                    running = false;
+                    count++;
+                },
+                timeout: 15000
+            })
+        })
+    });
+
+    $("#save-btn").bind("click", function () {
+        var btn = $(this);
+        var tel = $("#tel").val();
+        if (tel == '') {
+            alert("请输入手机号");
+            return false;
+        }
+
+        var submitData = {
+            code: $("#sncode").text(),
+            tel: tel
+        };
+        $.post('dazhuanpan.php?act=settel&id={$reply.id}', submitData, function (data) {
+            if (data.success == true) {
+                alert(data.msg);
+                $("#result").slideUp(500);
+            }
+        }, "json")
+});
+
+</script>
 </html>

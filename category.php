@@ -46,7 +46,8 @@ else
 $smarty->assign('user_name',$_SESSION['user_name']);
 /* 初始化分页信息 */
 $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
-$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+//$size = isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+$size = 3;//test zhongyuzhi
 $brand = isset($_REQUEST['brand']) && intval($_REQUEST['brand']) > 0 ? intval($_REQUEST['brand']) : 0;
 $price_max = isset($_REQUEST['price_max']) && intval($_REQUEST['price_max']) > 0 ? intval($_REQUEST['price_max']) : 0;
 $price_min = isset($_REQUEST['price_min']) && intval($_REQUEST['price_min']) > 0 ? intval($_REQUEST['price_min']) : 0;
@@ -211,7 +212,6 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
         $price_grade[0]['selected'] = empty($price_max) ? 1 : 0;
 
         $smarty->assign('price_grade',     $price_grade);
-
     }
 
 
@@ -228,7 +228,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 
     foreach ($brands AS $key => $val)
     {
-        $temp_key = $key + 1;
+        $temp_key = $key;
         $brands[$temp_key]['brand_name'] = $val['brand_name'];
         $brands[$temp_key]['brand_logo'] = $val['brand_logo'];
         $brands[$temp_key]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => $val['brand_id'], 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
@@ -244,29 +244,30 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
         }
     }
 
-    $brands[0]['brand_name'] = $_LANG['all_attribute'];
-     $brands[0]['brand_logo']='';
-    $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
-    $brands[0]['selected'] = empty($brand) ? 1 : 0;
-
+//    $brands[0]['brand_name'] = $_LANG['all_attribute'];
+//     $brands[0]['brand_logo']='';
+//    $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
+//    $brands[0]['selected'] = empty($brand) ? 1 : 0;
+//    var_dump($brands);exit;
+    $smarty->assign('brand_msg', $brands);
 /*-----------自定义查询品牌分类-----------------2016-1225-22:17------start----------------------------------*/
 
 //第一步 根据catid查询goods表，该分类对应那些产品，这些产品对应了那些品牌
 //$cat_id 分类id   distinct
-$sql="SELECT distinct(brand_id) from". $GLOBALS['ecs']->table('goods')."where cat_id=$cat_id";
-$brand_ids = $GLOBALS['db']->getAll($sql);
-$n_brands_ids = array();
-foreach ($brand_ids as $key => $value) {
-    foreach ($value as $va) {
-        $n_brands_ids[] = $va;
-    }
-}
-//得到了品牌的id,转换成一个字符串，丢到 in 查询
-$str_brands_ids = implode(',',$n_brands_ids);
-$sql2 = "select brand_id,brand_name,brand_logo from". $GLOBALS['ecs']->table('brand')."where is_show=1 and brand_id in($str_brands_ids)";
-$brand_names = $GLOBALS['db']->getAll($sql2);
-//查询遍历得到品牌数组----输出
-$smarty->assign('brand_msg', $brand_names);
+//$sql="SELECT distinct(brand_id) from". $GLOBALS['ecs']->table('goods')."where cat_id=$cat_id";
+//$brand_ids = $GLOBALS['db']->getAll($sql);
+//$n_brands_ids = array();
+//foreach ($brand_ids as $key => $value) {
+//    foreach ($value as $va) {
+//        $n_brands_ids[] = $va;
+//    }
+//}
+////得到了品牌的id,转换成一个字符串，丢到 in 查询
+//$str_brands_ids = implode(',',$n_brands_ids);
+//$sql2 = "select brand_id,brand_name,brand_logo from". $GLOBALS['ecs']->table('brand')."where is_show=1 and brand_id in($str_brands_ids)";
+//$brand_names = $GLOBALS['db']->getAll($sql2);
+////查询遍历得到品牌数组----输出
+//$smarty->assign('brand_msg', $brand_names);
 
 // $sql = "SELECT distinct(brand_id), brand_name, brand_logo ".
 //                    " FROM " . $GLOBALS['ecs']->table('category');
@@ -276,29 +277,30 @@ $smarty->assign('brand_msg', $brand_names);
 
 /*----------------------------2016-1225-22:17------end----------------------------------*/
 /*---已知-$cat_id-------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------start----------------------------------*/
-$sql3="SELECT filter_attr from". $GLOBALS['ecs']->table('category')."where cat_id=$cat_id";
-$cat_attrbutes_ids = $GLOBALS['db']->getOne($sql3);
-$sqls = "SELECT attr_name,attr_values from". $GLOBALS['ecs']->table('attribute')."where cat_id=$cat_id and attr_id in($cat_attrbutes_ids) order by sort_order asc";
-$attr_valuess = $GLOBALS['db']->getAll($sqls);
-$new_attr_values =array();
-foreach ($attr_valuess as $key => $v_attr) {
-    $new_attr_values[]['attr_name'] = $v_attr['attr_name'];
-    // $new_attr_values[]['attr_values']=explode('\r',$v_attr['attr_values']);
-    $new_attr_values[]['attr_values']=explode(',',preg_replace('/(\n|\r|\n\r|\r\n)+/', ',', $v_attr['attr_values']));
-}
-
-$count = count($new_attr_values)/2;
-    for ($i=0; $i < $count; $i++) {
-        $rr[$i] = array_splice($new_attr_values,0,2);
-    }
-    foreach ($rr as $key => $value) {
-        foreach ($value as $k => $val) {
-            foreach ($val as $a => $v) {
-                $re_new_attr_values[$key][$a]=$v;
-            }
-        }
-    }
-$smarty->assign('attrs_ok', $re_new_attr_values);
+//$sql3="SELECT filter_attr from". $GLOBALS['ecs']->table('category')."where cat_id=$cat_id";
+//$cat_attrbutes_ids = $GLOBALS['db']->getOne($sql3);
+//$sqls = "SELECT attr_name,attr_values from". $GLOBALS['ecs']->table('attribute')."where cat_id=$cat_id and attr_id in($cat_attrbutes_ids) order by sort_order asc";
+//$attr_valuess = $GLOBALS['db']->getAll($sqls);
+//$new_attr_values =array();
+//foreach ($attr_valuess as $key => $v_attr) {
+//    $new_attr_values[]['attr_name'] = $v_attr['attr_name'];
+//    // $new_attr_values[]['attr_values']=explode('\r',$v_attr['attr_values']);
+//    $new_attr_values[]['attr_values']=explode(',',preg_replace('/(\n|\r|\n\r|\r\n)+/', ',', $v_attr['attr_values']));
+//}
+//
+//$count = count($new_attr_values)/2;
+//    for ($i=0; $i < $count; $i++) {
+//        $rr[$i] = array_splice($new_attr_values,0,2);
+//    }
+//    foreach ($rr as $key => $value) {
+//        foreach ($value as $k => $val) {
+//            foreach ($val as $a => $v) {
+//                $re_new_attr_values[$key][$a]=$v;
+//            }
+//        }
+//    }
+//
+//$smarty->assign('attrs_ok', $re_new_attr_values);
 
 /*-----------自定义查询分类对应的属性类别和属性值-----------------2016-1225-22:17------end----------------------------------*/
 
@@ -386,8 +388,8 @@ $smarty->assign('attrs_ok', $re_new_attr_values);
     $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
     $smarty->assign('categories',       get_categories_tree($cat_id)); // 分类树
-    $smarty->assign('helps',            get_shop_help());              // 网店帮助
-    $smarty->assign('top_goods',        get_top10());                  // 销售排行
+//    $smarty->assign('helps',            get_shop_help());              // 网店帮助
+//    $smarty->assign('top_goods',        get_top10());                  // 销售排行
     $smarty->assign('show_marketprice', $_CFG['show_marketprice']);
     $smarty->assign('category',         $cat_id);
     $smarty->assign('brand_id',         $brand);
@@ -418,16 +420,16 @@ $smarty->assign('attrs_ok', $re_new_attr_values);
 
 
     /* 调查 */
-    $vote = get_vote();
-    if (!empty($vote))
-    {
-        $smarty->assign('vote_id',     $vote['id']);
-        $smarty->assign('vote',        $vote['content']);
-    }
+//    $vote = get_vote();
+//    if (!empty($vote))
+//    {
+//        $smarty->assign('vote_id',     $vote['id']);
+//        $smarty->assign('vote',        $vote['content']);
+//    }
 
-    $smarty->assign('best_goods',      get_category_recommend_goods('best', $children, $brand, $price_min, $price_max, $ext));
+//    $smarty->assign('best_goods',      get_category_recommend_goods('best', $children, $brand, $price_min, $price_max, $ext));
     $smarty->assign('promotion_goods', get_category_recommend_goods('promote', $children, $brand, $price_min, $price_max, $ext));
-    $smarty->assign('hot_goods',       get_category_recommend_goods('hot', $children, $brand, $price_min, $price_max, $ext));
+//    $smarty->assign('hot_goods',       get_category_recommend_goods('hot', $children, $brand, $price_min, $price_max, $ext));
 
     $count = get_cagtegory_goods_count($children, $brand, $price_min, $price_max, $ext);
     $max_page = ($count> 0) ? ceil($count / $size) : 1;

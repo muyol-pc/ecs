@@ -119,8 +119,6 @@ $_LANG['admin_user'][] = '订单列表|order.php?act=list';
 $_LANG['admin_user'][] = '用户评论|comment_manage.php?act=list';
 $_LANG['admin_user'][] = '会员列表|users.php?act=list';
 $_LANG['admin_user'][] = '商店设置|shop_config.php?act=list_edit';
-$_LANG['admin_user'][] = '移动版|lead.php?act=list';
-$_LANG['admin_user'][] = '服务市场|service_market.php';
 $_LANG['password_intensity'] = '密码强度：';
 $_LANG['pwd_lower'] = '弱';
 $_LANG['pwd_middle'] = '中';

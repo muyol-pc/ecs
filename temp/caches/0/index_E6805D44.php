@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 <?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:37:"E:/www/ecs/ecs/themes/henli/index.dwt";i:1;s:55:"E:/www/ecs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:51:"E:/www/ecs/ecs/themes/henli/library/page_header.lbi";i:3;s:48:"E:/www/ecs/ecs/themes/henli/library/index_ad.lbi";i:4;s:51:"E:/www/ecs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482777620;s:8:"maketime";i:1482774020;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+=======
+<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/index.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:68:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/index_ad.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482852426;s:8:"maketime";i:1482848826;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+>>>>>>> origin/master
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
 <title>ECSHOP演示站</title>
+=======
+<title>西门子家电</title>
+>>>>>>> origin/master
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
@@ -29,7 +37,11 @@ var process_request = "正在处理您的请求...";
   <div class="hl-center"> 
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
+<<<<<<< HEAD
               <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">admin</a>
+=======
+              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">crab</a>
+>>>>>>> origin/master
         <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
         <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
       <a class="hl-message" href="leftmessage.php" target="_blank">在线留言</a>
@@ -85,8 +97,12 @@ var process_request = "正在处理您的请求...";
         trigger: "click"
       });
     };
+<<<<<<< HEAD
 </script>
 <div class="hl-center hl-washer hl-clearfix hl-mb20">
+=======
+</script><div class="hl-center hl-washer hl-clearfix hl-mb20">
+>>>>>>> origin/master
   <h2 class="hl-f30 hl-h2 hl-4a hl-tc">冰洗专区</h2>
   <a class="hl-half" href="category.php?id=1" style="">
     <div class="hl-pr20"><img src="data/afficheimg/20160129bcmitn.jpg" alt="" height="250px;" /></div>
@@ -136,7 +152,11 @@ var process_request = "正在处理您的请求...";
           <p class="hl-f30 hl-4a">在线留言</p>
           <p class="hl-f18 hl-93 hl-ups">Online message</p>
         </h2>
+<<<<<<< HEAD
         <a href="leftmessage.php">
+=======
+        <a href="message.php">
+>>>>>>> origin/master
           <img src="themes/henli/images/hl-pc.png" alt=""/>
         </a>
       </li>
@@ -172,4 +192,8 @@ var process_request = "正在处理您的请求...";
   苏ICP备10003401号
 </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/master

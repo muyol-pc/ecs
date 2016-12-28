@@ -102,7 +102,11 @@ if ($this->_foreach['no']['total'] > 0):
           </div> -->
           
           <!-- <div class="hl-price hl-f18">
+<<<<<<< HEAD
             价格 <strong class="hl-f30 hl-fmr">价格暂定</strong>
+=======
+            价格 <strong class="hl-f30 hl-fmr"><?php echo $this->_var['goods']['shop_price']; ?></strong>
+>>>>>>> origin/master
           </div> -->
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div class="hl-dt">送　　至</div>
@@ -197,6 +201,7 @@ if ($this->_foreach['no']['total'] > 0):
                 </span>
               </div>
             </div> -->
+<<<<<<< HEAD
             
             <?php $_from = $this->_var['specification']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
     foreach ($_from AS $this->_var['attr']):
@@ -233,6 +238,82 @@ if ($this->_foreach['no']['total'] > 0):
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
+=======
+            <div class="hl-proinfo-color">
+              <div class="hl-dt">版　　式</div>
+              <div class="hl-dd">
+                <ul class="hl-tip-infor hl-clearfix">
+                <script>
+                    $(function(){
+                        $('.hl-tip-infor li').eq(0).addClass('hl-selected');
+                        $('.hl-tip-infor li').click(function(){
+                            $(this).siblings().removeClass('hl-selected');
+                            $(this).addClass('hl-selected');
+                        })
+                        $('.hl-tip-infor li a').click(function(){
+                            var _banshi = $(this).find('span').text();
+                            $('#banshi').val(_banshi);
+                        })
+                    })
+                </script>
+                <?php $_from = $this->_var['ban']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'banshi');if (count($_from)):
+    foreach ($_from AS $this->_var['banshi']):
+?>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
+                      <i></i>
+                      <span><?php echo $this->_var['banshi']; ?></span>
+                    </a>
+                  </li>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+                <input type="hidden" name="banshi" id="banshi" />
+              </div>
+            </div>
+            <div class="hl-proinfo-type">
+              <div class="hl-dt">颜　　色</div>
+              <div class="hl-dd">
+                <ul class="hl-color-infor hl-clearfix">
+                <script>
+                    $(function(){
+                        $('.hl-color-infor li').eq(0).addClass('hl-selected');
+                        $('.hl-color-infor li').click(function(){
+                            $(this).siblings().removeClass('hl-selected');
+                            $(this).addClass('hl-selected');
+                        })
+                        $('.hl-color-infor li a').click(function(){
+                            var _colors = $(this).find('span').text();
+                            $('#colors').val(_colors);
+                        })
+                    })
+                </script>
+                <?php $_from = $this->_var['colors']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'color');if (count($_from)):
+    foreach ($_from AS $this->_var['color']):
+?>
+                  <li>
+                    <a href="javascript:;">
+                      <i></i>
+                      <span><?php echo $this->_var['color']; ?></span>
+                    </a>
+                  </li>
+                  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+                </ul>
+                <input type="hidden" name="colors" id="colors" />
+              </div>
+            </div>
+
+            <div class="hl-dt">数　　量</div>
+            <div class="hl-dd hl-buy-count hl-f0">
+              <a href="javascript:;" class="hl-minus hl-minus-disable"></a>
+              <input type="text" name="number" id="number" class="hl-buy-num hl-tc" value="1" />
+              <a href="javascript:;" class="hl-plus"></a>
+              
+              <span class="hl-promotion">正在促销</span>
+              
+              <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
+            </div>
+>>>>>>> origin/master
             <div style="margin:10px 0;color: #999;">
     <?php if ($this->_var['group_buy']['status'] == 0): ?>
       <?php echo $this->_var['lang']['gbs_pre_start']; ?>
@@ -268,12 +349,21 @@ if ($this->_foreach['no']['total'] > 0):
           <li>
             <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods']['id']; ?>"><img src="<?php echo $this->_var['goods']['goods_img']; ?>" alt=""></a>
             <div class="hl-price">
+<<<<<<< HEAD
              价格暂定
               <strong class="hl-disp-b hl-ups hl-f24">
                <?php if ($this->_var['goods']['promote_price'] != ""): ?>
       价格暂定
        <?php else: ?>
       价格暂定
+=======
+             <?php echo $this->_var['goods']['shop_price']; ?>
+              <strong class="hl-disp-b hl-ups hl-f24">
+               <?php if ($this->_var['goods']['promote_price'] != ""): ?>
+      <?php echo $this->_var['goods']['market_price']; ?>
+       <?php else: ?>
+      <?php echo $this->_var['goods']['promote_price']; ?>
+>>>>>>> origin/master
       <?php endif; ?>
       </strong>
               <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods']['url']; ?>"><?php echo $this->_var['goods']['short_style_name']; ?></a>

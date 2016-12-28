@@ -4,6 +4,7 @@ $data = array (
   array (
     0 => 
     array (
+<<<<<<< HEAD
       'goods_id' => '134',
       'sort_order' => '1',
     ),
@@ -35,6 +36,14 @@ $data = array (
     6 => 
     array (
       'goods_id' => '139',
+=======
+      'goods_id' => '1',
+      'sort_order' => '100',
+    ),
+    1 => 
+    array (
+      'goods_id' => '2',
+>>>>>>> origin/master
       'sort_order' => '100',
     ),
   ),
@@ -42,6 +51,7 @@ $data = array (
   array (
     0 => 
     array (
+<<<<<<< HEAD
       'goods_id' => '136',
       'sort_order' => '2',
     ),
@@ -73,6 +83,14 @@ $data = array (
     6 => 
     array (
       'goods_id' => '139',
+=======
+      'goods_id' => '1',
+      'sort_order' => '100',
+    ),
+    1 => 
+    array (
+      'goods_id' => '2',
+>>>>>>> origin/master
       'sort_order' => '100',
     ),
   ),
@@ -80,6 +98,7 @@ $data = array (
   array (
     0 => 
     array (
+<<<<<<< HEAD
       'goods_id' => '134',
       'sort_order' => '1',
     ),
@@ -118,6 +137,16 @@ $data = array (
   array (
     136 => 'BOSCH',
     1 => '西门子(SIEMENS)',
+=======
+      'goods_id' => '1',
+      'sort_order' => '100',
+    ),
+  ),
+  'brand' => 
+  array (
+    1 => '西门子(SIEMENS)',
+    2 => 'BOSCH',
+>>>>>>> origin/master
   ),
 );
 ?>

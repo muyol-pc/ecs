@@ -46,6 +46,12 @@
 	margin-left: 30px;
 	background: url("../img/icon2.png") no-repeat;
 }
+.step-one .bigwheel{
+    width: 730px;
+    height: 425px;
+    float: left;
+    margin-left: 30px;
+}
 .step-one .win{
 	width: 462px;
 	height: 441px;

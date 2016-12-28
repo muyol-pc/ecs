@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v3.0.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>表单</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -9,10 +10,10 @@
 <link type="text/css" rel="stylesheet" href="themes/henli/inc/css/guaguaka_index.css">
 </head>
 <body>
-  <!-- #BeginLibraryItem "/library/page_header_top.lbi" --><!-- #EndLibraryItem -->
-  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <?php echo $this->fetch('library/page_header_top.lbi'); ?>
+  <?php echo $this->fetch('library/page_header.lbi'); ?>
 
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <?php echo $this->fetch('library/ur_here.lbi'); ?>
 <style>
   .i-box{height: 50px;}
   .i-box input{line-height: 50px;height: 50px;}
@@ -23,11 +24,11 @@
     <ul>
       <li>
         <span>姓名：</span>
-        <div class="i-box"><input type="text" name="msg_name" value="{$user_name}" readonly></div>
+        <div class="i-box"><input type="text" name="msg_name" value="<?php echo $this->_var['user_name']; ?>" readonly></div>
       </li>
       <li>
         <span>联系电话：</span>
-        <div class="i-box"><input type="text" name="msg_phone" value="{$mobile_phone}" readonly></div>
+        <div class="i-box"><input type="text" name="msg_phone" value="<?php echo $this->_var['mobile_phone']; ?>" readonly></div>
       </li>
       <li>
         <span>电子邮箱：</span>
@@ -38,13 +39,13 @@
         <div class="i-box" style="margin-top:5px;height: 140px;px"><textarea class="area" name="msg_content" style="width: 100%;"></textarea></div>
       </li>
       <li>
-        <!-- 判断是否启用验证码{if $enabled_mes_captcha} -->
+        <?php if ($this->_var['enabled_mes_captcha']): ?>
 
-                <span>{$lang.comment_captcha}：</span>
+                <span><?php echo $this->_var['lang']['comment_captcha']; ?>：</span>
               <div class="i-box" style="margin-top:5px;"><input type="text" size="8" name="captcha"  class="inputBg" style="width: 303px;height: 50px;line-height: 50px"/>
-                <img src="captcha.php?{$rand}" alt="captcha" style="cursor: pointer;float:right;" onClick="this.src='captcha.php?'+Math.random()" />
+                <img src="captcha.php?<?php echo $this->_var['rand']; ?>" alt="captcha" style="cursor: pointer;float:right;" onClick="this.src='captcha.php?'+Math.random()" />
               </div>
-            <!--{/if}-->
+            <?php endif; ?>
       </li>
 
       <li class="btn">
@@ -56,10 +57,12 @@
 
 
   <script type="text/javascript">
-        {foreach from=$lang.message_board_js item=item key=key}
-        var {$key} = "{$item}";
-        {/foreach}
-        {literal}
+        <?php $_from = $this->_var['lang']['message_board_js']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['item']):
+?>
+        var <?php echo $this->_var['key']; ?> = "<?php echo $this->_var['item']; ?>";
+        <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        
         /**
          * 提交留言信息
         */
@@ -105,7 +108,7 @@
                 return true;
             }
         }
-        {/literal}
+        
     </script>
 </body>
 
