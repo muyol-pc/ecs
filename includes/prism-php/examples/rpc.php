@@ -6,4 +6,4 @@ $params = array(
     'password'=>'c',
     );
 $a = $c->post('/user/login', $params);
-var_dump($a);
+// var_dump(($a));

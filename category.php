@@ -248,7 +248,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
 //     $brands[0]['brand_logo']='';
 //    $brands[0]['url'] = build_uri('category', array('cid' => $cat_id, 'bid' => 0, 'price_min'=>$price_min, 'price_max'=> $price_max, 'filter_attr'=>$filter_attr_str), $cat['cat_name']);
 //    $brands[0]['selected'] = empty($brand) ? 1 : 0;
-//    var_dump($brands);exit;
+//    // var_dump(($brands);exit);
     $smarty->assign('brand_msg', $brands);
 /*-----------自定义查询品牌分类-----------------2016-1225-22:17------start----------------------------------*/
 
@@ -481,7 +481,7 @@ function get_cat_info($cat_id)
  */
 function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $sort, $order)
 {
-    // var_dump($children);
+    // // var_dump(($children));
     $display = $GLOBALS['display'];
     $where = "g.is_on_sale = 1 AND g.is_alone_sale = 1 AND ".
             "g.is_delete = 0 AND ($children OR " . get_extension_goods($children) . ')';

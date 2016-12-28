@@ -86,7 +86,7 @@ class ecshop extends integrate
      */
     function check_user($username, $password = null)
     {
-        // var_dump('ecshop',$username, $password);
+        // // var_dump(('ecshop',$username, $password));
         if ($this->charset != 'UTF8')
         {
             $post_username = ecs_iconv('UTF8', $this->charset, $username);
@@ -110,16 +110,16 @@ class ecshop extends integrate
                    " FROM " . $this->table($this->user_table).
                    " WHERE user_name='$post_username' and state=1";
             $row = $this->db->getRow($sql);
-            // var_dump($sql,$row);
+            // // var_dump(($sql,$row));
 			$ec_salt=$row['ec_salt'];
             if (empty($row))
             {
                 return 0;
             }
-            // var_dump($row);
+            // // var_dump(($row));
             if (empty($row['salt']))
             {
-                // var_dump($row['password'],$this->compile_password(array('password'=>$password,'ec_salt'=>$ec_salt)));
+                // // var_dump(($row['password'],$this->compile_password(array('password'=>$password,'ec_salt'=>$ec_salt))));
                 if ($row['password'] != $this->compile_password(array('password'=>$password,'ec_salt'=>$ec_salt)))
                 {
                     return 0;
@@ -175,7 +175,7 @@ class ecshop extends integrate
                 //        " SET password = '".  $this->compile_password(array('password'=>$password)) . "', salt=''".
                 //        " WHERE user_id = '$row[user_id]'";
                 // $this->db->query($sql);
-                // var_dump($row['user_id']);
+                // // var_dump(($row['user_id']));
                 return $row['user_id'];
             }
         }

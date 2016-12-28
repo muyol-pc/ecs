@@ -184,9 +184,7 @@ elseif ($_REQUEST['act'] == 'view')
     for ($i=0; $i < $count; $i++) {
         $_ban[$i] = $_b[$_k[$i]];
     }
-
-
-//输出板式
+    //输出板式
     $smarty->assign('ban',  $_ban);
 
     /*第二个：颜色  id=4-----20161622--------*/
@@ -200,7 +198,7 @@ elseif ($_REQUEST['act'] == 'view')
         $colors[$i] = $_b[$_k2[$i]];
     }
 
-//输出颜色
+    //输出颜色
     $smarty->assign('colors',  $colors);
     /*========================================*/
 

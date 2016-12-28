@@ -152,7 +152,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 
     /* 获得商品的信息 */
     $goods = get_goods_info($goods_id);
-    // var_dump($goods);
+    // // var_dump(($goods));
     if ($goods === false)
     {
         /* 如果没有找到任何记录则跳回到首页 */
@@ -186,7 +186,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
                 $goods['bonus_money'] = price_format($goods['bonus_money']);
             } 
         }
-        // var_dump($goods);
+        // // var_dump(($goods));
         $smarty->assign('goods',              $goods);
         $smarty->assign('goods_id',           $goods['goods_id']);
         $smarty->assign('promote_end_time',   $goods['gmt_end_time']);
@@ -227,7 +227,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $smarty->assign('ur_here',             $position['ur_here']);                  // 当前位置
 
         $properties = get_goods_properties($goods_id);  // 获得商品的规格和属性
-        // var_dump($properties['spe']);
+        // // var_dump(($properties['spe']));
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
         $smarty->assign('specification',       $properties['spe']);                              // 商品规格
         $smarty->assign('attribute_linked',    get_same_attribute_goods($properties));           // 相同属性的关联商品
@@ -242,7 +242,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
             'thumb_url'=>$goods['goods_thumb'],
             'img_desc'=>''
         );
-        // var_dump($pic);
+        // // var_dump(($pic));
         $smarty->assign('pictures',            $pic);                    // 商品相册
         $smarty->assign('bought_goods',        get_also_bought($goods_id));                      // 购买了该商品的用户还购买了哪些商品
         $smarty->assign('goods_rank',          get_goods_rank($goods_id));                       // 商品的销售排名

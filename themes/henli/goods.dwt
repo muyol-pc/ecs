@@ -131,14 +131,14 @@ function reg(str){
               <div class="hl-dt">赠　　品</div>
               <div class="hl-dd"><strong class="hl-f14">赠送1000元优惠券</strong></div>
             </div>-->
-            <div class="">
+            <!-- <div class="">
               <div class="hl-dt">支　　持</div>
               <div class="hl-dd">
               <ul><li class="hl-yjhx hl-selected hl-pro-attr"><a href="" class="hl-yjfx">
                     <i>以旧换新</i>
                   </a></li></ul>
               </div>
-            </div>
+            </div> -->
             <!-- 支持：产品详情页输出 -->
             <!-- {foreach from=$specification item=attr} --> 
             <div class="">
@@ -146,117 +146,19 @@ function reg(str){
               <div class="hl-dd">
               <ul class="hl-tip-infor hl-clearfix">
                 <!-- {foreach from=$attr.values item=value key=key} -->
-                <li class="hl-pro-attr {if $key==0}hl-selected{else}hl-disabled{/if}" price='{$value.price}' id="{$value.id}"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      {$value.label}
-                </a>
+                <li class="{if $key eq 0}hl-selected{else}hl-disabled{/if}">
+                  <input type="hidden" {if $key eq 0}name="spec_{$value.id}"{/if}  class="hl-pro-attr" price='{$value.price}' value="{$value.id}" />
+                  <a href="">
+                    &nbsp;&nbsp;
+                    <i></i>
+                    {$value.label}
+                  </a>
                 </li>
                 <!-- {/foreach} -->
               </ul>
               </div>
             </div>
             <!-- {/foreach} -->
-<!--             <div class="">
-              <div class="hl-dt">版　　式</div>
-              <div class="hl-dd">
-                <ul class="hl-tip-infor hl-clearfix">
-                  <li class="hl-selected hl-pro-attr" value="banshi_1">
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="">
-              <div class="hl-dt">颜　　色</div>
-              <div class="hl-dd">
-                <ul class="hl-color-infor hl-clearfix">
-                  <li class="hl-selected hl-pro-attr" value="color_1">
-                    <a href="javascript:;">
-                      浅金色
-                      <i></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">
-                      浅金色
-                      <i></i>
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="javascript:;">
-                      浅金色
-                      <i></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
             <div>
               <div class="hl-dt">数　　量</div>
               <div class="hl-dd hl-buy-count hl-f0">
@@ -271,13 +173,12 @@ function reg(str){
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
-
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
             <!-- 马上参团：团购详情页输出 -->
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             <!-- 立即购买：产品详情页输出 -->
-            <a href="javascript:addToCart({$goods.goods_id})" class="hl-buy-now">立即购买</a>
+            <a href="javascript:addToCart({$goods.goods_id},)" class="hl-buy-now">立即购买</a>
             <a href="javascript:addToCart2({$goods.goods_id})" class="hl-add-cart">加入购物车</a>
           </div>
         </div>

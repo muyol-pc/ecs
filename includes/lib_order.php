@@ -1172,7 +1172,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $rec_type
         'is_shipping'   => $goods['is_shipping'],
         'rec_type'      => $rec_type
     );
-    // var_dump($spec_price,$goods_price,$goods_attr_id,$parent);
+    // // var_dump(($spec_price,$goods_price,$goods_attr_id,$parent));
     /* 如果该配件在添加为基本件的配件时，所设置的“配件价格”比原价低，即此配件在价格上提供了优惠， */
     /* 则按照该配件的优惠价格卖，但是每一个基本件只能购买一个优惠价格的“该配件”，多买的“该配件”不享 */
     /* 受此优惠 */
@@ -1637,7 +1637,7 @@ function get_cart_goods($rec_type = CART_GENERAL_GOODS)
         'save_rate'    => 0, // 节省百分比
         'goods_amount' => 0, // 本店售价合计（无格式）
     );
-    // var_dump($_SESSION['user_id']);
+    // // var_dump(($_SESSION['user_id']));
     // return;
     /* 循环、统计 */
     $sql = "SELECT a.*,b.gift_num ,IF(a.parent_id,a.parent_id,goods_id) AS pid " .
@@ -1645,7 +1645,7 @@ function get_cart_goods($rec_type = CART_GENERAL_GOODS)
             " LEFT JOIN (SELECT parent_id ,count(rec_id) as gift_num from ".$GLOBALS['ecs']->table('cart')." where  user_id = " . $_SESSION['user_id'] . " AND is_gift != 0 group by parent_id) as b on a.rec_id = b.parent_id ".
             " WHERE user_id = " . $_SESSION['user_id'] . " AND rec_type = '" . $rec_type . "' AND is_gift = 0" .
             " ORDER BY pid, parent_id";
-    // var_dump($sql);
+    // // var_dump(($sql));
     // return;
     $res = $GLOBALS['db']->query($sql);
 

@@ -163,7 +163,7 @@ elseif($act == 'close_remind')
 }
 exit;
                 $api_str = $result["body"];
-                //var_dump($api_str);
+                //// var_dump(($api_str));
                 $api_arr = array();
                 $api_arr = @$json->decode($api_str,1);
                 $api_arr['content'] = urldecode($api_arr['content']);

@@ -30,7 +30,7 @@ $smarty->assign('affiliate', $affiliate);
 //$back_act='';
 
 
-// var_dump($action);
+// // var_dump(($action));
 //用户中心欢迎页
 if ($action == 'index')
 {

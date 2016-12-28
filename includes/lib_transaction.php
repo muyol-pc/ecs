@@ -290,13 +290,13 @@ function get_user_orders($user_id, $num = 10, $start = 0,$status='')
            "(goods_amount + shipping_fee + insure_fee + pay_fee + pack_fee + card_fee + tax - discount) AS total_fee ".
            " FROM " .$GLOBALS['ecs']->table('order_info') .
            " WHERE user_id = '$user_id' {$status} ORDER BY add_time DESC";
-    // var_dump($sql);
+    // // var_dump(($sql));
     $res = $GLOBALS['db']->SelectLimit($sql, $num, $start);
 
-    // var_dump($res);
-    // var_dump('order_status',$row['order_status'],OS_UNCONFIRMED,OS_SPLITED);
-    // var_dump('shipping_status',$row['shipping_status'],SS_SHIPPED,SS_RECEIVED);
-    // var_dump('pay_status',$row['pay_status'],PS_UNPAYED);
+    // // var_dump(($res));
+    // // var_dump(('order_status',$row['order_status'],OS_UNCONFIRMED,OS_SPLITED));
+    // // var_dump(('shipping_status',$row['shipping_status'],SS_SHIPPED,SS_RECEIVED));
+    // // var_dump(('pay_status',$row['pay_status'],PS_UNPAYED));
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
         if ($row['order_status'] == OS_UNCONFIRMED) // 未确认

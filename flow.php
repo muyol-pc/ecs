@@ -35,7 +35,7 @@ if (!isset($_REQUEST['step']))
 {
     $_REQUEST['step'] = "cart";
 }
-// var_dump($_REQUEST);
+// // var_dump(($_REQUEST));
 /*------------------------------------------------------ */
 //-- PROCESSOR
 /*------------------------------------------------------ */
@@ -45,7 +45,7 @@ assign_dynamic('flow');
 $position = assign_ur_here(0, $_LANG['shopping_flow']);
 $smarty->assign('page_title',       $position['title']);    // 页面标题
 $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
-// var_dump($_LANG);
+// // var_dump(($_LANG));
 $smarty->assign('categories',       get_categories_tree()); // 分类树
 $smarty->assign('helps',            get_shop_help());       // 网店帮助
 $smarty->assign('lang',             $_LANG);
@@ -81,7 +81,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     }
 
     $goods = $json->decode($_POST['goods']);
-    // var_dump($_POST,$goods);
+    // // var_dump(($_POST,$goods));
     /* 检查：如果商品有规格，而post的数据没有规格，把商品的规格属性通过JSON传到前台 */
     if (empty($goods->spec) AND empty($goods->quick))
     {
@@ -307,18 +307,16 @@ elseif ($_REQUEST['step'] == 'login')
         }
     }
 }
-elseif ($_REQUEST['step'] == 'consignee')
+elseif ($_REQUEST['step'] == 'consignee') 
 {
     /*------------------------------------------------------ */
     //-- 收货人信息
     /*------------------------------------------------------ */
     include_once('includes/lib_transaction.php');
-    var_dump($_POST);
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
     {
         /* 取得购物类型 */
         $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
-
         /*
          * 收货人信息填写界面
          */
@@ -443,7 +441,7 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     /* 取得购物类型 */
     $flow_type = isset($_SESSION['flow_type']) ? intval($_SESSION['flow_type']) : CART_GENERAL_GOODS;
-    // var_dump($flow_type);
+    // // var_dump(($flow_type));
     /* 团购标志 */
     if ($flow_type == CART_GROUP_BUY_GOODS)
     {
@@ -465,7 +463,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     $sql = "SELECT COUNT(*) FROM " . $ecs->table('cart') .
         " WHERE user_id = '" . $_SESSION['user_id'] . "' " .
         "AND parent_id = 0 AND is_gift = 0 AND rec_type = '$flow_type' ".$rec_id;
-    // var_dump('sql',$sql);
+    // // var_dump(('sql',$sql));
     if ($db->getOne($sql) == 0)
     {
         show_message($_LANG['no_goods_in_cart'], '', '', 'warning');
@@ -484,7 +482,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     }
 
     $consignee = get_consignee($_SESSION['user_id']); 
-    // var_dump($consignee);
+    // // var_dump(($consignee));
     /* 检查收货人信息是否完整 */
     if (!check_consignee_info($consignee, $flow_type))
     {
@@ -495,11 +493,11 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     $_SESSION['flow_consignee'] = $consignee;
     $smarty->assign('consignee', $consignee);
-    // var_dump($_SESSION);
+    // // var_dump(($_SESSION));
 
     /* 对商品信息赋值 */
     $cart_goods = cart_goods($flow_type,$rec_id); // 取得商品列表，计算合计
-    // var_dump('------------------------','goods_list',$cart_goods);
+    // // var_dump(('------------------------','goods_list',$cart_goods));
     // return;
     $smarty->assign('goods_list', $cart_goods);
 
@@ -512,7 +510,7 @@ elseif ($_REQUEST['step'] == 'checkout')
     {
         $smarty->assign('allow_edit_cart', 1);
     }
-    // var_dump($_CFG);
+    // // var_dump(($_CFG));
     /*
      * 取得购物流程设置
      */
@@ -521,7 +519,7 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 取得订单信息
      */
     $order = flow_order_info();
-    // var_dump('---------------------------------------------------------',$order);
+    // // var_dump(('---------------------------------------------------------',$order));
     // return;
     $smarty->assign('order', $order);
 
@@ -538,7 +536,7 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 计算订单的费用
      */
     $total = order_fee($order, $cart_goods, $consignee);
-    // var_dump('---------------------------------------------------------',$total);
+    // // var_dump(('---------------------------------------------------------',$total));
     $smarty->assign('total', $total);
     $smarty->assign('shopping_money', sprintf($_LANG['shopping_money'], $total['formated_goods_price']));
     $smarty->assign('market_price_desc', sprintf($_LANG['than_market_price'], $total['formated_market_price'], $total['formated_saving'], $total['save_rate']));
@@ -1835,7 +1833,7 @@ elseif ($_REQUEST['step'] == 'update_cart')
 elseif ($_REQUEST['step'] == 'drop_goods')
 {
     $rec_id = !strpos($_GET['id'], '-')?array($_GET['id']):explode('-',$_GET['id']);
-    // var_dump($rec_id);
+    // // var_dump(($rec_id));
     foreach ($rec_id as  $value) {
         if (intval($value)<1)continue;
         flow_drop_cart_goods(intval($value));
@@ -2108,7 +2106,7 @@ elseif ($_REQUEST['step'] == 'add_package_to_cart')
     exit;
 }else
 {
-    // var_dump('shopping_car');
+    // // var_dump(('shopping_car'));
     /* 标记购物流程为普通商品 */
     $_SESSION['flow_type'] = CART_GENERAL_GOODS;
 
@@ -2121,7 +2119,7 @@ elseif ($_REQUEST['step'] == 'add_package_to_cart')
 
     /* 取得商品列表，计算合计 */
     $cart_goods = get_cart_goods(); 
-    // var_dump($cart_goods['goods_list']);
+    // // var_dump(($cart_goods['goods_list']));
     $smarty->assign('goods_list', $cart_goods['goods_list']);
     $smarty->assign('total', $cart_goods['total']);
 
@@ -2171,13 +2169,13 @@ elseif ($_REQUEST['step'] == 'add_package_to_cart')
 
     $smarty->assign('fittings_list', $fittings_list); 
 }
-// var_dump(13213123);
+// // var_dump((13213123));
 $smarty->assign('currency_format', $_CFG['currency_format']);
 $smarty->assign('integral_scale',  $_CFG['integral_scale']);
 $smarty->assign('step',            $_REQUEST['step']);
 assign_template();
 assign_dynamic('shopping_flow');
-// var_dump($smarty);
+// // var_dump(($smarty));
 $smarty->display('flow.dwt'); 
 
 /*------------------------------------------------------ */

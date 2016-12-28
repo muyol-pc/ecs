@@ -17,7 +17,7 @@ var process_request = "{$lang.process_request}";
   <div class="hl-center"> 
     <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
     <div class="hl-fr">
-      <!-- {if $user_name} -->
+      <!-- {if $smarty.session.user_id > 0} -->
         <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">{$user_name}</a>
         <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
         <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'>{$car_num}</i></a>

@@ -515,7 +515,7 @@ function get_goods_info($goods_id)
             "WHERE g.goods_id = '$goods_id' AND g.is_delete = 0 " .
             "GROUP BY g.goods_id";
     $row = $GLOBALS['db']->getRow($sql);
-    // var_dump($row);
+    // // var_dump(($row));
     if ($row !== false)
     {
         /* 用户评论级别取整 */
@@ -1054,7 +1054,7 @@ function group_buy_info($group_buy_id, $current_num = 0)
 
     $group_buy['start_time'] = $group_buy['formated_start_date'];
     $group_buy['end_time'] = $group_buy['formated_end_date'];
-
+    // var_dump(($group_buy));
     return $group_buy;
 }
 

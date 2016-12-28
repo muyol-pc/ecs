@@ -16,7 +16,7 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
-// die(var_dump($_REQUEST));
+// die(// var_dump(($_REQUEST)));
 /*------------------------------------------------------ */
 //-- 用户帐号列表
 /*------------------------------------------------------ */
@@ -44,7 +44,7 @@ elseif ($_REQUEST['act'] == 'list')
     // $smarty->assign('action_link',  array('text' => $_LANG['04_users_add'], 'href'=>'users.php?act=add'));
 
     $user_list = user_list();
-    // var_dump($user_list);
+    // // var_dump(($user_list));
     $smarty->assign('user_list',    $user_list['user_list']);
     $smarty->assign('filter',       $user_list['filter']);
     $smarty->assign('record_count', $user_list['record_count']);
@@ -370,7 +370,7 @@ elseif ($_REQUEST['act'] == 'update')
     $user_name = !$state || empty($_POST['user_name']) ? '' : $_POST['user_name'];
     $password = !$state || empty($_POST['password']) ? '' : $_POST['password'];
     $id = intval($_POST['id']);
-    // var_dump($_REQUEST,$state && (!$user_name || !$password) && $id);
+    // // var_dump(($_REQUEST,$state && (!$user_name || !$password) && $id));
     // die();
     if ($state && (!$user_name || !$password) && $id) {
         /* 提示信息 act=edit&id=2*/
@@ -383,7 +383,7 @@ elseif ($_REQUEST['act'] == 'update')
     }
 
     $users  = init_users();
-    // var_dump($users);
+    // // var_dump(($users));
     // die();
     // if (!$users->edit_user(array('username'=>$username, 'password'=>$password, 'email'=>$email, 'gender'=>$sex, 'bday'=>$birthday ), 1))
     // {
@@ -748,7 +748,7 @@ function user_list()
         {
             $ex_where .=" AND pay_points < '$filter[pay_points_lt]' ";
         }
-        // var_dump($filter);
+        // // var_dump(($filter));
         if ($filter['user_checked']) {
             $ex_where .= "AND state = ".($filter['user_checked']<0?$filter['user_checked']:$filter['user_checked']-1);
         }
@@ -760,9 +760,9 @@ function user_list()
                 " FROM " . $GLOBALS['ecs']->table('users') . $ex_where .
                 " ORDER by " . $filter['sort_by'] . ' ' . $filter['sort_order'] .
                 " LIMIT " . $filter['start'] . ',' . $filter['page_size'];
-        // var_dump($sql);
+        // // var_dump(($sql));
         $filter['keywords'] = stripslashes($filter['keywords']);
-        // var_dump($sql);
+        // // var_dump(($sql));
         set_filter($filter, $sql);
     }
     else

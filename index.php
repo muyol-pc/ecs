@@ -128,7 +128,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     /*jdy add 0816 添加首页幻灯插件*/
     $index_ad_top = get_flash_xml(1);
     $index_ad_active = get_flash_xml(2);
-    // var_dump($index_ad_active);
+    // // var_dump(($index_ad_active));
     $smarty->assign("index_ad_top",$index_ad_top);
     $smarty->assign("index_ad_active",$index_ad_active);
     $smarty->assign('flash',count($index_ad_top));
@@ -375,7 +375,7 @@ function get_flash_xml($pos=1)
     $pos = empty($pos) || intval($pos) < 1?1 :intval($pos);
     $flashdb = array();
     $sql = "SELECT ad_link as url ,ad_code as src from ".$GLOBALS['ecs']->table('ad')." where position_id = {$pos} and enabled = 1 and start_time<=".time()." and end_time >=".time();
-    // var_dump($sql);
+    // // var_dump(($sql));
     $flashdb = $GLOBALS['db']->getAll($sql);        
     if (empty($flashdb) && file_exists(ROOT_PATH . DATA_DIR . '/flash_data.xml')) {
         // 兼容v2.7.0及以前版本

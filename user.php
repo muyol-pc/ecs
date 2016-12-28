@@ -93,7 +93,7 @@ if (in_array($action, $ui_arr))
     $smarty->assign('action',     $action);
     $smarty->assign('lang',       $_LANG);
 }
-// var_dump($action);
+// // var_dump(($action));
 //用户中心欢迎页
 if ($action == 'default')
 {
@@ -813,7 +813,7 @@ elseif ($action == 'reset_password')
 /* 修改会员密码 */
 elseif ($action == 'act_edit_password')
 {
-    // var_dump($action);
+    // // var_dump(($action));
     include_once(ROOT_PATH . 'includes/lib_passport.php');
 
     $old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : null;
@@ -828,7 +828,7 @@ elseif ($action == 'act_edit_password')
     }
 
     $user_info = $user->get_profile_by_id($user_id); //论坛记录 
-    // // var_dump($user);
+    // // // var_dump(($user));
     // $user->edit_user(array('username'=> (empty($code) ? $_SESSION['user_name'] : $user_info['user_name']), 'old_password'=>$old_password, 'password'=>$new_password,'md5password'=>$new_password,'mobile_phone'=>$mobile_phone), empty($code) ? 0 : 1);
     // die();
     if (($user_info && (!empty($code) && md5($user_info['user_id'] . $_CFG['hash_code'] . $user_info['reg_time']) == $code)) || ($_SESSION['user_id']>0 && $_SESSION['user_id'] == $user_id && $user->check_user($_SESSION['user_name'], $old_password)))
@@ -895,7 +895,7 @@ elseif ($action == 'order_list')
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start'],$status);
     $merge  = get_user_merge($user_id);
-    // var_dump($merge);
+    // // var_dump(($merge));
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
@@ -977,13 +977,13 @@ elseif ($action == 'order_detail')
     $order['order_status'] = $_LANG['os'][$order['order_status']];
     $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
     $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
-    // var_dump($order);
+    // // var_dump(($order));
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
     $smarty->assign('active', 'order_list');
     $smarty->assign('act', 'act=order_list');
     // $smarty->display('user_transaction.dwt');
-    // var_dump($goods_list);
+    // // var_dump(($goods_list));
     $smarty->display('user_orderdetail.dwt');
 }
 
@@ -2884,7 +2884,7 @@ elseif ($action == 'clear_history')
 
     $orders = get_user_orders($user_id, $pager['size'], $pager['start'],$status);
     $merge  = get_user_merge($user_id);
-    // var_dump($merge);
+    // // var_dump(($merge));
     $smarty->assign('merge',  $merge);
     $smarty->assign('pager',  $pager);
     $smarty->assign('orders', $orders);
@@ -2963,14 +2963,14 @@ elseif ($action == 'clear_history')
     // $order['order_status'] = $_LANG['os'][$order['order_status']];
     // $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
     // $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
-    // // var_dump($order);
+    // // // var_dump(($order));
     $active = $type==2?'pro_pay':'pro_buy';
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
     $smarty->assign('active', $active);
     $smarty->assign('type', $type);
     // $smarty->display('user_transaction.dwt');
-    // var_dump($goods_list);
+    // // var_dump(($goods_list));
     $smarty->display('user_prolist.dwt');
 }
 ?>

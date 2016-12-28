@@ -5,7 +5,7 @@ function addToCart2(goodsId){
   var spec_arr     = new Array();
   var fittings_arr = new Array();
   var number       = $(".hl-stock").find(".hl-counter-num").val();
-  var formBuy      = $(".hl-stock").find('.hl-selected.hl-pro-attr'); 
+  var formBuy      = $(".hl-stock").find('.hl-selected .hl-pro-attr'); 
   var quick        = 0;
 
   // 检查是否有商品规格
@@ -25,7 +25,6 @@ function addToCart2(goodsId){
   goods.goods_id = goodsId;
   goods.number   = number;
   goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
-  // console.log(goods);
   Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse, 'POST', 'JSON');
 }
 
@@ -43,7 +42,7 @@ function getSelectedAttributes2(formBuy)
      // console.log(val);
      // console.log($(val).attr("id"));
      if ($(val).attr("id")!=undefined) {
-       spec_arr.push($(val).attr("id"));
+       spec_arr.push($(val).val());
      }
   });
   // for (i = 0; i < len; i ++ )
@@ -65,7 +64,7 @@ function getSelectedAttributes2(formBuy)
 /* *
  * 添加商品到购物车
  */
-function addToCart(goodsId, parentId)
+function addToCart(goodsId, parentId) 
 {
   var goods        = new Object();
   var spec_arr     = new Array();

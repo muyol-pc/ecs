@@ -41,31 +41,27 @@
   </div> -->
   <div class="hl-center">
     <div class="hl-product-intro hl-mb30 hl-clearfix">
-      <div class="hl-preview hl-fl">
-        <div id="preview" class="hl-spec-preview">
-          <div class="hl-zoom">
-            <img zoom-img="{$tg_goods_info.goods_img}" src="{$pictures.0.img_url}" width="478"/>
-          </div>
+      <div class="hl-preview hl-fl hl-fs-12">
+        <!-- 大图轮转 -->
+        <div class="hl-banner hl-tc" style="height: 350px;">
+          <ul>
+          <!-- {foreach from=$pictures item=pic} -->
+            <li><img src="{$pic.img_url}" alt=""></li>
+          <!-- {/foreach} -->
+          </ul>
         </div>
-        <!-- {if $pictures}-->
-        <div class="hl-spec-scroll">
-          <a class="hl-prev">&lt;</a>
-          <a class="hl-next">&gt;</a>
-          <div class="hl-items">
-            <ul>
-            <!-- {foreach from=$pictures item=picture name=no}-->
 
-             <!-- {if $smarty.foreach.no.iteration < 2}  -->
-              <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-              <!-- {else}-->
-             <li><img hl-bimg="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"></li>
-               <!-- {/if}-->
-            <!--{/foreach}-->
-
-            </ul>
-          </div>
+        <br>
+        <!-- 缩略图滚动 -->
+        <div class="hl-thumb" style="height:100px;">
+          <span class="hl-arrow-l"></span>
+          <span class="hl-arrow-r"></span>
+          <ul class="hl-text-c hl-clearfix">
+            <!-- {foreach from=$pictures item=pic key=key} -->
+            <li style="width: 33.33%;" {if $key==0}class="active"{/if}><img src="{$pic.img_url}" alt=""></li>
+            <!-- {/foreach} -->
+          </ul>
         </div>
-        <!-- {/if}-->
       </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
@@ -81,12 +77,12 @@
             <span class="hl-fr hl-cut-time hl-f18">距结束<b class="hl-day">3</b>天<b class="hl-hours">10</b>时<b class="hl-minutes">25</b>分<b class="hl-second">38</b>秒</span>
           </div> -->
         </div>
-        <form action="flow.php?act=buy" method="post">
+        <form action="group_buy.php?act=buy" method="post">
         <div class="hl-summary">
           <!-- 如果是团购详情页：输出团购价 -->
-          <div class="hl-price hl-team-buy hl-f18">
-          团购价 <strong class="hl-f30 hl-fmr">&yen; {$tg_goods_info.tuan_price}</strong>
-          <input type="hidden" name="{$tg_goods_info.tuan_price}" />
+          <div class="hl-price hl-team-buy hl-f18 hl-shop-price">
+          团购价 <span class="hl-f30 hl-yellow">&yen;</span><strong class="hl-f30 hl-fmr hl-text-l">{$tg_goods_info.tuan_price}</strong>
+          <input type="hidden" name="price" value="{$tg_goods_info.tuan_price}" />
             <span class="hl-old-price hl-f16">原&nbsp;&nbsp;&nbsp;价：<b>&yen;{$tg_goods_info.shop_price}</b></span>
           </div>
           <!-- 如果是产品详情页：输出价格 -->
@@ -195,27 +191,30 @@
               <div class="hl-dd">
               <ul class="hl-tip-infor hl-clearfix">
                 <!-- {foreach from=$attr.values item=value key=key} -->
-                <li class="hl-pro-attr {if $key==0}hl-selected{else}hl-disabled{/if}" price='{$value.price}' id="{$value.id}"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      {$value.label}
-                </a>
+                <li class="{if $key eq 0}hl-selected{else}hl-disabled{/if}">
+                  <input type="hidden" name="{if $key eq 0}spec_{$value.id}{/if}" class="hl-pro-attr" price='{$value.price}' value="{$value.id}" />
+                  <a href="">
+                    &nbsp;&nbsp;
+                    <i></i>
+                    {$value.label}
+                  </a>
                 </li>
                 <!-- {/foreach} -->
               </ul>
               </div>
             </div>
             <!-- {/foreach} -->
+
             <div>
               <div class="hl-dt">数　　量</div>
               <div class="hl-dd hl-buy-count hl-f0">
                 <div class="hl-counter clearfix" style="width:100px;float: left;">
                   <span class="hl-counter-sub hl-fs-20">-</span>
-                  <input class="hl-counter-num" value="1" >
+                  <input name="number" class="hl-counter-num" value="1" >
                   <span class="hl-counter-add hl-fs-20">+</span>
                 </div>
                 <!-- 正在促销：团购详情页输出，秒杀详情页输出 -->
-                <span class="hl-promotion">正在促销</span>
+                <span class="hl-promotion">正在促销</span> 
                 <!-- 正在促销，每人限购2件 -->
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
@@ -234,7 +233,7 @@
             <style>
               .hl-just-team{background-color: #00959f; margin-right: 38px;}
             </style>
-            <input type="hidden" name="group_buy_id" value="{$tg_goods_info.goods_id}" />
+            <input type="hidden" name="group_buy_id" value="{$group_buy_id}" />
             <input class="hl-just-team" type="submit" value="马上参团" />
             <!-- 立即购买：产品详情页输出 -->
             <!-- <a href="javascript:addToCart({$goods.goods_id})" class="hl-buy-now">立即购买</a> -->

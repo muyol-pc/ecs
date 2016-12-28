@@ -181,7 +181,7 @@ public function is_membernone($username){
      */
     function login($username, $password, $remember = null)
     {
-        // var_dump('inte',$username, $password,$remember,'---------------',$this->check_user($username, $password));
+        // // var_dump(('inte',$username, $password,$remember,'---------------',$this->check_user($username, $password)));
         if ($this->check_user($username, $password) > 0)
         {
             if ($this->need_sync)
@@ -295,7 +295,7 @@ public function is_membernone($username){
      */
     function edit_user($cfg)
     {
-        // var_dump($cfg);
+        // // var_dump(($cfg));
         if (empty($cfg['username']))
         {
             return false;
@@ -533,7 +533,7 @@ public function is_membernone($username){
     function check_user($username, $password = null)
     {
         $post_username = $username;
-        // var_dump('check_user',$username, $password);
+        // // var_dump(('check_user',$username, $password));
         /* 如果没有定义密码则只检查用户名 */
         if ($password === null)
         {
@@ -548,7 +548,7 @@ public function is_membernone($username){
             $sql = "SELECT " . $this->field_id .
                    " FROM " . $this->table($this->user_table).
                    " WHERE " . $this->field_name . "='" . $post_username . "' AND " . $this->field_pass . " ='" . $this->compile_password(array('password'=>$password)) . "'";
-            // var_dump($sql);
+            // // var_dump(($sql));
             return  $this->db->getOne($sql);
         }
     }
@@ -678,7 +678,7 @@ public function is_membernone($username){
      */
     function compile_password ($cfg)
     {
-       // var_dump($cfg);
+       // // var_dump(($cfg));
        if (isset($cfg['password']))
        {
             // $cfg['md5password'] = md5($cfg['password']);

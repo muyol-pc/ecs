@@ -1,16 +1,5 @@
 !$(function(){
-
-// /*菜单选择*/
-// $(".hl-nav-list").on('click', '.hl-nav-item', function(event) {
-//   event.preventDefault();
-//   /* Act on the event */
-//   console.log(1111111);
-//   if (!$(this).hasClass('active')) {
-//     $(this).addClass('active').siblings().removeClass('active');
-//   }
-// });
-
-// 结算
+// 价格结算
 var money = function() {
   var ipt = $(".hl-order-detail .hl-has-pro input:checked");
   var m = 0;
@@ -93,17 +82,19 @@ $(".hl-stock").on('click', 'ul li a', function(event) {
   event.preventDefault();
   /* Act on the event */
   var ele = $(this).closest('li');
+  var ele_attr = ele.find('.hl-pro-attr');
   // 当前规则价格
-  var np = parseFloat(ele.attr('price'));
-  // console.log(np);
-  // console.log(ele);
+  var np = parseFloat(ele_attr.attr('price'));
   if (!ele.hasClass('hl-selected') && !isNaN(np)) {
-    var oele = ele.siblings('.hl-selected');
-    // 变化样式
+    var oele = ele.closest('ul').find('.hl-selected');
+    var oele_attr = oele.find('.hl-pro-attr');
+    oele_attr.removeAttr('name');
+    ele_attr.attr('name', 'spec_'+ele_attr.val());
+
     ele.addClass('hl-selected').removeClass('hl-disabled');
     oele.removeClass('hl-selected').addClass('hl-disabled');
-    
-    var op = parseInt(oele.attr('price'));
+
+    var op = parseInt(oele_attr.attr('price'));
     var sp = parseFloat($(".hl-shop-price strong").text());
     $(".hl-shop-price strong").text((sp-op+np).toFixed(2));
   }

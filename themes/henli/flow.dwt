@@ -146,6 +146,32 @@
       <!-- 订单结算 -->
     </div>
     <!-- {/if} 购物车结束-->
+    <!-- {if $step eq "consignee"} -->
+    <!-- 开始收货人信息填写界面 -->
+    {insert_scripts files='region.js,utils.js'}
+    <script type="text/javascript">
+      region.isAdmin = false;
+      {foreach from=$lang.flow_js item=item key=key}
+      var {$key} = "{$item}";
+      {/foreach}
+
+      {literal}
+      onload = function() {
+        if (!document.all)
+        {
+          document.forms['theForm'].reset();
+        }
+      }
+      {/literal}
+    </script>
+    <!-- 如果有收货地址，循环显示用户的收获地址 -->
+    <!-- {foreach from=$consignee_list item=consignee key=sn} -->
+    <form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkConsignee(this)">
+    <!-- #BeginLibraryItem "/Library/consignee.lbi" --><!-- #EndLibraryItem -->
+    </form>
+    <!-- {/foreach} -->
+    <!-- {/if} -->
+    
     <!-- 订单确认 -->
   <!-- {if $step eq "checkout"} 开始订单确认界面 -->
         <form action="flow.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
@@ -203,7 +229,7 @@
               {$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!--{/if}-->
               </td>
             </tr>
-            <!-- {/if} -->
+            <!-- {/if} --> 
           </table>
       </div>
       <div class="blank"></div>

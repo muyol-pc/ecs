@@ -168,9 +168,9 @@ class oauth2_request extends oauth2 {
         }
         curl_close($ch);
 
-       // var_dump($this->responseBody);
+       // // var_dump(($this->responseBody));
        // echo "<hr>";
-       // var_dump($this->responseHeader);
+       // // var_dump(($this->responseHeader));
 
         preg_match('/\d{3}/',$this->responseHeader,$match);
         $this->responseCode = $match[0];

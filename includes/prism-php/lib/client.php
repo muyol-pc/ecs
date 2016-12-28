@@ -341,9 +341,9 @@ class prism_client extends prism_curl{
         $result = parent::action($method, $url, $headers, $data);
         /*$data = json_decode($result, true);
         echo "<br>====================================================<br>";
-        var_dump($result);
+        // var_dump(($result));
         echo "<br>";
-        var_dump($data);
+        // var_dump(($data));
         echo "<br>====================================================<br>";
         return $data?$data:$result;*/
         return $result;

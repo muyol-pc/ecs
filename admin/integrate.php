@@ -117,15 +117,15 @@ if ($_REQUEST['act'] == 'view_install_log')
     {
         if (isset($del_list))
         {
-            var_dump($del_list);
+            // var_dump(($del_list));
         }
         if (isset($rename_list))
         {
-             var_dump($rename_list);
+             // var_dump(($rename_list));
         }
         if (isset($ignore_list))
         {
-             var_dump($ignore_list);
+             // var_dump(($ignore_list));
         }
     }
     else
