@@ -33,7 +33,7 @@
         <div class="hl-key">品牌</div>
         <div class="hl-value">
           <div class="hl-band-logos">
-<?php echo $this->_var['attrs_9']; ?>
+<?php echo print_r($this->_var['attrs_9'],true); ?>
             <!--
               选中效果：hl-curr
               描述：点击刷新页面添加hl-curr
@@ -42,7 +42,8 @@
               <?php $_from = $this->_var['brand_msg']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'brand');if (count($_from)):
     foreach ($_from AS $this->_var['brand']):
 ?>
-              <li style="margin:0 10px;"><a href="<?php echo $this->_var['brand']['url']; ?>" <?php if ($this->_var['brand']['selected']): ?> style="border: 1px solid #ff8a00;"<?php endif; ?>>
+              <li style="margin:0 10px;"><a href="">
+              <input type="hidden" name="brandids" id="brandids" value="<?php echo $this->_var['brand']['brand_id']; ?>"/>
               <?php if ($this->_var['brand']['brand_logo']): ?><img src="data/brandlogo/<?php echo $this->_var['brand']['brand_logo']; ?>" width="107" height="50" alt="<?php echo $this->_var['brand']['brand_name']; ?>" title="<?php echo $this->_var['brand']['brand_name']; ?>">
                   <?php else: ?><?php echo $this->_var['brand']['brand_name']; ?><?php endif; ?>
               </a></li>
@@ -214,7 +215,7 @@
               })
           </script>
           <ul class="hl-v-tab">
-            <li>
+            <li class="hl-open">
                 <a href="javascript:;"><?php echo $this->_var['attrs_ok']['4']['attr_name']; ?></a>
                 <ul class="hl-son-list clearall">
                     <?php $_from = $this->_var['attrs_ok']['4']['attr_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'att_val');if (count($_from)):
@@ -297,7 +298,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><?php echo print_r($this->_var['promotion_goods'],true); ?>
   <div class="hl-center hl-goods-main hl-clearfix">
     <!--
       hl-aside模块可分离出来，详情页可以使用
@@ -309,13 +310,20 @@
     foreach ($_from AS $this->_var['goods']):
 ?>
         <li>
-          <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods']['goods_id']; ?>"><img src="<?php echo $this->_var['goods']['goods_img']; ?>" alt=""></a>
+          <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods']['goods_id']; ?>" style="height:210px;"><img src="<?php echo $this->_var['goods']['thumb']; ?>" alt="" height="210"></a>
           <div class="hl-price">
             <strong class="hl-disp-b hl-ups hl-f24"><?php echo $this->_var['goods']['shop_price']; ?></strong>
-            <a class="hl-name hl-f14 hl-72" href=""><?php echo $this->_var['goods']['goods_name']; ?></a>
+            <a class="hl-name hl-f14 hl-72" href=""><?php echo $this->_var['goods']['name']; ?></a>
           </div>
         </li>
         <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+        <li>
+          <a class="hl-p-img hl-disp-b" href="goods.php?id=" style="height:210px;"><img src="/images/201612/thumb_img/1_thumb_G_1482241662222.png" alt="" height="210"></a>
+          <div class="hl-price">
+            <strong class="hl-disp-b hl-ups hl-f24">￥6988元</strong>
+            <a class="hl-name hl-f14 hl-72" href="">西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）</a>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="hl-main-cont hl-fl">
@@ -326,7 +334,7 @@
       <li>
                 <a class="hl-p-img hl-disp-b hl-tc" href="goods.php?id=<?php echo $this->_var['goods']['goods_id']; ?>"><img src="<?php echo $this->_var['goods']['goods_img']; ?>" alt=""></a>
                 <div class="hl-price hl-mt10">
-                  <strong class="hl-disp-b hl-ups hl-f24"><?php echo $this->_var['goods']['shop_price']; ?></strong>
+                  <strong class="hl-disp-b hl-ups hl-f24">价格暂定</strong>
                   <a class="hl-name hl-f14 hl-72" href=""><?php echo $this->_var['goods']['goods_name']; ?></a>
                 </div>
               </li>

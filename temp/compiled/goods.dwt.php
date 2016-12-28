@@ -1,17 +1,22 @@
-<?php exit;?>a:3:{s:8:"template";a:5:{i:0;s:57:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/goods.dwt";i:1;s:75:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header_top.lbi";i:2;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_header.lbi";i:3;s:67:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/ur_here.lbi";i:4;s:71:"D:/Work/EcshopServer2.7/htdocs/ecs/themes/henli/library/page_footer.lbi";}s:7:"expires";i:1482852803;s:8:"maketime";i:1482849203;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v3.0.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8">
-<meta name="Keywords" content="西门子（SIEMENS） 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 601升以上 浅金色 电脑温控 360度变频 典雅白 宝石蓝 单选属性二" />
-<meta name="Description" content="" />
-<title>西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）_冰洗_西门子家电</title>
+<meta name="Keywords" content="<?php echo $this->_var['keywords']; ?>" />
+<meta name="Description" content="<?php echo $this->_var['description']; ?>" />
+
+<title><?php echo $this->_var['page_title']; ?></title>
+
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="themes/henli/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->_var['ecs_css_path']; ?>" rel="stylesheet" type="text/css" />
 <link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/transport_jquery.js"></script><script type="text/javascript" src="js/utils.js"></script><script type="text/javascript"  src="js/action.js"></script>
+
+<?php echo $this->smarty_insert_scripts(array('files'=>'common.js')); ?>
+<?php echo $this->smarty_insert_scripts(array('files'=>'transport_jquery.js,utils.js')); ?>
+<script type="text/javascript"  src="js/action.js"></script>
 <script type="text/javascript" src="themes/henli/js/mzp-packed-me.js"></script>
 <script type="text/javascript">
 function $id(element) {
@@ -39,83 +44,55 @@ function reg(str){
 </script>
 </head>
 <body>
-<link href="" rel="stylesheet" type="text/css" />
-<link href="themes/henli/app.css" rel="stylesheet" type="text/css" />
-<link href="themes/henli/unslider.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script><script type="text/javascript" src="js/jquery.json.js"></script><script src="themes/henli/js/app.js"></script>
-<script src="themes/henli/js/unslider.min.js"></script>
-<script type="text/javascript">  
-var process_request = "正在处理您的请求...";
-</script>
-<!--[if lt IE 9]>
-  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<div class="hl-status">
-  <div class="hl-center"> 
-    <span class="hl-f14">欢迎关注西门子家电四川平台!</span>
-    <div class="hl-fr">
-              <a class="hl-user hl-a3" href="javascript:viod(0);" target="_blank">crab</a>
-        <a class="hl-user-center" href="user.php" target="_blank">个人中心</a>
-        <a class="hl-cart" href="flow.php" target="_blank">我的购物车<i class="hl-bgc-a3 hl-ff hl-tc hl-fsn hl-substr hl-car-num" title='我的购物车'></i></a>
-      <a class="hl-message" href="leftmessage.php" target="_blank">在线留言</a>
-      <a class="hl-message" href="user.php?act=logout">退出</a>
-          </div>
-  </div>
-</div><script type="text/javascript">
-var process_request = "正在处理您的请求...";
-</script>
-<div class="hl-header hl-header-bottom">
-  <div class="hl-center hl-nav">
-    <a class="hl-logo hl-mr10" href="index.php"></a>
-    <a class="hl-mr20" href="" target="_blank">西门子家电</a>
-    <a class="hl-mr20" href="" target="_blank">展望未来</a>
-    <div class="hl-search hl-f0">
-      <input class="hl-input-search hl-f14" type="text" placeholder="搜索您想知道的信息..." />
-      <button class="hl-search-button"></button>
-    </div>
-  </div>
-</div>
-<div class="hl-w1100">
-<div class="blank"></div>
-<div id="ur_here">
-当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=1">冰洗</a> <code>&gt;</code> 西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色） 
-</div>
-</div>
-<div class="blank"></div>
+<?php echo $this->fetch('library/page_header_top.lbi'); ?>
+<?php echo $this->fetch('library/page_header.lbi'); ?>
+<?php echo $this->fetch('library/ur_here.lbi'); ?>
+
 <div class="hl-container">
-  <!-- <div class="hl-center hl-crumbs hl-f14">
+<!--   <div class="hl-center hl-crumbs hl-f14">
     <strong class="hl-simsun hl-fwn">您当前的位置 : </strong>
     <span class="hl-simsun"><a href="">首页</a></span>
     <span class="hl-simsun">&nbsp;&gt;&nbsp;<a href="">活动专区</a>&nbsp;&gt;&nbsp;<a href="">秒杀</a></span>
     <span class="hl-simsun hl-there">&nbsp;&gt;&nbsp;<a href="">西门子</a></span>
   </div> -->
   <div class="hl-center">
+
     <div class="hl-product-intro hl-mb30 hl-clearfix">
       <div class="hl-preview hl-fl hl-fs-12">
         
         <div class="hl-banner hl-tc" style="height: 350px;">
           <ul>
-                      <li><img src="images/201612/goods_img/1_P_1482079848492.png" alt=""></li>
-                      <li><img src="images/201612/goods_img/1_P_1482080167263.png" alt=""></li>
-                      <li><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></li>
-                    </ul>
+          <?php $_from = $this->_var['pictures']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'pic');if (count($_from)):
+    foreach ($_from AS $this->_var['pic']):
+?>
+            <li><img src="<?php echo $this->_var['pic']['img_url']; ?>" alt=""></li>
+          <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+          </ul>
         </div>
+<<<<<<< HEAD
+        <?php if ($this->_var['pictures']): ?>
+
+        <?php endif; ?>
+=======
+        
         <br>
         
         <div class="hl-thumb" style="height:100px;">
           <span class="hl-arrow-l"></span>
           <span class="hl-arrow-r"></span>
           <ul class="hl-text-c hl-clearfix">
-                        <li style="width: 33.33%;" class="active"><img src="images/201612/goods_img/1_P_1482079848492.png" alt=""></li>
-                        <li style="width: 33.33%;" ><img src="images/201612/goods_img/1_P_1482080167263.png" alt=""></li>
-                        <li style="width: 33.33%;" ><img src="images/201612/goods_img/1_G_1482079848641.jpg" alt=""></li>
-                      </ul>
+            <?php $_from = $this->_var['pictures']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'pic');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['pic']):
+?>
+            <li style="width: 33.33%;" <?php if ($this->_var['key'] == 0): ?>class="active"<?php endif; ?>><img src="<?php echo $this->_var['pic']['img_url']; ?>" alt=""></li>
+            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+          </ul>
         </div>
+>>>>>>> origin/master
       </div>
       <div class="hl-product-main hl-fl">
         <div class="hl-intro hl-mb10">
-          <h1 class="hl-f18 hl-fwn hl-69"> 西门子（SIEMENS） BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED显示 速冷速冻（白色）</h1>
+          <h1 class="hl-f18 hl-fwn hl-69"> <?php echo $this->_var['goods']['goods_style_name']; ?></h1>
           
           <!-- <div class="hl-ad hl-ff hl-f20">
             <span class="hl-fl hl-s">团购特惠</span>
@@ -139,7 +116,7 @@ var process_request = "正在处理您的请求...";
           </div> -->
           
           <div class="hl-price hl-f18 hl-shop-price">
-            价格 <strong class="hl-f30 hl-fmr">6988.00</strong>元
+            价格 <strong class="hl-f30 hl-fmr"><?php echo $this->_var['goods']['shop_price']; ?></strong>元
           </div>
           <div class="hl-stock hl-f12 hl-66 hl-mb10">
             <div>
@@ -147,12 +124,17 @@ var process_request = "正在处理您的请求...";
               <div class="hl-dd hl-clearfix">
                 
                 <div class="hl-store-selector hl-fl">
+
                 </div>
                 <div class="hl-store-prompt hl-fl">
                   <b>免运费</b>&nbsp;&nbsp;<span>21:00前完成下单，预计明天&nbsp;（12月12日）&nbsp;送达</span>
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
             
             <!-- <div class="hl-dd hl-suppor">
               <span class="hl-shop-name">由&nbsp;<span><a href="" target="_blank">苏宁</a></span>&nbsp;销售和发货，并提供售后服务</span>
@@ -173,75 +155,28 @@ var process_request = "正在处理您的请求...";
               </div>
             </div>
             
-                        <div class="">
-              <div class="hl-dt">测试单选属性</div>
+            <?php $_from = $this->_var['specification']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+    foreach ($_from AS $this->_var['attr']):
+?>
+            <div class="">
+              <div class="hl-dt"><?php echo $this->_var['attr']['name']; ?></div>
               <div class="hl-dd">
               <ul class="hl-tip-infor hl-clearfix">
-                                <li class="hl-pro-attr hl-selected" price='999' id="20"><a href="">
+                <?php $_from = $this->_var['attr']['values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'value');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['value']):
+?>
+                <li class="hl-pro-attr <?php if ($this->_var['key'] == 0): ?>hl-selected<?php else: ?>hl-disabled<?php endif; ?>" price='<?php echo $this->_var['value']['price']; ?>' id="<?php echo $this->_var['value']['id']; ?>"><a href="">
                   <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
                       <i></i>
-                      单选属性二                </a>
+                      <?php echo $this->_var['value']['label']; ?>
+                </a>
                 </li>
-                              </ul>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+              </ul>
               </div>
             </div>
-                        <div class="">
-              <div class="hl-dt">产品类型</div>
-              <div class="hl-dd">
-              <ul class="hl-tip-infor hl-clearfix">
-                                <li class="hl-pro-attr hl-selected" price='0' id="13"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      双开门                </a>
-                </li>
-                                <li class="hl-pro-attr hl-disabled" price='0' id="14"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      对开门                </a>
-                </li>
-                                <li class="hl-pro-attr hl-disabled" price='808' id="1"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      三开门                </a>
-                </li>
-                              </ul>
-              </div>
-            </div>
-                        <div class="">
-              <div class="hl-dt">容积量</div>
-              <div class="hl-dd">
-              <ul class="hl-tip-infor hl-clearfix">
-                                <li class="hl-pro-attr hl-selected" price='1001' id="5"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      601升以上                </a>
-                </li>
-                              </ul>
-              </div>
-            </div>
-                        <div class="">
-              <div class="hl-dt">颜色</div>
-              <div class="hl-dd">
-              <ul class="hl-tip-infor hl-clearfix">
-                                <li class="hl-pro-attr hl-selected" price='0' id="9"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      典雅白                </a>
-                </li>
-                                <li class="hl-pro-attr hl-disabled" price='0' id="10"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      浅金色                </a>
-                </li>
-                                <li class="hl-pro-attr hl-disabled" price='0' id="11"><a href="">
-                  <img src="themes/henli/inc/img/hl-icon-img.jpg" alt="">
-                      <i></i>
-                      宝石蓝                </a>
-                </li>
-                              </ul>
-              </div>
-            </div>
-            <!--             <div class="">
+            <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+<!--             <div class="">
               <div class="hl-dt">版　　式</div>
               <div class="hl-dd">
                 <ul class="hl-tip-infor hl-clearfix">
@@ -252,67 +187,8 @@ var process_request = "正在处理您的请求...";
                       598升玻璃面板对开
                     </a>
                   </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li class="hl-disabled">
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <img src="themes/henli/inc/img/hl-icon-img.jpg" alt=""/>
-                      <i></i>
-                      598升玻璃面板对开
-                    </a>
-                  </li>
+                   <?php echo print_r($this->_var['properties'],true); ?>
+                   <?php echo print_r($this->_var['specification'],true); ?>
                 </ul>
               </div>
             </div>
@@ -355,13 +231,14 @@ var process_request = "正在处理您的请求...";
                 <!-- <span class="hl-promotion">正在促销，每人限购<i>2</i>件</span> -->
               </div>
             </div>
+
           </div>
           <div class="hl-main-btns hl-f0 hl-tc">
             
             <!-- <a href="javascript:;" class="hl-just-team">马上参团</a> -->
             
-            <a href="javascript:addToCart(1)" class="hl-buy-now">立即购买</a>
-            <a href="javascript:addToCart2(1)" class="hl-add-cart">加入购物车</a>
+            <a href="javascript:addToCart(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-buy-now">立即购买</a>
+            <a href="javascript:addToCart2(<?php echo $this->_var['goods']['goods_id']; ?>)" class="hl-add-cart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -370,7 +247,41 @@ var process_request = "正在处理您的请求...";
       <div class="hl-aside hl-fl">
         <h2 class="hl-f20 hl-4a">单品推荐</h2>
         <ul class="hl-aside-list">
-                   <!-- <li>
+<<<<<<< HEAD
+         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_59534300_1482692001');if (count($_from)):
+    foreach ($_from AS $this->_var['goods_0_59534300_1482692001']):
+?>
+          <li>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods_0_59534300_1482692001']['id']; ?>"><img src="<?php echo $this->_var['goods_0_59534300_1482692001']['goods_img']; ?>" alt=""></a>
+            <div class="hl-price">
+             价格暂定
+              <strong class="hl-disp-b hl-ups hl-f24">
+               <?php if ($this->_var['goods_0_59534300_1482692001']['promote_price'] != ""): ?>
+=======
+         <?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_21976400_1482704103');if (count($_from)):
+    foreach ($_from AS $this->_var['goods_0_21976400_1482704103']):
+?>
+          <li>
+            <a class="hl-p-img hl-disp-b" href="goods.php?id=<?php echo $this->_var['goods_0_21976400_1482704103']['id']; ?>"><img src="<?php echo $this->_var['goods_0_21976400_1482704103']['goods_img']; ?>" alt=""></a>
+            <div class="hl-price">
+             价格暂定
+              <strong class="hl-disp-b hl-ups hl-f24">
+               <?php if ($this->_var['goods_0_21976400_1482704103']['promote_price'] != ""): ?>
+>>>>>>> origin/master
+      价格暂定
+       <?php else: ?>
+      价格暂定
+      <?php endif; ?>
+      </strong>
+<<<<<<< HEAD
+              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods_0_59534300_1482692001']['url']; ?>"><?php echo $this->_var['goods_0_59534300_1482692001']['short_style_name']; ?></a>
+=======
+              <a class="hl-name hl-f14 hl-72" href="<?php echo $this->_var['goods_0_21976400_1482704103']['url']; ?>"><?php echo $this->_var['goods_0_21976400_1482704103']['short_style_name']; ?></a>
+>>>>>>> origin/master
+            </div>
+          </li>
+<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+          <!-- <li>
             <a class="hl-p-img hl-disp-b" href=""><img src="themes/henli/img/hl-product-8.png" alt=""></a>
             <div class="hl-price">
               <strong class="hl-disp-b hl-ups hl-f24">&yen; 16988.00</strong>
@@ -397,14 +308,19 @@ var process_request = "正在处理您的请求...";
           <div class="hl-tab-con-item hl-curr">
             <div class="hl-tab-con hl-mb15">
               <div class="hl-hd hl-f12">
-                              <h2 class="hl-f12 hl-66 hl-fl">商品属性</h2>
+              <?php $_from = $this->_var['properties']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('key', 'property_group');if (count($_from)):
+    foreach ($_from AS $this->_var['key'] => $this->_var['property_group']):
+?>
+                <h2 class="hl-f12 hl-66 hl-fl"><?php echo htmlspecialchars($this->_var['key']); ?></h2>
                 <a class="hl-fr" href="">更多参数</a>
               </div>
               <ul class="hl-tab-table hl-f12 hl-clearfix">
-                               <li>控温方式：电脑温控</li>
-                                <li>变频：360度变频</li>
-                                <li>国家能效等级：一级</li>
-                
+               <?php $_from = $this->_var['property_group']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'property');if (count($_from)):
+    foreach ($_from AS $this->_var['property']):
+?>
+                <li><?php echo htmlspecialchars($this->_var['property']['name']); ?>：<?php echo $this->_var['property']['value']; ?></li>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+
                 <!-- <li>面板类型：金属</li>
                 <li>制冷方式：冷风</li>
                 <li>控温方式：电脑控温</li>
@@ -414,13 +330,15 @@ var process_request = "正在处理您的请求...";
                 <li>除霜模式：自动</li>
                 <li>总有效容积：610升</li> -->
               </ul>
-                          </div>
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+            </div>
             <style>
             .hl-product-pics td{padding:0;border:0;}
             .hl-product-pics tr{border:0;}
             </style>
             <div class="hl-product-pics" style="overflow:hidden;">
-            <img src="/ecs/includes/kindeditor/attached/image/20161222/20161222224357_77049.jpg" alt="" />            </div>
+            <?php echo $this->_var['goods']['goods_desc']; ?>
+            </div>
           </div>
           <div class="hl-tab-con-item">
             <table id="hl-bzqd-tag" class="hl-pro-para-tbl hl-f12">
@@ -810,25 +728,6 @@ var process_request = "正在处理您的请求...";
       </div>
     </div>
   </div>
-<div class="hl-center hl-server">
-  <ul class="hl-clearfix">
-    <li class="hl-tel">
-      <p>客户热线</p>
-      <p>7x24小时服务400-88-99999</p>
-    </li>
-    <li class="hl-ater">
-      <p>在线咨询</p>
-      <p>服务时间：周一至周日</p>
-    </li>
-    <li class="hl-wechart">
-      <p>官方微信</p>
-      <p>关注西门子家电微信，享受专业的贴心服务</p>
-    </li>
-  </ul>
-</div>
-<div class="hl-footer hl-f14 hl-44 hl-tc">
-  <span class="hl-blue">&copy;&nbsp;&nbsp;博西家用电器集团&nbsp;&nbsp;2016&nbsp;&nbsp;|&nbsp;&nbsp;BSH集团是西门子股份公司的商标许可方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  苏ICP备10003401号
-</div>
+<?php echo $this->fetch('library/page_footer.lbi'); ?>
 </body>
 </html>

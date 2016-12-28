@@ -77,7 +77,7 @@ if ($this->_foreach['ad']['total'] > 0):
           <p class="hl-f30 hl-4a">在线留言</p>
           <p class="hl-f18 hl-93 hl-ups">Online message</p>
         </h2>
-        <a href="leftmessage.php">
+        <a href="message.php">
           <img src="themes/henli/images/hl-pc.png" alt=""/>
         </a>
       </li>

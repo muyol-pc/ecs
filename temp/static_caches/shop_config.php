@@ -1,16 +1,9 @@
 <?php
 $data = array (
-<<<<<<< HEAD
   'shop_name' => 'ECSHOP',
   'shop_title' => 'ECSHOP演示站',
   'shop_desc' => 'ECSHOP演示站',
   'shop_keywords' => 'ECSHOP演示站',
-=======
-  'shop_name' => '西门子家电',
-  'shop_title' => '西门子家电',
-  'shop_desc' => '西门子家电',
-  'shop_keywords' => '西门子家电',
->>>>>>> origin/master
   'shop_country' => '1',
   'shop_province' => '2',
   'shop_city' => '52',
@@ -64,11 +57,7 @@ $data = array (
   'message_board' => '1',
   'certificate_id' => '',
   'token' => '',
-<<<<<<< HEAD
   'certi' => 'http://service.shopex.cn/openapi/api.php',
-=======
-//  'certi' => 'http://service.shopex.cn/openapi/api.php',
->>>>>>> origin/master
   'send_verify_email' => '0',
   'ent_id' => '',
   'ent_ac' => '',
@@ -158,15 +147,9 @@ $data = array (
   'smtp_ssl' => '0',
   'integrate_code' => 'ecshop',
   'integrate_config' => '',
-<<<<<<< HEAD
   'hash_code' => '482cd3cd0ba59ae1f360193e5462ca02',
   'template' => 'ecmoban_zsxn',
   'install_date' => '1482233753',
-=======
-  'hash_code' => '178ac87dbead3b290a0e9dec23d7cd52',
-  'template' => 'henli',
-  'install_date' => '1482074831',
->>>>>>> origin/master
   'ecs_version' => 'v3.0.0',
   'sms_user_name' => '',
   'sms_password' => '',
@@ -177,15 +160,9 @@ $data = array (
   'sms_balance' => '',
   'sms_last_request' => '',
   'affiliate' => 'a:3:{s:6:"config";a:7:{s:6:"expire";d:24;s:11:"expire_unit";s:4:"hour";s:11:"separate_by";i:0;s:15:"level_point_all";s:2:"5%";s:15:"level_money_all";s:2:"1%";s:18:"level_register_all";i:2;s:17:"level_register_up";i:60;}s:4:"item";a:4:{i:0;a:2:{s:11:"level_point";s:3:"60%";s:11:"level_money";s:3:"60%";}i:1;a:2:{s:11:"level_point";s:3:"30%";s:11:"level_money";s:3:"30%";}i:2;a:2:{s:11:"level_point";s:2:"7%";s:11:"level_money";s:2:"7%";}i:3;a:2:{s:11:"level_point";s:2:"3%";s:11:"level_money";s:2:"3%";}}s:2:"on";i:1;}',
-<<<<<<< HEAD
   'captcha' => '12',
   'captcha_width' => '100',
   'captcha_height' => '20',
-=======
-  'captcha' => '44',
-  'captcha_width' => '100',
-  'captcha_height' => '48',
->>>>>>> origin/master
   'sitemap' => 'a:6:{s:19:"homepage_changefreq";s:6:"hourly";s:17:"homepage_priority";s:3:"0.9";s:19:"category_changefreq";s:6:"hourly";s:17:"category_priority";s:3:"0.8";s:18:"content_changefreq";s:6:"weekly";s:16:"content_priority";s:3:"0.7";}',
   'points_rule' => '',
   'flash_theme' => 'dynfocus',
